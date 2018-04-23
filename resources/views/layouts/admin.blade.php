@@ -152,5 +152,6 @@
 <!-- icheck -->
 <script src="admin/js/icheck/icheck.min.js"></script>
 <script src="admin/js/custom.js"></script>
+    <script src="admin/js/dropzone/dropzone.js"></script>
 </body>
 </html>
