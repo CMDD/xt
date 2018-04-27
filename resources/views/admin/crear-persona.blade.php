@@ -1,4 +1,8 @@
 @extends('layouts.admin')
+@section('style')
+<!-- select2 -->
+<link href="admin/css/select/select2.min.css" rel="stylesheet">
+@endsection
 @section('content')
 <div class="right_col" role="main">
   <div class="">
@@ -16,15 +20,6 @@
           <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-          <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Settings 1</a>
-          </li>
-          <li><a href="#">Settings 2</a>
-          </li>
-          </ul>
-          </li>
           <li><a class="close-link"><i class="fa fa-close"></i></a>
           </li>
           </ul>
@@ -32,135 +27,141 @@
         </div>
         <div class="x_content">
           <br />
-          <form class="form-horizontal form-label-left">
+          <form class="form-horizontal form-label-left" enctype="multipart/form-data" action="{{url('crear-persona')}}" method="post">
+            {!!csrf_field()!!}
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombres</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" name="nombres" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" class="form-control " placeholder="">
+          <input type="text" name="apellidos" class="form-control " placeholder="">
           </div>
           </div>
+
+
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <select class="form-control">
-          <option>Benefactor</option>
-          <option>Empleado</option>
-          <option>Servidores</option>
-          <option>Cliente</option>
-          <option>Proveedor</option>
+          <select name="tipo_persona[]" class="select2_multiple form-control" multiple="multiple">
+            <option value="Benefactor" >Benefactor</option>
+            <option value="Empleado" >Empleado</option>
+            <option value="Servidores" >Servidores</option>
+            <option value="Cliente" >Cliente</option>
+            <option value="Proveedor" >Proveedor</option>
           </select>
           </div>
           </div>
+
+
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-          <select class="form-control">
-          <option>CC</option>
-          <option>TI</option>
+          <select name="tipo_documento" class="form-control">
+          <option value="CC" >CC</option>
+          <option value="TI">TI</option>
           </select>
           </div>
           <div class="col-md-6 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="Número">
+          <input name="numero_documento" type="text" class="form-control" placeholder="Número">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de nacimiento</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="D-M-A">
+          <input name="fecha_nacimiento" type="text" class="form-control" placeholder="DD-MM-AA">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="correo" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico (Alternativo)</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="correo_alternativo" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="direccion" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Especificación de Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="direccion_especificacion" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Ciudad</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="ciudad" type="text" class="form-control" placeholder="">
           </div>
           <label class="control-label col-md-2 col-sm-3 col-xs-12">Paìs</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="pais" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="telefono" type="text" class="form-control" placeholder="">
           </div>
           <label class="control-label col-md-2 col-sm-3 col-xs-12">Alternativo</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-          <input type="text" class="form-control" placeholder="">
+          <input name="telefono_alternativo" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Ocupación</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" class="form-control " placeholder="">
+          <input name="ocupacion" type="text" class="form-control " placeholder="">
           </div>
           </div>
+
           <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
           </label>
           <div class="col-md-3 col-sm-9 col-xs-12">
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> Retiros/Eventos
+          <input name="preferencias[]"  type="checkbox" value="Retiros/Eventos"> Retiros/Eventos
           </label>
           </div>
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> Radio
+          <input name="preferencias[]"  type="checkbox" value="Radio"> Radio
           </label>
           </div>
           </div>
           <div class="col-md-4 col-sm-9 col-xs-12">
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> Tienda/Libreria
+          <input name="preferencias[]" type="checkbox" value="Tienda/Libreria"> Tienda/Libreria
           </label>
           </div>
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> Novedades/Ofertas
+          <input name="preferencias[]"  type="checkbox" value="Novedades/Ofertas"> Novedades/Ofertas
           </label>
           </div>
           </div>
           <div class="col-md-2 col-sm-9 col-xs-12">
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> Apps
+          <input name="preferencias[]"  type="checkbox" value="Apps"> Apps
           </label>
           </div>
           <div class="checkbox">
           <label>
-          <input type="checkbox" value=""> General
+          <input name="preferencias[]"  type="checkbox" value="General"> General
           </label>
           </div>
           </div>
@@ -245,4 +246,25 @@
   @include('layouts.footer')
   <!-- /footer content -->
 </div>
+@section('scripts')
+<!-- select2 -->
+<script src="admin/js/select/select2.full.js"></script>
+<!-- select2 -->
+<script>
+  $(document).ready(function () {
+  $(".select2_single").select2({
+      placeholder: "Select a state",
+      allowClear: true
+      });
+      $(".select2_group").select2({});
+      $(".select2_multiple").select2({
+      placeholder: "Puede seleccionar varios tipos!",
+      allowClear: true
+    });
+  });
+</script>
+<!-- /select2 -->
+
+@endsection
+
 @endsection

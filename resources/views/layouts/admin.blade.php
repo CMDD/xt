@@ -16,6 +16,8 @@
 <link href="admin/css/custom.css" rel="stylesheet">
 <link href="admin/css/icheck/flat/green.css" rel="stylesheet">
 <script src="admin/js/jquery.min.js"></script>
+@yield('style')
+
 </head>
 <body class="nav-md">
   <div class="container body">
@@ -50,15 +52,15 @@
             <ul class="nav child_menu" style="display: none">
                 <li><a href="{{url('crear-persona')}}">Crear</a>
                 </li>
-                <li><a href="form_advanced.html">Benefactor</a>
+                <li><a href="{{url('listar')}}">Benefactor</a>
                 </li>
-                <li><a href="form_validation.html">Empleados</a>
+                <li><a href="{{url('listar')}}">Empleados</a>
                 </li>
-                <li><a href="form_validation.html">Servidores</a>
+                <li><a href="{{url('listar')}}">Servidores</a>
                 </li>
-                <li><a href="form_validation.html">Clientes</a>
+                <li><a href="{{url('listar')}}">Clientes</a>
                 </li>
-                <li><a href="form_validation.html">Proveedores</a>
+                <li><a href="{{url('listar')}}">Proveedores</a>
                 </li>
             </ul>
             </li>
@@ -137,12 +139,7 @@
     <!-- /page content -->
   </div>
 </div>
-<div id="custom_notifications" class="custom-notifications dsp_none">
-<ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-</ul>
-<div class="clearfix"></div>
-<div id="notif-group" class="tabbed_notifications"></div>
-</div>
+
 <script src="admin/js/bootstrap.min.js"></script>
 <!-- chart js -->
 <script src="admin/js/chartjs/chart.min.js"></script>
@@ -152,6 +149,7 @@
 <!-- icheck -->
 <script src="admin/js/icheck/icheck.min.js"></script>
 <script src="admin/js/custom.js"></script>
-    <script src="admin/js/dropzone/dropzone.js"></script>
+@yield('scripts')
+
 </body>
 </html>
