@@ -15,8 +15,8 @@ class PersonaController extends Controller
 {
 
     public function crear(RegisterPersonaRequest $request){
-
       $persona = new Persona();
+      $persona->estado = "activo";
       $persona->nombres = $request->nombres;
       $persona->apellidos = $request->apellidos;
       $persona->tipo_documento = $request->tipo_documento;
@@ -51,16 +51,18 @@ class PersonaController extends Controller
     }
 
     public function listar($nombre){
+      $nombre = $nombre;
       $personas=array();
       if ($nombre=='General') {
-         $personas=Persona::all();
-      return view('admin.persona.listar')->with('personas',$personas);
+        $nombre = "General";
+          $personas=Persona::orderBy('id', 'DESC')->get();
+      return view('admin.persona.listar')->with('personas',$personas)->with('nombre',$nombre);
       }
       $tipos = TipoPersona::where('nombre',$nombre)->get();
         foreach ($tipos as $tipo) {
         $personas[] = Persona::find($tipo->persona_id);
       }
-      return view('admin.persona.listar')->with('personas',$personas)->with('tipos',$tipos);
+      return view('admin.persona.listar')->with('personas',$personas)->with('nombre',$nombre);
     }
 
 }

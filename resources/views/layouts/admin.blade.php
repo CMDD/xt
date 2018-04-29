@@ -12,6 +12,7 @@
 {{ Html::style('admin/css/bootstrap.min.css') }}
 {{ Html::style('admin/fonts/css/font-awesome.min.css') }}
 {{ Html::style('admin/css/animate.min.css') }}
+{{ Html::style('css/mystyle.css') }}
 <!-- Custom styling plus plugins -->
 {{ Html::style('admin/css/custom.css') }}
 {{ Html::style('admin/css/icheck/flat/green.css') }}

@@ -11,7 +11,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>PERSONA |<small>CRM</small></h2>
+<h2>{{$nombre}} |<small>CRM</small></h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -25,12 +25,11 @@
 <thead>
 <tr class="headings">
 <th>
-<input type="checkbox" class="tableflat">
+ACTIVO
 </th>
 
-<th>ACTIVO</th>
-<th>NOMBRES </th>
-<th>APELLIDOS</th>
+<th>NOMBRES</th>
+<th> APELLIDOS</th>
 <th>IDENTIFICACIÓN</th>
 <th>CORREO</th>
 <th>TÉLEFONO/CELULAR</th>
@@ -41,11 +40,10 @@
 <tbody>
   @forelse($personas as $p)
 <tr class="even pointer">
-<td class="a-center ">
-<input type="checkbox" class="tableflat">
+<td class="  ">
+<p type="" class="{{$p->estado}}">
 </td>
-<td class=" ">{{$p->nombres}} </td>
-<td class=" ">Prueba</td>
+<td class=" ">{{$p->nombres}}</td>
 <td class=" ">juan@hotmail.com</td>
 <td class=" ">3112000444</td>
 <td class="a-right a-right ">3112038475</td>
