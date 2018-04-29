@@ -55,8 +55,6 @@
           </select>
           </div>
           </div>
-
-
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
@@ -193,20 +191,18 @@
       <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
-      <input type="text" class="form-control" placeholder="">
+      <input name="numero_planilla" type="text" class="form-control" placeholder="">
       </div>
       </div>
       <div style="margin-top:8%;" class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Registro</label>
       <div class="col-md-9 col-sm-9 col-xs-12">
-      <input type="text" class="form-control" placeholder="">
+      <input name="numero_registro" type="text" class="form-control" placeholder="">
       </div>
       </div>
       </div>
       </div>
       </div>
-
-
       <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="x_panel">
       <div class="x_title">
@@ -219,7 +215,7 @@
       </ul>
       <div class="clearfix"></div>
       </div>
-      <input type="file" name="" value="">
+      <input type="file" name="voz" value="">
       </div>
       </div>
 
@@ -235,7 +231,7 @@
           </ul>
           <div class="clearfix"></div>
           </div>
-          <input type="file" name="" value="">
+          <input type="file" name="imagen" >
         </div>
       </div>
       </form>

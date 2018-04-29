@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('style')
-<link href="admin/css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
+{{ Html::style('admin/css/datatables/tools/css/dataTables.tableTools.css')}}
 @endsection
 @section('content')
 <!-- page content -->
@@ -27,30 +27,33 @@
 <th>
 <input type="checkbox" class="tableflat">
 </th>
-<th>ID </th>
+
+<th>ACTIVO</th>
 <th>NOMBRES </th>
-<th>APELLIDOS </th>
-<th>CORREO </th>
-<th>TÉLEFONO</th>
-<th>CELULAR </th>
+<th>APELLIDOS</th>
+<th>IDENTIFICACIÓN</th>
+<th>CORREO</th>
+<th>TÉLEFONO/CELULAR</th>
 <th class=" no-link last"><span class="nobr">ACCIÓN</span>
 </th>
 </tr>
 </thead>
 <tbody>
+  @forelse($personas as $p)
 <tr class="even pointer">
 <td class="a-center ">
 <input type="checkbox" class="tableflat">
 </td>
-<td class=" ">121000040</td>
-<td class=" ">Juan andres </td>
-<td class=" ">Torres</td>
+<td class=" ">{{$p->nombres}} </td>
+<td class=" ">Prueba</td>
 <td class=" ">juan@hotmail.com</td>
 <td class=" ">3112000444</td>
+<td class="a-right a-right ">3112038475</td>
 <td class="a-right a-right ">3112038475</td>
 <td class=" last"><a href="#">Ver</a>
 </td>
 </tr>
+@endforeach
 </tbody>
 </table>
 </div>
@@ -68,8 +71,9 @@
 <!-- /page content -->
 @section('scripts')
 <!-- Datatables -->
-<script src="admin/js/datatables/js/jquery.dataTables.js"></script>
-<script src="admin/js/datatables/tools/js/dataTables.tableTools.js"></script>
+{{ Html::script('admin/js/datatables/js/jquery.dataTables.js') }}
+{{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
+
 <script>
 $(document).ready(function () {
 $('input.tableflat').iCheck({

@@ -9,15 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CRM Minuto de Dios | </title>
 <!-- Bootstrap core CSS -->
-<link href="admin/css/bootstrap.min.css" rel="stylesheet">
-<link href="admin/fonts/css/font-awesome.min.css" rel="stylesheet">
-<link href="admin/css/animate.min.css" rel="stylesheet">
+{{ Html::style('admin/css/bootstrap.min.css') }}
+{{ Html::style('admin/fonts/css/font-awesome.min.css') }}
+{{ Html::style('admin/css/animate.min.css') }}
 <!-- Custom styling plus plugins -->
-<link href="admin/css/custom.css" rel="stylesheet">
-<link href="admin/css/icheck/flat/green.css" rel="stylesheet">
-<script src="admin/js/jquery.min.js"></script>
+{{ Html::style('admin/css/custom.css') }}
+{{ Html::style('admin/css/icheck/flat/green.css') }}
+{{ Html::script('admin/js/jquery.min.js') }}
 @yield('style')
-
 </head>
 <body class="nav-md">
   <div class="container body">
@@ -31,7 +30,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
           <div class="profile_pic">
-          <img src="admin/images/jhon.jpg" alt="..." class="img-circle profile_img">
+          <img src="/admin/images/jhon.jpg" alt="..." class="img-circle profile_img">
           </div>
           <div class="profile_info">
           <span>Bienvenido,</span>
@@ -52,15 +51,17 @@
             <ul class="nav child_menu" style="display: none">
                 <li><a href="{{url('crear-persona')}}">Crear</a>
                 </li>
-                <li><a href="{{url('listar')}}">Benefactor</a>
+                <li><a href="{{url('listar','General')}}">General</a>
                 </li>
-                <li><a href="{{url('listar')}}">Empleados</a>
+                <li><a href="{{url('listar','Benefactor')}}">Benefactor</a>
                 </li>
-                <li><a href="{{url('listar')}}">Servidores</a>
+                <li><a href="{{url('listar','Empleado')}}">Empleados</a>
                 </li>
-                <li><a href="{{url('listar')}}">Clientes</a>
+                <li><a href="{{url('listar','Servidores')}}">Servidores</a>
                 </li>
-                <li><a href="{{url('listar')}}">Proveedores</a>
+                <li><a href="{{url('listar','Cliente')}}">Clientes</a>
+                </li>
+                <li><a href="{{url('listar','Proveedor')}}">Proveedores</a>
                 </li>
             </ul>
             </li>
@@ -74,7 +75,6 @@
           <!-- /sidebar menu -->
           <!-- /menu footer buttons -->
           <div class="sidebar-footer hidden-small">
-
           </div>
         <!-- /menu footer buttons -->
       </div>
@@ -89,7 +89,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="">
             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="images/img.jpg" alt="">Javier Cera
+            <img src="/admin/images/jhon.jpg" alt="">Javier Cera
             <span class=" fa fa-angle-down"></span>
             </a>
             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -108,7 +108,7 @@
               <li>
                 <a>
                   <span class="image">
-                  <img src="images/img.jpg" alt="Profile Image" />
+                  <img src="/admin/images/jhon.jpg" alt="Profile Image" />
                   </span>
                   <span>
                   <span>Usuario</span>
@@ -139,16 +139,16 @@
     <!-- /page content -->
   </div>
 </div>
-
-<script src="admin/js/bootstrap.min.js"></script>
+{{ Html::script('admin/js/bootstrap.min.js') }}
 <!-- chart js -->
-<script src="admin/js/chartjs/chart.min.js"></script>
+
 <!-- bootstrap progress js -->
-<script src="admin/js/progressbar/bootstrap-progressbar.min.js"></script>
-<script src="admin/js/nicescroll/jquery.nicescroll.min.js"></script>
+{{ Html::script('admin/js/progressbar/bootstrap-progressbar.min.js') }}
+{{ Html::script('admin/js/nicescroll/jquery.nicescroll.min.js') }}
 <!-- icheck -->
-<script src="admin/js/icheck/icheck.min.js"></script>
-<script src="admin/js/custom.js"></script>
+{{ Html::script('admin/js/icheck/icheck.min.js') }}
+{{ Html::script('admin/js/custom.js') }}
+
 @yield('scripts')
 
 </body>

@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
-    //
+    public function tipoPersonas(){
+      return $this->hasMany(TipoPersona::class);
+    }
 }

@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Personas
-Route::get('crear-persona',function(){return view('admin.crear-persona');});
+Route::get('crear-persona',function(){return view('admin.persona.crear-persona');});
 Route::post('crear-persona','PersonaController@crear');
-Route::get('listar','PersonaController@listar');
+Route::get('listar/{nombre}','PersonaController@listar');
