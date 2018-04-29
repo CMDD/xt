@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('crear-persona',function(){return view('admin.persona.crear');});
 Route::post('crear-persona','PersonaController@crear');
 Route::get('listar/{nombre}','PersonaController@listar');
+Route::get('detalle/{id}','PersonaController@detalle');

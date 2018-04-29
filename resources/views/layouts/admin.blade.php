@@ -17,6 +17,7 @@
 {{ Html::style('admin/css/custom.css') }}
 {{ Html::style('admin/css/icheck/flat/green.css') }}
 {{ Html::script('admin/js/jquery.min.js') }}
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 @yield('style')
 </head>
 <body class="nav-md">
@@ -137,6 +138,7 @@
     <!-- /top navigation -->
     <!-- page content -->
     @yield('content')
+    @include('sweetalert::alert')
     <!-- /page content -->
   </div>
 </div>
@@ -149,6 +151,8 @@
 <!-- icheck -->
 {{ Html::script('admin/js/icheck/icheck.min.js') }}
 {{ Html::script('admin/js/custom.js') }}
+
+
 
 @yield('scripts')
 

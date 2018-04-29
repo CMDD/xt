@@ -1,15 +1,14 @@
 @extends('layouts.admin')
 @section('style')
 <!-- select2 -->
-<link href="admin/css/select/select2.min.css" rel="stylesheet">
-
+{{ Html::style('admin/css/select/select2.min.css')}}
 @endsection
 @section('content')
 <div class="right_col" role="main">
   <div class="">
     <div class="page-title">
       <div class="title_left">
-      <h3>Nuevo Registro</h3>
+      <h3>DETALLES</h3>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -33,13 +32,13 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombres</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="nombres" class="form-control" placeholder="">
+          <input type="text" value="{{$persona->nombres}}" name="nombres" class="form-control">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="apellidos" class="form-control " placeholder="">
+          <input type="text" value="{{$persona->apellidos}}" name="apellidos" class="form-control " placeholder="">
           </div>
           </div>
 
@@ -47,13 +46,9 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <select name="tipo_persona[]" class="select2_multiple form-control" multiple="multiple">
-            <option value="Benefactor" >Benefactor</option>
-            <option value="Empleado" >Empleado</option>
-            <option value="Servidores" >Servidores</option>
-            <option value="Cliente" >Cliente</option>
-            <option value="Proveedor" >Proveedor</option>
-          </select>
+            @foreach($tipo_personas as $tipo)
+          <button type="button" class="btn btn-default tooltip-button" data-toggle="tooltip" data-placement="left" title="tipo">{{$tipo->nombre}}</button>
+          @endforeach
           </div>
           </div>
           <div class="form-group">
@@ -246,7 +241,7 @@
 
 @section('scripts')
 <!-- select2 -->
-<script src="admin/js/select/select2.full.js"></script>
+{{Html::script('admin/js/select/select2.full.js')}}
 <!-- select2 -->
 <script>
   $(document).ready(function () {

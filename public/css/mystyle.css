@@ -1,6 +1,13 @@
 .main{
 
 }
+.texto-alerta-footer{
+  font-size: 12px;
+}
+.tooltip-button{
+  background-color: rgba(38, 185, 154, 0.59);
+  color: white;
+}
 
 .activo-default {
     display: inline-block;

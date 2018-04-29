@@ -33,7 +33,7 @@ ACTIVO
 <th>IDENTIFICACIÓN</th>
 <th>CORREO</th>
 <th>TÉLEFONO/CELULAR</th>
-<th class=" no-link last"><span class="nobr">ACCIÓN</span>
+<th class=" no-link last"><span class="nobr">DETALLES</span>
 </th>
 </tr>
 </thead>
@@ -48,7 +48,7 @@ ACTIVO
 <td class=" ">3112000444</td>
 <td class="a-right a-right ">3112038475</td>
 <td class="a-right a-right ">3112038475</td>
-<td class=" last"><a href="#">Ver</a>
+<td class=" last"><a href="{{url('detalle',$p->id)}}">Ver</a>
 </td>
 </tr>
 @endforeach
