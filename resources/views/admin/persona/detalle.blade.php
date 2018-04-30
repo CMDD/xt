@@ -16,7 +16,16 @@
       <div class="col-md-6 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>CRM - MD | Datos básicos <small></small></h2>
+          <h2>
+            CRM - MD |
+        </h2>
+
+        <a href="{{url('editar',$persona->id)}}">
+        <button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
+        data-toggle="tooltip" data-placement="left" >Editar
+        </button>
+        </a>
+
           <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -64,7 +73,7 @@
           </div>
           <div class="col-md-6 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >1047360014
+            data-toggle="tooltip" data-placement="left" >{{$persona->numero_documento}}
             </button>
           </div>
           </div>
@@ -72,7 +81,7 @@
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de nacimiento</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >1047360014
+            data-toggle="tooltip" data-placement="left" >{{$persona->fecha_nacimiento}}
             </button>
           </div>
           </div>
@@ -80,7 +89,7 @@
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >jhon54plex@hotmail.com
+            data-toggle="tooltip" data-placement="left" >{{$persona->correo}}
             </button>
           </div>
           </div>
@@ -88,7 +97,7 @@
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico (Alternativo)</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >jhon54plex@hotmail.com
+            data-toggle="tooltip" data-placement="left" >{{$persona->correo_alternativo}}
             </button>
           </div>
           </div>
@@ -96,7 +105,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >Carrera 4#14-12
+            data-toggle="tooltip" data-placement="left" >{{$persona->direccion}}
             </button>
           </div>
           </div>
@@ -104,7 +113,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Especificación de Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >Apartamento 301
+            data-toggle="tooltip" data-placement="left" >{{$persona->direccion_especificacion}}
             </button>
           </div>
           </div>
@@ -112,13 +121,13 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Ciudad</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >Cartagena
+            data-toggle="tooltip" data-placement="left" >{{$persona->ciudad}}
           </button>
           </div>
           <label class="control-label col-md-1 col-sm-3 col-xs-12">Paìs</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >Colombia
+            data-toggle="tooltip" data-placement="left" >{{$persona->colombia}}
           </button>
           </div>
           </div>
@@ -126,13 +135,13 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >3112000444
+            data-toggle="tooltip" data-placement="left" >{{$persona->telefono}}
           </button>
           </div>
           <label class="control-label col-md-2 col-sm-3 col-xs-12">Alternativo</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >6617115
+            data-toggle="tooltip" data-placement="left" >{{$persona->telefono_alternativo}}
           </button>
           </div>
           </div>
@@ -140,7 +149,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Ocupación</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >Development
+            data-toggle="tooltip" data-placement="left" >{{$persona->ocupacion}}
           </button>
           </div>
           </div>
@@ -216,6 +225,9 @@
       <a href="/media/{{$persona->voz}}" download="audio"   class="btn btn-app">
           <i class="fa fa-download"></i> Descargar
       </a>
+      @if($persona->voz)
+      <img class="img-onda" src="/img/onda.jpg" alt="">
+      @endif
       </div>
       </div>
       </div>

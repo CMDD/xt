@@ -32,7 +32,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
           <div class="profile_pic">
-          <img src="/admin/images/jhon.jpg" alt="..." class="img-circle profile_img">
+          <img src="/img/user.png" alt="..." class="img-circle profile_img">
           </div>
           <div class="profile_info">
           <span>Bienvenido,</span>
@@ -91,7 +91,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="">
             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="/admin/images/jhon.jpg" alt="">Javier Cera
+            <img src="/img/user.png" alt="">Javier Cera
             <span class=" fa fa-angle-down"></span>
             </a>
             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -110,7 +110,7 @@
               <li>
                 <a>
                   <span class="image">
-                  <img src="/admin/images/jhon.jpg" alt="Profile Image" />
+                  <img src="/img/user.png" alt="Imagen de Perfil" />
                   </span>
                   <span>
                   <span>Usuario</span>

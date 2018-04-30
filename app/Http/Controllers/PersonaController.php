@@ -27,6 +27,8 @@ class PersonaController extends Controller
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
       $persona->direccion_especificacion = $request->direccion_especificacion;
+      $persona->numero_planilla = $request->numero_planilla;
+      $persona->numero_registro = $request->numero_registro;
       $persona->ciudad = $request->ciudad;
       $persona->pais = $request->pais;
       $persona->telefono = $request->telefono;
@@ -70,6 +72,8 @@ class PersonaController extends Controller
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
       $persona->direccion_especificacion = $request->direccion_especificacion;
+      $persona->numero_planilla = $request->numero_planilla;
+      $persona->numero_registro = $request->numero_registro;
       $persona->ciudad = $request->ciudad;
       $persona->pais = $request->pais;
       $persona->telefono = $request->telefono;

@@ -2,11 +2,17 @@
 @section('style')
 <!-- select2 -->
 <link href="admin/css/select/select2.min.css" rel="stylesheet">
-
 @endsection
 @section('content')
 <div class="right_col" role="main">
   <div class="">
+    @if($errors->any())
+    @foreach($errors->all() as $error)
+    <br>
+    <br>
+    <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
+    @endforeach
+    @endif
     <div class="page-title">
       <div class="title_left">
       <h3>Nuevo Registro</h3>
@@ -33,34 +39,41 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombres</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="nombres" class="form-control" placeholder="">
+          <input type="text" name="nombres" class="form-control" required>
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="apellidos" class="form-control " placeholder="">
+          <input type="text" name="apellidos" class="form-control " >
           </div>
           </div>
 
 
           <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona *</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <select name="tipo_persona[]" class="select2_multiple form-control" multiple="multiple">
+          <select name="tipo_persona[]" required class="select2_multiple form-control" multiple="multiple">
             <option value="Benefactor" >Benefactor</option>
             <option value="Empleado" >Empleado</option>
             <option value="Servidores" >Servidores</option>
             <option value="Cliente" >Cliente</option>
             <option value="Proveedor" >Proveedor</option>
           </select>
+            @if($errors->has('tipo_persona'))
+            @foreach($errors->get('tipo_persona') as $error)
+                <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
+            @endforeach
+            @endif
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
           <select name="tipo_documento" class="form-control">
+          <option value="" >Seleccione...</option>
           <option value="CC" >CC</option>
+          <option value="CE" >CE</option>
           <option value="TI">TI</option>
           </select>
           </div>
@@ -77,13 +90,13 @@
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="correo" type="text" class="form-control" placeholder="">
+          <input name="correo" required type="email" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico (Alternativo)</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="correo_alternativo" type="text" class="form-control" placeholder="">
+          <input name="correo_alternativo" type="email" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
@@ -164,7 +177,9 @@
           </label>
           </div>
           </div>
+
           </div>
+
           <div class="ln_solid"></div>
           <div class="form-group">
           <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -257,6 +272,7 @@
       $(".select2_group").select2({});
       $(".select2_multiple").select2({
       placeholder: "Puede seleccionar varios tipos!",
+      requerid:true,
       allowClear: true
     });
   });

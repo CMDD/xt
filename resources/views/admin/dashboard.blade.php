@@ -7,7 +7,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Total Usuarios</span>
-<div class="count">2500</div>
+<div class="count">{{number_format($count_personas)}}</div>
 <span class="count_bottom"><i class="green">4% </i> Esta semana</span>
 </div>
 </div>
@@ -15,7 +15,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Benefactor</span>
-<div class="count">123.50</div>
+<div class="count">{{number_format($count_benefactor)}}</div>
 <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> Esta semana</span>
 </div>
 </div>
@@ -23,7 +23,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Empleados</span>
-<div class="count green">2,500</div>
+<div class="count green">{{number_format($count_empleados)}}</div>
 <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Esta semana</span>
 </div>
 </div>
@@ -31,7 +31,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Servidores</span>
-<div class="count">4,567</div>
+<div class="count">{{number_format($count_servidores)}}</div>
 <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> Esta semana</span>
 </div>
 </div>
@@ -39,7 +39,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Clientes</span>
-<div class="count">2,315</div>
+<div class="count">{{number_format($count_clientes)}}</div>
 <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Esta semana</span>
 </div>
 </div>
@@ -47,7 +47,7 @@
 <div class="left"></div>
 <div class="right">
 <span class="count_top"><i class="fa fa-user"></i> Proveedores</span>
-<div class="count">7,325</div>
+<div class="count">{{number_format($count_proveedores)}}</div>
 <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Esta semana</span>
 </div>
 </div>

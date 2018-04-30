@@ -232,6 +232,7 @@
       <div class="clearfix"></div>
       </div>
       <div class="x_content">
+
       <audio  id="pista" autostart="false"  src="/media/{{$persona->voz}}" > Su navegador no soporta la etiqueta audio.</audio>
       <a onclick="document.getElementById('pista').play()" class="btn btn-app">
           <i class="fa fa-play"></i> Play
@@ -242,8 +243,11 @@
       <a href="/media/{{$persona->voz}}" download="audio"   class="btn btn-app">
           <i class="fa fa-download"></i> Descargar
       </a>
+      @if($persona->voz)
+      <img class="img-onda" src="/img/onda.jpg" alt="">
+      @endif
       </div>
-      <input type="file" name="voz" value="">
+      <input class="file-voz" type="file" name="voz" value="">
       </div>
       </div>
 

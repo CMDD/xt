@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
+// Dashboard
+Route::get('/','DashController@index');
 
 Auth::routes();
 

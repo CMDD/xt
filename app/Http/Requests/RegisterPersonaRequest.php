@@ -24,7 +24,18 @@ class RegisterPersonaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tipo_persona'=>'required',
+            'preferencias'=>'required',
+            'correo'=>'unique:personas'
         ];
+    }
+
+    public function messages(){
+
+      return[
+        'tipo_persona.required'=>'Por favor, selecciona el tipo de persona.',
+        'preferencias.required' =>'Por favor, seleccione alguna preferencia.',
+        'correo.unique' =>'El correo ya se encuentra registrado'
+      ];
     }
 }

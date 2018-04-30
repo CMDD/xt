@@ -44,10 +44,10 @@ ACTIVO
 <p type="" class="{{$p->estado}}">
 </td>
 <td class=" ">{{$p->nombres}}</td>
-<td class=" ">juan@hotmail.com</td>
-<td class=" ">3112000444</td>
-<td class="a-right a-right ">3112038475</td>
-<td class="a-right a-right ">3112038475</td>
+<td class=" ">{{$p->apellidos}}</td>
+<td class=" ">{{$p->numero_documento}}</td>
+<td class="a-right a-right ">{{$p->correo}}</td>
+<td class="a-right a-right ">{{$p->telefono}}</td>
 <td class=" last">
 <a href="{{url('detalle',$p->id)}}">
   <button type="button" class="btn btn-default button-ver"

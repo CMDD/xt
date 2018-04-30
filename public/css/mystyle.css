@@ -34,6 +34,14 @@ width: 50%;
   color: white;
   width: 45%;
 }
+.img-onda{
+  height: 50px;
+  width: 100%;
+ margin-left: 2%;
+}
+.file-voz{
+  margin-left: 3%;
+}
 
 .Desactivo{
     display: inline-block;
