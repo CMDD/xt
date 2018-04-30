@@ -1,6 +1,16 @@
 .main{
 
 }
+.caja-imagen{
+width: 80%;
+}
+.caja-boton{
+width: 50%;
+}
+.imagen-persona{
+  width: 60%;
+
+}
 .texto-alerta-footer{
   font-size: 12px;
 }
@@ -8,8 +18,24 @@
   background-color: rgba(38, 185, 154, 0.59);
   color: white;
 }
+.tooltip-button-datos{
+  background-color: #e6e6e6;
+  color: black;
+  width: 80%;
+  text-align: left;
+}
+.button-ver{
+  background-color: #00b4b7;
+  color: white;
+  width: 45%;
+}
+.button-editar{
+  background-color: rgb(100%, 29%, 44%);
+  color: white;
+  width: 45%;
+}
 
-.activo-default {
+.Desactivo{
     display: inline-block;
     *display: inline;
     vertical-align: middle;
@@ -23,7 +49,7 @@
     border-radius: 4px;
 }
 
-.activo{
+.Activo{
     display: inline-block;
     *display: inline;
     vertical-align: middle;

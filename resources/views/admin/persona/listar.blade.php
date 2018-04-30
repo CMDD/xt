@@ -11,7 +11,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>{{$nombre}} |<small>CRM</small></h2>
+<h2>{{$nombre}} |<small>IXTUS</small></h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -48,7 +48,17 @@ ACTIVO
 <td class=" ">3112000444</td>
 <td class="a-right a-right ">3112038475</td>
 <td class="a-right a-right ">3112038475</td>
-<td class=" last"><a href="{{url('detalle',$p->id)}}">Ver</a>
+<td class=" last">
+<a href="{{url('detalle',$p->id)}}">
+  <button type="button" class="btn btn-default button-ver"
+  data-toggle="tooltip" data-placement="left" >ver
+  </button>
+</a>
+<a href="{{url('editar',$p->id)}}">
+  <button type="button" class="btn btn-default button-editar"
+  data-toggle="tooltip" data-placement="left" >Editar
+  </button>
+</a>
 </td>
 </tr>
 @endforeach
