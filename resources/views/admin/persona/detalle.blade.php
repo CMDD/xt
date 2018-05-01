@@ -127,7 +127,7 @@
           <label class="control-label col-md-1 col-sm-3 col-xs-12">Paìs</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >{{$persona->colombia}}
+            data-toggle="tooltip" data-placement="left" >{{$persona->pais}}
           </button>
           </div>
           </div>
