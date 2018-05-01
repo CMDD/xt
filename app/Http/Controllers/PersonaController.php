@@ -60,7 +60,7 @@ class PersonaController extends Controller
       return back();
 
     }
-    public function actualizar(RegisterPersonaRequest $request,$id){
+    public function actualizar(Request $request,$id){
       $persona = Persona::find($id);
       $persona->estado = $request->estado;
       $persona->nombres = $request->nombres;
