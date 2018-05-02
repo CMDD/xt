@@ -27,3 +27,7 @@ Route::get('editar/{id}','PersonaController@editar');
 Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
 Route::get('eliminar_interes/{id}','PersonaController@eliminarInteres');
 Route::post('actualizar_persona/{id}','PersonaController@actualizar');
+
+// Seguimiento
+Route::get('seguimiento/{id}','SeguimientoController@index');
+Route::post('crar_nota/{id}','SeguimientoController@crearNota');

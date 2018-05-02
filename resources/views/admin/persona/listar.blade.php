@@ -59,6 +59,11 @@ ACTIVO
   data-toggle="tooltip" data-placement="left" >Editar
   </button>
 </a>
+<a href="{{url('seguimiento',$p->id)}}">
+  <button type="button" class="btn btn-default button-seguimiento"
+  data-toggle="tooltip" data-placement="left" >Historial
+  </button>
+</a>
 </td>
 </tr>
 @endforeach

@@ -27,12 +27,17 @@ width: 50%;
 .button-ver{
   background-color: #00b4b7;
   color: white;
-  width: 45%;
+  width: 25%;
 }
 .button-editar{
   background-color: rgb(100%, 29%, 44%);
   color: white;
-  width: 45%;
+  width: 30%;
+}
+.button-seguimiento{
+  background-color: green;
+  color: white;
+  width: 35%;
 }
 .img-onda{
   height: 50px;
