@@ -2,7 +2,6 @@
 @section('style')
 <!-- select2 -->
 {{Html::style('admin/css/select/select2.min.css')}}
-
 @endsection
 @section('content')
 <div class="right_col" role="main">
@@ -17,7 +16,12 @@
       <div class="col-md-6 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>IXTUS - MD | Datos básicos <small></small></h2>
+          <h2>IXTUS - MD | </h2>
+          <a href="{{url('historial',$persona->id)}}">
+          <button style="margin-left:5%;" type="button" class="btn btn-default button-historial"
+          data-toggle="tooltip" data-placement="left" >HISTORIAL
+          </button>
+          </a>
           <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -299,12 +303,11 @@
       </form>
     </div>
   </div>
-  <!-- /page content -->
-  <!-- footer content -->
-  @include('layouts.footer')
-  <!-- /footer content -->
+<!-- /page content -->
+<!-- footer content -->
+@include('layouts.footer')
+<!-- /footer content -->
 </div>
-
 @section('scripts')
 <!-- select2 -->
 {{Html::script('admin/js/select/select2.full.js')}}
@@ -323,7 +326,5 @@
   });
 </script>
 <!-- /select2 -->
-
 @endsection
-
 @endsection

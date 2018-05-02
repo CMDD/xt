@@ -103,8 +103,6 @@ class PersonaController extends Controller
                   $data->save();
         }
       }
-
-
       alert()->success('Actualizado!', 'Correctamente')
       ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
       return back();
@@ -148,7 +146,6 @@ class PersonaController extends Controller
       $tipo=TipoPersona::find($id);
       $tipo->delete();
       alert()->success('Tipo eliminado', 'Correctamente');
-
       return back();
     }
     public function eliminarInteres($id){

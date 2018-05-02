@@ -253,12 +253,11 @@
       </form>
     </div>
   </div>
-  <!-- /page content -->
-  <!-- footer content -->
-  @include('layouts.footer')
-  <!-- /footer content -->
+<!-- /page content -->
+<!-- footer content -->
+@include('layouts.footer')
+<!-- /footer content -->
 </div>
-
 @section('scripts')
 <!-- select2 -->
 <script src="admin/js/select/select2.full.js"></script>
@@ -278,7 +277,5 @@
   });
 </script>
 <!-- /select2 -->
-
 @endsection
-
 @endsection

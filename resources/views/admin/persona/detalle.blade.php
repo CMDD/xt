@@ -22,7 +22,12 @@
 
         <a href="{{url('editar',$persona->id)}}">
         <button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
-        data-toggle="tooltip" data-placement="left" >Editar
+        data-toggle="tooltip" data-placement="left" >EDITAR
+        </button>
+        </a>
+        <a href="{{url('historial',$persona->id)}}">
+        <button style="margin-left:1%;" type="button" class="btn btn-default button-historial"
+        data-toggle="tooltip" data-placement="left" >HISTORIAL
         </button>
         </a>
 
@@ -188,7 +193,7 @@
       <div class="col-md-9 col-sm-9 col-xs-12">
         <button type="button" class="btn btn-default tooltip-button-datos"
         data-toggle="tooltip" data-placement="left" >00122
-      </button>
+        </button>
       </div>
       </div>
       <div style="margin-top:8%;" class="form-group">
@@ -196,7 +201,7 @@
       <div class="col-md-9 col-sm-9 col-xs-12">
       <button type="button" class="btn btn-default tooltip-button-datos"
       data-toggle="tooltip" data-placement="left" >04100
-    </button>
+      </button>
       </div>
       </div>
       </div>
@@ -222,7 +227,7 @@
       <a onclick="document.getElementById('pista').pause()"  class="btn btn-app">
           <i class="fa fa-pause"></i> Pause
       </a>
-      <a href="/media/{{$persona->voz}}" download="audio"   class="btn btn-app">
+      <a href="/media/{{$persona->voz}}" download="{{$persona->correo}}.ogg"   class="btn btn-app">
           <i class="fa fa-download"></i> Descargar
       </a>
       @if($persona->voz)
@@ -257,12 +262,11 @@
       </form>
     </div>
   </div>
-  <!-- /page content -->
-  <!-- footer content -->
-  @include('layouts.footer')
-  <!-- /footer content -->
+<!-- /page content -->
+<!-- footer content -->
+@include('layouts.footer')
+<!-- /footer content -->
 </div>
-
 @section('scripts')
 <!-- select2 -->
 {{Html::script('admin/js/select/select2.full.js')}}
@@ -281,7 +285,5 @@
   });
 </script>
 <!-- /select2 -->
-
 @endsection
-
 @endsection

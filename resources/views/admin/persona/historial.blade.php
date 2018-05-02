@@ -1,12 +1,10 @@
 @extends('layouts.admin')
-@section('style')
-@endsection
 @section('content')
 <div class="right_col" role="main">
 <div class="">
 <div class="page-title">
 <div class="title_left">
-<h3>SEGUIMIENTO</h3>
+<h3>HISTORIAL</h3>
 </div>
 </div>
 <div class="clearfix"></div>
@@ -15,6 +13,11 @@
 <div class="x_panel">
 <div class="x_title">
 <h2>DETALLES <small></small></h2>
+<a href="{{url('detalle',$persona->id)}}">
+<button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
+data-toggle="tooltip" data-placement="left" >DETALLE
+</button>
+</a>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -30,7 +33,7 @@
 <div class="col-xs-12 invoice-header">
 <h1>
 <i class="fa fa-user"></i> {{$persona->nombres}}
-<small style="font-size:14px" class="pull-right">Creado: {{$persona->created_at}} <br> Por: Jhon </small>
+<p class="historial-apellidos">{{$persona->apellidos}}</p>
 </h1>
 </div>
 </div>
@@ -48,8 +51,12 @@
 <div class="col-sm-4 invoice-col">
 </div>
 <div class="col-sm-4 invoice-col">
-<b>Número de Persona <br>
-   #{{$persona->id}}</b>
+<b>Creado por:</b><br>
+   Javier Cera <br>
+<b>Registro Número:</b> <br>
+   #{{$persona->id}}<br>
+<b>Fecha de Creacion</b> <br>
+   {{$persona->created_at}}
 <br>
 </div>
 </div>
@@ -69,14 +76,14 @@
  class="form-control" name="mensaje" rows="4">
  </textarea>
 <br/>
-<input type="submit" class="btn btn-primary" name="" value="Crear">
+<input type="submit" class="btn btn-primary" name="" value="CREAR">
 </form>
 </div>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>HISTORIAL <small>IXTUS</small></h2>
+<h2>HISTORIAL DE NOTAS</h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -119,6 +126,4 @@
 @include('layouts.footer')
 <!-- /footer content -->
 </div>
-@section('scripts')
-@endsection
 @endsection

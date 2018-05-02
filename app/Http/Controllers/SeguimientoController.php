@@ -11,7 +11,7 @@ class SeguimientoController extends Controller
     public function index($id){
       $persona = Persona::find($id);
       $notas = Nota::where('persona_id',$id)->orderBy('id', 'DESC')->get();
-      return view('admin.persona.seguimiento')->with('persona',$persona)
+      return view('admin.persona.historial')->with('persona',$persona)
                                               ->with('notas',$notas);
     }
     public function crearNota(Request $request,$id){

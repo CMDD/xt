@@ -27,7 +27,6 @@
 <th>
 ACTIVO
 </th>
-
 <th>NOMBRES</th>
 <th> APELLIDOS</th>
 <th>IDENTIFICACIÓN</th>
@@ -51,17 +50,17 @@ ACTIVO
 <td class=" last">
 <a href="{{url('detalle',$p->id)}}">
   <button type="button" class="btn btn-default button-ver"
-  data-toggle="tooltip" data-placement="left" >ver
+  data-toggle="tooltip" data-placement="left" >VER
   </button>
 </a>
 <a href="{{url('editar',$p->id)}}">
   <button type="button" class="btn btn-default button-editar"
-  data-toggle="tooltip" data-placement="left" >Editar
+  data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
-<a href="{{url('seguimiento',$p->id)}}">
-  <button type="button" class="btn btn-default button-seguimiento"
-  data-toggle="tooltip" data-placement="left" >Historial
+<a href="{{url('historial',$p->id)}}">
+  <button type="button" class="btn btn-default button-historial"
+  data-toggle="tooltip" data-placement="left" >HISTORIAL
   </button>
 </a>
 </td>
@@ -86,7 +85,6 @@ ACTIVO
 <!-- Datatables -->
 {{ Html::script('admin/js/datatables/js/jquery.dataTables.js') }}
 {{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
-
 <script>
 $(document).ready(function () {
 $('input.tableflat').iCheck({
@@ -122,8 +120,6 @@ var oTable = $('#example').dataTable({
 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 }
 },
-
-
 "aoColumnDefs": [
 {
 'bSortable': false,
