@@ -12,7 +12,10 @@
 */
 
 // Dashboard
-Route::get('/','DashController@index');
+Route::get('ixtus','DashController@index');
+Route::get('/',function(){
+  return view('login');
+});
 
 Auth::routes();
 
