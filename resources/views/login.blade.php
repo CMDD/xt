@@ -48,10 +48,10 @@
                     <form>
                         <h1>IXTUS | MD</h1>
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
+                            <input type="text" class="form-control" placeholder="Usuario" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
+                            <input type="password" class="form-control" placeholder="Contraseña" required="" />
                         </div>
                         <div>
                             <a class="btn btn-default submit" href="#">Iniciar sesión</a>
