@@ -1,3 +1,4 @@
+
 .main{
 
 }
@@ -11,6 +12,37 @@ width: 50%;
   width: 60%;
 
 }
+.btn-suscripcion{
+  margin-left: 1%;
+}
+
+/* Seccion suscripcion */
+#panel-suscripcion{
+  display: none;
+}
+.input-cantidad{
+ border: 0;
+ border-bottom: 1px solid #ccc;
+ width: 50%;
+ text-align: center;
+ margin-top: 10%;
+}
+.select-oracional{
+  margin-top: 10%;
+}
+.input-fecha{
+ border: 0;
+ border-bottom: 1px solid #ccc;
+}
+.nombre-recibe{
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+.direccion-suscripcion{
+  margin-top: 4%;
+}
+
+/* fin suscripcion */
 .texto-alerta-footer{
   font-size: 12px;
 }
@@ -28,6 +60,13 @@ width: 50%;
   background-color: #00b4b7;
   color: white;
   width: 20%;
+  font-size: 12px;
+}
+
+.button-sus{
+  background-color: #00b4b7;
+  color: white;
+  width: 80%;
   font-size: 12px;
 }
 .button-editar{

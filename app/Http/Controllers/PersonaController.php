@@ -7,15 +7,18 @@ use App\Http\Requests\RegisterPersonaRequest;
 use App\Persona;
 use App\Interes;
 use App\TipoPersona;
+use App\Suscripcion;
 use Storage;
 use File;
 use Redirect;
+use Illuminate\Support\Facades\Input;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PersonaController extends Controller
 {
 
     public function crear(RegisterPersonaRequest $request){
+
       $persona = new Persona();
       $persona->estado = "Activo";
       $persona->nombres = $request->nombres;
@@ -54,6 +57,37 @@ class PersonaController extends Controller
                 $data->nombre = $value;
                 $data->save();
       }
+
+      //Suscripciones
+      if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
+        $sus = new Suscripcion();
+        $sus->cantidad = $request->cantidad;
+        $sus->oracional = $request->oracional;
+        $sus->plan = $request->plan;
+        $sus->fecha_inicio = $request->fecha_suscripcion;
+        $sus->observacion = $request->observacion;
+        $sus->persona_id = $result_persona->id;
+
+        if ($request->direccion_radio == 'misma') {
+            $sus->nombre_recibe = $request->nombres;
+            $sus->direccion = $request->direccion;
+            $sus->direccion_especificacion = $request->direccion_especificacion;
+            $sus->ciudad = $request->ciudad;
+            $sus->pais = $request->pais;
+
+        }else{
+          $sus->nombre_recibe = $request->nombre_recibe;
+          $sus->direccion = $request->direccion_suscripcion;
+          $sus->direccion_especificacion = $request->especificacion_direccion_suscripcion;
+          $sus->ciudad = $request->ciudad_suscripcion;
+          $sus->pais = $request->pais_suscripcion;
+        }
+
+        $sus->save();
+
+      }
+      //Fin suscripcion
+
       alert()->success('Persona Creada!', 'Correctamente')
       ->showConfirmButton('Crear nueva','rgba(38, 185, 154, 0.59)')
       ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
@@ -117,7 +151,7 @@ class PersonaController extends Controller
           $personas=Persona::orderBy('id', 'DESC')->get();
       return view('admin.persona.listar')->with('personas',$personas)->with('nombre',$nombre);
       }
-      $tipos = TipoPersona::where('nombre',$nombre)->get();
+        $tipos = TipoPersona::where('nombre',$nombre)->get();
         foreach ($tipos as $tipo) {
         $personas[] = Persona::find($tipo->persona_id);
       }
@@ -137,9 +171,11 @@ class PersonaController extends Controller
       $persona = Persona::find($id);
       $tipo_personas = TipoPersona::where('persona_id',$id)->get();
       $interes = Interes::where('persona_id',$id)->get();
+      $suscripciones = Suscripcion::where('persona_id',$id)->get();
       return view('admin.persona.editar')->with('persona',$persona)
                                           ->with('tipo_personas',$tipo_personas)
-                                          ->with('interes',$interes);
+                                          ->with('interes',$interes)
+                                          ->with('suscripciones',$suscripciones);
     }
 
     public function eliminarTipo($id){

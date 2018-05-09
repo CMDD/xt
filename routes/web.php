@@ -34,3 +34,7 @@ Route::post('actualizar_persona/{id}','PersonaController@actualizar');
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');
+//Suscripciones
+Route::get('suscripciones','SuscripcionController@lista');
+Route::post('suscripcion/{id}','SuscripcionController@crear');
+Route::get('suscripcion/{id}','SuscripcionController@ver');

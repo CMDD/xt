@@ -67,6 +67,13 @@
                 </li>
             </ul>
             </li>
+          <li><a><i class="fa fa-book"></i> El Man esta Vivo <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu" style="display: none">
+                <li><a href="{{url('suscripciones')}}">Lista</a>
+                </li>
+           </li>
+            </ul>
+            </li>
           </div>
           <div class="menu_section">
           <h3>App Móvil</h3>
@@ -151,6 +158,7 @@
 <!-- icheck -->
 {{ Html::script('admin/js/icheck/icheck.min.js') }}
 {{ Html::script('admin/js/custom.js') }}
+{{ Html::script('js/myjs.js') }}
 
 
 

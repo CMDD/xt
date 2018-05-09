@@ -302,6 +302,124 @@
       </div>
       </form>
     </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+        <h2>El Man está Vivo - Suscripciónes </h2>
+        <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+        </ul>
+        <div class="clearfix"></div>
+        </div>
+
+        <hr>
+        @foreach($suscripciones as $sus)
+        <button type="button" class="btn btn-default tooltip-button"
+         data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
+         <a href=""></a>
+       </button>
+        @endforeach
+
+      </div>
+    </div>
+    <button onclick="mostrarSuscripcion()" class="btn btn-primary btn-suscripcion" type="button" name="button">CREAR SUSCRIPCION</button>
+    <!-- Crear suscripcion -->
+    <div id="panel-suscripcion" class="col-md-6 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+        <h2>El Man está Vivo - Suscripción </h2>
+        <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+        </ul>
+        <div class="clearfix"></div>
+        </div>
+        <form class="" action="{{url('suscripcion',$persona->id)}}" method="post" >
+
+          {!! csrf_field() !!}
+        <div class="row">
+          <div class="col-md-2">
+            <label class="">Cantidad</label>
+            <input class="input-cantidad" type="number" name="cantidad" min="1" value="">
+          </div>
+          <div class="col-md-3">
+            <label class="">Oracional</label>
+            <select name="oracional"  class="form-contro select-oracional">
+              <option value="" >Seleccione</option>
+              <option value="Jóvenes" >Jóvenes</option>
+              <option value="Adultos" >Adultos</option>
+              <option value="Niños" >Niños</option>
+              <option value="Puerta a la palabra" >Puerta a la palabra</option>
+
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="">Tipo</label> <br>
+            <select name="plan"  class="form-contro select-oracional">
+             <option value="" >Seleccione</option>
+             <option value="6 meses" >6 meses</option>
+             <option value="1 año" >1 año</option>
+
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="">Fecha suscripcion</label> <br>
+            <input class="input-fecha" type="date" name="fecha_suscripcion" value="">
+          </div>
+
+        </div>
+        <hr>
+        <div class="row">
+        <label>Direccion de envío</label><br>
+            <p>
+                <input type="radio"  name="direccion_radio"  value="misma"/>
+                Misma dirección inicial:
+
+                <input type="radio" name="direccion_radio"  value="otra" />
+                Otra dirección:
+            </p>
+          <div class="col-md-12">
+            Nombre de quien recibe <br>
+            <input class="nombre-recibe" type="text" name="nombre_recibe" value="" >
+          </div>
+
+          <div class=" direccion-suscripcion col-md-6">
+            Dirección <br>
+            <input class="nombre-recibe" type="text" name="direccion_suscripcion" value="" >
+          </div>
+
+          <div class="direccion-suscripcion col-md-6">
+              Especificaciones de dirección <br>
+            <input class="nombre-recibe" type="text" name="especificacion_direccion_suscripcion" value="">
+          </div>
+          <div class="direccion-suscripcion col-md-6">
+            Ciudad <br>
+            <input class="nombre-recibe" type="text" name="ciudad_suscripcion" value="">
+          </div>
+          <div class="direccion-suscripcion col-md-6">
+            País <br>
+            <input class="nombre-recibe" type="text" name="pais_suscripcion" value="">
+          </div>
+
+          <div class="direccion-suscripcion col-md-12">
+            Observaciones <br>
+            <textarea name="observacion_suscripcion"  class="form-control"  data-parsley-trigger="keyup" data-parsley-minlength="20"
+             data-parsley-maxlength="100" ></textarea>
+          </div>
+
+     </div>
+     <br>
+     <button style="width: 50% " type="submit" class="btn btn-success">AGREGAR NUEVA SUSCRIPCIÓN</button>
+     </form>
+      </div>
+    </div>
+    <!-- Fin crear suscripcions -->
   </div>
 <!-- /page content -->
 <!-- footer content -->
