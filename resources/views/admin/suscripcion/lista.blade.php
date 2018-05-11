@@ -27,26 +27,26 @@
 <th>
 ACTIVO
 </th>
-<th>NOMBRES</th>
-<th> APELLIDOS</th>
-<th>IDENTIFICACIÓN</th>
-<th>CORREO</th>
-<th>TÉLEFONO/CELULAR</th>
+<th>PLAN</th>
+<th> ORACIONAL</th>
+<th>FECHA INICIO</th>
+<th>FECHA CORTE</th>
+<th>PERSONA</th>
 <th class=" no-link last"><span class="nobr">DETALLES</span>
 </th>
 </tr>
 </thead>
 <tbody>
-  @forelse($personas as $p)
+  @forelse($sus as $p)
 <tr class="even pointer">
 <td class="  ">
 <p type="" class="{{$p->estado}}">
 </td>
-<td class=" ">{{$p->nombres}}</td>
-<td class=" ">{{$p->apellidos}}</td>
-<td class=" ">{{$p->numero_documento}}</td>
-<td class="a-right a-right ">{{$p->correo}}</td>
-<td class="a-right a-right ">{{$p->telefono}}</td>
+<td class=" ">{{$p->plan}} Meses</td>
+<td class=" ">{{$p->oracional}}</td>
+<td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
+<td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
+<td class="a-right a-right ">{{$p->persona->nombres}} {{$p->persona->apellidos}}</td>
 <td class=" last">
 <a href="{{url('suscripcion',$p->id)}}">
   <button type="button" class="btn btn-default button-sus"

@@ -5,24 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Suscripcion;
 use App\Persona;
+use Carbon\Carbon;
 
 class SuscripcionController extends Controller
 {
 
+  public function __construct(){
+
+    Carbon::setLocale('es');
+  }
+
   Public function lista(){
     $nombre ='Suscriptores';
-    $personas=array();
     $sus = Suscripcion::all();
-
-    foreach ($sus as $su) {
-     $personas[] = Persona::find($su->persona_id);
-    }
-
-     return view('admin.suscripcion.lista')->with('personas',$personas)
+    return view('admin.suscripcion.lista')->with('sus',$sus)
                                            ->with('nombre',$nombre);
   }
 
   public function crear(Request $request,$id){
+     $fecha_final =  Carbon::parse($request->fecha_suscripcion);
 
      $persona = Persona::find($id);
       $sus = new Suscripcion();
@@ -30,8 +31,10 @@ class SuscripcionController extends Controller
       $sus->oracional = $request->oracional;
       $sus->plan = $request->plan;
       $sus->fecha_inicio = $request->fecha_suscripcion;
+      $sus->fecha_final = $fecha_final->addMonths((int)$request->plan);
       $sus->observacion = $request->observacion;
       $sus->persona_id = $persona->id;
+      $sus->estado = 'Activo';
 
       if ($request->direccion_radio == 'misma') {
           $sus->nombre_recibe = $persona->nombres;
@@ -55,14 +58,11 @@ class SuscripcionController extends Controller
     }
 
     public function ver($id){
-        $sus = Suscripcion::where('persona_id',$id)->get();
-        foreach ($sus as $su) {
-           $fecha[] = $su->fecha_inicio;
-           // $fecha_actual = strtotime ("$fecha - 1 day");
-        }
+        $sus = Suscripcion::find($id);
+        $carbon = Carbon::now();
+        $quedan = $sus->fecha_final->diffForHumans();
 
-        dd($fecha);
-        return view('admin.suscripcion.suscripciones')->with('sus',$sus);
+        return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan);
 
     }
 

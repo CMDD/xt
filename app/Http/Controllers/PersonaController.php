@@ -11,11 +11,16 @@ use App\Suscripcion;
 use Storage;
 use File;
 use Redirect;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PersonaController extends Controller
 {
+  public function __construct(){
+
+    Carbon::setLocale('es');
+  }
 
     public function crear(RegisterPersonaRequest $request){
 
@@ -60,13 +65,16 @@ class PersonaController extends Controller
 
       //Suscripciones
       if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
+        $fecha_final =  Carbon::parse($request->fecha_suscripcion);
         $sus = new Suscripcion();
         $sus->cantidad = $request->cantidad;
         $sus->oracional = $request->oracional;
         $sus->plan = $request->plan;
         $sus->fecha_inicio = $request->fecha_suscripcion;
+        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
         $sus->observacion = $request->observacion;
         $sus->persona_id = $result_persona->id;
+        $sus->estado = 'Activo';
 
         if ($request->direccion_radio == 'misma') {
             $sus->nombre_recibe = $request->nombres;

@@ -69,7 +69,7 @@
             </li>
           <li><a><i class="fa fa-book"></i> El Man esta Vivo <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                <li><a href="{{url('suscripciones')}}">Lista</a>
+                <li><a href="{{url('suscripciones')}}">Suscripciones</a>
                 </li>
            </li>
             </ul>

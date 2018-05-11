@@ -363,8 +363,8 @@
             <label class="">Tipo</label> <br>
             <select name="plan"  class="form-contro select-oracional">
              <option value="" >Seleccione</option>
-             <option value="6 meses" >6 meses</option>
-             <option value="1 año" >1 año</option>
+             <option value="6" >6 meses</option>
+             <option value="12" >1 año</option>
 
             </select>
           </div>

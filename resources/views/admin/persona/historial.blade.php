@@ -107,7 +107,7 @@ data-toggle="tooltip" data-placement="left" >DETALLE
 <a>{{$nota->asunto}}</a>
 </h2>
 <div class="byline">
-<span>Hace 13 min</span> Por <a>Javier Cerra</a>
+<span>{{$nota->created_at->diffForHumans()}}</span> Por <a>Javier Cerra</a>
 </div>
 <p class="excerpt">{{$nota->mensaje}}
 </p>

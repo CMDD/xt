@@ -17,6 +17,7 @@ class CreateSuscripcionsTable extends Migration
             $table->increments('id');
             $table->integer('cantidad')->nullable();
             $table->string('oracional')->nullable();
+            $table->string('estado')->nullable();
             $table->string('dir')->nullable();
             $table->string('plan')->nullable();
             $table->string('fecha_inicio')->nullable();
