@@ -46,11 +46,11 @@ ACTIVO
 <td class=" ">{{$p->oracional}}</td>
 <td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
 <td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
-<td class="a-right a-right ">{{$p->persona->nombres}} {{$p->persona->apellidos}}</td>
+<td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
 <td class=" last">
 <a href="{{url('suscripcion',$p->id)}}">
   <button type="button" class="btn btn-default button-sus"
-  data-toggle="tooltip" data-placement="left" >VER SUSCRIPCIONES
+  data-toggle="tooltip" data-placement="left" >VER SUSCRIPCIÓN
   </button>
 </a>
 </td>

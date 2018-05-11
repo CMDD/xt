@@ -318,10 +318,9 @@
 
         <hr>
         @foreach($suscripciones as $sus)
-        <button type="button" class="btn btn-default tooltip-button"
+        <a href="{{url('suscripcion',$sus->id)}}"><button type="button" class="btn btn-default tooltip-button"
          data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
-         <a href=""></a>
-       </button>
+       </button></a>
         @endforeach
 
       </div>

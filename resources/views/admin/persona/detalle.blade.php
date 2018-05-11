@@ -259,6 +259,28 @@
          </div>
         </div>
       </div>
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+          <h2>El Man está Vivo - Suscripciónes </h2>
+          <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li><a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+          </ul>
+          <div class="clearfix"></div>
+          </div>
+
+          <hr>
+          @foreach($suscripciones as $sus)
+          <a href="{{url('suscripcion',$sus->id)}}"><button type="button" class="btn btn-default tooltip-button"
+           data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
+         </button></a>
+          @endforeach
+
+        </div>
+      </div>
       </form>
     </div>
   </div>

@@ -170,9 +170,11 @@ class PersonaController extends Controller
       $persona = Persona::find($id);
       $tipo_personas = TipoPersona::where('persona_id',$id)->get();
       $interes = Interes::where('persona_id',$id)->get();
+      $suscripciones = Suscripcion::where('persona_id',$id)->get();
       return view('admin.persona.detalle')->with('persona',$persona)
                                           ->with('tipo_personas',$tipo_personas)
-                                          ->with('interes',$interes);
+                                          ->with('interes',$interes)
+                                          ->with('suscripciones',$suscripciones);
     }
 
     public function editar($id){

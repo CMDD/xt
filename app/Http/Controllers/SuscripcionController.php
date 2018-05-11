@@ -32,7 +32,7 @@ class SuscripcionController extends Controller
       $sus->plan = $request->plan;
       $sus->fecha_inicio = $request->fecha_suscripcion;
       $sus->fecha_final = $fecha_final->addMonths((int)$request->plan);
-      $sus->observacion = $request->observacion;
+      $sus->observacion = $request->observacion_suscripcion;
       $sus->persona_id = $persona->id;
       $sus->estado = 'Activo';
 
@@ -52,6 +52,8 @@ class SuscripcionController extends Controller
       }
 
       $sus->save();
+      alert()->success('Suscripcion!', 'Creada')
+      ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
 
       return back();
 
