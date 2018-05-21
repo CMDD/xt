@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('style')
 <!-- select2 -->
-<link href="admin/css/select/select2.min.css" rel="stylesheet">
+{!!Html::style('admin/css/select/select2.min.css')!!}
 @endsection
 @section('content')
 <div class="right_col" role="main">
@@ -230,8 +230,14 @@
       </li>
       </ul>
       <div class="clearfix"></div>
-      </div>
+      @if(isset($audio_url))
+      <img class="img-onda" src="/img/onda.jpg" alt="">
+      <input type="hidden"  name="voz" value="{{$audio_url->RecordingUrl}}">
+      @else
       <input type="file" name="voz" value="">
+      @endif
+    </div>
+
       </div>
       </div>
 
@@ -348,7 +354,7 @@
 </div>
 @section('scripts')
 <!-- select2 -->
-<script src="admin/js/select/select2.full.js"></script>
+{!!Html::script('admin/js/select/select2.full.js')!!}
 <!-- select2 -->
 
 <script>

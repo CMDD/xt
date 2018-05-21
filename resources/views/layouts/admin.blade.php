@@ -26,7 +26,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-          <a href="index.html" class="site_title"><span>CRM | MD</span></a>
+          <a href="index.html" class="site_title"><img style="width:75%;" src="/img/logo_ixtus_blanco.png" alt="..."></a>
           </div>
           <div class="clearfix"></div>
           <!-- menu prile quick info -->
@@ -47,7 +47,7 @@
           <h3>S. Admin</h3>
           <ul class="nav side-menu">
           <li>
-            <a href="/"><i class="fa fa-home"></i> Dashboard </a>
+            <a href="/ixtus´"><i class="fa fa-home"></i> Dashboard </a>
           </li>
           <li><a><i class="fa fa-user"></i> Personas <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
@@ -67,6 +67,12 @@
                 </li>
             </ul>
             </li>
+          <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu" style="display: none">
+                <li><a href="{{url('usuario-crear')}}">Administrar</a>
+                </li>
+            </ul>
+            </li>
           <li><a><i class="fa fa-book"></i> El Man esta Vivo <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
                 <li><a href="{{url('suscripciones')}}">Suscripciones</a>
@@ -74,6 +80,20 @@
            </li>
             </ul>
             </li>
+          </div>
+          <div class="menu_section">
+          <h3>Call Center</h3>
+          <ul class="nav side-menu">
+            <li><a><i class="fa fa-phone"></i> Llamadas <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none">
+                  <li><a href="{{url('llamar')}}">Hacer llamada</a>
+                  </li>
+                  <li><a href="{{url('llamadas')}}">Todas</a>
+                  </li>
+                  <li><a href="{{url('llamadas-server')}}">Server</a>
+                  </li>
+             </li>
+          </ul>
           </div>
           <div class="menu_section">
           <h3>App Móvil</h3>

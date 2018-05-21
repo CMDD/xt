@@ -21,8 +21,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Llamadas con TWILIO
+Route::post('call','CallController@call');
+Route::get('terminar/{sid}','CallController@terminar');
+Route::post('record','CallController@record');
+Route::get('audio','CallController@audio');
+Route::get('llamadas','CallController@lista');
+Route::get('llamadas-server','CallController@listaServer');
+Route::get('llamar',function(){
+  return view('admin.callcenter.llamar');
+});
+
 // Personas
-Route::get('crear-persona',function(){return view('admin.persona.crear');});
+Route::get('crear-persona/{audio?}','PersonaController@index');
 Route::post('crear-persona','PersonaController@crear');
 Route::get('listar/{nombre}','PersonaController@listar');
 Route::get('detalle/{id}','PersonaController@detalle');
@@ -38,3 +49,5 @@ Route::post('crar_nota/{id}','SeguimientoController@crearNota');
 Route::get('suscripciones','SuscripcionController@lista');
 Route::post('suscripcion/{id}','SuscripcionController@crear');
 Route::get('suscripcion/{id}','SuscripcionController@ver');
+// Usuario
+Route::get('usuario-crear','UsuarioController@crear');

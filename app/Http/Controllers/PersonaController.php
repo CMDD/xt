@@ -8,6 +8,7 @@ use App\Persona;
 use App\Interes;
 use App\TipoPersona;
 use App\Suscripcion;
+use App\Llamada;
 use Storage;
 use File;
 use Redirect;
@@ -20,6 +21,14 @@ class PersonaController extends Controller
   public function __construct(){
 
     Carbon::setLocale('es');
+  }
+  public function index($audio='no'){
+    $audio_url = Llamada::find($audio);
+    if ($audio == 'no') {
+    return view('admin.persona.crear');
+    }
+    return view('admin.persona.crear')->with('audio_url',$audio_url);
+
   }
 
     public function crear(RegisterPersonaRequest $request){
@@ -47,6 +56,8 @@ class PersonaController extends Controller
       }
       if ($request->file('voz')) {
         $persona->voz = $request->file('voz')->store('voz');
+      }else{
+        $persona->voz = $request->voz;
       }
       $persona->save();
       $result_persona = Persona::where('correo',$persona->correo)->first();
@@ -97,8 +108,8 @@ class PersonaController extends Controller
       //Fin suscripcion
 
       alert()->success('Persona Creada!', 'Correctamente')
-      ->showConfirmButton('Crear nueva','rgba(38, 185, 154, 0.59)')
-      ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
+      ->showConfirmButton('Crear nueva','rgba(38, 185, 154, 0.59)');
+      // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
       return back();
 
     }
