@@ -32,7 +32,6 @@ class PersonaController extends Controller
   }
 
     public function crear(RegisterPersonaRequest $request){
-
       $persona = new Persona();
       $persona->estado = "Activo";
       $persona->nombres = $request->nombres;
@@ -106,7 +105,6 @@ class PersonaController extends Controller
 
       }
       //Fin suscripcion
-
       alert()->success('Persona Creada!', 'Correctamente')
       ->showConfirmButton('Crear nueva','rgba(38, 185, 154, 0.59)');
       // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
@@ -159,7 +157,6 @@ class PersonaController extends Controller
       alert()->success('Actualizado!', 'Correctamente')
       ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
       return back();
-
     }
 
     public function listar($nombre){

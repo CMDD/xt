@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
@@ -47,7 +46,7 @@
           <h3>S. Admin</h3>
           <ul class="nav side-menu">
           <li>
-            <a href="/ixtus´"><i class="fa fa-home"></i> Dashboard </a>
+            <a href="/ixtus"><i class="fa fa-home"></i> Dashboard </a>
           </li>
           <li><a><i class="fa fa-user"></i> Personas <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">

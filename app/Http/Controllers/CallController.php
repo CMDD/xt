@@ -32,7 +32,7 @@ class CallController extends Controller
             'record'=>true,
             // 'StatusCallbackUrl'=>'http://89af4d73.ngrok.io/record',
             'StatusCallbackMethod'=>'POST',
-            'recordingStatusCallback'=>'http://f70d8535.ngrok.io/record',
+            'recordingStatusCallback'=>'http://ixtus.minutodedios.fm/record',
             'url' => 'https://demo.twilio.com/welcome/voice'
           )
        );
