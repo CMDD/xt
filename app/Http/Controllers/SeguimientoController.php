@@ -28,4 +28,6 @@ class SeguimientoController extends Controller
       alert()->success('Nota Creada','Correctamente.')->autoClose(5000);
       return back();
     }
+
+
 }

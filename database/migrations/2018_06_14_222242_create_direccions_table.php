@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuscripcionsTable extends Migration
+class CreateDireccionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,20 @@ class CreateSuscripcionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('suscripcions', function (Blueprint $table) {
+        Schema::create('direccions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantidad')->nullable();
-            $table->string('oracional')->nullable();
-            $table->string('estado')->nullable();
-            $table->string('plan')->nullable();
-            $table->string('fecha_inicio')->nullable();
-            $table->string('fecha_final')->nullable();
             $table->string('nombre_recibe')->nullable();
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
-            $table->string('pais')->nullable();
             $table->string('ciudad')->nullable();
+            $table->string('pais')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('observacion')->nullable();
-            $table->integer('persona_id')->unsigned()->nullable();
-            $table->foreign('persona_id')
+            $table->string('cantidad')->nullable();
+            $table->integer('suscripcion_id')->unsigned()->nullable();
+            $table->foreign('suscripcion_id')
                   ->references('id')
-                  ->on('personas')
+                  ->on('suscripcions')
                   ->onDelete('cascade');
             $table->timestamps();
         });
@@ -43,6 +39,6 @@ class CreateSuscripcionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suscripcions');
+        Schema::dropIfExists('direccions');
     }
 }

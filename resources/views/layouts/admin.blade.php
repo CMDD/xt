@@ -177,7 +177,7 @@
 <!-- icheck -->
 {{ Html::script('admin/js/icheck/icheck.min.js') }}
 {{ Html::script('admin/js/custom.js') }}
-{{ Html::script('js/myjs.js') }}
+{{ Html::script('js/ixtus.js') }}
 
 
 

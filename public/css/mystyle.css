@@ -27,6 +27,11 @@ width: 50%;
  text-align: center;
  margin-top: 10%;
 }
+.input-suscripcion{
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  /* border: 1px solid red; */
+}
 .select-oracional{
   margin-top: 10%;
 }
@@ -40,6 +45,16 @@ width: 50%;
 }
 .direccion-suscripcion{
   margin-top: 4%;
+}
+
+.direccion{
+  display: none;
+}
+.ocultar{
+display: none;
+}
+.mostrar{
+  display: block;
 }
 
 /* fin suscripcion */

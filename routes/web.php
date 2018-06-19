@@ -10,17 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Dashboard
 Route::get('ixtus','DashController@index');
 Route::get('/',function(){
   return view('login');
 });
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 //Llamadas con TWILIO
 Route::post('call','CallController@call');
 Route::get('terminar/{sid}','CallController@terminar');
@@ -31,7 +27,6 @@ Route::get('llamadas-server','CallController@listaServer');
 Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
-
 // Personas
 Route::get('crear-persona/{audio?}','PersonaController@index');
 Route::post('crear-persona','PersonaController@crear');
@@ -41,7 +36,6 @@ Route::get('editar/{id}','PersonaController@editar');
 Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
 Route::get('eliminar_interes/{id}','PersonaController@eliminarInteres');
 Route::post('actualizar_persona/{id}','PersonaController@actualizar');
-
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');

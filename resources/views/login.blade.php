@@ -92,7 +92,6 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="separator">
-
                             <p class="change_link">Already a member ?
                                 <a href="#tologin" class="to_register"> Log in </a>
                             </p>
