@@ -16,10 +16,18 @@
     <div class="page-title">
       <div class="title_left">
       <h3>Nuevo Registro</h3>
+      <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
+      <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
       </div>
+
     </div>
     <div class="clearfix"></div>
     <div class="row">
+      <!-- Ventana de suscripciones -->
+      @include('layouts.suscripcion.suscripcion')
+      <!-- Formulario para programa de donaciones -->
+      @include('componentes.donaciones')
+
       <div class="col-md-6 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
@@ -34,6 +42,7 @@
         </div>
         <div class="x_content">
           <br />
+
           <form class="form-horizontal form-label-left" enctype="multipart/form-data" action="{{url('crear-persona')}}" method="post">
             {!!csrf_field()!!}
           <div class="form-group">
@@ -52,14 +61,8 @@
 
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona *</label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-          <select name="tipo_persona[]" required class="select2_multiple form-control" multiple="multiple">
-            <option value="Benefactor" >Benefactor</option>
-            <option value="Empleado" >Empleado</option>
-            <option value="Servidores" >Servidores</option>
-            <option value="Cliente" >Cliente</option>
-            <option value="Proveedor" >Proveedor</option>
-          </select>
+          <div class="col-md-6 col-sm-9 col-xs-12">
+
             @if($errors->has('tipo_persona'))
             @foreach($errors->get('tipo_persona') as $error)
                 <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
@@ -190,6 +193,9 @@
       </div>
       </div>
 
+
+
+
       <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="x_panel">
       <div class="x_title">
@@ -210,15 +216,12 @@
       <input name="numero_planilla" type="text" class="form-control" placeholder="">
       </div>
       </div>
-      <div style="margin-top:8%;" class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Registro</label>
-      <div class="col-md-9 col-sm-9 col-xs-12">
-      <input name="numero_registro" type="text" class="form-control" placeholder="">
+    
       </div>
       </div>
       </div>
-      </div>
-      </div>
+
+
       <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="x_panel">
       <div class="x_title">
@@ -257,21 +260,30 @@
         </div>
       </div>
 
-      <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
-      <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
-      <!-- Ventana de suscripciones -->
-      @include('layouts.suscripcion.suscripcion')
-      <!-- Formulario para programa de donaciones -->
-      @include('componentes.donaciones')
+      @include('componentes.formulario_tipo_titular')
 
       </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     </div>
   </div>
 <!-- /page content -->
 <!-- footer content -->
 @include('layouts.footer')
 <!-- /footer content -->
-</div>
+
 @section('scripts')
 <!-- select2 -->
 {!!Html::script('admin/js/select/select2.full.js')!!}

@@ -30,40 +30,27 @@ class PersonaController extends Controller
     return view('admin.persona.crear');
     }
     return view('admin.persona.crear')->with('audio_url',$audio_url);
-
   }
-
-    public function miControlador(){
-            $data = array();
-            foreach($_POST as $key => $value) {  //Recibo el los valores por POST
-              $data[$key] = $value;
-           }
-           $acturl = urldecode($data['ListaPro']); //decodifico el JSON
-           $productos = json_decode($acturl);
-           dd($productos);
-
-
-          foreach ($productos  as $pro) {
-              $misProductos[] = $pro;
-            }
-
-
-     }
      //Guardar en Base de Datos
-
-
-
-    public function crear(RegisterPersonaRequest $request){
+  public function crear(RegisterPersonaRequest $request){
 
       $donacion =  urldecode($request['lista_donaciones']);
       $donaciones = json_decode($donacion);
+      // alert()->success('Persona Creada!', 'Correctamente')
+      // ->showConfirmButton('','rgba(38, 185, 154, 0.59)');
+      alert()->html('<p>CREADO CORRECTAMENTE</p>',
+      ' <a href="crear-suscripcion" >
+      <button type="button" class="btn btn-primary" name="button">Crear suscripción</button>
+      </a>
+      <a href="/" >
+      <button type="button" class="btn btn-primary" name="button">Crear persona</button>
+      </a>
+      ','success')->persistent(false,true);
 
+      $lista_sus = urldecode($request['lista_sus']);
+      $suscripciones = json_decode($lista_sus);
+      $suscripcion_collection = Collection::make($suscripciones);
 
-
-      $resultado = urldecode($request['ListaPro']);
-      $direcciones = json_decode($resultado);
-      $collection = Collection::make($direcciones);
-      dd($collection);
       $persona = new Persona();
       $persona->estado = "Activo";
       $persona->nombres = $request->nombres;
@@ -106,48 +93,61 @@ class PersonaController extends Controller
       }
       //Suscripciones
       if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
+
+        if ($request->direccion_radio == 'misma') {
+
           $fecha_final =  Carbon::parse($request->fecha_suscripcion);
           $sus = new Suscripcion();
-          $sus->cantidad = $request->cantidad;
           $sus->oracional = $request->oracional;
           $sus->plan = $request->plan;
           $sus->fecha_inicio = $request->fecha_suscripcion;
           $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
           $sus->persona_id = $result_persona->id;
           $sus->estado = 'Activo';
+          $sus->nombre_recibe = $request->nombres;
+          $sus->direccion = $request->direccion;
+          $sus->direccion_especificacion = $request->direccion_especificacion;
+          $sus->ciudad = $request->ciudad;
+          $sus->pais = $request->pais;
+          $sus->telefono = $request->telefono;
+
           $sus->save();
-          $sus_id = Suscripcion::select('id')->orderby('created_at','DESC')->first();
-        if ($request->direccion_radio == 'misma') {
-            $dir = new Direccion();
-            $dir->nombre_recibe = $request->nombres;
-            $dir->direccion = $request->direccion;
-            $dir->direccion_especificacion = $request->direccion_especificacion;
-            $dir->ciudad = $request->ciudad;
-            $dir->pais = $request->pais;
-            $dir->telefono = $request->telefono;
-            $dir->suscripcion_id = $sus_id->id;
-            $dir->save();
+
         }else{
-          foreach ($collection as $key => $value) {
-            $dir = new Direccion();
-            $dir->nombre_recibe = $value->nombre;
-            $dir->direccion = $value->direccion;
-            $dir->direccion_especificacion = $value->especificacion;
-            $dir->ciudad = $value->ciudad;
-            $dir->pais = $value->pais;
-            $dir->observacion = $value->observaciones;
-            $dir->telefono = $value->telefono;
-            $dir->cantidad = $value->cantidad;
-            $dir->suscripcion_id = $sus_id->id;
-            $dir->save();
+
+          foreach ($suscripcion_collection as $key => $dato) {
+
+            $fecha_final =  Carbon::parse($request->fecha_suscripcion);
+            $sus = new Suscripcion();
+            $sus->oracional = $dato->oracional;
+            $sus->plan = $dato->plan;
+            $sus->fecha_inicio = $dato->fecha_suscripcion;
+            $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
+            $sus->persona_id = $result_persona->id;
+            $sus->estado = 'Activo';
+            $sus->nombre_recibe = $dato->nombre;
+            $sus->direccion = $dato->direccion;
+            $sus->direccion_especificacion = $dato->especificacion;
+            $sus->ciudad = $dato->ciudad;
+            $sus->pais = $dato->pais;
+            $sus->telefono = $dato->telefono;
+            $sus->observacion = $dato->observacion;
+
+            $sus->save();
+
+          }
+
+
+
+
           }
         }
-      }
+
       //Fin suscripcion
       alert()->success('Persona Creada!', 'Correctamente')
-      ->showConfirmButton('Crear nueva','rgba(38, 185, 154, 0.59)');
+      ->showConfirmButton('Exito','rgba(38, 185, 154, 0.59)');
       // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
-      return back();
+       return back();
     }
 
     public function actualizar(Request $request,$id){

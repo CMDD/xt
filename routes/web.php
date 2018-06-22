@@ -12,9 +12,7 @@
 */
 // Dashboard
 Route::get('ixtus','DashController@index');
-Route::get('/',function(){
-  return view('login');
-});
+Route::get('/',function(){return view('login');});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Llamadas con TWILIO
@@ -27,8 +25,9 @@ Route::get('llamadas-server','CallController@listaServer');
 Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
+
 // Personas
-Route::get('crear-persona/{audio?}','PersonaController@index');
+Route::get('crear-persona/{audio?}','PersonaController@index')->name('persona.index');
 Route::post('crear-persona','PersonaController@crear');
 Route::get('listar/{nombre}','PersonaController@listar');
 Route::get('detalle/{id}','PersonaController@detalle');
@@ -43,5 +42,11 @@ Route::post('crar_nota/{id}','SeguimientoController@crearNota');
 Route::get('suscripciones','SuscripcionController@lista');
 Route::post('suscripcion/{id}','SuscripcionController@crear');
 Route::get('suscripcion/{id}','SuscripcionController@ver');
+Route::get('crear-suscripcion','SuscripcionController@crearSuscripcion');
+
 // Usuario
 Route::get('usuario-crear','UsuarioController@crear');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -19,6 +19,7 @@ class CreateSuscripcionsTable extends Migration
             $table->string('oracional')->nullable();
             $table->string('estado')->nullable();
             $table->string('plan')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('fecha_inicio')->nullable();
             $table->string('fecha_final')->nullable();
             $table->string('nombre_recibe')->nullable();
@@ -31,6 +32,12 @@ class CreateSuscripcionsTable extends Migration
             $table->foreign('persona_id')
                   ->references('id')
                   ->on('personas')
+                  ->onDelete('cascade');
+
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
                   ->onDelete('cascade');
             $table->timestamps();
         });

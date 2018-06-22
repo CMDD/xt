@@ -13,13 +13,10 @@
     <div class="clearfix"></div>
     </div>
     <div class="row">
-      <div class="col-md-2">
-        <label class="">Cantidad</label>
-        <input class="input-cantidad" type="number" name="cantidad" min="1" value="">
-      </div>
+
       <div class="col-md-3">
         <label class="">Oracional</label>
-        <select name="oracional"  class="form-contro select-oracional">
+        <select id="oracional" name="oracional"  class="form-contro select-oracional">
           <option value="" >Seleccione</option>
           <option value="Jóvenes" >Jóvenes</option>
           <option value="Adultos" >Adultos</option>
@@ -30,7 +27,7 @@
       </div>
       <div class="col-md-3">
         <label class="">Tipo</label> <br>
-        <select name="plan"  class="form-contro select-oracional">
+        <select id="plan" name="plan"  class="form-contro select-oracional">
          <option value="" >Seleccione</option>
          <option value="6" >6 meses</option>
          <option value="12" >1 año</option>
@@ -39,7 +36,7 @@
       </div>
       <div class="col-md-3">
         <label class="">Fecha suscripcion</label> <br>
-        <input class="input-fecha" type="date" name="fecha_suscripcion" value="">
+        <input id="fecha_suscripcion" class="input-fecha" type="date" name="fecha_suscripcion" value="">
       </div>
 
     </div>
@@ -50,9 +47,9 @@
         <table style="width:100%">
             <thead>
               <tr>
-                <th>Recibe</th>
-                <th>Direccion</th>
-                <th>Cantidad</th>
+                <th>Oracional</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
                 <th>Borrar</th>
                 <th></th>
               </tr>
@@ -61,7 +58,7 @@
             </thead>
             <tbody id="mostrar-direcciones">
 
-              <input type="hidden" id="ListaPro" name="ListaPro" value=""  />
+              <input type="hidden" id="ListaPro" name="lista_sus" value=""  />
             </tbody>
 
         </table>
@@ -108,10 +105,7 @@
             Télefono <br>
             <input class="nombre-recibe" type="text" id="telefono_suscripcion" name="telefono_suscripcion" value="">
           </div>
-          <div class="direccion-suscripcion col-md-6">
-            Cantidad <br>
-            <input class="nombre-recibe" type="number" id="cantidad_suscripcion" name="cantidad_suscripcion" value="">
-          </div>
+
 
           <div class="direccion-suscripcion col-md-12">
             Observaciones <br>
@@ -119,7 +113,7 @@
              data-parsley-maxlength="100" ></textarea>
           </div>
           <div class="direccion-suscripcion col-md-12">
-            <button type="button" class="btn btn-default" id="añadir-direccion" name="button">AÑADIR DIRECCIÓN</button>
+            <button type="button" class="btn btn-default" id="añadir-suscripcion" name="button">AÑADIR SUSCRIPCIÓN</button>
           </div>
         </div>
 

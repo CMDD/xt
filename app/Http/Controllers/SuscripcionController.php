@@ -21,6 +21,9 @@ class SuscripcionController extends Controller
     return view('admin.suscripcion.lista')->with('sus',$sus)
                                            ->with('nombre',$nombre);
   }
+  public function crearSuscripcion(){
+    return view('admin.suscripcion.crear');
+  }
 
   public function crear(Request $request,$id){
      $fecha_final =  Carbon::parse($request->fecha_suscripcion);

@@ -24,14 +24,14 @@ function mostrarSuscripcion(){
   localStorage.clear();
 // Modulo para agregar suscripciones
 //Variables
-const añadir = document.getElementById('añadir-direccion');
+const añadir = document.getElementById('añadir-suscripcion');
 const mostrar = document.getElementById('mostrar-direcciones');
 const añadir_donacion = document.getElementById('añadir-donacion');
 const mostrar_donacion = document.getElementById('mostrar-donacion');
 //Listener
 cargarEventListeners();
 function cargarEventListeners(){
-  añadir.addEventListener('click',agregarDireccion);
+  añadir.addEventListener('click',agregarSuscripcion);
   // Borrar direcciones
 //   mostrar.addEventListener('click',borrarDireccion);
   //Cargando Contenido
@@ -39,16 +39,18 @@ function cargarEventListeners(){
   añadir_donacion.addEventListener('click',añadirDonacion);
 }
 //Funciones
-function agregarDireccion(e){
+function agregarSuscripcion(e){
     e.preventDefault();
      let datos = {
+         oracional: document.getElementById('oracional').value,
+         plan: document.getElementById('plan').value,
+         fecha_suscripcion: document.getElementById('fecha_suscripcion').value,
          nombre: document.getElementById('nombre_recibe').value,
          direccion: document.getElementById('direccion_suscripcion').value,
          especificacion: document.getElementById('especificacion_direccion_suscripcion').value,
          ciudad: document.getElementById('ciudad_suscripcion').value,
-         observaciones: document.getElementById('observacion_suscripcion').value,
+         observacion: document.getElementById('observacion_suscripcion').value,
          pais: document.getElementById('pais_suscripcion').value,
-         cantidad: document.getElementById('cantidad_suscripcion').value,
          telefono: document.getElementById('telefono_suscripcion').value,
      }
       agregarLocalStorage(datos);
@@ -116,13 +118,13 @@ function mostrarDirecciones(dato){
     const row = document.createElement('tr');
     row.innerHTML = `
             <td>
-            <input type="text" class="input-suscripcion"  value="${dato.nombre}" name="recibe[]">
+            <input type="text" class="input-suscripcion"  value="${dato.oracional}" name="recibe[]">
             </td>
             <td>
-                <input type="text" class="input-suscripcion"  value="${dato.direccion}" name="">
+                <input type="text" class="input-suscripcion"  value="${dato.plan}" name="">
             </td>
             <td>
-                <input type="text" class="input-suscripcion"  value="${dato.cantidad}" name="">
+                <input type="text" class="input-suscripcion"  value="${dato.fecha_suscripcion}" name="">
             </td>
 
             <td>

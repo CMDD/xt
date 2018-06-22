@@ -48,9 +48,9 @@
           <li>
             <a href="/ixtus"><i class="fa fa-home"></i> Dashboard </a>
           </li>
-          <li><a><i class="fa fa-user"></i> Personas <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-user"></i> Titular <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                <li><a href="{{url('crear-persona')}}">Crear</a>
+                <li><a href="{{route('persona.index')}}">Crear</a>
                 </li>
                 <li><a href="{{url('listar','General')}}">General</a>
                 </li>

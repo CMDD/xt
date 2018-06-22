@@ -56,6 +56,10 @@ display: none;
 .mostrar{
   display: block;
 }
+.alert-titulo{
+  border: 1px solid red;
+  font-size: 18px;
+}
 
 /* fin suscripcion */
 .texto-alerta-footer{
