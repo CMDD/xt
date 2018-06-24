@@ -15,8 +15,8 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('estado');
-            $table->string('nombres');
+            $table->string('estado')->nullable();
+            $table->string('nombres')->nullable();
             $table->string('apellidos')->nullable();
             $table->string('tipo_documento')->nullable();
             $table->string('numero_documento')->nullable();
@@ -26,7 +26,7 @@ class CreatePersonasTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
             $table->string('ciudad')->nullable();
-            $table->string('pais')->nullable();
+            $table->string('region')->nullable();
             $table->string('telefono')->nullable();
             $table->string('telefono_alternativo')->nullable();
             $table->string('ocupacion')->nullable();

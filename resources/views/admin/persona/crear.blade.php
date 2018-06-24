@@ -16,17 +16,12 @@
     <div class="page-title">
       <div class="title_left">
       <h3>Nuevo Registro</h3>
-      <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
-      <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
+
       </div>
 
     </div>
     <div class="clearfix"></div>
     <div class="row">
-      <!-- Ventana de suscripciones -->
-      @include('layouts.suscripcion.suscripcion')
-      <!-- Formulario para programa de donaciones -->
-      @include('componentes.donaciones')
 
       <div class="col-md-6 col-xs-12">
       <div class="x_panel">
@@ -42,7 +37,6 @@
         </div>
         <div class="x_content">
           <br />
-
           <form class="form-horizontal form-label-left" enctype="multipart/form-data" action="{{url('crear-persona')}}" method="post">
             {!!csrf_field()!!}
           <div class="form-group">
@@ -58,18 +52,6 @@
           </div>
           </div>
 
-
-          <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona *</label>
-          <div class="col-md-6 col-sm-9 col-xs-12">
-
-            @if($errors->has('tipo_persona'))
-            @foreach($errors->get('tipo_persona') as $error)
-                <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
-            @endforeach
-            @endif
-          </div>
-          </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
@@ -115,13 +97,22 @@
           </div>
           </div>
           <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Ciudad</label>
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-          <input name="ciudad" type="text" class="form-control" placeholder="">
+            <select id="region" class=" form-control" name="region">
+              <option value="">Seleccione...</option>
+              @foreach($regiones as $region)
+              <option value="{{$region->id}}">{{$region->nombre}}</option>
+              @endforeach
+            </select>
+
           </div>
-          <label class="control-label col-md-2 col-sm-3 col-xs-12">Paìs</label>
+          <label class="control-label col-md-2 col-sm-3 col-xs-12">Ciudad</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
-          <input name="pais" type="text" class="form-control" placeholder="">
+            <select id="ciudad" class=" form-control" name="ciudad">
+
+            </select>
+
           </div>
           </div>
           <div class="form-group">
@@ -192,10 +183,6 @@
         </div>
       </div>
       </div>
-
-
-
-
       <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="x_panel">
       <div class="x_title">
@@ -216,7 +203,7 @@
       <input name="numero_planilla" type="text" class="form-control" placeholder="">
       </div>
       </div>
-    
+
       </div>
       </div>
       </div>
@@ -259,7 +246,12 @@
           <input type="file" name="imagen" >
         </div>
       </div>
-
+      <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
+      <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
+      <!-- Ventana de suscripciones -->
+      @include('layouts.suscripcion.suscripcion')
+      <!-- Formulario para programa de donaciones -->
+      @include('componentes.donaciones')
       @include('componentes.formulario_tipo_titular')
 
       </form>

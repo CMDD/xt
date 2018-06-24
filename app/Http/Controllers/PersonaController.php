@@ -11,6 +11,8 @@ use App\TipoPersona;
 use App\Suscripcion;
 use App\Llamada;
 use App\Direccion;
+use App\Ciudad;
+use App\Region;
 use Storage;
 use File;
 use Redirect;
@@ -23,34 +25,38 @@ class PersonaController extends Controller
   public function __construct(){
     Carbon::setLocale('es');
   }
-
   public function index($audio='no'){
     $audio_url = Llamada::find($audio);
+    $ciudades = Ciudad::all();
+    $regiones = Region::all();
+
     if ($audio == 'no') {
-    return view('admin.persona.crear');
+    return view('admin.persona.crear')->with('ciudades',$ciudades)->with('regiones',$regiones);
     }
-    return view('admin.persona.crear')->with('audio_url',$audio_url);
+
+
+    return view('admin.persona.crear')->with('audio_url',$audio_url)
+                                      ->with('ciudades',$ciudades)
+                                      ->with('regiones',$regiones);
   }
      //Guardar en Base de Datos
   public function crear(RegisterPersonaRequest $request){
-
       $donacion =  urldecode($request['lista_donaciones']);
       $donaciones = json_decode($donacion);
+      dd($request->ciudad);
       // alert()->success('Persona Creada!', 'Correctamente')
       // ->showConfirmButton('','rgba(38, 185, 154, 0.59)');
-      alert()->html('<p>CREADO CORRECTAMENTE</p>',
-      ' <a href="crear-suscripcion" >
-      <button type="button" class="btn btn-primary" name="button">Crear suscripción</button>
-      </a>
-      <a href="/" >
-      <button type="button" class="btn btn-primary" name="button">Crear persona</button>
-      </a>
-      ','success')->persistent(false,true);
-
+      // alert()->html('<p>CREADO CORRECTAMENTE</p>',
+      // ' <a href="crear-suscripcion" >
+      // <button type="button" class="btn btn-primary" name="button">Crear suscripción</button>
+      // </a>
+      // <a href="/" >
+      // <button type="button" class="btn btn-primary" name="button">Crear persona</button>
+      // </a>
+      // ','success')->persistent(false,true);
       $lista_sus = urldecode($request['lista_sus']);
       $suscripciones = json_decode($lista_sus);
       $suscripcion_collection = Collection::make($suscripciones);
-
       $persona = new Persona();
       $persona->estado = "Activo";
       $persona->nombres = $request->nombres;
@@ -93,9 +99,7 @@ class PersonaController extends Controller
       }
       //Suscripciones
       if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
-
         if ($request->direccion_radio == 'misma') {
-
           $fecha_final =  Carbon::parse($request->fecha_suscripcion);
           $sus = new Suscripcion();
           $sus->oracional = $request->oracional;
@@ -110,13 +114,9 @@ class PersonaController extends Controller
           $sus->ciudad = $request->ciudad;
           $sus->pais = $request->pais;
           $sus->telefono = $request->telefono;
-
           $sus->save();
-
         }else{
-
           foreach ($suscripcion_collection as $key => $dato) {
-
             $fecha_final =  Carbon::parse($request->fecha_suscripcion);
             $sus = new Suscripcion();
             $sus->oracional = $dato->oracional;
@@ -132,20 +132,13 @@ class PersonaController extends Controller
             $sus->pais = $dato->pais;
             $sus->telefono = $dato->telefono;
             $sus->observacion = $dato->observacion;
-
             $sus->save();
-
           }
-
-
-
-
           }
         }
-
       //Fin suscripcion
       alert()->success('Persona Creada!', 'Correctamente')
-      ->showConfirmButton('Exito','rgba(38, 185, 154, 0.59)');
+      ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
       // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
        return back();
     }
@@ -197,7 +190,6 @@ class PersonaController extends Controller
       ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
       return back();
     }
-
     public function listar($nombre){
       $nombre = $nombre;
       $personas=array();
@@ -234,7 +226,6 @@ class PersonaController extends Controller
                                           ->with('interes',$interes)
                                           ->with('suscripciones',$suscripciones);
     }
-
     public function eliminarTipo($id){
       $tipo=TipoPersona::find($id);
       $tipo->delete();

@@ -25,7 +25,6 @@ Route::get('llamadas-server','CallController@listaServer');
 Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
-
 // Personas
 Route::get('crear-persona/{audio?}','PersonaController@index')->name('persona.index');
 Route::post('crear-persona','PersonaController@crear');
@@ -43,10 +42,7 @@ Route::get('suscripciones','SuscripcionController@lista');
 Route::post('suscripcion/{id}','SuscripcionController@crear');
 Route::get('suscripcion/{id}','SuscripcionController@ver');
 Route::get('crear-suscripcion','SuscripcionController@crearSuscripcion');
-
 // Usuario
 Route::get('usuario-crear','UsuarioController@crear');
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

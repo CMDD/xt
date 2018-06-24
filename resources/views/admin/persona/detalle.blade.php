@@ -19,7 +19,6 @@
           <h2>
             CRM - MD |
         </h2>
-
         <a href="{{url('editar',$persona->id)}}">
         <button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
         data-toggle="tooltip" data-placement="left" >EDITAR
@@ -30,7 +29,6 @@
         data-toggle="tooltip" data-placement="left" >HISTORIAL
         </button>
         </a>
-
           <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -59,8 +57,6 @@
             </button>
           </div>
           </div>
-
-
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
@@ -158,7 +154,6 @@
           </button>
           </div>
           </div>
-
           <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
           </label>
@@ -168,79 +163,14 @@
           </div>
           <div class="ln_solid"></div>
           <div class="form-group">
-
           </div>
         </div>
       </div>
       </div>
-
-      <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="x_panel">
-      <div class="x_title">
-      <h2>Autorizaciones</h2>
-      <ul class="nav navbar-right panel_toolbox">
-      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-      </li>
-      <li><a class="close-link"><i class="fa fa-close"></i></a>
-      </li>
-      </ul>
-      <div class="clearfix"></div>
-      </div>
-      <div class="x_content">
-      <br/>
-      <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
-      <div class="col-md-9 col-sm-9 col-xs-12">
-        <button type="button" class="btn btn-default tooltip-button-datos"
-        data-toggle="tooltip" data-placement="left" >00122
-        </button>
-      </div>
-      </div>
-      <div style="margin-top:8%;" class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Registro</label>
-      <div class="col-md-9 col-sm-9 col-xs-12">
-      <button type="button" class="btn btn-default tooltip-button-datos"
-      data-toggle="tooltip" data-placement="left" >04100
-      </button>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="x_panel">
-      <div class="x_title">
-      <h2>Archivos de Voz</h2>
-      <ul class="nav navbar-right panel_toolbox">
-      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-      </li>
-      <li><a class="close-link"><i class="fa fa-close"></i></a>
-      </li>
-      </ul>
-      <div class="clearfix"></div>
-      </div>
-      <div class="x_content">
-      <audio  id="pista" autostart="false"  src="/media/{{$persona->voz}}" > Su navegador no soporta la etiqueta audio.</audio>
-      <a onclick="document.getElementById('pista').play()" class="btn btn-app">
-          <i class="fa fa-play"></i> Play
-      </a>
-      <a onclick="document.getElementById('pista').pause()"  class="btn btn-app">
-          <i class="fa fa-pause"></i> Pause
-      </a>
-      <a href="/media/{{$persona->voz}}" download="{{$persona->correo}}.ogg"   class="btn btn-app">
-          <i class="fa fa-download"></i> Descargar
-      </a>
-      @if($persona->voz)
-      <img class="img-onda" src="/img/onda.jpg" alt="">
-      @endif
-      </div>
-      </div>
-      </div>
-
       <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-          <h2>Imagen</h2>
+          <h2>Autorizaciones</h2>
           <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -248,6 +178,68 @@
           </li>
           </ul>
           <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+          <br/>
+          <div class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+            <button type="button" class="btn btn-default tooltip-button-datos"
+            data-toggle="tooltip" data-placement="left" >00122
+            </button>
+          </div>
+          </div>
+          <div style="margin-top:8%;" class="form-group">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Registro</label>
+          <div class="col-md-9 col-sm-9 col-xs-12">
+          <button type="button" class="btn btn-default tooltip-button-datos"
+          data-toggle="tooltip" data-placement="left" >04100
+          </button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+          <h2>Archivos de Voz</h2>
+            <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+          <audio  id="pista" autostart="false"  src="/media/{{$persona->voz}}" > Su navegador no soporta la etiqueta audio.</audio>
+          <a onclick="document.getElementById('pista').play()" class="btn btn-app">
+              <i class="fa fa-play"></i> Play
+          </a>
+          <a onclick="document.getElementById('pista').pause()"  class="btn btn-app">
+              <i class="fa fa-pause"></i> Pause
+          </a>
+          <a href="/media/{{$persona->voz}}" download="{{$persona->correo}}.ogg"   class="btn btn-app">
+              <i class="fa fa-download"></i> Descargar
+          </a>
+          @if($persona->voz)
+          <img class="img-onda" src="/img/onda.jpg" alt="">
+          @endif
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Imagen</h2>
+            <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+            </ul>
+            <div class="clearfix"></div>
           </div>
           <div class="x_content">
            <div class="caja-imagen">
@@ -271,14 +263,12 @@
           </ul>
           <div class="clearfix"></div>
           </div>
-
           <hr>
           @foreach($suscripciones as $sus)
           <a href="{{url('suscripcion',$sus->id)}}"><button type="button" class="btn btn-default tooltip-button"
            data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
          </button></a>
           @endforeach
-
         </div>
       </div>
       </form>

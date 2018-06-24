@@ -30,14 +30,14 @@ const añadir_donacion = document.getElementById('añadir-donacion');
 const mostrar_donacion = document.getElementById('mostrar-donacion');
 //Listener
 cargarEventListeners();
-function cargarEventListeners(){
-  añadir.addEventListener('click',agregarSuscripcion);
-  // Borrar direcciones
-//   mostrar.addEventListener('click',borrarDireccion);
-  //Cargando Contenido
-  document.addEventListener('DOMContentLoaded',localStorageListo);
-  añadir_donacion.addEventListener('click',añadirDonacion);
-}
+    function cargarEventListeners(){
+      añadir.addEventListener('click',agregarSuscripcion);
+      // Borrar direcciones
+    //   mostrar.addEventListener('click',borrarDireccion);
+      //Cargando Contenido
+      document.addEventListener('DOMContentLoaded',localStorageListo);
+      añadir_donacion.addEventListener('click',añadirDonacion);
+    }
 //Funciones
 function agregarSuscripcion(e){
     e.preventDefault();
@@ -72,10 +72,8 @@ function agregarLocalStorage(dato){
     direcciones.push(dato);
     // Convertir a arreglo
     localStorage.setItem('direcciones',JSON.stringify(direcciones));
-
     var ipt=JSON.stringify(direcciones); //Convierto la Lista de Productos a un JSON para procesarlo en tu controlador
      $('#ListaPro').val(encodeURIComponent(ipt));
-
     console.log(direcciones);
 
   }
@@ -191,3 +189,25 @@ function mostrarDonacion(donacion){
          console.log(donaciones);
 
       }
+
+
+// Cargar ciudades
+
+$(function(){
+  $('#region').on('change',cargarCiudades);
+});
+
+function cargarCiudades(){
+  let region_id = $(this).val();
+  if (!region_id) {
+    $('#ciudad').html('<option value="">Seleccione...</option>');
+    return;
+  }
+ // Peticion ajax
+ let html_select = '<option value="">Seleccione...</option>';
+ $.get('api/region/'+region_id+'/ciudades',function(data){
+    for(i=0;i<data.length;++i)
+    html_select += '<option value="'+data[i].nombre+'">'+data[i].nombre+'</option>';
+    $('#ciudad').html(html_select);
+ });
+}
