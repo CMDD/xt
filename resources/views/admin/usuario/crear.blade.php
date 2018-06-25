@@ -98,22 +98,23 @@
   <thead>
   <tr>
   <th>Id</th>
-  <th>Nombres</th>
-  <th>Apellidos</th>
+  <th>Nombre</th>
+  <th>Rol</th>
   <th>Email</th>
   <th>Acción</th>
   </tr>
   </thead>
   <tbody>
+    @foreach($usuarios as $user)
   <tr>
-  <th scope="row">1</th>
-  <td>Mark</td>
-  <td>Otto</td>
-  <td>@mdo</td>
+  <th scope="row">{{$user->id}}</th>
+  <td>{{$user->name}}</td>
+  <td>Lider nacional</td>
+  <td>{{$user->email}}</td>
   <td><button type="button" style="width:100%;" class="btn btn-default" name="button">Ver</button></td>
 
   </tr>
-
+  @endforeach
   </tbody>
   </table>
 

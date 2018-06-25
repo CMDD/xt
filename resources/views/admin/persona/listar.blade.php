@@ -32,7 +32,7 @@ ACTIVO
 <th>IDENTIFICACIÓN</th>
 <th>CORREO</th>
 <th>TÉLEFONO/CELULAR</th>
-<th class=" no-link last"><span class="nobr">DETALLES</span>
+<th class=" no-link last"><span class="nobr">ACCIÓN</span>
 </th>
 </tr>
 </thead>
@@ -48,21 +48,20 @@ ACTIVO
 <td class="a-right a-right ">{{$p->correo}}</td>
 <td class="a-right a-right ">{{$p->telefono}}</td>
 <td class=" last">
+  @can('persona.show')
 <a href="{{url('detalle',$p->id)}}">
-  <button type="button" class="btn btn-default button-ver"
+  <button type="button" class="btn btn-default"
   data-toggle="tooltip" data-placement="left" >VER
   </button>
 </a>
+@endcan
+@can('persona.edit')
 <a href="{{url('editar',$p->id)}}">
-  <button type="button" class="btn btn-default button-editar"
+  <button type="button" class="btn btn-default "
   data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
-<a href="{{url('historial',$p->id)}}">
-  <button type="button" class="btn btn-default button-historial"
-  data-toggle="tooltip" data-placement="left" >HISTORIAL
-  </button>
-</a>
+@endcan
 </td>
 </tr>
 @endforeach

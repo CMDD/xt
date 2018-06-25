@@ -50,7 +50,7 @@ function agregarSuscripcion(e){
          especificacion: document.getElementById('especificacion_direccion_suscripcion').value,
          ciudad: document.getElementById('ciudad_suscripcion').value,
          observacion: document.getElementById('observacion_suscripcion').value,
-         pais: document.getElementById('pais_suscripcion').value,
+         region: document.getElementById('region_suscripcion').value,
          telefono: document.getElementById('telefono_suscripcion').value,
      }
       agregarLocalStorage(datos);

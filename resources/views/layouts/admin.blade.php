@@ -48,35 +48,54 @@
           <li>
             <a href="/ixtus"><i class="fa fa-home"></i> Dashboard </a>
           </li>
+
           <li><a><i class="fa fa-user"></i> Titular <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                <li><a href="{{route('persona.index')}}">Crear</a>
+                @can('persona.create')
+                <li><a href="{{route('persona.create')}}">Crear</a>
                 </li>
-                <li><a href="{{url('listar','General')}}">General</a>
+                @endcan
+                @can('persona.index')
+                <li><a href="{{route('persona.index','General')}}">General</a>
                 </li>
-                <li><a href="{{url('listar','Benefactor')}}">Benefactor</a>
+                <li><a href="{{route('persona.index','Benefactor')}}">Benefactor</a>
                 </li>
-                <li><a href="{{url('listar','Empleado')}}">Empleados</a>
+                <li><a href="{{route('persona.index','Empleado')}}">Empleados</a>
                 </li>
-                <li><a href="{{url('listar','Servidores')}}">Servidores</a>
+                <li><a href="{{route('persona.index','Servidores')}}">Servidores</a>
                 </li>
-                <li><a href="{{url('listar','Cliente')}}">Clientes</a>
+                <li><a href="{{route('persona.index','Cliente')}}">Clientes</a>
                 </li>
-                <li><a href="{{url('listar','Proveedor')}}">Proveedores</a>
+                <li><a href="{{route('persona.index','Proveedor')}}">Proveedores</a>
                 </li>
+                  @endcan
             </ul>
             </li>
-          <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+
+
+          <li><a><i class="fa fa-user"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                <li><a href="{{url('usuario-crear')}}">Administrar</a>
-                </li>
+              <li>
+                <a href="#">lista</a>
+              </li>
             </ul>
             </li>
+
+            <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none">
+                  <li><a href="{{url('usuario-crear')}}">Administrar</a>
+                  </li>
+              </ul>
+              </li>
+
           <li><a><i class="fa fa-book"></i> El Man esta Vivo <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
                 <li><a href="{{url('suscripciones')}}">Suscripciones</a>
                 </li>
            </li>
+
+
+
             </ul>
             </li>
           </div>
@@ -106,62 +125,63 @@
           </div>
         <!-- /menu footer buttons -->
       </div>
-    </div>
-    <!-- top navigation -->
-    <div class="top_nav">
-      <div class="nav_menu">
-        <nav class="" role="navigation">
-          <div class="nav toggle">
-          <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="">
-            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="/img/user.png" alt="">Javier Cera
-            <span class=" fa fa-angle-down"></span>
-            </a>
-            <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-            <li><a href="javascript:;">  Perfil</a>
-            </li>
-            <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Salir</a>
-            </li>
-            </ul>
-            </li>
-            <li role="presentation" class="dropdown">
-              <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-green">6</span>
-              </a>
-              <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-              <li>
-                <a>
-                  <span class="image">
-                  <img src="/img/user.png" alt="Imagen de Perfil" />
-                  </span>
-                  <span>
-                  <span>Usuario</span>
-                  <span class="time">Hace 3 min...</span>
-                  </span>
-                  <span class="message">
-                  Notificacion
-                  </span>
-                </a>
-              </li>
-              <li>
-              <div class="text-center">
-              <a>
-              <strong>Ver Todas</strong>
-              <i class="fa fa-angle-right"></i>
-              </a>
-              </div>
-              </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <!-- /top navigation -->
+     </div>
+     <!-- top navigation -->
+     <div class="top_nav">
+       <div class="nav_menu">
+         <nav class="" role="navigation">
+           <div class="nav toggle">
+           <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+           </div>
+           <ul class="nav navbar-nav navbar-right">
+             <li class="">
+             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+             <img src="/img/user.png" alt="">Javier Cera
+             <span class=" fa fa-angle-down"></span>
+             </a>
+             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+             <li><a href="javascript:;">  Perfil</a>
+             </li>
+             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i> Salir</a>
+             </li>
+             </ul>
+             </li>
+             <li role="presentation" class="dropdown">
+               <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+               <i class="fa fa-envelope-o"></i>
+               <span class="badge bg-green">6</span>
+               </a>
+               <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+               <li>
+                 <a>
+                   <span class="image">
+                   <img src="/img/user.png" alt="Imagen de Perfil" />
+                   </span>
+                   <span>
+                   <span>Usuario</span>
+                   <span class="time">Hace 3 min...</span>
+                   </span>
+                   <span class="message">
+                   Notificacion
+                   </span>
+                 </a>
+               </li>
+               <li>
+               <div class="text-center">
+               <a>
+               <strong>Ver Todas</strong>
+               <i class="fa fa-angle-right"></i>
+               </a>
+               </div>
+               </li>
+               </ul>
+             </li>
+           </ul>
+         </nav>
+       </div>
+     </div>
+     <!-- /top navigation -->
+
     <!-- page content -->
     @yield('content')
     @include('sweetalert::alert')

@@ -11,7 +11,8 @@
 |
 */
 // Dashboard
-Route::get('ixtus','DashController@index');
+
+
 Route::get('/',function(){return view('login');});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,15 +26,43 @@ Route::get('llamadas-server','CallController@listaServer');
 Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
+
+
 // Personas
-Route::get('crear-persona/{audio?}','PersonaController@index')->name('persona.index');
-Route::post('crear-persona','PersonaController@crear');
-Route::get('listar/{nombre}','PersonaController@listar');
-Route::get('detalle/{id}','PersonaController@detalle');
-Route::get('editar/{id}','PersonaController@editar');
-Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
-Route::get('eliminar_interes/{id}','PersonaController@eliminarInteres');
-Route::post('actualizar_persona/{id}','PersonaController@actualizar');
+Route::middleware(['auth'])->group(function(){
+
+
+  Route::get('ixtus','DashController@index');
+
+  Route::get('crear-persona/{audio?}','PersonaController@index')
+         ->name('persona.create')
+         ->middleware('permission:persona.create');
+
+  Route::get('listar/{nombre}','PersonaController@listar')
+         ->name('persona.index')
+         ->middleware('permission:persona.index');
+  Route::post('crear-persona','PersonaController@crear');
+
+  Route::get('editar/{id}','PersonaController@editar')
+      ->name('persona.edit')
+      ->middleware('permission:persona.edit');
+
+  Route::get('detalle/{id}','PersonaController@detalle')
+      ->name('persona.show')
+      ->middleware('permission:persona.show');
+
+  Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
+
+  Route::get('eliminar_interes/{id}','PersonaController@eliminarInteres');
+  
+  Route::post('actualizar_persona/{id}','PersonaController@actualizar');
+
+});
+
+
+
+
+
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');

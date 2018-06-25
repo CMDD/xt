@@ -34,6 +34,13 @@ class CreatePersonasTable extends Migration
             $table->string('numero_registro')->nullable();
             $table->string('voz')->nullable();
             $table->string('imagen')->nullable();
+
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

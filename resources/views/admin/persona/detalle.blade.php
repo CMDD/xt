@@ -19,11 +19,13 @@
           <h2>
             CRM - MD |
         </h2>
+        @can('persona.edit')
         <a href="{{url('editar',$persona->id)}}">
         <button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
         data-toggle="tooltip" data-placement="left" >EDITAR
         </button>
         </a>
+        @endcan
         <a href="{{url('historial',$persona->id)}}">
         <button style="margin-left:1%;" type="button" class="btn btn-default button-historial"
         data-toggle="tooltip" data-placement="left" >HISTORIAL

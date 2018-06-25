@@ -25,7 +25,7 @@ class CreateSuscripcionsTable extends Migration
             $table->string('nombre_recibe')->nullable();
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
-            $table->string('pais')->nullable();
+            $table->string('region')->nullable();
             $table->string('ciudad')->nullable();
             $table->string('observacion')->nullable();
             $table->integer('persona_id')->unsigned()->nullable();

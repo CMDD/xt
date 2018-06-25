@@ -173,6 +173,9 @@
           </div>
 
           </div>
+          <!-- Formulario tipo de titular -->
+          @include('componentes.formulario_tipo_titular')
+          <!-- Fin Formulario tipo de titular -->
 
           <div class="ln_solid"></div>
           <div class="form-group">
@@ -252,23 +255,11 @@
       @include('layouts.suscripcion.suscripcion')
       <!-- Formulario para programa de donaciones -->
       @include('componentes.donaciones')
-      @include('componentes.formulario_tipo_titular')
+
 
       </form>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  
     </div>
   </div>
 <!-- /page content -->
