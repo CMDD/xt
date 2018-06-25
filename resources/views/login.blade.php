@@ -45,16 +45,18 @@
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
-                    <form>
+                    <form action="{{url('verificar')}}" method="post" >
+                      {!!csrf_field()!!}
                         <h1>IXTUS | MD</h1>
                         <div>
-                            <input type="text" class="form-control" placeholder="Usuario" required="" />
+                            <input name="usuario" type="text" class="form-control" placeholder="Usuario" required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" placeholder="Contraseña" required="" />
+                            <input type="password" name="pass" class="form-control" placeholder="Contraseña" required="" />
                         </div>
                         <div>
-                            <a class="btn btn-default submit" href="#">Iniciar sesión</a>
+                          <input type="submit" class="btn btn-default submit" name="" value="Iniciar sesión">
+
                             <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
                         </div>
                         <div class="clearfix"></div>

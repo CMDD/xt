@@ -14,8 +14,7 @@
 
 
 Route::get('/',function(){return view('login');});
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
 //Llamadas con TWILIO
 Route::post('call','CallController@call');
 Route::get('terminar/{sid}','CallController@terminar');
@@ -28,11 +27,9 @@ Route::get('llamar',function(){
 });
 
   Route::get('ixtus','DashController@index');
-
+Route::post('verificar','UsuarioController@verificar');
 // Personas
 Route::middleware(['auth'])->group(function(){
-
-
 
   Route::get('crear-persona/{audio?}','PersonaController@index')
          ->name('persona.create')
