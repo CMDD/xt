@@ -72,7 +72,6 @@
             </ul>
             </li>
 
-
           <li><a><i class="fa fa-user"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
               <li>

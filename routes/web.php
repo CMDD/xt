@@ -27,12 +27,12 @@ Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
 
+  Route::get('ixtus','DashController@index');
 
 // Personas
 Route::middleware(['auth'])->group(function(){
 
 
-  Route::get('ixtus','DashController@index');
 
   Route::get('crear-persona/{audio?}','PersonaController@index')
          ->name('persona.create')
@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function(){
   Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
 
   Route::get('eliminar_interes/{id}','PersonaController@eliminarInteres');
-  
+
   Route::post('actualizar_persona/{id}','PersonaController@actualizar');
 
 });
