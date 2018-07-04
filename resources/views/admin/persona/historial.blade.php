@@ -52,7 +52,7 @@ data-toggle="tooltip" data-placement="left" >DETALLE
 </div>
 <div class="col-sm-4 invoice-col">
 <b>Creado por:</b><br>
-   Javier Cera <br>
+   {{$persona->usuario->name}} <br>
 <b>Registro Número:</b> <br>
    #{{$persona->id}}<br>
 <b>Fecha de Creacion</b> <br>

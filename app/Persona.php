@@ -14,5 +14,11 @@ class Persona extends Model
       return $this->hasMany('App\Suscripcion');
     }
 
+    public function usuario() {
+         return $this->belongsTo('App\User','user_id');
+    }
+
+
+
 
 }

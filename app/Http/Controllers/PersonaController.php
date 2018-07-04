@@ -111,6 +111,7 @@ class PersonaController extends Controller
           $sus->direccion_especificacion = $request->direccion_especificacion;
           $sus->ciudad = $request->ciudad;
           $sus->region = $request->region;
+          $sus->user_id = Auth::User()->id;
           $sus->telefono = $request->telefono;
           $sus->save();
         }else{
@@ -129,6 +130,7 @@ class PersonaController extends Controller
             $sus->ciudad = $dato->ciudad;
             $sus->region = $dato->region;
             $sus->telefono = $dato->telefono;
+            $sus->user_id = Auth::User()->id;
             $sus->observacion = $dato->observacion;
             $sus->save();
           }
@@ -197,6 +199,7 @@ class PersonaController extends Controller
           $sus->fecha_inicio = $request->fecha_suscripcion;
           $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
           $sus->persona_id = $result_persona->id;
+          $sus->user_id = Auth::User()->id;
           $sus->estado = 'Activo';
           $sus->nombre_recibe = $request->nombres;
           $sus->direccion = $request->direccion;
@@ -214,6 +217,7 @@ class PersonaController extends Controller
             $sus->fecha_inicio = $dato->fecha_suscripcion;
             $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
             $sus->persona_id = $result_persona->id;
+            $sus->user_id = Auth::User()->id;
             $sus->estado = 'Activo';
             $sus->nombre_recibe = $dato->nombre;
             $sus->direccion = $dato->direccion;

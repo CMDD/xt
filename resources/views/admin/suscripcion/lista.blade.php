@@ -31,7 +31,7 @@ ACTIVO
 <th> ORACIONAL</th>
 <th>FECHA INICIO</th>
 <th>FECHA CORTE</th>
-<th>PERSONA</th>
+<th>TITULAR</th>
 <th class=" no-link last"><span class="nobr">DETALLES</span>
 </th>
 </tr>
@@ -48,11 +48,28 @@ ACTIVO
 <td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
 <td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
 <td class=" last">
+  @can('ver.suscripcion')
 <a href="{{url('suscripcion',$p->id)}}">
-  <button type="button" class="btn btn-default button-sus"
-  data-toggle="tooltip" data-placement="left" >VER SUSCRIPCIÓN
+  <button type="button" class="btn btn-sm btn-default"
+  data-toggle="tooltip" data-placement="left" >VER
   </button>
 </a>
+@endcan
+@can('editar.suscripcion')
+<a href="{{route('editar.suscripcion',$p->id)}}">
+  <button type="button" class="btn btn-sm btn-default "
+  data-toggle="tooltip" data-placement="left" >EDITAR
+  </button>
+</a>
+@endcan
+
+@can('eliminar.suscripcion')
+<a href="">
+  <button type="button" class="btn btn-sm btn-default "
+  data-toggle="tooltip" data-placement="left" >ELIMINAR
+  </button>
+</a>
+@endcan
 </td>
 </tr>
 @endforeach

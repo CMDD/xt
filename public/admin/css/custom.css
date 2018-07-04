@@ -6,6 +6,10 @@ body.nav-sm .container.body .left_col {
     z-index: 200;
 }
 
+.textarea-roles{
+  width: 80%;
+}
+
 body.nav-sm .container.body .right_col {
     padding: 10px 20px;
     margin-left: 70px;

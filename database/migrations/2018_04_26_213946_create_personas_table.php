@@ -22,7 +22,7 @@ class CreatePersonasTable extends Migration
             $table->string('numero_documento')->nullable();
             $table->string('fecha_nacimiento')->nullable();
             $table->string('correo_alternativo')->nullable();
-            $table->string('correo')->unique();
+            $table->string('correo')->unique()->nullable();
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
             $table->string('ciudad')->nullable();
@@ -40,7 +40,7 @@ class CreatePersonasTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
-                  
+
             $table->timestamps();
         });
     }

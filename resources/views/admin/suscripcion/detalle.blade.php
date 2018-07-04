@@ -30,10 +30,6 @@
 <div class="col-md-9 col-sm-9 col-xs-12">
 <ul class="stats-overview">
 <li>
-<span class="name"> Cantidad</span>
-<span class="value text-success"> {{$sus->cantidad}}</span>
-</li>
-<li>
 <span class="name"> Plan </span>
 <span class="value text-success"> {{$sus->plan}} Meses </span>
 </li>
@@ -43,12 +39,63 @@
 </li>
 <li class="hidden-phone">
 <span class="name"> Vence  </span>
-<span class="value text-success"> {{$quedan}}</span>
+<span class="value text-success"> {{$sus->fecha_final}}</span>
 </li>
 </ul>
 <br />
 
-<div id="mainb" style="height:350px;"></div>
+<div id="mainb" style="height:350px;">
+  <div class="col-md-6 form-group">
+    <label for="">Nombre de quien recibe</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->nombre_recibe}}" >
+  </div>
+
+  <div class="col-md-6 form-group">
+    <label for="">Télefono</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->telefono}}" >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Oracional</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->oracional}}" >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Oracional</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->plan}}" >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Oracional</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->estado}}" >
+  </div>
+
+
+  <div class="col-md-6 form-group">
+   <label for="">Dirección</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->direccion}}" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Especificación de dirección</label>
+   <input type="text" class="form-control" id="" disabled name="especificacion_direccion" value="{{$sus->direccion_especificacion}}" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Region</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->region}}" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Ciudad</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->ciudad}}" placeholder="">
+  </div>
+
+
+  <div class="col-md-6 form-group">
+   <label for="">Fecha de suscripcion  </label>
+   <input type="text" class="form-control" id="" disabled value="{{$sus->fecha_inicio}}" name="fecha"  placeholder="">
+  </div>
+  <div class="col-md-9 form-group">
+   <label for="">Observación</label>
+   <textarea name="observacion" class="form-control" disabled rows="5" cols="80">{{$sus->observacion}}</textarea>
+  </div>
+
+</div>
 
 </div>
 
@@ -58,14 +105,12 @@
 <section class="panel">
 
 <div class="x_title">
-<h2>Descripción de la suscripcion</h2>
+<h2>Descripción del titular</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
 <h3 class="green"><i class="fa fa-book"></i> {{$sus->oracional}}</h3>
-
-<p>{{$sus->observacion}}</p>
-<br />
+<hr>
 
 <div class="project_detail">
 
@@ -86,10 +131,11 @@
 <p>{{$sus->direccion_especificacion}}</p>
 </div>
 <br/>
+@can('editar.suscripcion')
 <div class="text-center mtop20">
-<a href="#" class="btn btn-sm btn-primary">Editar</a>
-<a href="#" class="btn btn-sm btn-danger">Eliminar</a>
+<a href="{{route('editar.suscripcion',$sus->id)}}" class="btn btn-sm btn-primary">Editar</a>
 </div>
+@endcan
 </div>
 
 </section>

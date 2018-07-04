@@ -51,34 +51,45 @@
 
           <li><a><i class="fa fa-user"></i> Titular <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                @can('persona.create')
-                <li><a href="{{route('persona.create')}}">Crear</a>
+                @can('crear.titular')
+                <li><a href="{{route('crear.titular')}}">Crear</a>
                 </li>
                 @endcan
-                @can('persona.index')
-                <li><a href="{{route('persona.index','General')}}">General</a>
+                @can('listar.titular')
+                <li><a href="{{route('listar.titular','General')}}">Lista</a>
                 </li>
-                <li><a href="{{route('persona.index','Benefactor')}}">Benefactor</a>
-                </li>
-                <li><a href="{{route('persona.index','Empleado')}}">Empleados</a>
-                </li>
-                <li><a href="{{route('persona.index','Servidores')}}">Servidores</a>
-                </li>
-                <li><a href="{{route('persona.index','Cliente')}}">Clientes</a>
-                </li>
-                <li><a href="{{route('persona.index','Proveedor')}}">Proveedores</a>
-                </li>
+
+
                   @endcan
             </ul>
             </li>
 
-          <li><a><i class="fa fa-user"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu" style="display: none">
-              <li>
-                <a href="#">lista</a>
-              </li>
-            </ul>
-            </li>
+            <li>
+              <a><i class="fa fa-gears"></i> Suscripciones <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none">
+                @can('crear.suscripcion')
+                  <li>
+                    <a href="{{route('crear.suscripcion')}}">Crear</a>
+                  </li>
+                  @endcan
+                  @can('listar.suscripcion')
+                  <li>
+                    <a href="{{url('suscripciones')}}">Lista</a>
+                  </li>
+                  @endcan
+              </ul>
+             </li>
+          <li>
+            <a><i class="fa fa-child"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
+              <ul class="nav child_menu" style="display: none">
+                <li>
+                  <a href="#">Crear</a>
+                </li>
+                <li>
+                  <a href="#">lista</a>
+                </li>
+              </ul>
+          </li>
 
             <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
@@ -87,15 +98,16 @@
               </ul>
               </li>
 
-          <li><a><i class="fa fa-book"></i> El Man esta Vivo <span class="fa fa-chevron-down"></span></a>
+
+          <li>
+            <a><i class="fa fa-book"></i> Configuración<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
-                <li><a href="{{url('suscripciones')}}">Suscripciones</a>
+                <li>
+                  <a href="{{route('roles.create')}}">Roles</a>
                 </li>
+            </ul>
            </li>
 
-
-
-            </ul>
             </li>
           </div>
           <div class="menu_section">
@@ -141,7 +153,7 @@
              <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
              <li><a href="javascript:;">  Perfil</a>
              </li>
-             <li><a href=""><i class="fa fa-sign-out pull-right"></i> Salir</a>
+             <li><a href="{{url('logout')}}"><i class="fa fa-sign-out pull-right"></i> Salir</a>
              </li>
              </ul>
              </li>

@@ -24,49 +24,73 @@
   </div>
   <div class="x_content">
   <br />
-  <form class="form-horizontal form-label-left input_mask">
+  <form class="form-horizontal form-label-left input_mask" action="{{route('usuario.create')}}" method="post">
+    {!!csrf_field()!!}
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nombres">
+  <input type="text" class="form-control has-feedback-left" id="inputSuccess2" name="nombres" placeholder="Nombres">
   <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
   </div>
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control" id="inputSuccess3" placeholder="Apellidos">
-  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+  <input type="text" class="form-control" id="inputSuccess3" name="apellidos" placeholder="Apellidos">
+  <span class="fa fa-user form-control-feedback right"  aria-hidden="true"></span>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email">
+  <input type="text" class="form-control has-feedback-left" name="email" id="inputSuccess4" placeholder="Email">
   <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control" id="inputSuccess5" placeholder="Teléfono">
+  <input type="text" class="form-control" id="inputSuccess5" name="telefono" placeholder="Teléfono">
   <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
   </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+  <input type="text" class="form-control has-feedback-left" name="cedula" id="inputSuccess4" placeholder="No. Identificacion">
+  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+  <input type="text" class="form-control" id="inputSuccess5" name="pass" placeholder="Contraseña">
+  <span class="fa fa-gear form-control-feedback right" aria-hidden="true"></span>
+  </div>
+
 
 <div class="form-group">
-  <label class="control-label col-md-3 col-sm-3 col-xs-12">ROL</label>
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">Regional</label>
   <div class="col-md-9 col-sm-9 col-xs-12">
-      <select class="form-control">
-          <option>Super admin</option>
-          <option>Option one</option>
-          <option>Option two</option>
-          <option>Option three</option>
-          <option>Option four</option>
+      <select name="regional" class="form-control">
+          <option  value="">Seleccione...</option>
+          @foreach($regiones as $region)
+          <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+          @endforeach
+
       </select>
   </div>
 </div>
 <div class="form-group">
-  <label class="control-label col-md-3 col-sm-3 col-xs-12">PERMISOS</label>
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">Cargo</label>
   <div class="col-md-9 col-sm-9 col-xs-12">
-      <select class="form-control">
-          <option>Choose option</option>
-          <option>Option one</option>
-          <option>Option two</option>
-          <option>Option three</option>
-          <option>Option four</option>
+      <select name="cargo" class="form-control">
+          <option value="" >Seleccione...</option>
+          @foreach($cargos as $cargo)
+          <option value="{{$cargo->nombre}}">{{$cargo->nombre}}</option>
+          @endforeach
+
       </select>
   </div>
+</div>
+
+
+<hr>
+<div class="form-group">
+    <h4>ROLES</h4>
+  @foreach($roles as $role)
+  <div class="checkbox">
+  <label>
+    {{Form::checkbox('roles[]',$role->id,null)}}
+    {{$role->name}}
+  </label>
+  </div>
+  @endforeach
 </div>
 
 
@@ -111,7 +135,11 @@
   <td>{{$user->name}}</td>
   <td>Lider nacional</td>
   <td>{{$user->email}}</td>
-  <td><button type="button" style="width:100%;" class="btn btn-default" name="button">Ver</button></td>
+  <td>
+    <a href="{{route('usuario.edit',$user->id)}}">
+    <button type="button" style="width:100%;" class="btn btn-default" name="button">Editar</button>
+    </a>
+  </td>
 
   </tr>
   @endforeach

@@ -48,20 +48,26 @@ ACTIVO
 <td class="a-right a-right ">{{$p->correo}}</td>
 <td class="a-right a-right ">{{$p->telefono}}</td>
 <td class=" last">
-  @can('persona.show')
+  @can('ver.titular')
 <a href="{{url('detalle',$p->id)}}">
-  <button type="button" class="btn btn-default"
+  <button type="button" class="btn btn-sm btn-default"
   data-toggle="tooltip" data-placement="left" >VER
   </button>
 </a>
 @endcan
-@can('persona.edit')
+@can('editar.titular')
 <a href="{{url('editar',$p->id)}}">
-  <button type="button" class="btn btn-default "
+  <button type="button" class="btn btn-sm btn-default "
   data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
 @endcan
+
+<a href="{{route('agregar.suscripcion',$p->id)}}">
+  <button type="button" class="btn btn-sm btn-default "
+  data-toggle="tooltip" data-placement="left" >AGREGAR SUSCRIPCIÓN
+  </button>
+</a>
 </td>
 </tr>
 @endforeach

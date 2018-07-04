@@ -6,7 +6,7 @@
 <div class="">
 <div class="page-title">
 <div class="title_left">
-<h3>SUSCRIPCIONES</h3>
+<h3>EDITAR SUSCRIPCIÓN</h3>
 </div>
 
 </div>
@@ -31,31 +31,20 @@
 
 <form class="" action="{{url('crear-suscripcion')}}" method="post">
   {!!csrf_field()!!}
-  <div class="col-md-6 form-group">
-    <label for="">Nombres</label>
-    <input type="text" class="form-control" id="" name="nombres" placeholder="">
-  </div>
-  <div class="col-md-6 form-group">
-    <label for="">Apellidos</label>
-    <input type="text" class="form-control" id="" name="apellidos" placeholder="">
-  </div>
-  <div class="col-md-6 form-group">
-    <label for="">Correo</label>
-    <input type="text" class="form-control" id="" name="correo" placeholder="">
-  </div>
+
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
-    <input type="text" class="form-control" id="" name="nombre_recibe" placeholder="">
+    <input type="text" class="form-control" id="" name="nombre_recibe" value="" placeholder="">
   </div>
 
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>
-    <input type="text" class="form-control" id="" name="telefono" placeholder="">
+    <input type="text" class="form-control" id="" name="telefono" value="" placeholder="">
   </div>
  <div class="col-md-6 form-group">
    <label for="">Oracional</label>
    <select class="form-control" name="oracional">
-     <option value="">Seleccione...</option>
+     <option  value="">Seleccione...</option>
      <option value="Jovenes">Jovenes</option>
      <option value="Aldultos">Adultos</option>
    </select>
@@ -64,17 +53,18 @@
    <label for="">Plan</label>
    <select class="form-control" name="plan">
      <option value="">Seleccione...</option>
-     <option value="6">6 meses</option>
+     <option value="6">6 Meses</option>
      <option value="12">1 Año</option>
    </select>
  </div>
+
  <div class="col-md-6 form-group">
    <label for="">Dirección</label>
-   <input type="text" class="form-control" id="" name="direccion" placeholder="">
+   <input type="text" class="form-control" id="" name="direccion" value="" placeholder="">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
-   <input type="text" class="form-control" id="" name="especificacion_direccion" placeholder="">
+   <input type="text" class="form-control" id="" name="especificacion_direccion" value="" placeholder="">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
@@ -90,13 +80,14 @@
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion</label>
-   <input type="date" required class="form-control" id="" name="fecha" placeholder="">
+   <label for="">Fecha de suscripcion  </label>
+   <input type="date" class="form-control" id="" name="fecha"  placeholder="">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>
    <textarea name="observacion" class="form-control" rows="5" cols="80"></textarea>
  </div>
+ <input type="hidden" name="persona_id" value="{{$persona->id}}">
  <div class="col-md-9 form-group">
    <input type="submit" class="btn btn-primary" name="" value="CREAR">
  </div>
@@ -114,20 +105,31 @@
 <section class="panel">
 
 <div class="x_title">
-<h2>Información</h2>
+<h2>Información del titular</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
-<h3 class="green"><i class="fa fa-book"></i></h3>
+<h3 class="green"><i class="fa fa-book"></i> </h3>
 
-<p>Tener en cuenta que las entregas de los oracionales
-se realizarán a partir de dia 15 de cada mes.</p>
-<br />
-
-<br />
-
+<p></p>
 <br/>
 
+<div class="project_detail">
+
+<p class="title">Usuario</p>
+<p>{{$persona->nombres}}</p>
+<p class="title">Correo</p>
+<p>{{$persona->correo}}</p>
+<p class="title">Telefono</p>
+<p>{{$persona->telefono}}</p>
+</div>
+<br />
+<h3></h3>
+
+<br/>
+<div class="text-center mtop20">
+
+</div>
 </div>
 
 </section>

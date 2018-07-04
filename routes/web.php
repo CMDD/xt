@@ -26,27 +26,28 @@ Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
 
-  Route::get('ixtus','DashController@index');
-Route::post('verificar','UsuarioController@verificar');
-// Personas
-Route::middleware(['auth'])->group(function(){
 
+Route::post('verificar','UsuarioController@verificar');
+
+Route::middleware(['auth'])->group(function(){
+Route::get('ixtus','DashController@index');
+  // Titular
   Route::get('crear-persona/{audio?}','PersonaController@index')
-         ->name('persona.create')
-         ->middleware('permission:persona.create');
+         ->name('crear.titular')
+         ->middleware('permission:crear.titular');
 
   Route::get('listar/{nombre}','PersonaController@listar')
-         ->name('persona.index')
-         ->middleware('permission:persona.index');
+         ->name('listar.titular')
+         ->middleware('permission:listar.titular');
   Route::post('crear-persona','PersonaController@crear');
 
   Route::get('editar/{id}','PersonaController@editar')
-      ->name('persona.edit')
-      ->middleware('permission:persona.edit');
+      ->name('editar.titular')
+      ->middleware('permission:editar.titular');
 
   Route::get('detalle/{id}','PersonaController@detalle')
-      ->name('persona.show')
-      ->middleware('permission:persona.show');
+      ->name('ver.titular')
+      ->middleware('permission:ver.titular');
 
   Route::get('eliminar_tipo/{id}','PersonaController@eliminarTipo');
 
@@ -54,21 +55,56 @@ Route::middleware(['auth'])->group(function(){
 
   Route::post('actualizar_persona/{id}','PersonaController@actualizar');
 
+
+  // Suscripciones
+  Route::get('suscripciones','SuscripcionController@lista')
+  ->name('listar.suscripcion')
+  ->middleware('permission:listar.suscripcion');
+
+  Route::get('editar_suscripcion/{id}','SuscripcionController@edit')
+  ->name('editar.suscripcion')
+  ->middleware('permission:editar.suscripcion');
+
+  Route::get('crear-suscripcion','SuscripcionController@crearSuscripcion')
+  ->name('crear.suscripcion')
+  ->middleware('permission:crear.suscripcion');
+
+  Route::get('suscripcion/{id}','SuscripcionController@ver')
+  ->name('ver.suscripcion')
+  ->middleware('permission:ver.suscripcion');
+
+  Route::get('eliminar_suscripcion/{id}','SuscripcionController@destroy')
+  ->name('eliminar.suscripcion')
+  ->middleware('permission:eliminar.suscripcion');
+
+  Route::post('suscripcion/{id}','SuscripcionController@crear');
+
+  Route::post('actualizar_suscripcion/{id}','SuscripcionController@update')
+  ->name('actualizar.suscripcion');
+  Route::post('crear-suscripcion','SuscripcionController@store');
+  Route::get('agregar-suscripcion/{id}','SuscripcionController@agregar')
+  ->name('agregar.suscripcion');
+
 });
 
 
 
+//Roles
 
-
+Route::get('role/crear','RoleController@index')->name('roles.create');
+Route::post('role/crear','RoleController@store')->name('roles.store');
+Route::get('role-edit/{role}','RoleController@edit')->name('roles.edit');
+Route::post('role-update/{role}','RoleController@update')->name('roles.update');
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');
-//Suscripciones
-Route::get('suscripciones','SuscripcionController@lista');
-Route::post('suscripcion/{id}','SuscripcionController@crear');
-Route::get('suscripcion/{id}','SuscripcionController@ver');
-Route::get('crear-suscripcion','SuscripcionController@crearSuscripcion');
-// Usuario
+
+
+// Usuarios
 Route::get('usuario-crear','UsuarioController@crear');
-Auth::routes();
+Route::post('usuario-crear','UsuarioController@store')->name('usuario.create');
+Route::get('usuario-editar/{user}','UsuarioController@edit')->name('usuario.edit');
+Route::post('usuario-update/{user}','UsuarioController@update')->name('usuario.update');
+Route::get('logout','UsuarioController@logout');
+ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
