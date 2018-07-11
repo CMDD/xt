@@ -126,10 +126,15 @@ Route::get('ixtus','DashController@index');
   Route::post('update_donaciones/{id}','DonacionController@update');
   Route::post('crear_donacion','DonacionController@store');
 
+  // Reportes
+  Route::get('bd_nacional','ReporteController@titularNacional');
+  Route::get('reportes','ReporteController@index');
+  Route::get('reporte_suscripcion','ReporteController@suscripciones');
+  Route::get('reporte_donaciones','ReporteController@donaciones');
+
 });
 
-// Reportes
-Route::get('bd_nacional','ReporteController@titularNacional');
+
 
 
 
