@@ -58,6 +58,8 @@
      <option value="">Seleccione...</option>
      <option value="Jovenes">Jovenes</option>
      <option value="Aldultos">Adultos</option>
+     <option value="Niños">Niños</option>
+     <option value="Puerta a la palabra">Puerta a la palabra</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
