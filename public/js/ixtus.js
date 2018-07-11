@@ -1,3 +1,31 @@
+
+// Cargar ciudades
+
+$(function(){
+  $('#region').on('change',cargarCiudades);
+});
+
+function cargarCiudades(){
+  let region_id = $(this).val();
+  if (!region_id) {
+    $('#ciudad').html('<option value="">Seleccione...</option>');
+    return;
+  }
+ // Peticion ajax
+ let html_select = '<option value="">Seleccione...</option>';
+ $.get('api/region/'+region_id+'/ciudades',function(data){
+    for(i=0;i<data.length;++i)
+    html_select += '<option value="'+data[i].nombre+'">'+data[i].nombre+'</option>';
+    $('#ciudad').html(html_select);
+ });
+}
+
+
+
+
+
+
+
 function mostrarSuscripcion(){
     $ventana = document.getElementById('panel-suscripcion');
     $ventana.style.display = 'block';
@@ -189,25 +217,3 @@ function mostrarDonacion(donacion){
          console.log(donaciones);
 
       }
-
-
-// Cargar ciudades
-
-$(function(){
-  $('#region').on('change',cargarCiudades);
-});
-
-function cargarCiudades(){
-  let region_id = $(this).val();
-  if (!region_id) {
-    $('#ciudad').html('<option value="">Seleccione...</option>');
-    return;
-  }
- // Peticion ajax
- let html_select = '<option value="">Seleccione...</option>';
- $.get('api/region/'+region_id+'/ciudades',function(data){
-    for(i=0;i<data.length;++i)
-    html_select += '<option value="'+data[i].nombre+'">'+data[i].nombre+'</option>';
-    $('#ciudad').html(html_select);
- });
-}
