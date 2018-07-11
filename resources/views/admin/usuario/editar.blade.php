@@ -148,7 +148,7 @@
 <td>Lider nacional</td>
 <td>{{$user->email}}</td>
 <td>
-  <a href="{{route('usuario.edit',$user->id)}}">
+  <a href="{{route('editar.usuario',$user->id)}}">
   <button type="button" style="width:100%;" class="btn btn-default" name="button">Editar</button>
   </a>
 </td>

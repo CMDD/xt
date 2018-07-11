@@ -24,23 +24,23 @@
 <table id="example" class="table table-striped responsive-utilities jambo_table">
 <thead>
 <tr class="headings">
-<th>
-ACTIVO
+<th style="width:10%;" >
+ESTADO
 </th>
 <th>NOMBRES</th>
-<th> APELLIDOS</th>
+<th>APELLIDOS</th>
 <th>IDENTIFICACIÓN</th>
 <th>CORREO</th>
 <th>TÉLEFONO/CELULAR</th>
-<th class=" no-link last"><span class="nobr">ACCIÓN</span>
+<th class=" no-link last"><span class="nobr">ACCIÓN | AGREGAR</span>
 </th>
 </tr>
 </thead>
 <tbody>
   @forelse($personas as $p)
 <tr class="even pointer">
-<td class="  ">
-<p type="" class="{{$p->estado}}">
+<td  class="">
+  {{$p->estado}}
 </td>
 <td class=" ">{{$p->nombres}}</td>
 <td class=" ">{{$p->apellidos}}</td>
@@ -62,12 +62,20 @@ ACTIVO
   </button>
 </a>
 @endcan
-
+@can('crear.suscripcion')
 <a href="{{route('agregar.suscripcion',$p->id)}}">
   <button type="button" class="btn btn-sm btn-default "
-  data-toggle="tooltip" data-placement="left" >AGREGAR SUSCRIPCIÓN
+  data-toggle="tooltip" data-placement="left" > SUSCRIPCIÓN
   </button>
 </a>
+@endcan
+@can('crear.donacion')
+<a href="{{route('agregar.suscripcion',$p->id)}}">
+  <button type="button" class="btn btn-sm btn-default "
+  data-toggle="tooltip" data-placement="left" > DONACION
+  </button>
+</a>
+@endcan
 </td>
 </tr>
 @endforeach

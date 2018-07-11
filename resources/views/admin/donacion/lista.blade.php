@@ -11,7 +11,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>SUSCRIPCIONES |<small>IXTUS</small></h2>
+<h2> DONACIONES |<small>IXTUS</small></h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -25,51 +25,46 @@
 <thead>
 <tr class="headings">
 <th>
-ACTIVO
+ESTADO
 </th>
-<th>PLAN</th>
-<th> ORACIONAL</th>
-<th>FECHA INICIO</th>
-<th>FECHA CORTE</th>
+<th>PROGRAMA</th>
+<th>BENEFACTOR</th>
+<th>No. RECIBO</th>
+<th>PERIOCIDAD</th>
 <th>TITULAR</th>
-<th class=" no-link last"><span class="nobr">DETALLES</span>
+<th class=" no-link last"><span class="nobr">ACCION</span>
 </th>
 </tr>
 </thead>
 <tbody>
-  @forelse($sus as $p)
+  @forelse($donaciones as $p)
 <tr class="even pointer">
 <td class="  ">
-<p type="" class="{{$p->estado}}">
+  {{$p->estado}}
 </td>
-<td class=" ">{{$p->plan}} Meses</td>
-<td class=" ">{{$p->oracional}}</td>
-<td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
-<td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
-<td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
+<td class=" ">{{$p->programa}}</td>
+<td class=" ">{{$p->nombre_benefactor}}</td>
+<td class=" ">{{$p->recibo_pago}}</td>
+<td class="a-right a-right ">{{$p->fecha}}</td>
+<td class="a-right a-right ">{{$p->persona->nombres}}</td>
 <td class=" last">
-  @can('ver.suscripcion')
-<a href="{{url('suscripcion',$p->id)}}">
+@can('ver.donacion')
+<a href="{{route('ver.donacion',$p->id)}}">
   <button type="button" class="btn btn-sm btn-default"
   data-toggle="tooltip" data-placement="left" >VER
   </button>
 </a>
 @endcan
-@can('editar.suscripcion')
-<a href="{{route('editar.suscripcion',$p->id)}}">
+
+@can('editar.donaciones')
+<a href="{{route('editar.donaciones',$p->id)}}">
   <button type="button" class="btn btn-sm btn-default "
   data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
 @endcan
 
-@can('eliminar.suscripcion')
-<a href="">
-  <button type="button" class="btn btn-sm btn-default "
-  data-toggle="tooltip" data-placement="left" >ELIMINAR
-  </button>
-</a>
-@endcan
+
 </td>
 </tr>
 @endforeach

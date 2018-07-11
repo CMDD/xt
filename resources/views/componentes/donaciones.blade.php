@@ -25,7 +25,7 @@
                 <th>Borrar</th>
                 <th></th>
               </tr>
-              
+
 
             </thead>
             <tbody id="mostrar-donacion">
@@ -44,7 +44,7 @@
         <div  id="direccion" >
           <div class="col-md-12">
             Nombre del Benefactor <br>
-            <input class="nombre-recibe" type="text" id="nombre_benefactor" name="nombre_benefactor" value="" >
+            <input class="nombre-recibe"  type="text" id="nombre_benefactor" name="nombre_benefactor" value="" >
           </div>
 
           <div class=" direccion-suscripcion col-md-6">

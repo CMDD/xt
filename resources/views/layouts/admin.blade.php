@@ -35,7 +35,7 @@
           </div>
           <div class="profile_info">
           <span>Bienvenido,</span>
-          <h2>Javier Cera</h2>
+          <h2>{{Auth::User()->name}}</h2>
           </div>
           </div>
            <!-- /menu prile quick info -->
@@ -58,55 +58,56 @@
                 @can('listar.titular')
                 <li><a href="{{route('listar.titular','General')}}">Lista</a>
                 </li>
-
-
-                  @endcan
+                @endcan
             </ul>
-            </li>
+          </li>
 
-            <li>
-              <a><i class="fa fa-gears"></i> Suscripciones <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                @can('crear.suscripcion')
-                  <li>
-                    <a href="{{route('crear.suscripcion')}}">Crear</a>
-                  </li>
-                  @endcan
-                  @can('listar.suscripcion')
-                  <li>
-                    <a href="{{url('suscripciones')}}">Lista</a>
-                  </li>
-                  @endcan
-              </ul>
-             </li>
+          <li>
+            <a><i class="fa fa-gears"></i> Suscripciones <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu" style="display: none">
+              @can('crear.suscripcion')
+                <li>
+                  <a href="{{route('crear.suscripcion')}}">Crear</a>
+                </li>
+                @endcan
+                @can('listar.suscripcion')
+                <li>
+                  <a href="{{url('suscripciones')}}">Lista</a>
+                </li>
+                @endcan
+            </ul>
+           </li>
           <li>
             <a><i class="fa fa-child"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
+                @can('crear.donacion')
                 <li>
-                  <a href="#">Crear</a>
+                  <a href="{{route('crear.donacion')}}">Crear</a>
                 </li>
+                @endcan
+                @can('listar.donaciones')
                 <li>
-                  <a href="#">lista</a>
+                  <a href="{{route('listar.donaciones')}}">lista</a>
                 </li>
+                @endcan
               </ul>
           </li>
-
-            <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                  <li><a href="{{url('usuario-crear')}}">Administrar</a>
-                  </li>
-              </ul>
-              </li>
-
 
           <li>
             <a><i class="fa fa-book"></i> Configuración<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
+              @can('crear.roles')
                 <li>
-                  <a href="{{route('roles.create')}}">Roles</a>
+                  <a href="{{route('crear.roles')}}">Roles</a>
                 </li>
+              @endcan
+                @can('crear.usuario')
+                <li>
+                  <a href="{{url('usuario-crear')}}">Usuarios</a>
+                </li>
+                @endcan
             </ul>
-           </li>
+         </li>
 
             </li>
           </div>
@@ -147,7 +148,7 @@
            <ul class="nav navbar-nav navbar-right">
              <li class="">
              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-             <img src="/img/user.png" alt="">Javier Cera
+             <img src="/img/user.png" alt="">{{Auth::User()->name}}
              <span class=" fa fa-angle-down"></span>
              </a>
              <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

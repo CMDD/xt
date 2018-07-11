@@ -65,5 +65,46 @@ class PermissionTableSeeder extends Seeder
             'slug' => 'eliminar.suscripcion',
             'description' => 'Elimina cualquier  suscripcion del sistema'
           ]);
+
+          // Usuario
+          Permission::create([
+            'name' => 'Crear usuario',
+            'slug' => 'crear.usuario',
+            'description' => 'Crea usuario al sistema'
+          ]);
+          // Roles
+          Permission::create([
+            'name' => 'Rol usuario',
+            'slug' => 'crear.roles',
+            'description' => 'Crea roles al sistema'
+          ]);
+
+          
+          // Donaciones
+          Permission::create([
+            'name' => 'Creacion de donaciones',
+            'slug' => 'crear.donacion',
+            'description' => 'Crea donaciones al sistema'
+          ]);
+          Permission::create([
+            'name' => 'Listar donaciones',
+            'slug' => 'listar.donaciones',
+            'description' => 'Listrar donaciones del sistema'
+          ]);
+          Permission::create([
+            'name' => 'Eliminar donacion',
+            'slug' => 'eliminar.donacion',
+            'description' => 'Listar donaciones del sistema'
+          ]);
+          Permission::create([
+            'name' => 'Editar donacion',
+            'slug' => 'editar.donaciones',
+            'description' => 'editar donaciones del sistema'
+          ]);
+          Permission::create([
+            'name' => 'Ver donacion',
+            'slug' => 'ver.donacion',
+            'description' => 'Ver detalle de donacion del sistema'
+          ]);
     }
 }

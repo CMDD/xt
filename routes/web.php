@@ -26,9 +26,9 @@ Route::get('llamar',function(){
   return view('admin.callcenter.llamar');
 });
 
-
 Route::post('verificar','UsuarioController@verificar');
 
+// Grupode rutas
 Route::middleware(['auth'])->group(function(){
 Route::get('ixtus','DashController@index');
   // Titular
@@ -83,28 +83,65 @@ Route::get('ixtus','DashController@index');
   ->name('actualizar.suscripcion');
   Route::post('crear-suscripcion','SuscripcionController@store');
   Route::get('agregar-suscripcion/{id}','SuscripcionController@agregar')
-  ->name('agregar.suscripcion');
+  ->name('agregar.suscripcion')
+  ->middleware('permission:crear.suscripcion');
+
+  // Usuarios
+  Route::get('usuario-crear','UsuarioController@crear')
+  ->name('crear.usuario')->middleware('permission:crear.usuario');
+  Route::post('usuario-crear','UsuarioController@store');
+  Route::get('usuario-editar/{user}','UsuarioController@edit')->name('editar.usuario');
+  Route::get('usuario-eliminar/{user}','UsuarioController@destroy')->name('eliminar.usuario');
+  Route::post('usuario-update/{user}','UsuarioController@update')->name('usuario.update');
+
+  //Roles
+  Route::get('role/crear','RoleController@index')
+  ->name('crear.roles')
+  ->middleware('permission:crear.roles');
+  Route::post('role/crear','RoleController@store')->name('roles.store');
+  Route::get('role-edit/{role}','RoleController@edit')->name('roles.edit');
+  Route::post('role-update/{role}','RoleController@update')->name('roles.update');
+
+  // Donacion
+  Route::get('crear_donacion','DonacionController@crear')
+  ->name('crear.donacion')
+  ->middleware('permission:crear.donacion');
+
+  Route::get('listar_donaciones','DonacionController@listar')
+  ->name('listar.donaciones')
+  ->middleware('permission:listar.donaciones');
+
+  Route::get('editar_donaciones/{donacion}','DonacionController@edit')
+  ->name('editar.donaciones')
+  ->middleware('permission:editar.donaciones');
+
+  Route::get('ver_donacion/{donacion}','DonacionController@ver')
+  ->name('ver.donacion')
+  ->middleware('permission:ver.donacion');
+
+  Route::get('aliminar/{id}','DonacionController@destroy')
+  ->name('eliminar.donacion')
+  ->middleware('permission:eliminar.donacion');
+
+  Route::post('update_donaciones/{id}','DonacionController@update');
+  Route::post('crear_donacion','DonacionController@store');
 
 });
 
+// Reportes
+Route::get('bd_nacional','ReporteController@titularNacional');
 
 
-//Roles
 
-Route::get('role/crear','RoleController@index')->name('roles.create');
-Route::post('role/crear','RoleController@store')->name('roles.store');
-Route::get('role-edit/{role}','RoleController@edit')->name('roles.edit');
-Route::post('role-update/{role}','RoleController@update')->name('roles.update');
+
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');
 
 
-// Usuarios
-Route::get('usuario-crear','UsuarioController@crear');
-Route::post('usuario-crear','UsuarioController@store')->name('usuario.create');
-Route::get('usuario-editar/{user}','UsuarioController@edit')->name('usuario.edit');
-Route::post('usuario-update/{user}','UsuarioController@update')->name('usuario.update');
+
+
+
 Route::get('logout','UsuarioController@logout');
  Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

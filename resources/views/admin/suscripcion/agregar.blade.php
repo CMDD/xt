@@ -6,7 +6,7 @@
 <div class="">
 <div class="page-title">
 <div class="title_left">
-<h3>EDITAR SUSCRIPCIÓN</h3>
+<h3>AGREGAR SUSCRIPCIÓN</h3>
 </div>
 
 </div>

@@ -252,11 +252,11 @@
       @can('crear.suscripcion')
       <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
       @endcan
-      <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
+      <!-- <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button> -->
       <!-- Ventana de suscripciones -->
       @include('layouts.suscripcion.suscripcion')
       <!-- Formulario para programa de donaciones -->
-      @include('componentes.donaciones')
+      <!-- @include('componentes.donaciones') -->
 
 
       </form>

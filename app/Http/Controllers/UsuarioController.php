@@ -91,7 +91,7 @@ class UsuarioController extends Controller
       $user->roles()->sync($request->roles);
 
 
-      return redirect()->route('usuario.edit',$user->id);
+      return redirect()->route('editar.usuario',$user->id);
 
     }
 }

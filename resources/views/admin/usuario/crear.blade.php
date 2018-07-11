@@ -24,7 +24,7 @@
   </div>
   <div class="x_content">
   <br />
-  <form class="form-horizontal form-label-left input_mask" action="{{route('usuario.create')}}" method="post">
+  <form class="form-horizontal form-label-left input_mask" action="{{url('usuario-crear')}}" method="post">
     {!!csrf_field()!!}
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
@@ -136,7 +136,7 @@
   <td>Lider nacional</td>
   <td>{{$user->email}}</td>
   <td>
-    <a href="{{route('usuario.edit',$user->id)}}">
+    <a href="{{route('editar.usuario',$user->id)}}">
     <button type="button" style="width:100%;" class="btn btn-default" name="button">Editar</button>
     </a>
   </td>
