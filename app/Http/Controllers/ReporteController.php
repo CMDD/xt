@@ -57,10 +57,10 @@ class ReporteController extends Controller
           'empleado' => $empleado
       ];
 
-      
+
 
       $totales = Collection::make($valores);
-
+        
 
       return view('admin.reporte.totales')->with('totales',$totales);
     }
