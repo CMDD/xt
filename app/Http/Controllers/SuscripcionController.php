@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TitularRequest;
 use App\Suscripcion;
 use App\Persona;
 use Carbon\Carbon;
@@ -30,15 +31,17 @@ class SuscripcionController extends Controller
 
   public function store(Request $request){
 
-     if ($request->persona_id) {
+    $titular = Persona::where('correo',$request->correo)->first();
+     if ($titular) {
        // Crear suscripcion
+
        $fecha_final =  Carbon::parse($request->fecha);
        $sus = new Suscripcion();
        $sus->oracional = $request->oracional;
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-       $sus->persona_id = (int)$request->persona_id;
+       $sus->persona_id = $titular->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
        $sus->nombre_recibe = $request->nombre_recibe;
@@ -79,6 +82,9 @@ class SuscripcionController extends Controller
        $sus->save();
 
      }
+
+     alert()->success('Suscripcion Creada!', 'Correctamente')
+     ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
 
       return back();
 

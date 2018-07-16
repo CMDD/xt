@@ -250,7 +250,7 @@
         </div>
       </div>
       @can('crear.suscripcion')
-      <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
+      <!-- <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button> -->
       @endcan
       <!-- <button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button> -->
       <!-- Ventana de suscripciones -->

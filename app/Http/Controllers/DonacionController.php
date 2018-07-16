@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TitularRequest;
 use App\Donacion;
 use App\Persona;
 use Auth;
@@ -15,7 +16,7 @@ class DonacionController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(TitularRequest $request){
       if ($request->correo) {
         $persona = new Persona();
         $persona->nombres = $request->nombre;

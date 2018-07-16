@@ -32,6 +32,10 @@
 <form class="" action="{{url('crear-suscripcion')}}" method="post">
   {!!csrf_field()!!}
   <div class="col-md-6 form-group">
+    <label for="">Cantidad</label>
+    <input type="number" class="form-control" id="" name="cantidad" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
     <label for="">Nombres</label>
     <input type="text" class="form-control" id="" name="nombres" placeholder="">
   </div>
@@ -42,6 +46,11 @@
   <div class="col-md-6 form-group">
     <label for="">Correo</label>
     <input type="text" class="form-control" id="" name="correo" placeholder="">
+    @if($errors->has('correo'))
+      <span class="invalid-feedback">
+        <strong style="color:red" >{{ $errors->first('correo') }}</strong>
+      </span>
+    @endif
   </div>
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
@@ -54,7 +63,7 @@
   </div>
  <div class="col-md-6 form-group">
    <label for="">Oracional</label>
-   <select class="form-control" name="oracional">
+   <select required class="form-control" name="oracional">
      <option value="">Seleccione...</option>
      <option value="Jovenes">Jovenes</option>
      <option value="Aldultos">Adultos</option>
@@ -64,7 +73,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Plan</label>
-   <select class="form-control" name="plan">
+   <select required class="form-control" name="plan">
      <option value="">Seleccione...</option>
      <option value="6">6 meses</option>
      <option value="12">1 Año</option>
@@ -72,15 +81,15 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Dirección</label>
-   <input type="text" class="form-control" id="" name="direccion" placeholder="">
+   <input required type="text" class="form-control" id="" name="direccion" placeholder="">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
    <input type="text" class="form-control" id="" name="especificacion_direccion" placeholder="">
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Región</label>
-   <select name="region" class="form-control">
+   <label for="">Departamento</label>
+   <select name="departamento" class="form-control">
      <option value="">Seleccione...</option>
 
    </select>

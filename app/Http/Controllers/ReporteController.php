@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use  Illuminate\Support\Collection as Collection;
 use App\Persona;
 use App\Suscripcion;
 use App\Donacion;
+use App\TipoPersona;
 
 class ReporteController extends Controller
 {
@@ -28,5 +31,37 @@ class ReporteController extends Controller
     public function index(){
 
       return view('admin.reporte.index');
+    }
+    public function totales(){
+      $total = Persona::count();
+      $oyente = TipoPersona::where('nombre','Oyente')->count();
+      $cliente = TipoPersona::where('nombre','Cliente')->count();
+      $alumno = TipoPersona::where('nombre','Alumno')->count();
+      $asistente = TipoPersona::where('nombre','Asistente')->count();
+      $servidor = TipoPersona::where('nombre','Servidor')->count();
+      $proveedor = TipoPersona::where('nombre','Proveedor')->count();
+      $suscriptor = TipoPersona::where('nombre','Suscriptor')->count();
+      $benefactor = TipoPersona::where('nombre','Benefactor')->count();
+      $empleado = TipoPersona::where('nombre','Empleado')->count();
+
+      $valores = [
+          'total' => $total,
+          'oyente' => $oyente,
+          'cliente' => $cliente,
+          'alumno' => $alumno,
+          'asistente' => $asistente,
+          'servidor' => $servidor,
+          'proveedor' => $proveedor,
+          'suscriptor' => $suscriptor,
+          'benefactor' => $benefactor,
+          'empleado' => $empleado
+      ];
+
+      
+
+      $totales = Collection::make($valores);
+
+
+      return view('admin.reporte.totales')->with('totales',$totales);
     }
 }

@@ -27,7 +27,6 @@ Route::get('llamar',function(){
 });
 
 Route::post('verificar','UsuarioController@verificar');
-
 // Grupode rutas
 Route::middleware(['auth'])->group(function(){
 Route::get('ixtus','DashController@index');
@@ -131,6 +130,7 @@ Route::get('ixtus','DashController@index');
   Route::get('reportes','ReporteController@index');
   Route::get('reporte_suscripcion','ReporteController@suscripciones');
   Route::get('reporte_donaciones','ReporteController@donaciones');
+  Route::get('totales','ReporteController@totales');
 
 });
 

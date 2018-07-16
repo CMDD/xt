@@ -32,7 +32,7 @@ ACTIVO
 <th>FECHA INICIO</th>
 <th>FECHA CORTE</th>
 <th>TITULAR</th>
-<th class=" no-link last"><span class="nobr">DETALLES</span>
+<th >DETALLES
 </th>
 </tr>
 </thead>

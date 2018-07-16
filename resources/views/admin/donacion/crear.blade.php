@@ -38,6 +38,12 @@
   <div class="col-md-6 form-group">
     <label for="">Correo</label>
     <input type="text" class="form-control"  id="" name="correo" placeholder="">
+
+@if ($errors->has('correo'))
+  <span class="invalid-feedback">
+    <strong style="color:red" >{{ $errors->first('correo') }}</strong>
+  </span>
+@endif
   </div>
   <div class="col-md-6 form-group">
     <label for="">Valor donado</label>

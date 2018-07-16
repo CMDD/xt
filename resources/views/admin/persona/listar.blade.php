@@ -29,10 +29,9 @@ ESTADO
 </th>
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
-<th>IDENTIFICACIÓN</th>
 <th>CORREO</th>
 <th>TÉLEFONO/CELULAR</th>
-<th class=" no-link last"><span class="nobr">ACCIÓN | AGREGAR</span>
+<th >ACCIÓN | AGREGAR
 </th>
 </tr>
 </thead>
@@ -44,7 +43,6 @@ ESTADO
 </td>
 <td class=" ">{{$p->nombres}}</td>
 <td class=" ">{{$p->apellidos}}</td>
-<td class=" ">{{$p->numero_documento}}</td>
 <td class="a-right a-right ">{{$p->correo}}</td>
 <td class="a-right a-right ">{{$p->telefono}}</td>
 <td class=" last">

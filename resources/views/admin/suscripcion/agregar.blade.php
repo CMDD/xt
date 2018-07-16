@@ -31,6 +31,10 @@
 
 <form class="" action="{{url('crear-suscripcion')}}" method="post">
   {!!csrf_field()!!}
+  <div class="col-md-6 form-group">
+    <label for="">Cantidad</label>
+    <input type="number" class="form-control" id="" name="cantidad" placeholder="">
+  </div>
 
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
@@ -122,6 +126,8 @@
 <p>{{$persona->correo}}</p>
 <p class="title">Telefono</p>
 <p>{{$persona->telefono}}</p>
+<p class="title">Dirección</p>
+<p>{{$persona->direccion}}</p>
 </div>
 <br />
 <h3></h3>

@@ -56,11 +56,11 @@
 <tbody>
 <tr>
 
-<td>Total de suscripciones</td>
+<td>Cantidades totales</td>
 
 <td>
-<a>Las suscripciones activas</a>
-<br />
+ <a>Muestra las totalidad de los registros</a>
+<br/>
 <small>Fecha:</small>
 </td>
 
@@ -69,7 +69,7 @@
 <button type="button" class="btn btn-success btn-xs">Activo</button>
 </td>
 <td>
-<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Ver </a>
+<a href="{{url('totales')}}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Ver </a>
 <a href="#" class="btn btn-info btn-xs"><i class="fa fa-print"></i> Imprimir </a>
 </td>
 </tr>
