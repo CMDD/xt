@@ -43,7 +43,6 @@ class ReporteController extends Controller
       $suscriptor = TipoPersona::where('nombre','Suscriptor')->count();
       $benefactor = TipoPersona::where('nombre','Benefactor')->count();
       $empleado = TipoPersona::where('nombre','Empleado')->count();
-
       $valores = [
           'total' => $total,
           'oyente' => $oyente,
@@ -56,12 +55,7 @@ class ReporteController extends Controller
           'benefactor' => $benefactor,
           'empleado' => $empleado
       ];
-
-
-
       $totales = Collection::make($valores);
-        
-
       return view('admin.reporte.totales')->with('totales',$totales);
     }
 }
