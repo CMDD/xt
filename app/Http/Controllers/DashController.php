@@ -16,9 +16,37 @@ class DashController extends Controller
       $count_personas = Persona::count();
       $count_suscripcion = Suscripcion::count();
       $count_donacion = Donacion::count();
+
+
+        //Valores nacionales
+      $total = Persona::count();
+      $oyente = TipoPersona::where('nombre','Oyente')->count();
+      $cliente = TipoPersona::where('nombre','Cliente')->count();
+      $alumno = TipoPersona::where('nombre','Alumno')->count();
+      $asistente = TipoPersona::where('nombre','Asistente')->count();
+      $servidor = TipoPersona::where('nombre','Servidor')->count();
+      $proveedor = TipoPersona::where('nombre','Proveedor')->count();
+      $suscriptor = TipoPersona::where('nombre','Suscriptor')->count();
+      $benefactor = TipoPersona::where('nombre','Benefactor')->count();
+      $empleado = TipoPersona::where('nombre','Empleado')->count();
+      $totales = [
+          'total' => $total,
+          'oyente' => $oyente,
+          'cliente' => $cliente,
+          'alumno' => $alumno,
+          'asistente' => $asistente,
+          'servidor' => $servidor,
+          'proveedor' => $proveedor,
+          'suscriptor' => $suscriptor,
+          'benefactor' => $benefactor,
+          'empleado' => $empleado
+      ];
+
+
       return view('admin.dashboard')
       ->with('count_personas',$count_personas)
       ->with('count_suscripcion',$count_suscripcion)
-      ->with('count_donacion',$count_donacion);
+      ->with('count_donacion',$count_donacion)
+      ->with('totales',$totales);
     }
 }
