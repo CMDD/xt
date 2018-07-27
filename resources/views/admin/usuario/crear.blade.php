@@ -133,7 +133,7 @@
   <tr>
   <th scope="row">{{$user->id}}</th>
   <td>{{$user->name}}</td>
-  <td>Lider nacional</td>
+   <td>Lider nacional</td>  <!-- Pendiente para corregir -->
   <td>{{strtolower($user->email)}}</td>
   <td>
     <a href="{{route('editar.usuario',$user->id)}}">

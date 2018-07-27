@@ -131,6 +131,8 @@ Route::get('ixtus','DashController@index');
   Route::get('reporte_suscripcion','ReporteController@suscripciones');
   Route::get('reporte_donaciones','ReporteController@donaciones');
   Route::get('totales','ReporteController@totales');
+  Route::get('parametros','ReporteController@parametros');
+  Route::post('reporteTitulares','ReporteController@reporteTitulares');
 
 });
 

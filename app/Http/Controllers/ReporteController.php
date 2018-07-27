@@ -9,6 +9,8 @@ use App\Persona;
 use App\Suscripcion;
 use App\Donacion;
 use App\TipoPersona;
+use App\Region;
+use Carbon\Carbon;
 
 class ReporteController extends Controller
 {
@@ -29,8 +31,8 @@ class ReporteController extends Controller
     }
 
     public function index(){
-
-      return view('admin.reporte.index');
+      $regiones = Region::all();
+      return view('admin.reporte.index')->with('regiones',$regiones);
     }
     public function totales(){
       $total = Persona::count();
@@ -57,5 +59,30 @@ class ReporteController extends Controller
       ];
       $totales = Collection::make($valores);
       return view('admin.reporte.totales')->with('totales',$totales);
+    }
+
+    public function reporteTitulares(Request $request){
+      $cantidad = false;
+    $regiones = Region::all();
+    $desde = $request->desde;
+    $hasta = $request->hasta;
+
+    if ($request->tipo == 'cantidades') {
+      
+      $total = Persona::where('region',$request->region)->where('estado',$request->estado)
+      ->where('created_at','>=',$desde)->where('created_at','<=',$hasta)->count();
+
+dd($total);
+      $cantidad = true;
+    }
+
+
+    return view('admin.reporte.index')->with('regiones',$regiones)->with('cantidad',$cantidad);
+    }
+
+
+    public function parametros(){
+
+      return view('admin.reporte.index')->with('regiones',$regiones);
     }
 }
