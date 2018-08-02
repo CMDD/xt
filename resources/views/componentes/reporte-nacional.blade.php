@@ -46,11 +46,11 @@
 </tr>
 <tr>
 <td>Suscriptor</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['suscriptor']}}</td>
 </tr>
 <tr>
 <td>Empleado/aprendiz/Practicante</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['empleado']}}</td>
 </tr>
 </tbody>
 </table>
@@ -62,28 +62,28 @@
 <tbody>
 <tr>
 <td>Oyente</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['oyente']}}</td>
 </tr>
 <tr>
 <td>Benefactor</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['benefactor']}}</td>
 </tr>
 
 <tr>
 <td>Cliente</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['cliente']}}</td>
 </tr>
 <tr>
 <td>Alumno</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['alumno']}}</td>
 </tr>
 <tr>
 <td>Asistente</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['asistente']}}</td>
 </tr>
 <tr>
 <td>Sevidor</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['servidor']}}</td>
 </tr>
 </tbody>
 </table>

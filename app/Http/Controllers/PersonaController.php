@@ -265,13 +265,15 @@ class PersonaController extends Controller
 
     public function editar($id){
       $persona = Persona::find($id);
+      $regiones = Region::all();
       $tipo_personas = TipoPersona::where('persona_id',$id)->get();
       $interes = Interes::where('persona_id',$id)->get();
       $suscripciones = Suscripcion::where('persona_id',$id)->get();
       return view('admin.persona.editar')->with('persona',$persona)
                                           ->with('tipo_personas',$tipo_personas)
                                           ->with('interes',$interes)
-                                          ->with('suscripciones',$suscripciones);
+                                          ->with('suscripciones',$suscripciones)
+                                          ->with('regiones',$regiones);
     }
     public function eliminarTipo($id){
       $tipo=TipoPersona::find($id);

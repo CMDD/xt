@@ -27,7 +27,7 @@
     <div class="tile-stats">
         <div class="icon"><i class="fa fa-book"></i>
         </div>
-        <div class="count">{{$totales['oyente']}}</div>
+        <div class="count">{{$valores['oyente']}}</div>
         <h3>Total oyentes</h3>
         <p>Reporte nacional.</p>
     </div>

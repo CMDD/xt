@@ -69,7 +69,7 @@
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de nacimiento</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="fecha_nacimiento" type="text" class="form-control" placeholder="DD-MM-AA">
+          <input name="fecha_nacimiento" type="date" class="form-control" placeholder="DD-MM-AA">
           </div>
           </div>
           <div class="form-group">
@@ -173,14 +173,12 @@
           </div>
 
           </div>
-          <!-- Formulario tipo de titular -->
-          @include('componentes.formulario_tipo_titular')
-          <!-- Fin Formulario tipo de titular -->
+
 
           <div class="ln_solid"></div>
           <div class="form-group">
           <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-          <button style="width: 100% " type="submit" class="btn btn-success">Crear</button>
+          <button style="width: 70% " type="submit" class="btn btn-success">CREAR</button>
           </div>
           </div>
         </div>
@@ -249,6 +247,17 @@
           <input type="file" name="imagen" >
         </div>
       </div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <!-- Formulario tipo de titular -->
+          @include('componentes.formulario_tipo_titular')
+          <!-- Fin Formulario tipo de titular -->
+        </div>
+      </div>
+
+
       @can('crear.suscripcion')
       <!-- <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button> -->
       @endcan

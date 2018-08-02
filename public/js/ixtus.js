@@ -13,7 +13,7 @@ function cargarCiudades(){
   }
  // Peticion ajax
  let html_select = '<option value="">Seleccione...</option>';
- $.get('api/region/'+region_id+'/ciudades',function(data){
+ $.get('/api/region/'+region_id+'/ciudades',function(data){
     for(i=0;i<data.length;++i)
     html_select += '<option value="'+data[i].nombre+'">'+data[i].nombre+'</option>';
     $('#ciudad').html(html_select);

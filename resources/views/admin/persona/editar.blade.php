@@ -77,7 +77,7 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <div class="form-group">
 <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de nacimiento</label>
 <div class="col-md-8 col-sm-9 col-xs-12">
-<input name="fecha_nacimiento" value="{{$persona->fecha_nacimiento}}" type="text" class="form-control" placeholder="DD-MM-AA">
+<input name="fecha_nacimiento" value="{{$persona->fecha_nacimiento}}" type="date" class="form-control" placeholder="DD-MM-AA">
 </div>
 </div>
 
@@ -110,13 +110,22 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 </div>
 
 <div class="form-group">
-<label class="control-label col-md-3 col-sm-3 col-xs-12">Ciudad</label>
+<label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
-<input  value="{{$persona->ciudad}}" name="ciudad" type="text" class="form-control" placeholder="">
+  <select id="region" class=" form-control" name="region">
+    <option value="">Seleccione...</option>
+    @foreach($regiones as $region)
+    <option value="{{$region->id}}">{{$region->nombre}}</option>
+    @endforeach
+  </select>
+
 </div>
-<label class="control-label col-md-2 col-sm-3 col-xs-12">Paìs</label>
+<label class="control-label col-md-2 col-sm-3 col-xs-12">Ciudad</label>
 <div class="col-md-4 col-sm-9 col-xs-12">
-<input value="{{$persona->pais}}" name="pais" type="text" class="form-control" placeholder="">
+  <select id="ciudad" class=" form-control" name="ciudad">
+
+  </select>
+
 </div>
 </div>
 
@@ -329,12 +338,8 @@ data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
 
 
 </div>
-<button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button>
-<button onclick="mostrarDonaciones()" class="btn btn-default btn-suscripcion" type="button" name="button">PROGRAMA DE DONACIONES</button>
-<!-- Ventana de suscripciones -->
-@include('layouts.suscripcion.suscripcion')
-<!-- Formulario para programa de donaciones -->
-@include('componentes.donaciones')
+
+
 
 </form>
 </div>
