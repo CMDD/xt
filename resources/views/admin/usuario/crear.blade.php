@@ -122,8 +122,8 @@
   <thead>
   <tr>
   <th>Id</th>
-  <th>Nombre</th>
-  <th>Rol</th>
+  <th style="width:8%;" >Nombre</th>
+  <th style="width:10%;" >Rol</th>
   <th>Email</th>
   <th>Acción</th>
   </tr>
@@ -137,10 +137,12 @@
   <td>{{strtolower($user->email)}}</td>
   <td>
     <a href="{{route('editar.usuario',$user->id)}}">
-    <button type="button" style="width:100%;" class="btn btn-default" name="button">Editar</button>
+    <button type="button" style="width:45%;" class="btn btn-default" name="button">Editar</button>
+    </a>
+    <a href="{{route('editar.usuario',$user->id)}}">
+    <button type="button" style="width:45%;" class="btn btn-danger" name="button">Eliminar</button>
     </a>
   </td>
-
   </tr>
   @endforeach
   </tbody>

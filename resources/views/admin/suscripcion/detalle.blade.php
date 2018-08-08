@@ -16,7 +16,7 @@
 <div class="col-md-12">
 <div class="x_panel">
 <div class="x_title">
-<h2> ORACIONAL | {{$sus->oracional}}</h2>
+<h2> SUSCRIPCION | {{$sus->oracional}}</h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -49,6 +49,10 @@
     <label for="">Nombre de quien recibe</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->nombre_recibe}}" >
   </div>
+  <div class="col-md-6 form-group">
+    <label for="">Cantidad</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->cantidad}}" >
+  </div>
 
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>
@@ -59,11 +63,11 @@
     <input type="text" class="form-control" id="" disabled  value="{{$sus->oracional}}" >
   </div>
   <div class="col-md-6 form-group">
-    <label for="">Oracional</label>
-    <input type="text" class="form-control" id="" disabled  value="{{$sus->plan}}" >
+    <label for="">Plan</label>
+    <input type="text" class="form-control" id="" disabled  value="{{$sus->plan}} Meses" >
   </div>
   <div class="col-md-6 form-group">
-    <label for="">Oracional</label>
+    <label for="">Estado</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->estado}}" >
   </div>
 

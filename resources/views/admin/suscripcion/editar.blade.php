@@ -36,6 +36,10 @@
     <label for="">Nombre de quien recibe</label>
     <input type="text" class="form-control" id="" name="nombre_recibe" value="{{$sus->nombre_recibe}}" placeholder="">
   </div>
+  <div class="col-md-6 form-group">
+    <label for="">Cantidad</label>
+    <input type="number" min="0" class="form-control" id="" name="cantidad" value="{{$sus->cantidad}}" placeholder="">
+  </div>
 
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>

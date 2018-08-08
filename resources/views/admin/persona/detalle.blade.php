@@ -19,7 +19,7 @@
           <h2>
             CRM - MD |
         </h2>
-        @can('persona.edit')
+        @can('editar.titular')
         <a href="{{url('editar',$persona->id)}}">
         <button style="margin-left:5%;" type="button" class="btn btn-default button-editar"
         data-toggle="tooltip" data-placement="left" >EDITAR
@@ -187,18 +187,11 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >00122
+            data-toggle="tooltip" data-placement="left" >{{$persona->numero_planilla}}
             </button>
           </div>
           </div>
-          <div style="margin-top:8%;" class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Registro</label>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-          <button type="button" class="btn btn-default tooltip-button-datos"
-          data-toggle="tooltip" data-placement="left" >04100
-          </button>
-          </div>
-          </div>
+
           </div>
         </div>
       </div>
@@ -215,6 +208,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
+            @if($persona->voz)
           <audio  id="pista" autostart="false"  src="/media/{{$persona->voz}}" > Su navegador no soporta la etiqueta audio.</audio>
           <a onclick="document.getElementById('pista').play()" class="btn btn-app">
               <i class="fa fa-play"></i> Play
@@ -225,7 +219,7 @@
           <a href="/media/{{$persona->voz}}" download="{{$persona->correo}}.ogg"   class="btn btn-app">
               <i class="fa fa-download"></i> Descargar
           </a>
-          @if($persona->voz)
+
           <img class="img-onda" src="/img/onda.jpg" alt="">
           @endif
           </div>
@@ -244,12 +238,14 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
+              @if($persona->imagen)
            <div class="caja-imagen">
              <img class="imagen-persona" src="/media/{{$persona->imagen}}" alt="Planilla">
              <a href="/media/{{$persona->imagen}}" download="imagen"   class="btn btn-app">
                  <i class="fa fa-download"></i> Descargar
              </a>
            </div>
+           @endif
          </div>
         </div>
       </div>

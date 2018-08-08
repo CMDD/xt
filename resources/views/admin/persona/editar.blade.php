@@ -249,7 +249,7 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 <div class="clearfix"></div>
 </div>
 <div class="x_content">
-
+@if($persona->voz)
 <audio  id="pista" autostart="false"  src="/media/{{$persona->voz}}" > Su navegador no soporta la etiqueta audio.</audio>
 <a onclick="document.getElementById('pista').play()" class="btn btn-app">
 <i class="fa fa-play"></i> Play
@@ -260,7 +260,7 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 <a href="/media/{{$persona->voz}}" download="audio"   class="btn btn-app">
 <i class="fa fa-download"></i> Descargar
 </a>
-@if($persona->voz)
+
 <img class="img-onda" src="/img/onda.jpg" alt="">
 @endif
 </div>
@@ -281,12 +281,14 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 <div class="clearfix"></div>
 </div>
 <div class="x_content">
+  @if($persona->imagen)
 <div class="caja-imagen">
 <img class="imagen-persona" src="/media/{{$persona->imagen}}" alt="Planilla">
 <a href="/media/{{$persona->imagen}}" download="imagen"   class="btn btn-app">
 <i class="fa fa-download"></i> Descargar
 </a>
 </div>
+@endif
 </div>
 <input type="file" name="imagen" >
 </div>
