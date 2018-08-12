@@ -161,9 +161,10 @@
              <li role="presentation" class="dropdown">
                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                <i class="fa fa-envelope-o"></i>
-               <span class="badge bg-green">6</span>
+               <span class="badge bg-green">{{Session::get('noti')}}</span>
                </a>
                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                 @foreach(Session::get('notis') as $noti)
                <li>
                  <a>
                    <span class="image">
@@ -174,10 +175,12 @@
                    <span class="time">Hace 3 min...</span>
                    </span>
                    <span class="message">
-                   Notificacion
+                   {{$noti->mensaje}}
                    </span>
                  </a>
                </li>
+               @endforeach
+
                <li>
                <div class="text-center">
                <a>

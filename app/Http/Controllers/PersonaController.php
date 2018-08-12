@@ -67,8 +67,7 @@ class PersonaController extends Controller
       $persona->direccion_especificacion = $request->direccion_especificacion;
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
-      $persona->ciudad = $request->ciudad;
-      $persona->region = $request->region;
+      $persona->municipio_id = (int)$request->municipio;
       $persona->user_id = Auth::User()->id;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
@@ -109,7 +108,7 @@ class PersonaController extends Controller
           $sus->nombre_recibe = $request->nombres;
           $sus->direccion = $request->direccion;
           $sus->direccion_especificacion = $request->direccion_especificacion;
-          $sus->ciudad = $request->ciudad;
+          $sus->ciudad = $request->municipio;
           $sus->region = $request->region;
           $sus->user_id = Auth::User()->id;
           $sus->telefono = $request->telefono;
@@ -127,7 +126,7 @@ class PersonaController extends Controller
             $sus->nombre_recibe = $dato->nombre;
             $sus->direccion = $dato->direccion;
             $sus->direccion_especificacion = $dato->especificacion;
-            $sus->ciudad = $dato->ciudad;
+            $sus->ciudad = $dato->municipio;
             $sus->region = $dato->region;
             $sus->telefono = $dato->telefono;
             $sus->user_id = Auth::User()->id;
@@ -160,7 +159,7 @@ class PersonaController extends Controller
       $persona->direccion_especificacion = $request->direccion_especificacion;
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
-      $persona->ciudad = $request->ciudad;
+      $persona->ciudad = $request->municipio;
       $persona->region = $request->region;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;

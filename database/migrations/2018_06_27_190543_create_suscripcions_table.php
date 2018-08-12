@@ -25,8 +25,7 @@ class CreateSuscripcionsTable extends Migration
             $table->string('nombre_recibe')->nullable();
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
-            $table->string('region')->nullable();
-            $table->string('ciudad')->nullable();
+
             $table->string('observacion')->nullable();
             $table->integer('persona_id')->unsigned()->nullable();
             $table->foreign('persona_id')
@@ -38,6 +37,12 @@ class CreateSuscripcionsTable extends Migration
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
+                  ->onDelete('cascade');
+
+            $table->integer('municipio_id')->unsigned()->nullable();
+            $table->foreign('municipio_id')
+                  ->references('id')
+                  ->on('ciudads')
                   ->onDelete('cascade');
             $table->timestamps();
         });

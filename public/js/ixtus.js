@@ -2,21 +2,42 @@
 // Cargar ciudades
 
 $(function(){
-  $('#region').on('change',cargarCiudades);
+  $('#region').on('change',cargarDepartamentos);
 });
 
-function cargarCiudades(){
+function cargarDepartamentos(){
   let region_id = $(this).val();
   if (!region_id) {
-    $('#ciudad').html('<option value="">Seleccione...</option>');
+    $('#departamento').html('<option value="">Seleccione...</option>');
     return;
   }
  // Peticion ajax
  let html_select = '<option value="">Seleccione...</option>';
- $.get('/api/region/'+region_id+'/ciudades',function(data){
+ $.get('/api/region/'+region_id+'/departamentos',function(data){
     for(i=0;i<data.length;++i)
-    html_select += '<option value="'+data[i].nombre+'">'+data[i].nombre+'</option>';
-    $('#ciudad').html(html_select);
+    html_select += '<option value="'+data[i].id+'">'+data[i].nombre+'</option>';
+    $('#departamento').html(html_select);
+ });
+}
+
+// Cargar Municipios
+
+$(function(){
+  $('#departamento').on('change',cargarMunicipio);
+});
+
+function cargarMunicipio(){
+  let departamento_id = $(this).val();
+  if (!departamento_id) {
+    $('#municipio').html('<option value="">Seleccione...</option>');
+    return;
+  }
+ // Peticion ajax
+ let html_select = '<option value="">Seleccione...</option>';
+ $.get('/api/departamentos/'+departamento_id+'/municipios',function(data){
+    for(i=0;i<data.length;++i)
+    html_select += '<option value="'+data[i].id+'">'+data[i].nombre+'</option>';
+    $('#municipio').html(html_select);
  });
 }
 

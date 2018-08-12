@@ -25,8 +25,6 @@ class CreatePersonasTable extends Migration
             $table->string('correo')->unique()->nullable();
             $table->string('direccion')->nullable();
             $table->string('direccion_especificacion')->nullable();
-            $table->string('ciudad')->nullable();
-            $table->string('region')->nullable();
             $table->string('telefono')->nullable();
             $table->string('telefono_alternativo')->nullable();
             $table->string('ocupacion')->nullable();
@@ -39,6 +37,12 @@ class CreatePersonasTable extends Migration
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
+                  ->onDelete('cascade');
+
+            $table->integer('municipio_id')->unsigned()->nullable();
+            $table->foreign('municipio_id')
+                  ->references('id')
+                  ->on('ciudads')
                   ->onDelete('cascade');
 
             $table->timestamps();

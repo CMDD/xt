@@ -82,11 +82,15 @@
   </div>
   <div class="col-md-6 form-group">
    <label for="">Region</label>
-   <input type="text" class="form-control" id="" disabled  value="{{$sus->region}}" placeholder="">
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->municipio->departamento->region->nombre}}" placeholder="">
   </div>
   <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <input type="text" class="form-control" id="" disabled  value="{{$sus->ciudad}}" placeholder="">
+   <label for="">departamento</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->municipio->departamento->nombre}}" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">municipio</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->municipio->nombre}}" placeholder="">
   </div>
 
 

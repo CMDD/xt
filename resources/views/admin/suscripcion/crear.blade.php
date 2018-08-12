@@ -86,21 +86,22 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select name="departamento" class="form-control">
+   <select id="region" name="departamento" class="form-control">
      <option value="">Seleccione...</option>
+     @foreach($regiones as $region)
+     <option value="{{$region->id}}">{{$region->nombre}}</option>
+     @endforeach
 
    </select>
  </div>
  <div class="col-md-6 form-group">
    <label for="">Departamento</label>
-   <select name="departamento" class="form-control">
-     <option value="">Seleccione...</option>
+   <select id="departamento" name="departamento" class="form-control">
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <select class="form-control" name="ciudad">
-     <option value="">Seleccione...</option>
+   <label for="">Minicipio</label>
+   <select id="municipio" class="form-control" name="ciudad">
    </select>
  </div>
  <div class="col-md-6 form-group">

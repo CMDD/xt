@@ -52,9 +52,11 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
 <div class="col-md-9 col-sm-9 col-xs-12">
 @foreach($tipo_personas as $tipo)
-<button type="button" class="btn btn-default tooltip-button">
+<button type="button" class="btn btn-default ">
 {{$tipo->nombre}}
-<a href="{{url('eliminar_tipo',$tipo->id)}}"><i class="fa fa-close"></i></a>
+<a href="{{url('eliminar_tipo',$tipo->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
+  <i class="fa fa-close"></i>
+</a>
 </button>
 @endforeach
 </div>
@@ -110,23 +112,36 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 </div>
 
 <div class="form-group">
+
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
   <select id="region" class=" form-control" name="region">
-    <option value="">Seleccione...</option>
+    <option value="">{{$persona->municipio->departamento->region->nombre}}</option>
     @foreach($regiones as $region)
     <option value="{{$region->id}}">{{$region->nombre}}</option>
     @endforeach
   </select>
 
 </div>
-<label class="control-label col-md-2 col-sm-3 col-xs-12">Ciudad</label>
-<div class="col-md-4 col-sm-9 col-xs-12">
-  <select id="ciudad" class=" form-control" name="ciudad">
+<label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
+<div class="col-md-3 col-sm-9 col-xs-12">
 
+
+  <select id="departamento" class=" form-control" name="ciudad">
+    <option value="">{{$persona->municipio->departamento->nombre}}</option>
   </select>
 
 </div>
+
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
+  <div class="col-md-4 col-sm-9 col-xs-12">
+    <select id="municipio" class=" form-control" name="municipio">
+<option value="">{{$persona->municipio->nombre}}</option>
+    </select>
+
+  </div>
 </div>
 
 <div class=" row form-group">
@@ -151,9 +166,9 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
 </label>
 @foreach($interes as $int)
-<button type="button" class="btn btn-default tooltip-button"
+<button type="button" class="btn btn-default"
 data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
-<a href="{{url('eliminar_interes',$int->id)}}"><i class="fa fa-close"></i></a>
+<a href="{{url('eliminar_interes',$int->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" ><i class="fa fa-close"></i></a>
 </button>
 @endforeach
 <hr>

@@ -17,10 +17,10 @@ class CreateCiudadsTable extends Migration
             $table->increments('id');
             $table->string('nombre')->nullable();
 
-            $table->integer('region_id')->unsigned()->nullable();
-            $table->foreign('region_id')
+            $table->integer('departamento_id')->unsigned()->nullable();
+            $table->foreign('departamento_id')
                   ->references('id')
-                  ->on('regions')
+                  ->on('departamentos')
                   ->onDelete('cascade');
 
             $table->timestamps();

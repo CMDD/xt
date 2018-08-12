@@ -51,6 +51,8 @@
      <option  value="{{$sus->oracional}}">{{$sus->oracional}}</option>
      <option value="Jovenes">Jovenes</option>
      <option value="Aldultos">Adultos</option>
+     <option value="Niños">Niños</option>
+     <option value="Puerta a la palabra">Puerta a la palabra</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
@@ -79,20 +81,30 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select name="region" class="form-control">
-     <option value="">{{$sus->region}}</option>
+   <select id="region" name="departamento" class="form-control">
+     <option value="">{{$sus->municipio->departamento->region->nombre}}</option>
+     @foreach($regiones as $region)
+     <option value="{{$region->id}}">{{$region->nombre}}</option>
+     @endforeach
 
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <select class="form-control" name="ciudad">
-     <option value="">{{$sus->ciudad}}</option>
+   <label for="">Departamento</label>
+   <select  id="departamento" name="departamento" class="form-control">
+     <option value="">{{$sus->municipio->departamento->nombre}}</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
+   <label for="">Minicipio</label>
+   <select  id="municipio" class="form-control" name="municipio">
+     <option value="{{$sus->municipio->id}}">{{$sus->municipio->nombre}}</option>
+   </select>
+ </div>
+
+ <div class="col-md-6 form-group">
    <label for="">Fecha de suscripcion : {{$sus->fecha_inicio}} </label>
-   <input type="date" class="form-control" id="" name="fecha"  placeholder="">
+   <input type="date" class="form-control" id=""  name="fecha">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>

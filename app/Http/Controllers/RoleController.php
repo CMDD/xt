@@ -40,6 +40,12 @@ class RoleController extends Controller
                                                    ->with('mispermisos',$mispermisos);
     }
 
+    public function eliminar(Role $role){
+      $role->delete();
+      return redirect()->action('RoleController@index');
+
+    }
+
     public function update(Request $request,$id){
       $role = Role::find($id);
       $role->name = $request->nombre;

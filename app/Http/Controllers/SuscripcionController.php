@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TitularRequest;
 use App\Suscripcion;
 use App\Persona;
+use App\Region;
 use Carbon\Carbon;
 use Auth;
 
@@ -26,7 +27,8 @@ class SuscripcionController extends Controller
                                            ->with('nombre',$nombre);
   }
   public function crearSuscripcion(){
-    return view('admin.suscripcion.crear');
+    $regiones = Region::all();
+    return view('admin.suscripcion.crear')->with('regiones',$regiones);
   }
 
   public function store(Request $request){
@@ -91,28 +93,38 @@ class SuscripcionController extends Controller
   }
   public function edit($id){
     $sus = Suscripcion::find($id);
-    return view('admin.suscripcion.editar')->with('sus',$sus);
+    $regiones = Region::all();
+    return view('admin.suscripcion.editar')->with('sus',$sus)->with('regiones',$regiones);
+
+  }
+  public function destroy($id){
+    Suscripcion::destroy($id);
+    alert()->success('Suscripcion Eliminada!', 'Correctamente');
+    return back();
 
   }
 
   public function update(Request $request,$id){
-    $fecha_final =  Carbon::parse($request->fecha);
+    $fecha =  Carbon::parse($request->fecha);
     $sus = Suscripcion::find($id);
     $sus->oracional = $request->oracional;
+    $sus->cantidad = $request->cantidad;
     $sus->plan = $request->plan;
     if ($request->fecha) {
-      $sus->fecha_inicio = $request->fecha;
+      $sus->fecha_inicio = $fecha;
+
     }
-    $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
+$sus->fecha_final = $fecha->addMonth((int)$request->plan);
+
     $sus->estado = $request->estado;
     $sus->nombre_recibe = $request->nombre_recibe;
     $sus->direccion = $request->direccion;
     $sus->direccion_especificacion = $request->especificacion_direccion;
-    $sus->ciudad = $request->ciudad;
-    $sus->region = $request->region;
+    $sus->municipio_id = (int)$request->municipio;
     $sus->telefono = $request->telefono;
     $sus->observacion = $request->observacion;
     $sus->save();
+    alert()->success('Suscripcion actualizada','CORRECTAMENTE');
     return redirect()->route('editar.suscripcion',$sus->id);
 
 
@@ -120,7 +132,8 @@ class SuscripcionController extends Controller
 
   public function agregar(Request $request,$id){
     $persona = Persona::find($id);
-    return view('admin.suscripcion.agregar')->with('persona',$persona);
+    $regiones = Region::all();
+    return view('admin.suscripcion.agregar')->with('persona',$persona)->with('regiones',$regiones);
 
   }
 
@@ -128,6 +141,7 @@ class SuscripcionController extends Controller
      $fecha_final =  Carbon::parse($request->fecha_suscripcion);
 
      $persona = Persona::find($id);
+
       $sus = new Suscripcion();
       $sus->cantidad = $request->cantidad;
       $sus->oracional = $request->oracional;
@@ -160,6 +174,29 @@ class SuscripcionController extends Controller
       return back();
 
     }
+
+    public function agregarSuscripcion(Request $request){
+         $fecha =  Carbon::parse($request->fecha_suscripcion);
+         $sus = new Suscripcion();
+         $sus->cantidad  = $request->cantidad;
+         $sus->oracional = $request->oracional;
+         $sus->plan = $request->plan;
+         $sus->fecha_inicio = $fecha;
+         $sus->fecha_final = $fecha->addMonths((int)$request->plan);
+         $sus->observacion = $request->observacion_suscripcion;
+         $sus->persona_id = (int)$request->persona_id;
+         $sus->municipio_id = (int)$request->municipio;
+         $sus->user_id = Auth::User()->id;
+         $sus->estado = 'Activo';
+         $sus->nombre_recibe = $request->nombre_recibe;
+         $sus->telefono = $request->telefono;
+         $sus->direccion = $request->direccion;
+         $sus->direccion_especificacion = $request->especificacion_direccion;
+         $sus->save();
+         alert()->success('Suscripcion creada','Correctamente');
+         return back();
+    }
+
 
     public function ver($id){
         $sus = Suscripcion::find($id);

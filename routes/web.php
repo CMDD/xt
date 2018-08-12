@@ -81,7 +81,11 @@ Route::get('ixtus','DashController@index');
   Route::post('actualizar_suscripcion/{id}','SuscripcionController@update')
   ->name('actualizar.suscripcion');
   Route::post('crear-suscripcion','SuscripcionController@store');
+
   Route::get('agregar-suscripcion/{id}','SuscripcionController@agregar')
+  ->name('agregar.suscripcion')
+  ->middleware('permission:crear.suscripcion');
+  Route::post('agregar-suscripcion/{id}','SuscripcionController@agregarSuscripcion')
   ->name('agregar.suscripcion')
   ->middleware('permission:crear.suscripcion');
 
@@ -93,12 +97,15 @@ Route::get('ixtus','DashController@index');
   Route::get('usuario-eliminar/{user}','UsuarioController@destroy')->name('eliminar.usuario');
   Route::post('usuario-update/{user}','UsuarioController@update')->name('usuario.update');
 
+  Route::post('cambio_pass/{id}','UsuarioController@cambioPass');
+
   //Roles
   Route::get('role/crear','RoleController@index')
   ->name('crear.roles')
   ->middleware('permission:crear.roles');
   Route::post('role/crear','RoleController@store')->name('roles.store');
   Route::get('role-edit/{role}','RoleController@edit')->name('roles.edit');
+  Route::get('role-eliminar/{role}','RoleController@eliminar')->name('roles.eliminar');
   Route::post('role-update/{role}','RoleController@update')->name('roles.update');
 
   // Donacion

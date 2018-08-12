@@ -34,6 +34,21 @@ class UsuarioController extends Controller
       return view('login');
     }
 
+    public function cambioPass(Request $request,$id){
+      $user = User::find($id);
+      $user->password = bcrypt($request->pass);
+      $user->save();
+      alert()->success('Contraseña cambiada!', 'Correctamente');
+      return back();
+
+    }
+    public function destroy(User $user){
+      $user->delete();
+      alert()->success('Usuario eliminado!', 'Correctamente');
+      return back();
+
+    }
+
     public function store(Request $request){
 
       $user = new User();

@@ -45,11 +45,20 @@
 <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<input type="text" class="form-control has-feedback-left" name="cedula" id="inputSuccess4" value="{{$usuario->cedula}}" placeholder="No. Identificacion">
+<input type="text" class="form-control has-feedback-left" name="cedula"  value="{{$usuario->cedula}}" placeholder="No. Identificacion">
 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<button type="button" class="btn btn-default" name="button">Cambiar Contraseña</button>
+<input type="text" class="form-control has-feedback-left" name="cargo"  value="{{$usuario->cargo}}" placeholder="Cargo">
+<span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<input type="text" class="form-control has-feedback-left" name="region"  value="{{$usuario->region}}" placeholder="Region">
+<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+</div>
+
+<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+<button data-toggle="modal" data-target=".bs-example-modal-sm" type="button" class="btn btn-success" name="button">Cambiar Contraseña</button>
 </div>
 
 
@@ -114,6 +123,7 @@
 </div>
 </div>
 {{ Form::close() }}
+
 </div>
 </div>
 </div>
@@ -135,7 +145,6 @@
 <tr>
 <th>Id</th>
 <th>Nombre</th>
-<th>Rol</th>
 <th>Email</th>
 <th>Acción</th>
 </tr>
@@ -145,13 +154,17 @@
 <tr>
 <th scope="row">{{$user->id}}</th>
 <td>{{$user->name}}</td>
-<td>Lider nacional</td>
 <td>{{$user->email}}</td>
 <td>
   <a href="{{route('editar.usuario',$user->id)}}">
-  <button type="button" style="width:100%;" class="btn btn-default" name="button">Editar</button>
+  <button type="button" style="width:45%;" class="btn btn-default" name="button">Editar</button>
+  </a>
+
+  <a href="{{route('eliminar.usuario',$user->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
+  <button type="button" style="width:45%;" class="btn btn-default" name="button">Eliminar</button>
   </a>
 </td>
+
 </tr>
 @endforeach
 </tbody>
@@ -161,6 +174,41 @@
 </div>
 </div>
 </div>
+
+  <!-- Small modal -->
+
+
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+  <div class="modal-content">
+
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+  </button>
+  <h4 class="modal-title" id="myModalLabel2">EDITAR CONTRASEÑA</h4>
+  </div>
+  <div class="modal-body">
+  <h4>Nueva contraseña</h4>
+<form class="" action="{{url('cambio_pass',$user->id)}}"  method="post">
+  {!!csrf_field()!!}
+  <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" id="" name="pass" placeholder="">
+    <p class="help-block">Ixtus service</p>
+  </div>
+
+  <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+  <button type="submit" class="btn btn-primary">CAMBIAR</button>
+  </div>
+
+</form>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
 
 </div>
 <!-- /page content -->

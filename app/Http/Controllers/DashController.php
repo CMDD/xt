@@ -6,6 +6,7 @@ use App\Interes;
 use App\TipoPersona;
 use App\Suscripcion;
 use App\Donacion;
+use App\Notificacion;
 
 
 use Illuminate\Http\Request;
@@ -16,6 +17,10 @@ class DashController extends Controller
       $count_personas = Persona::count();
       $count_suscripcion = Suscripcion::count();
       $count_donacion = Donacion::count();
+      $notis = Notificacion::all();
+      \Session::put('noti', Notificacion::count());
+      \Session::put('notis', $notis);
+
 
 
         //Valores nacionales

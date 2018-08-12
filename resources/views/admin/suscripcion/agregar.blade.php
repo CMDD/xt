@@ -29,16 +29,16 @@
 <div class="x_content">
 <div class="col-md-9 col-sm-9 col-xs-12">
 
-<form class="" action="{{url('crear-suscripcion')}}" method="post">
+<form class="" action="{{url('agregar-suscripcion',$persona->id)}}" method="post">
   {!!csrf_field()!!}
   <div class="col-md-6 form-group">
     <label for="">Cantidad</label>
-    <input type="number" class="form-control" id="" name="cantidad" placeholder="">
+    <input type="number" required class="form-control" id="" name="cantidad" placeholder="">
   </div>
 
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
-    <input type="text" class="form-control" id="" name="nombre_recibe" value="" placeholder="">
+    <input required type="text" class="form-control" id="" name="nombre_recibe" value="" placeholder="">
   </div>
 
   <div class="col-md-6 form-group">
@@ -47,15 +47,17 @@
   </div>
  <div class="col-md-6 form-group">
    <label for="">Oracional</label>
-   <select class="form-control" name="oracional">
-     <option  value="">Seleccione...</option>
+   <select required class="form-control" name="oracional">
+     <option value="">Seleccione...</option>
      <option value="Jovenes">Jovenes</option>
      <option value="Aldultos">Adultos</option>
+     <option value="Niños">Niños</option>
+     <option value="Puerta a la palabra">Puerta a la palabra</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
    <label for="">Plan</label>
-   <select class="form-control" name="plan">
+   <select required class="form-control" name="plan">
      <option value="">Seleccione...</option>
      <option value="6">6 Meses</option>
      <option value="12">1 Año</option>
@@ -64,7 +66,7 @@
 
  <div class="col-md-6 form-group">
    <label for="">Dirección</label>
-   <input type="text" class="form-control" id="" name="direccion" value="" placeholder="">
+   <input required type="text" class="form-control" id="" name="direccion" value="" placeholder="">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
@@ -72,20 +74,27 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select name="region" class="form-control">
+   <select required id="region" name="departamento" class="form-control">
      <option value="">Seleccione...</option>
+     @foreach($regiones as $region)
+     <option value="{{$region->id}}">{{$region->nombre}}</option>
+     @endforeach
 
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <select class="form-control" name="ciudad">
-     <option value="">Seleccione...</option>
+   <label for="">Departamento</label>
+   <select required id="departamento" name="departamento" class="form-control">
+   </select>
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Minicipio</label>
+   <select required id="municipio" class="form-control" name="municipio">
    </select>
  </div>
  <div class="col-md-6 form-group">
    <label for="">Fecha de suscripcion  </label>
-   <input type="date" class="form-control" id="" name="fecha"  placeholder="">
+   <input required type="date" class="form-control" id="" name="fecha"  placeholder="">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>

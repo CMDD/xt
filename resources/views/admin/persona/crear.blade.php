@@ -96,7 +96,9 @@
           <input name="direccion_especificacion" type="text" class="form-control" placeholder="">
           </div>
           </div>
+
           <div class="form-group">
+
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
             <select id="region" class=" form-control" name="region">
@@ -107,14 +109,24 @@
             </select>
 
           </div>
-          <label class="control-label col-md-2 col-sm-3 col-xs-12">Ciudad</label>
-          <div class="col-md-4 col-sm-9 col-xs-12">
-            <select id="ciudad" class=" form-control" name="ciudad">
-
+          <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
+          <div class="col-md-3 col-sm-9 col-xs-12">
+            <select id="departamento" class=" form-control" name="ciudad">
             </select>
 
           </div>
+
           </div>
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
+            <div class="col-md-4 col-sm-9 col-xs-12">
+              <select id="municipio" class=" form-control" name="municipio">
+
+              </select>
+
+            </div>
+          </div>
+
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
           <div class="col-md-4 col-sm-9 col-xs-12">

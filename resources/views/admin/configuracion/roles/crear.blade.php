@@ -95,14 +95,14 @@
 <td>{{$role->name}}</td>
 
 <td style="width:40%;" >
-  <a href="">
-  <button type="button"  class="btn btn-sm btn-default" name="button">Ver</button>
-  </a>
+  
   <a href="{{route('roles.edit',$role->id)}}">
   <button type="button" class="btn btn-sm btn-default" name="button">Editar</button>
   </a>
-  <button type="button"  class="btn btn-sm btn-danger" name="button">Eliminar</button>
 
+  <a href="{{route('roles.eliminar',$role->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" >
+  <button type="button"  class="btn btn-sm btn-danger" name="button">Eliminar</button>
+</a>
 
 </td>
 

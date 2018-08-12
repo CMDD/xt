@@ -18,4 +18,8 @@ class Suscripcion extends Model
          return $this->belongsTo('App\User','user_id');
     }
 
+    public function municipio() {
+         return $this->belongsTo('App\Ciudad');
+    }
+
 }

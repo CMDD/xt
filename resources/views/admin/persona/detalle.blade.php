@@ -120,20 +120,42 @@
             </button>
           </div>
           </div>
+
+
           <div class="form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12">Ciudad</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
+            <div class="col-md-3 col-sm-9 col-xs-12">
+              <button type="button" class="btn btn-default tooltip-button-datos"
+              data-toggle="tooltip" data-placement="left" >{{$persona->municipio->departamento->region->nombre}}
+            </button>
+
+            </div>
+
+            <label class="control-label col-md-2 col-sm-3 col-xs-12">Departamento </label>
+            <div class="col-md-4 col-sm-9 col-xs-12">
+              <button type="button" class="btn btn-default tooltip-button-datos"
+              data-toggle="tooltip" data-placement="left" >{{$persona->municipio->departamento->nombre}}
+            </button>
+
+            </div>
+            </div>
+
+
+
+
+          <div class="form-group">
+
+
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >{{$persona->ciudad}}
+            data-toggle="tooltip" data-placement="left" >{{$persona->municipio->nombre}}
           </button>
-          </div>
-          <label class="control-label col-md-1 col-sm-3 col-xs-12">Paìs</label>
-          <div class="col-md-4 col-sm-9 col-xs-12">
-            <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >{{$persona->pais}}
-          </button>
+
           </div>
           </div>
+
+
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
