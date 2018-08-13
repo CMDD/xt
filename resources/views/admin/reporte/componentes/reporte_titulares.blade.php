@@ -16,7 +16,7 @@
 
   <form class="" action="{{url('reporteTitulares')}}" method="post">
 
-{!!csrf_field()!!}
+  {!!csrf_field()!!}
 
   <div class="col-md-2">
     <div class="form-group">
@@ -33,11 +33,10 @@
       <label for="">Region</label>
       <select required class="form-control" name="region">
         <option value="">Seleccione...</option>
-        <option value="Todas">Todas</option>
+        <option value="Todas">TODAS</option>
         @foreach($regiones as $region)
-        <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+        <option value="{{$region->id}}">{{$region->nombre}}</option>
         @endforeach
-
       </select>
     </div>
   </div>
@@ -66,8 +65,17 @@
   </div>
   <div class="col-md-2">
     <div class="form-group">
-      <label for="">Accion</label>
-      <input  class="form-control btn btn-primary" type="submit" name="" value="Buscar">
+      <label for="">Acción</label>
+      <select required class="form-control" name="accion">
+        <option value="">Seleccione...</option>
+        <option value="Ver">Ver</option>
+        <option value="Descargar">Descargar</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <input   class=" btn btn-primary" type="submit" name="" value="EJECUTAR">
     </div>
   </div>
 </form>

@@ -74,7 +74,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select required id="region" name="departamento" class="form-control">
+   <select required id="region" name="region" class="form-control">
      <option value="">Seleccione...</option>
      @foreach($regiones as $region)
      <option value="{{$region->id}}">{{$region->nombre}}</option>

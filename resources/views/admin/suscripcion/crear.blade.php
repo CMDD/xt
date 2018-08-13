@@ -86,7 +86,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select id="region" name="departamento" class="form-control">
+   <select id="region" name="region" class="form-control">
      <option value="">Seleccione...</option>
      @foreach($regiones as $region)
      <option value="{{$region->id}}">{{$region->nombre}}</option>
@@ -101,7 +101,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Minicipio</label>
-   <select id="municipio" class="form-control" name="ciudad">
+   <select id="municipio" class="form-control" name="municipio">
    </select>
  </div>
  <div class="col-md-6 form-group">

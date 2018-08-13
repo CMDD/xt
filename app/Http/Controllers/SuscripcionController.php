@@ -36,25 +36,23 @@ class SuscripcionController extends Controller
     $titular = Persona::where('correo',$request->correo)->first();
      if ($titular) {
        // Crear suscripcion
-
        $fecha_final =  Carbon::parse($request->fecha);
        $sus = new Suscripcion();
        $sus->oracional = $request->oracional;
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-       $sus->persona_id = $titular->id;
+       $sus->persona_id = (int)$titular->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
        $sus->nombre_recibe = $request->nombre_recibe;
        $sus->direccion = $request->direccion;
        $sus->direccion_especificacion = $request->especificacion_direccion;
-       $sus->ciudad = $request->ciudad;
-       $sus->region = $request->region;
+       $sus->municipio_id = (int)$request->municipio;
+       $sus->region_id = (int)$request->region;
        $sus->telefono = $request->telefono;
        $sus->observacion = $request->observacion;
        $sus->save();
-
      }else{
        //Crear titular
        $persona = new Persona();
@@ -71,24 +69,22 @@ class SuscripcionController extends Controller
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-       $sus->persona_id = $persona->id;
+       $sus->persona_id = (int)$persona->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
        $sus->nombre_recibe = $request->nombre_recibe;
        $sus->direccion = $request->direccion;
        $sus->direccion_especificacion = $request->especificacion_direccion;
-       $sus->ciudad = $request->ciudad;
-       $sus->region = $request->region;
+       $sus->municipio_id = (int)$request->municipio;
+       $sus->region_id = (int)$request->region;
        $sus->telefono = $request->telefono;
        $sus->observacion = $request->observacion;
        $sus->save();
 
      }
-
      alert()->success('Suscripcion Creada!', 'Correctamente')
      ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
-
-      return back();
+     return back();
 
   }
   public function edit($id){
@@ -112,15 +108,14 @@ class SuscripcionController extends Controller
     $sus->plan = $request->plan;
     if ($request->fecha) {
       $sus->fecha_inicio = $fecha;
-
     }
-$sus->fecha_final = $fecha->addMonth((int)$request->plan);
-
+    $sus->fecha_final = $fecha->addMonth((int)$request->plan);
     $sus->estado = $request->estado;
     $sus->nombre_recibe = $request->nombre_recibe;
     $sus->direccion = $request->direccion;
     $sus->direccion_especificacion = $request->especificacion_direccion;
     $sus->municipio_id = (int)$request->municipio;
+    $sus->region_id = (int)$request->region;
     $sus->telefono = $request->telefono;
     $sus->observacion = $request->observacion;
     $sus->save();
@@ -139,9 +134,7 @@ $sus->fecha_final = $fecha->addMonth((int)$request->plan);
 
   public function crear(Request $request,$id){
      $fecha_final =  Carbon::parse($request->fecha_suscripcion);
-
      $persona = Persona::find($id);
-
       $sus = new Suscripcion();
       $sus->cantidad = $request->cantidad;
       $sus->oracional = $request->oracional;
@@ -151,26 +144,24 @@ $sus->fecha_final = $fecha->addMonth((int)$request->plan);
       $sus->observacion = $request->observacion_suscripcion;
       $sus->persona_id = $persona->id;
       $sus->estado = 'Activo';
-
       if ($request->direccion_radio == 'misma') {
           $sus->nombre_recibe = $persona->nombres;
           $sus->direccion = $persona->direccion;
           $sus->direccion_especificacion = $persona->direccion_especificacion;
-          $sus->ciudad = $persona->ciudad;
-          $sus->pais = $persona->pais;
+          $sus->municipio_id = (int)$request->municipio;
+          $sus->region_id = (int)$request->region;
 
       }else{
         $sus->nombre_recibe = $request->nombre_recibe;
         $sus->direccion = $request->direccion_suscripcion;
         $sus->direccion_especificacion = $request->especificacion_direccion_suscripcion;
-        $sus->ciudad = $request->ciudad_suscripcion;
-        $sus->pais = $request->pais_suscripcion;
+        $sus->municipio_id = (int)$request->municipio;
+        $sus->region_id = (int)$request->region;
       }
 
       $sus->save();
       alert()->success('Suscripcion!', 'Creada')
       ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
-
       return back();
 
     }
@@ -186,12 +177,14 @@ $sus->fecha_final = $fecha->addMonth((int)$request->plan);
          $sus->observacion = $request->observacion_suscripcion;
          $sus->persona_id = (int)$request->persona_id;
          $sus->municipio_id = (int)$request->municipio;
+         $sus->region_id = (int)$request->region;
          $sus->user_id = Auth::User()->id;
          $sus->estado = 'Activo';
          $sus->nombre_recibe = $request->nombre_recibe;
          $sus->telefono = $request->telefono;
          $sus->direccion = $request->direccion;
          $sus->direccion_especificacion = $request->especificacion_direccion;
+         $sus->observacion = $request->observacion;
          $sus->save();
          alert()->success('Suscripcion creada','Correctamente');
          return back();
@@ -202,7 +195,6 @@ $sus->fecha_final = $fecha->addMonth((int)$request->plan);
         $sus = Suscripcion::find($id);
         $carbon = Carbon::now();
         $quedan = $sus->fecha_final->diffForHumans();
-
         return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan);
 
     }

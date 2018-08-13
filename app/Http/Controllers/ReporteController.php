@@ -12,28 +12,56 @@ use App\TipoPersona;
 use App\Region;
 use Carbon\Carbon;
 use Reporte\Reporte;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteController extends Controller
 {
     public function titularNacional(){
       $nombre = 'Base de datos nacional';
       $personas = Persona::all();
-      return view('admin.persona.listar')
-      ->with('personas',$personas)
-      ->with('nombre',$nombre);
+      return view('admin.persona.listar')->with('personas',$personas)
+                                         ->with('nombre',$nombre);
     }
+
     public function suscripciones(){
       $sus = Suscripcion::all();
       return view('admin.reporte.suscripciones')->with('sus',$sus);
     }
+
     public function donaciones(){
       $donaciones = Donacion::all();
       return view('admin.reporte.donaciones')->with('donaciones',$donaciones);
     }
+
     public function index(){
       $regiones = Region::all();
       return view('admin.reporte.index')->with('regiones',$regiones);
     }
+
+    public function reporteTitulares(Request $request){
+      if ($request->accion == 'Descargar' and $request->tipo == 'listado') {
+          $result = (new Reporte)->descargarTitulares($request);
+      }else{
+          $result = (new Reporte)->reporteTirulares($request);
+      }
+      return $result;
+    }
+
+    public function reporteSuscripciones(Request $request){
+      if ($request->accion == 'Descargar' and $request->tipo == 'listado'){
+          $result = (new Reporte)->descargarSuscripciones($request);
+      }else {
+          $result = (new Reporte)->verSuscripciones($request);
+      }
+      return $result;
+    }
+
+
+    public function parametros(){
+      return view('admin.reporte.index')->with('regiones',$regiones);
+    }
+
+
     public function totales(){
       $total = Persona::count();
       $oyente = TipoPersona::where('nombre','Oyente')->count();
@@ -60,13 +88,6 @@ class ReporteController extends Controller
       return view('admin.reporte.totales')->with('valores',$valores);
     }
 
-    public function reporteTitulares(Request $request){
-      $result = (new Reporte)->reporteTirulares($request);
-      return $result;
 
-    }
 
-    public function parametros(){
-      return view('admin.reporte.index')->with('regiones',$regiones);
-    }
 }

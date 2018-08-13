@@ -3,6 +3,9 @@ namespace Reporte;
 use App\Region;
 use App\Persona;
 use App\TipoPersona;
+use App\Ciudad;
+use App\Suscripcion;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Reporte{
 
@@ -10,6 +13,7 @@ class Reporte{
     $regiones = Region::all();
     $cantidad = false;
     $listado = false;
+
     if ($request->tipo == 'cantidades' and $request->region == 'Todas') {
         $cantidad = true;
         $total = Persona::where('estado',$request->estado)
@@ -23,42 +27,40 @@ class Reporte{
         $reporte = new Reporte();
         $valores = $reporte->calculoCatidades($request,$total,$totalp);
 
-    }elseif ($request->tipo == 'cantidades') {
+    }elseif ($request->tipo == 'cantidades'){
       $cantidad = true;
       $reporte = new Reporte();
       $total = Persona::where('estado',$request->estado)
-                        ->where('region',$request->region)
+                        ->where('region_id',$request->region)
                         ->where('created_at','>=',$request->desde)
                         ->where('created_at','<=',$request->hasta)
                         ->count();
       $totalp = Persona::where('estado',$request->estado)
-                       ->where('region',$request->region)
+                       ->where('region_id',$request->region)
                        ->where('created_at','>=',$request->desde)
                        ->where('created_at','<=',$request->hasta)
                        ->get();
       $valores = $reporte->calculoCatidades($request,$total,$totalp);
     }else{
       $listado = true;
-
       if ($request->region == 'Todas') {
-          $personas = Persona::where('estado',$request->estado)
-                            ->where('created_at','>=',$request->desde)
-                            ->where('created_at','<=',$request->hasta)->get();
-
+      $personas = Persona::where('estado',$request->estado)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
       }else{
-        $personas = Persona::where('region',$request->region)
-                            ->where('estado',$request->estado)
-                            ->where('created_at','>=',$request->desde)
-                            ->where('created_at','<=',$request->hasta)->get();
+      $personas = Persona::where('estado',$request->estado)
+                         ->where('region_id',$request->region)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
 
       }
-      return view('admin.reporte.index')->with('regiones',$regiones)
-                                        ->with('personas',$personas)
-                                        ->with('listado',$listado);
+      return view('admin.reporte.titulares.lista')->with('regiones',$regiones)
+                                                  ->with('personas',$personas)
+                                                  ->with('listado',$listado);
     }
       return view('admin.reporte.index')->with('regiones',$regiones)
-                                      ->with('cantidad',$cantidad)
-                                      ->with('valores',$valores);
+                                        ->with('cantidad',$cantidad)
+                                        ->with('valores',$valores);
   }
 
 
@@ -70,10 +72,10 @@ class Reporte{
     $alumno =0;
     $asistente=0;
     $servidor=0;
-    $proveedor =0;
-    $suscriptor =0;
-    $benefactor =0;
-    $empleado =0;
+    $proveedor=0;
+    $suscriptor=0;
+    $benefactor=0;
+    $empleado=0;
     foreach($totalp as $to){
       $oyentes = TipoPersona::where('nombre','Oyente')->where('persona_id',$to->id)->count();
       $clientes = TipoPersona::where('nombre','Cliente')->where('persona_id',$to->id)->count();
@@ -111,8 +113,6 @@ class Reporte{
       if ($empleados  > 0) {
         $empleado = $empleado +1;
       }
-
-
     }
 
     $valores = [
@@ -129,6 +129,91 @@ class Reporte{
     ];
     return $valores;
 
+  }
+
+
+  public function descargarTitulares($request){
+    if ($request->region == 'Todas') {
+      Excel::create('Reporte Titulares', function($excel) use ($request) {
+          $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
+          $personas =  Persona::select('id','estado','nombres','apellidos','correo','telefono','numero_documento')
+                               ->where('estado',$request->estado)
+                               ->where('created_at','>=',$request->desde)
+                               ->where('created_at','<=',$request->hasta)->get();
+          $sheet->fromArray($personas);
+          $sheet->setOrientation('landscape');
+          });
+      })->export('xls');
+    }else{
+      Excel::create('Reporte Titulares', function($excel) use ($request) {
+          $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
+          $personas =  Persona::select('id','estado','nombres','apellidos','correo','telefono','numero_documento')
+                               ->where('region_id',$request->region)
+                               ->where('estado',$request->estado)
+                               ->where('created_at','>=',$request->desde)
+                               ->where('created_at','<=',$request->hasta)->get();
+          $sheet->fromArray($personas);
+          $sheet->setOrientation('landscape');
+          });
+      })->export('xls');
+    }
+  }
+
+  public function descargarSuscripciones($request){
+      Excel::create('Reporte suscripciones', function($excel) use ($request) {
+          $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
+          if ($request->region == 'Todas') {
+          $suscripciones =  Suscripcion::where('estado',$request->estado)
+                                       ->where('created_at','>=',$request->desde)
+                                       ->where('created_at','<=',$request->hasta)->get();
+          }else{
+          $suscripciones =  Suscripcion::where('estado',$request->estado)
+                                           ->where('region_id',$request->region)
+                                   ->where('created_at','>=',$request->desde)
+                                   ->where('created_at','<=',$request->hasta)->get();
+          }
+          // Header
+          $sheet->row(1,
+          ['
+          IDENTIFICACIÓN','CANTIDAD','ORACIONAL','RECIBE','TELEFONO','DIRECCIÓN',
+          'ESPECIFICACIÓN DE DIRECCIÓN','OBSERVACIÓN','MUNICIPIO','DEPARTAMENTO'
+          ]
+          );
+          // Data
+          foreach ($suscripciones as $sus) {
+            $row = [];
+            $row[0] = $sus->id;
+            $row[1] = $sus->cantidad;
+            $row[2] = $sus->oracional;
+            $row[3] = $sus->nombre_recibe;
+            $row[4] = $sus->telefono;
+            $row[5] = $sus->direccion;
+            $row[6] = $sus->direccion_especificacion;
+            $row[7] = $sus->observacion;
+            $row[8] = $sus->municipio->nombre;
+            $row[9] = $sus->municipio->departamento->nombre;
+            $sheet->appendRow($row);
+          }
+
+          $sheet->setOrientation('landscape');
+          });
+      })->export('xls');
+  }
+
+  public function verSuscripciones($request){
+
+       if ($request->region == 'Todas') {
+       $sus = Suscripcion::where('estado',$request->estado)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
+       return view('admin.reporte.suscripcion.lista')->with('sus',$sus);
+       }else{
+       $sus = Suscripcion::where('estado',$request->estado)
+                         ->where('region_id',$request->region)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
+       return view('admin.reporte.suscripcion.lista')->with('sus',$sus);
+        }
   }
 
 }

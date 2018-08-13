@@ -140,6 +140,10 @@ Route::get('ixtus','DashController@index');
   Route::get('totales','ReporteController@totales');
   Route::get('parametros','ReporteController@parametros');
   Route::post('reporteTitulares','ReporteController@reporteTitulares');
+  Route::post('reporteSuscripciones','ReporteController@reporteSuscripciones');
+
+  Route::get('descargar_titulares','ReporteController@descargarTitulares')->name('descargar.titulares');
+  Route::get('descargar_suscripciones','ReporteController@descargarSuscripciones')->name('descargar.suscripciones');
 
 });
 

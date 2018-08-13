@@ -68,6 +68,7 @@ class PersonaController extends Controller
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
       $persona->municipio_id = (int)$request->municipio;
+      $persona->region_id = (int)$request->region;
       $persona->user_id = Auth::User()->id;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
@@ -159,8 +160,8 @@ class PersonaController extends Controller
       $persona->direccion_especificacion = $request->direccion_especificacion;
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
-      $persona->ciudad = $request->municipio;
-      $persona->region = $request->region;
+      $persona->municipio_id = (int)$request->municipio;
+      $persona->region_id = (int)$request->region;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
       $persona->ocupacion = $request->ocupacion;

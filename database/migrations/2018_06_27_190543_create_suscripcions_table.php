@@ -44,6 +44,12 @@ class CreateSuscripcionsTable extends Migration
                   ->references('id')
                   ->on('ciudads')
                   ->onDelete('cascade');
+
+            $table->integer('region_id')->unsigned()->nullable();
+            $table->foreign('region_id')
+                  ->references('id')
+                  ->on('ciudads')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
