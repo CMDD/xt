@@ -123,7 +123,6 @@
   <tr>
   <th>Id</th>
   <th style="width:8%;" >Nombre</th>
-  <th style="width:10%;" >Rol</th>
   <th>Email</th>
   <th>Acción</th>
   </tr>
@@ -133,7 +132,6 @@
   <tr>
   <th scope="row">{{$user->id}}</th>
   <td>{{$user->name}}</td>
-   <td>Lider nacional</td>  <!-- Pendiente para corregir -->
   <td>{{strtolower($user->email)}}</td>
   <td>
     <a href="{{route('editar.usuario',$user->id)}}">
