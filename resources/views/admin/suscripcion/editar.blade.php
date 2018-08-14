@@ -82,7 +82,7 @@
  <div class="col-md-6 form-group">
    <label for="">Región</label>
    <select id="region" name="departamento" class="form-control">
-     <option value="">{{$sus->municipio->departamento->region->nombre}}</option>
+     <option value="{{$sus->municipio->departamento->region->id}}">{{$sus->municipio->departamento->region->nombre}}</option>
      @foreach($regiones as $region)
      <option value="{{$region->id}}">{{$region->nombre}}</option>
      @endforeach
@@ -92,7 +92,7 @@
  <div class="col-md-6 form-group">
    <label for="">Departamento</label>
    <select  id="departamento" name="departamento" class="form-control">
-     <option value="">{{$sus->municipio->departamento->nombre}}</option>
+     <option value="{{$sus->municipio->departamento->id}">{{$sus->municipio->departamento->nombre}}</option>
    </select>
  </div>
  <div class="col-md-6 form-group">

@@ -30,7 +30,7 @@
   {!!csrf_field()!!}
   <div class="col-md-6 form-group">
     <label for="">Cantidad</label>
-    <input type="number" class="form-control" id="" name="cantidad" placeholder="">
+    <input type="number" required class="form-control" id="" name="cantidad" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">Nombres</label>
@@ -42,7 +42,7 @@
   </div>
   <div class="col-md-6 form-group">
     <label for="">Correo</label>
-    <input type="text" class="form-control" id="" name="correo" placeholder="">
+    <input type="text"  class="form-control" id="" name="correo" placeholder="">
     @if($errors->has('correo'))
       <span class="invalid-feedback">
         <strong style="color:red" >{{ $errors->first('correo') }}</strong>
@@ -51,7 +51,7 @@
   </div>
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
-    <input type="text" class="form-control" id="" name="nombre_recibe" placeholder="">
+    <input type="text" required class="form-control" id="" name="nombre_recibe" placeholder="">
   </div>
 
   <div class="col-md-6 form-group">
@@ -86,7 +86,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select id="region" name="region" class="form-control">
+   <select required id="region" name="region" class="form-control">
      <option value="">Seleccione...</option>
      @foreach($regiones as $region)
      <option value="{{$region->id}}">{{$region->nombre}}</option>
@@ -96,12 +96,12 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="">Departamento</label>
-   <select id="departamento" name="departamento" class="form-control">
+   <select required id="departamento" name="departamento" class="form-control">
    </select>
  </div>
  <div class="col-md-6 form-group">
    <label for="">Minicipio</label>
-   <select id="municipio" class="form-control" name="municipio">
+   <select required id="municipio" class="form-control" name="municipio">
    </select>
  </div>
  <div class="col-md-6 form-group">
