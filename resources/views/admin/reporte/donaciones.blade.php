@@ -46,7 +46,7 @@ ESTADO
 <td class=" ">{{$p->nombre_benefactor}}</td>
 <td class=" ">{{$p->recibo_pago}}</td>
 <td class="a-right a-right ">{{$p->fecha}}</td>
-<td class="a-right a-right "></td>
+<td class="a-right a-right ">{{$p->persona->nombres}}</td>
 <td class=" last">
 @can('ver.donacion')
 <a href="{{route('ver.donacion',$p->id)}}">
