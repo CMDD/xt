@@ -69,8 +69,9 @@ class PersonaController extends Controller
       $persona->fecha_nacimiento = $request->fecha_nacimiento;
       if ($request->correo) {
         $persona->correo = $request->correo;
+      }else{
+        $persona->correo = $correo = str_random(15);
       }
-      $persona->correo = $correo = str_random(15);
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
       $persona->direccion_especificacion = $request->direccion_especificacion;
