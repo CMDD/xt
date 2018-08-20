@@ -27,14 +27,11 @@
 </div>
 
 <div class="x_content">
-<div class="col-md-9 col-sm-9 col-xs-12">
+<div class="col-md-7 col-sm-9 col-xs-12">
 
 <form class="" action="{{url('agregar-suscripcion',$persona->id)}}" method="post">
   {!!csrf_field()!!}
-  <div class="col-md-6 form-group">
-    <label for="">Cantidad</label>
-    <input type="number" required class="form-control" id="" name="cantidad" placeholder="">
-  </div>
+
 
   <div class="col-md-6 form-group">
     <label for="">Nombre de quien recibe</label>
@@ -45,16 +42,7 @@
     <label for="">Télefono</label>
     <input type="text" class="form-control" id="" name="telefono" value="" placeholder="">
   </div>
- <div class="col-md-6 form-group">
-   <label for="">Oracional</label>
-   <select required class="form-control" name="oracional">
-     <option value="">Seleccione...</option>
-     <option value="Jovenes">Jovenes</option>
-     <option value="Aldultos">Adultos</option>
-     <option value="Niños">Niños</option>
-     <option value="Puerta a la palabra">Puerta a la palabra</option>
-   </select>
- </div>
+
  <div class="col-md-6 form-group">
    <label for="">Plan</label>
    <select required class="form-control" name="plan">
@@ -104,7 +92,7 @@
  <div class="col-md-9 form-group">
    <input type="submit" class="btn btn-primary" name="" value="CREAR">
  </div>
-</form>
+
 
 <br/>
 
@@ -112,46 +100,88 @@
 
 </div>
 
-<!-- start project-detail sidebar -->
-<div class="col-md-3 col-sm-3 col-xs-12">
 
-<section class="panel">
+  <!-- start project-detail sidebar -->
+  <div class="col-md-5 col-sm-3 col-xs-12">
 
-<div class="x_title">
-<h2>Información del titular</h2>
-<div class="clearfix"></div>
-</div>
-<div class="panel-body">
-<h3 class="green"><i class="fa fa-book"></i> </h3>
+  <section class="panel">
 
-<p></p>
-<br/>
+  <div class="x_title">
+  <h2>ORACIONALES</h2>
+  <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-6 form-group">
+      <label for=""><i class="fa fa-book"></i>Jovenes</label>
+      <input type="number"  min="0" class="form-control" id="" name="jovenes" value="0">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for=""><i class="fa fa-book"></i>Adultos</label>
+      <input type="number"  min="0" class="form-control" id="" name="adultos" value="0">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for=""><i class="fa fa-book"></i>Niños</label>
+      <input type="number"  min="0" class="form-control" id="" name="ninos" value="0">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for=""><i class="fa fa-book"></i>Puerta a la palabra</label>
+      <input type="number"  min="0" class="form-control" id="" name="puerta" value="0">
+    </div>
+  <hr>
+  <br />
+  <br/>
 
-<div class="project_detail">
+  </div>
 
-<p class="title">Usuario</p>
-<p>{{$persona->nombres}}</p>
-<p class="title">Correo</p>
-<p>{{$persona->correo}}</p>
-<p class="title">Telefono</p>
-<p>{{$persona->telefono}}</p>
-<p class="title">Dirección</p>
-<p>{{$persona->direccion}}</p>
-</div>
-<br />
-<h3></h3>
+  </section>
 
-<br/>
-<div class="text-center mtop20">
+  </div>
+  </form>
+  <div class="col-md-5 col-sm-3 col-xs-12">
 
-</div>
-</div>
+  <section class="panel">
 
-</section>
+  <div class="x_title">
+  <h2>DETALLES DEL TITULAR</h2>
+  <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <div class="project_detail">
+    <p class="title">TITULAR</p>
+    <p>{{$persona->name}}</p>
+    <p class="title">Correo</p>
+    <p>{{$persona->correo}}</p>
+    <p class="title">Telefono</p>
+    <p>{{$persona->telefono}}</p>
+    </div>
+  </div>
 
-</div>
-<!-- end project-detail sidebar -->
+  </section>
 
+  </div>
+  <div class="col-md-5 col-sm-3 col-xs-12">
+
+  <section class="panel">
+
+  <div class="x_title">
+  <h2>DETALLES DEL USUARIO</h2>
+  <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <div class="project_detail">
+    <p class="title">TITULAR</p>
+    <p>{{$persona->usuario->name}}</p>
+    <p class="title">Correo</p>
+    <p>{{$persona->usuario->email}}</p>
+    <p class="title">Telefono</p>
+    <p>{{$persona->usuario->telefono}}</p>
+    </div>
+  </div>
+
+  </section>
+
+  </div>
+  <!-- end project-detail sidebar -->
 </div>
 </div>
 </div>

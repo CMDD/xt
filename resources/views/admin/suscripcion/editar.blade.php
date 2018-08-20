@@ -27,7 +27,7 @@
 </div>
 
 <div class="x_content">
-<div class="col-md-9 col-sm-9 col-xs-12">
+<div class="col-md-7 col-sm-9 col-xs-12">
 
 <form class="" action="{{route('actualizar.suscripcion',$sus->id)}}" method="post">
   {!!csrf_field()!!}
@@ -36,25 +36,12 @@
     <label for="">Nombre de quien recibe</label>
     <input type="text" class="form-control" id="" name="nombre_recibe" value="{{$sus->nombre_recibe}}" placeholder="">
   </div>
-  <div class="col-md-6 form-group">
-    <label for="">Cantidad</label>
-    <input type="number" min="0" class="form-control" id="" name="cantidad" value="{{$sus->cantidad}}" placeholder="">
-  </div>
+
 
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>
     <input type="text" class="form-control" id="" name="telefono" value="{{$sus->telefono}}" placeholder="">
   </div>
- <div class="col-md-6 form-group">
-   <label for="">Oracional</label>
-   <select class="form-control" name="oracional">
-     <option  value="{{$sus->oracional}}">{{$sus->oracional}}</option>
-     <option value="Jovenes">Jovenes</option>
-     <option value="Aldultos">Adultos</option>
-     <option value="Niños">Niños</option>
-     <option value="Puerta a la palabra">Puerta a la palabra</option>
-   </select>
- </div>
  <div class="col-md-6 form-group">
    <label for="">Plan</label>
    <select class="form-control" name="plan">
@@ -103,8 +90,12 @@
  </div>
 
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion : {{$sus->fecha_inicio}} </label>
+   <label for="">Fecha de suscripcion : {{$sus->fecha_inicio->format('d/m/y')}} </label>
    <input type="date" class="form-control" id=""  name="fecha">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">AGREGAR MES</label>
+   <input type="number" class="form-control"  id="" name="mes" placeholder="">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>
@@ -113,7 +104,7 @@
  <div class="col-md-9 form-group">
    <input type="submit" class="btn btn-primary" name="" value="ACTUALIZAR">
  </div>
-</form>
+
 
 <br/>
 
@@ -122,47 +113,86 @@
 </div>
 
 <!-- start project-detail sidebar -->
-<div class="col-md-3 col-sm-3 col-xs-12">
+<div class="col-md-5 col-sm-3 col-xs-12">
 
 <section class="panel">
 
 <div class="x_title">
-<h2>Detalles del titular</h2>
+<h2>ORACIONALES</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
-<h3 class="green"><i class="fa fa-book"></i> {{$sus->oracional}}</h3>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Jovenes</label>
+    <input type="number"  min="0" class="form-control" id="" name="jovenes" value="{{$sus->jovenes}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Adultos</label>
+    <input type="number"  min="0" class="form-control" id="" name="adultos" value="{{$sus->adultos}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Niños</label>
+    <input type="number"  min="0" class="form-control" id="" name="ninos" value="{{$sus->ninos}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Puerta a la palabra</label>
+    <input type="number"  min="0" class="form-control" id="" name="puerta" value="{{$sus->puerta}}">
+  </div>
 <hr>
-
-<div class="project_detail">
-
-<p class="title">Usuario</p>
-<p>{{$sus->persona->nombres}}</p>
-<p class="title">Correo</p>
-<p>{{$sus->persona->correo}}</p>
-<p class="title">Telefono</p>
-<p>{{$sus->persona->telefono}}</p>
-</div>
 <br />
-<h3>Datos de envío</h3>
-<div class="project_detail">
-
-<p class="title">dirección</p>
-<p>{{$sus->direccion}}</p>
-<p class="title">Especificacion de dirección</p>
-<p>{{$sus->direccion_especificacion}}</p>
-</div>
 <br/>
-<div class="text-center mtop20">
 
 </div>
+
+</section>
+
+</div>
+<div class="col-md-5 col-sm-3 col-xs-12">
+
+<section class="panel">
+
+<div class="x_title">
+<h2>DETALLES DEL TITULAR</h2>
+<div class="clearfix"></div>
+</div>
+<div class="panel-body">
+  <div class="project_detail">
+  <p class="title">TITULAR</p>
+  <p>{{$sus->persona->nombres}}</p>
+  <p class="title">Correo</p>
+  <p>{{$sus->persona->correo}}</p>
+  <p class="title">Telefono</p>
+  <p>{{$sus->persona->telefono}}</p>
+  </div>
+</div>
+
+</section>
+
+</div>
+<div class="col-md-5 col-sm-3 col-xs-12">
+
+<section class="panel">
+
+<div class="x_title">
+<h2>DETALLES DEL USUARIO</h2>
+<div class="clearfix"></div>
+</div>
+<div class="panel-body">
+  <div class="project_detail">
+  <p class="title">TITULAR</p>
+  <p>{{$sus->usuario->name}}</p>
+  <p class="title">Correo</p>
+  <p>{{$sus->usuario->email}}</p>
+  <p class="title">Telefono</p>
+  <p>{{$sus->usuario->telefono}}</p>
+  </div>
 </div>
 
 </section>
 
 </div>
 <!-- end project-detail sidebar -->
-
+</form>
 </div>
 </div>
 </div>

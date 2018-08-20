@@ -71,15 +71,17 @@
      <option value="Minuto de evangelización">Minuto de evangelización</option>
      <option value="Club de amigos">Club de amigos</option>
      <option value="Web">Web</option>
-     <option value="Exporadico">Exporádico</option>
+     <option value="Esporadico">Esporádico</option>
    </select>
  </div>
+
  <div class="col-md-6 form-group">
    <label for="">Periocidad</label>
-   <select class="form-control" name="periocidad">
-     <option value="{{$donacion->periocidad}}">{{$donacion->periocidad}}</option>
-     <option value="6">6 meses</option>
-     <option value="12">1 Año</option>
+   <select required class="form-control" name="periocidad">
+     <option value="{{$donacion->periocidad}}">{{$donacion->periocidad}} </option>
+     <option value="15 Dias">15 días</option>
+     <option value="30 Dias">30 días</option>
+     <option value="Esporadico">Esporádito</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
@@ -97,15 +99,36 @@
 
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select name="region" class="form-control">
-     <option value="{{$donacion->region}}">{{$donacion->region}}</option>
+   <select  id="region" name="region" class="form-control">
+      @if($donacion->municipio)
+     <option value="">{{$donacion->municipio->departamento->region->nombre}}</option>
+     @else
+     <option value="">Seleccione...</option>
+     @endif
+     @foreach($regiones as $region)
+     <option value="{{$region->id}}">{{$region->nombre}}</option>
+     @endforeach
 
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <select class="form-control" name="ciudad">
-     <option value="{{$donacion->ciudad}}">{{$donacion->ciudad}}</option>
+   <label for="">Departamento</label>
+   <select  id="departamento" name="departamento" class="form-control">
+     @if($donacion->municipio)
+    <option value="">{{$donacion->municipio->departamento->nombre}}</option>
+    @else
+    <option value="">Seleccione...</option>
+    @endif
+   </select>
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Minicipio</label>
+   <select  id="municipio" class="form-control" name="municipio">
+     @if($donacion->municipio)
+    <option value="">{{$donacion->municipio->nombre}}</option>
+    @else
+    <option value="">Seleccione...</option>
+    @endif
    </select>
  </div>
 
@@ -150,7 +173,7 @@
 
 @can('editar.suscripcion')
 <div class="text-center mtop20">
-<a href="{{route('eliminar.donacion',$donacion->id)}}" class="btn  btn-danger">Eliminar donacion</a>
+<a href="{{route('eliminar.donacion',$donacion->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn  btn-danger">Eliminar donacion</a>
 </div>
 @endcan
 

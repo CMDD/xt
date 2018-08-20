@@ -45,7 +45,6 @@
 <br />
 
 <div id="mainb" style="height:350px;">
-
   <div class="col-md-6 form-group">
     <label for="">Nombre benefactor</label>
     <input disabled type="text" class="form-control" value="{{$donacion->nombre_benefactor}}" id="" name="nombre" placeholder="">
@@ -54,6 +53,9 @@
     <label for="">Titular</label>
     @if(isset($donacion->persona->nombres))
     <input disabled type="text" class="form-control" disabled value="{{$donacion->persona->nombres}}"  id="" name="correo" placeholder="">
+    @else
+    <input disabled type="text" class="form-control" disabled value="NN"  id="" name="correo" placeholder="">
+
     @endif
   </div>
   <div class="col-md-6 form-group">
@@ -96,13 +98,27 @@
 
   <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <input disabled type="text" class="form-control" name="" value="{{$donacion->region}}">
+   @if($donacion->municipio)
+   <input disabled type="text" class="form-control" name="" value="{{$donacion->municipio->departamento->region->nombre}}">
+   @else
+   <input disabled type="text" class="form-control" name="" value="">
+   @endif
   </div>
   <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-
-     <input disabled type="text" class="form-control" name="" value="{{$donacion->ciudad}}">
-
+   <label for="">Departamento</label>
+ @if($donacion->municipio)
+     <input disabled type="text" class="form-control" name="" value="{{$donacion->municipio->departamento->nombre}}">
+  @else
+  <input disabled type="text" class="form-control" name="" value="">
+  @endif
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Municipio</label>
+   @if($donacion->municipio)
+     <input disabled type="text" class="form-control" name="" value="{{$donacion->municipio->nombre}}">
+    @else
+    <input disabled type="text" class="form-control" name="" value="">
+    @endif
   </div>
 
   <div class="col-md-9 form-group">
@@ -121,7 +137,7 @@
 <section class="panel">
 
 <div class="x_title">
-<h2>Descripción del titular</h2>
+<h2>Descripción</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
@@ -132,7 +148,7 @@
 
 @if(isset($donacion->persona->nombres))
 
-<p class="title">Usuario</p>
+<p class="title">Titular</p>
 <p>{{$donacion->persona->nombres}}</p>
 <p class="title">Correo</p>
 <p>{{$donacion->persona->correo}}</p>
@@ -141,6 +157,15 @@
 </div>
 @endif
 <br />
+
+<h3>Datos del usuario</h3>
+<div class="project_detail">
+
+<p class="title">Nombre</p>
+<p>{{$donacion->usuario->name}}</p>
+<p class="title">Correo</p>
+<p>{{$donacion->usuario->email}}</p>
+</div>
 
 <br/>
 @can('editar.suscripcion')
@@ -151,6 +176,7 @@
 </div>
 
 </section>
+
 
 </div>
 <!-- end project-detail sidebar -->

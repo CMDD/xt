@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Persona;
 use App\Nota;
 use Carbon\Carbon;
+use Auth;
 
 class SeguimientoController extends Controller
 {
@@ -24,6 +25,7 @@ class SeguimientoController extends Controller
       $nota->asunto = $request->asunto;
       $nota->mensaje = $request->mensaje;
       $nota->persona_id = $id;
+      $nota->user_id = Auth::User()->id;
       $nota->save();
       alert()->success('Nota Creada','Correctamente.')->autoClose(5000);
       return back();

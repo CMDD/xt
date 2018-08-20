@@ -15,4 +15,7 @@ class Ciudad extends Model
     public function suscripcion() {
          return $this->hasMany('App\Suscripcion');
     }
+    public function donacion() {
+         return $this->hasMany('App\Donacion');
+    }
 }

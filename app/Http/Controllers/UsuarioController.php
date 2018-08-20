@@ -56,11 +56,11 @@ class UsuarioController extends Controller
       $user->apellidos = $request->apellidos;
       $user->email = $request->email;
       $user->cedula = $request->cedula;
+      $user->telefono = $request->telefono;
       $user->password = bcrypt($request->pass);
-      $user->regional = $request->regional;
+      $user->region_id = $request->region;
       $user->cargo = $request->cargo;
       $user->save();
-
       $user->roles()->sync($request->roles);
       return back();
     }
@@ -71,7 +71,6 @@ class UsuarioController extends Controller
       $usuario = User::find($id);
       $roles = Role::get();
       $colleccion = $usuario->getRoles();
-
       foreach ($colleccion as $key => $value) {
         $role[] = $value;
       }
@@ -100,8 +99,15 @@ class UsuarioController extends Controller
         $user->password = bcrypt($request->pass);
       }
 
-      $user->regional = $request->regional;
-      $user->cargo = $request->cargo;
+      if ($request->region) {
+        $user->region_id = $request->region;
+      }
+      if ($request->cargo) {
+        $user->cargo = $request->cargo;
+      }
+
+
+
       $user->save();
       $user->roles()->sync($request->roles);
 

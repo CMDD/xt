@@ -39,6 +39,7 @@ class PersonaController extends Controller
   }
      //Guardar en Base de Datos
   public function crear(RegisterPersonaRequest $request){
+
       $donacion =  urldecode($request['lista_donaciones']);
       $donaciones = json_decode($donacion);
       // alert()->success('Persona Creada!', 'Correctamente')
@@ -55,20 +56,33 @@ class PersonaController extends Controller
       $suscripciones = json_decode($lista_sus);
       $suscripcion_collection = Collection::make($suscripciones);
       $persona = new Persona();
-      $persona->estado = "Activo";
+
+      if ($request->numero_planilla and $request->file('imagen') ) {
+        $persona->estado = "Activo";
+      }else{
+        $persona->estado = "Desactivo";
+      }
       $persona->nombres = $request->nombres;
       $persona->apellidos = $request->apellidos;
       $persona->tipo_documento = $request->tipo_documento;
       $persona->numero_documento = $request->numero_documento;
       $persona->fecha_nacimiento = $request->fecha_nacimiento;
-      $persona->correo = $request->correo;
+      if ($request->correo) {
+        $persona->correo = $request->correo;
+        dd('hola');
+      }
+      $persona->correo = $correo = str_random(15);
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
       $persona->direccion_especificacion = $request->direccion_especificacion;
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
-      $persona->municipio_id = (int)$request->municipio;
-      $persona->region_id = (int)$request->region;
+      if ($request->municipio) {
+        $persona->municipio_id = (int)$request->municipio;
+        $persona->region_id = (int)$request->region;
+      }
+
+
       $persona->user_id = Auth::User()->id;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
@@ -82,61 +96,26 @@ class PersonaController extends Controller
         $persona->voz = $request->voz;
       }
       $persona->save();
+
       $result_persona = Persona::where('correo',$persona->correo)->first();
-      foreach ($request->preferencias as $key => $value) {
-                $data = new Interes();
-                $data->persona_id =$result_persona->id ;
-                $data->nombre = $value;
-                $data->save();
-      }
-      foreach ($request->tipo_persona as $key => $value) {
-                $data = new TipoPersona();
-                $data->persona_id =$result_persona->id ;
-                $data->nombre = $value;
-                $data->save();
-      }
-      //Suscripciones
-      if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
-        if ($request->direccion_radio == 'misma') {
-          $fecha_final =  Carbon::parse($request->fecha_suscripcion);
-          $sus = new Suscripcion();
-          $sus->oracional = $request->oracional;
-          $sus->plan = $request->plan;
-          $sus->fecha_inicio = $request->fecha_suscripcion;
-          $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-          $sus->persona_id = $result_persona->id;
-          $sus->estado = 'Activo';
-          $sus->nombre_recibe = $request->nombres;
-          $sus->direccion = $request->direccion;
-          $sus->direccion_especificacion = $request->direccion_especificacion;
-          $sus->ciudad = $request->municipio;
-          $sus->region = $request->region;
-          $sus->user_id = Auth::User()->id;
-          $sus->telefono = $request->telefono;
-          $sus->save();
-        }else{
-          foreach ($suscripcion_collection as $key => $dato) {
-            $fecha_final =  Carbon::parse($request->fecha_suscripcion);
-            $sus = new Suscripcion();
-            $sus->oracional = $dato->oracional;
-            $sus->plan = $dato->plan;
-            $sus->fecha_inicio = $dato->fecha_suscripcion;
-            $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-            $sus->persona_id = $result_persona->id;
-            $sus->estado = 'Activo';
-            $sus->nombre_recibe = $dato->nombre;
-            $sus->direccion = $dato->direccion;
-            $sus->direccion_especificacion = $dato->especificacion;
-            $sus->ciudad = $dato->municipio;
-            $sus->region = $dato->region;
-            $sus->telefono = $dato->telefono;
-            $sus->user_id = Auth::User()->id;
-            $sus->observacion = $dato->observacion;
-            $sus->save();
-          }
-          }
+      if ($request->preferencias) {
+        foreach ($request->preferencias as $key => $value) {
+                  $data = new Interes();
+                  $data->persona_id =$result_persona->id ;
+                  $data->nombre = $value;
+                  $data->save();
         }
-      //Fin suscripcion
+      }
+
+      if ($request->tipo_persona) {
+        foreach ($request->tipo_persona as $key => $value) {
+                  $data = new TipoPersona();
+                  $data->persona_id =$result_persona->id ;
+                  $data->nombre = $value;
+                  $data->save();
+        }
+      }
+
       alert()->success('Persona Creada!', 'Correctamente')
       ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
       // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
@@ -147,21 +126,30 @@ class PersonaController extends Controller
       $lista_sus = urldecode($request['lista_sus']);
       $suscripciones = json_decode($lista_sus);
       $suscripcion_collection = Collection::make($suscripciones);
+
       $persona = Persona::find($id);
-      $persona->estado = $request->estado;
+      if ($request->numero_planilla and $request->file('imagen') ) {
+        $persona->estado = "Activo";
+      }else{
+        $persona->estado = $request->estado;
+      }
       $persona->nombres = $request->nombres;
       $persona->apellidos = $request->apellidos;
       $persona->tipo_documento = $request->tipo_documento;
       $persona->numero_documento = $request->numero_documento;
       $persona->fecha_nacimiento = $request->fecha_nacimiento;
-      $persona->correo = $request->correo;
+      if ($persona->correo != $request->correo ) {
+          $persona->correo = $request->correo;
+      }
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
       $persona->direccion_especificacion = $request->direccion_especificacion;
       $persona->numero_planilla = $request->numero_planilla;
       $persona->numero_registro = $request->numero_registro;
-      $persona->municipio_id = (int)$request->municipio;
-      $persona->region_id = (int)$request->region;
+      if ($request->municipio) {
+        $persona->municipio_id = (int)$request->municipio;
+        $persona->region_id = (int)$request->region;
+      }
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
       $persona->ocupacion = $request->ocupacion;
@@ -172,7 +160,7 @@ class PersonaController extends Controller
         $persona->voz = $request->file('voz')->store('voz');
       }
       $persona->save();
-      $result_persona = Persona::where('correo',$persona->correo)->first();
+      $result_persona = Persona::find($persona->id);
       if ($request->preferencias) {
         foreach ($request->preferencias as $key => $value) {
                   $data = new Interes();
@@ -181,6 +169,7 @@ class PersonaController extends Controller
                   $data->save();
         }
       }
+
       if ($request->tipo_persona) {
         foreach ($request->tipo_persona as $key => $value) {
                   $data = new TipoPersona();
@@ -189,50 +178,6 @@ class PersonaController extends Controller
                   $data->save();
         }
       }
-      //Suscripciones
-      if ($request->direccion_radio == 'misma' or $request->direccion_radio == 'otra' ) {
-        if ($request->direccion_radio == 'misma') {
-          $fecha_final =  Carbon::parse($request->fecha_suscripcion);
-          $sus = new Suscripcion();
-          $sus->oracional = $request->oracional;
-          $sus->plan = $request->plan;
-          $sus->fecha_inicio = $request->fecha_suscripcion;
-          $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-          $sus->persona_id = $result_persona->id;
-          $sus->user_id = Auth::User()->id;
-          $sus->estado = 'Activo';
-          $sus->nombre_recibe = $request->nombres;
-          $sus->direccion = $request->direccion;
-          $sus->direccion_especificacion = $request->direccion_especificacion;
-          $sus->ciudad = $request->ciudad;
-          $sus->region = $request->region;
-          $sus->telefono = $request->telefono;
-          $sus->save();
-        }else{
-          foreach ($suscripcion_collection as $key => $dato) {
-            $fecha_final =  Carbon::parse($request->fecha_suscripcion);
-            $sus = new Suscripcion();
-            $sus->oracional = $dato->oracional;
-            $sus->plan = $dato->plan;
-            $sus->fecha_inicio = $dato->fecha_suscripcion;
-            $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
-            $sus->persona_id = $result_persona->id;
-            $sus->user_id = Auth::User()->id;
-            $sus->estado = 'Activo';
-            $sus->nombre_recibe = $dato->nombre;
-            $sus->direccion = $dato->direccion;
-            $sus->direccion_especificacion = $dato->especificacion;
-            $sus->ciudad = $dato->ciudad;
-            $sus->region = $dato->region;
-            $sus->telefono = $dato->telefono;
-            $sus->observacion = $dato->observacion;
-            $sus->save();
-          }
-          }
-        }
-      //Fin suscripcion
-
-
       alert()->success('Actualizado!', 'Correctamente')
       ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
       return back();

@@ -63,7 +63,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             @foreach($tipo_personas as $tipo)
-            <button type="button" class="btn btn-default tooltip-button" data-toggle="tooltip" data-placement="left" >{{$tipo->nombre}}</button>
+            <button type="button" class="btn btn-default " data-toggle="tooltip" data-placement="left" >{{$tipo->nombre}}</button>
             @endforeach
           </div>
           </div>
@@ -126,7 +126,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
             <div class="col-md-3 col-sm-9 col-xs-12">
               <button type="button" class="btn btn-default tooltip-button-datos"
-              data-toggle="tooltip" data-placement="left" >{{$persona->municipio->departamento->region->nombre}}
+              data-toggle="tooltip" data-placement="left" >
+              @if(isset($persona->municipio))
+              {{$persona->municipio->departamento->region->nombre}}
+              @endif
             </button>
 
             </div>
@@ -134,7 +137,10 @@
             <label class="control-label col-md-2 col-sm-3 col-xs-12">Departamento </label>
             <div class="col-md-4 col-sm-9 col-xs-12">
               <button type="button" class="btn btn-default tooltip-button-datos"
-              data-toggle="tooltip" data-placement="left" >{{$persona->municipio->departamento->nombre}}
+              data-toggle="tooltip" data-placement="left" >
+              @if(isset($persona->municipio))
+              {{$persona->municipio->departamento->nombre}}
+              @endif
             </button>
 
             </div>
@@ -149,7 +155,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >{{$persona->municipio->nombre}}
+            data-toggle="tooltip" data-placement="left" >
+            @if(isset($persona->municipio))
+            {{$persona->municipio->nombre}}
+            @endif
           </button>
 
           </div>
@@ -182,7 +191,7 @@
           <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
           </label>
             @foreach($interes as $int)
-            <button type="button" class="btn btn-default tooltip-button" data-toggle="tooltip" data-placement="left" >{{$int->nombre}}</button>
+            <button type="button" class="btn btn-default " data-toggle="tooltip" data-placement="left" >{{$int->nombre}}</button>
             @endforeach
           </div>
           <div class="ln_solid"></div>
@@ -217,7 +226,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <!-- <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
           <h2>Archivos de Voz</h2>
@@ -246,7 +255,7 @@
           @endif
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
@@ -291,8 +300,29 @@
           @endforeach
         </div>
       </div>
+<div class="col-md-6 col-sm-12 col-xs-12">
+      <section class="panel">
+
+      <div class="x_title">
+      <h2>DATOS DEL USUARIO</h2>
+      <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+      <div class="project_detail">
+      <p class="title">Nombre</p>
+      <p> {{$persona->usuario->name}}</p>
+      <p class="title">Correo</p>
+      <p>{{$persona->usuario->email}}</p>
+      </div>
+      <br/>
+
+      </div>
+
+      </section>
+    </div>
       </form>
     </div>
+
   </div>
 <!-- /page content -->
 <!-- footer content -->

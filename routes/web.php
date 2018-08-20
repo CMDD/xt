@@ -133,14 +133,19 @@ Route::get('ixtus','DashController@index');
   Route::post('crear_donacion','DonacionController@store');
 
   // Reportes
-  Route::get('bd_nacional','ReporteController@titularNacional');
+  Route::get('bd_nacional','ReporteController@titularNacional')
+  ->name('reporte.nacional')
+  ->middleware('permission:reporte.nacional');
+
   Route::get('reportes','ReporteController@index');
   Route::get('reporte_suscripcion','ReporteController@suscripciones');
+  Route::get('reporte_regional/{reporte}','ReporteController@reporteRegional')->name('reporte.regional');
   Route::get('reporte_donaciones','ReporteController@donaciones');
   Route::get('totales','ReporteController@totales');
   Route::get('parametros','ReporteController@parametros');
   Route::post('reporteTitulares','ReporteController@reporteTitulares');
   Route::post('reporteSuscripciones','ReporteController@reporteSuscripciones');
+  Route::post('reporteDonaciones','ReporteController@reporteDonaciones');
 
   Route::get('descargar_titulares','ReporteController@descargarTitulares')->name('descargar.titulares');
   Route::get('descargar_suscripciones','ReporteController@descargarSuscripciones')->name('descargar.suscripciones');
@@ -148,7 +153,8 @@ Route::get('ixtus','DashController@index');
 });
 
 
-
+// Soporte
+Route::post('soporte','SoporteController@general');
 
 
 

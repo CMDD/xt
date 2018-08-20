@@ -48,7 +48,7 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="apellidos" class="form-control " >
+          <input required type="text" name="apellidos" class="form-control " >
           </div>
           </div>
 
@@ -60,6 +60,7 @@
           <option value="CC" >CC</option>
           <option value="CE" >CE</option>
           <option value="TI">TI</option>
+
           </select>
           </div>
           <div class="col-md-6 col-sm-9 col-xs-12">
@@ -75,7 +76,7 @@
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="correo" required type="email" class="form-control" placeholder="">
+          <input name="correo" type="email" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
@@ -222,7 +223,7 @@
       </div>
 
 
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <!-- <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="x_panel">
       <div class="x_title">
       <h2>Archivos de Voz</h2>
@@ -242,7 +243,7 @@
     </div>
 
       </div>
-      </div>
+      </div> -->
 
       <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="x_panel">

@@ -22,7 +22,7 @@ class SuscripcionController extends Controller
 
   Public function lista(){
     $nombre ='Suscriptores';
-    $sus = Suscripcion::where('user_id',Auth::User()->id)->get();
+    $sus = Suscripcion::where('user_id',Auth::User()->id)->orderBy('id', 'DESC')->get();
     return view('admin.suscripcion.lista')->with('sus',$sus)
                                            ->with('nombre',$nombre);
   }
@@ -34,11 +34,11 @@ class SuscripcionController extends Controller
   public function store(Request $request){
 
     $titular = Persona::where('correo',$request->correo)->first();
+
      if ($titular) {
        // Crear suscripcion
        $fecha_final =  Carbon::parse($request->fecha);
        $sus = new Suscripcion();
-       $sus->oracional = $request->oracional;
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
@@ -52,6 +52,10 @@ class SuscripcionController extends Controller
        $sus->region_id = (int)$request->region;
        $sus->telefono = $request->telefono;
        $sus->observacion = $request->observacion;
+       $sus->jovenes = $request->jovenes;
+       $sus->adultos = $request->adultos;
+       $sus->ninos = $request->ninos;
+       $sus->puerta = $request->puerta;
        $sus->save();
      }else{
        //Crear titular
@@ -60,12 +64,12 @@ class SuscripcionController extends Controller
        $persona->nombres = $request->nombres;
        $persona->apellidos = $request->apellidos;
        $persona->correo = $request->correo;
+       $persona->numero_documento = $request->cedula;
        $persona->user_id = Auth::User()->id;
        $persona->save();
        // Crear suscripcion
        $fecha_final =  Carbon::parse($request->fecha);
        $sus = new Suscripcion();
-       $sus->oracional = $request->oracional;
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
        $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
@@ -79,11 +83,17 @@ class SuscripcionController extends Controller
        $sus->region_id = (int)$request->region;
        $sus->telefono = $request->telefono;
        $sus->observacion = $request->observacion;
+
+       $sus->jovenes = (int)$request->jovenes;
+       $sus->adultos = (int)$request->adultos;
+       $sus->ninos = (int)$request->ninos;
+       $sus->puerta = (int)$request->puerta;
+
        $sus->save();
 
      }
-     alert()->success('Suscripcion Creada!', 'Correctamente')
-     ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
+       alert()->success('Suscripcion Creada!', 'Correctamente')
+       ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
      return back();
 
   }
@@ -103,13 +113,18 @@ class SuscripcionController extends Controller
   public function update(Request $request,$id){
     $fecha =  Carbon::parse($request->fecha);
     $sus = Suscripcion::find($id);
-    $sus->oracional = $request->oracional;
-    $sus->cantidad = $request->cantidad;
     $sus->plan = $request->plan;
+
     if ($request->fecha) {
       $sus->fecha_inicio = $fecha;
+      $sus->fecha_final = $fecha->addMonth((int)$request->plan);
     }
-    $sus->fecha_final = $fecha->addMonth((int)$request->plan);
+
+    if ($request->mes) {
+      $sus->fecha_final = $sus->fecha_final->addMonth((int)$request->mes);
+    }
+
+
     $sus->estado = $request->estado;
     $sus->nombre_recibe = $request->nombre_recibe;
     $sus->direccion = $request->direccion;
@@ -118,7 +133,16 @@ class SuscripcionController extends Controller
     $sus->region_id = (int)$request->region;
     $sus->telefono = $request->telefono;
     $sus->observacion = $request->observacion;
+
+    $sus->jovenes = (int)$request->jovenes;
+    $sus->adultos = (int)$request->adultos;
+    $sus->ninos = (int)$request->ninos;
+    $sus->puerta = (int)$request->puerta;
+
+
+
     $sus->save();
+
     alert()->success('Suscripcion actualizada','CORRECTAMENTE');
     return redirect()->route('editar.suscripcion',$sus->id);
 
@@ -169,8 +193,6 @@ class SuscripcionController extends Controller
     public function agregarSuscripcion(Request $request){
          $fecha =  Carbon::parse($request->fecha_suscripcion);
          $sus = new Suscripcion();
-         $sus->cantidad  = $request->cantidad;
-         $sus->oracional = $request->oracional;
          $sus->plan = $request->plan;
          $sus->fecha_inicio = $fecha;
          $sus->fecha_final = $fecha->addMonths((int)$request->plan);
@@ -185,6 +207,12 @@ class SuscripcionController extends Controller
          $sus->direccion = $request->direccion;
          $sus->direccion_especificacion = $request->especificacion_direccion;
          $sus->observacion = $request->observacion;
+
+         $sus->jovenes = $request->jovenes;
+         $sus->adultos = $request->adultos;
+         $sus->ninos = $request->ninos;
+         $sus->puerta = $request->puerta;
+
          $sus->save();
          alert()->success('Suscripcion creada','Correctamente');
          return back();

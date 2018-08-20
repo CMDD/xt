@@ -33,7 +33,11 @@
   {!!csrf_field()!!}
   <div class="col-md-6 form-group">
     <label for="">Nombre benefactor</label>
-    <input type="text" class="form-control" required id="" name="nombre" placeholder="">
+    <input type="text" class="form-control"  id="" name="nombre" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Apellidos</label>
+    <input type="text" class="form-control"  id="" name="apellido" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">Correo</label>
@@ -47,41 +51,43 @@
   </div>
   <div class="col-md-6 form-group">
     <label for="">Valor donado</label>
-    <input type="text" class="form-control" id="" name="valor" placeholder="">
+       $<input type="number" min="0.00" step="0.01" class="form-control" required id="" name="valor" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">No. Recibo de pago</label>
-    <input type="text" class="form-control" id="" name="recibo_pago" placeholder="">
+    <input type="text" class="form-control" id="" required name="recibo_pago" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">Fecha de la donación</label>
-    <input type="date" class="form-control" id="" name="fecha" placeholder="">
+    <input type="date" class="form-control" id="" required name="fecha" placeholder="">
   </div>
 
   <div class="col-md-6 form-group">
-    <label for="">Télefono</label>
+    <label for="">Teléfono</label>
     <input type="text" class="form-control" id="" name="telefono" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">Celular</label>
     <input type="text" class="form-control" id="" name="celular" placeholder="">
   </div>
+
  <div class="col-md-6 form-group">
    <label for="">Programa</label>
-   <select class="form-control" name="programa">
+   <select required class="form-control" name="programa">
      <option value="">Seleccione...</option>
      <option value="Minuto de evangelizacion">Minuto de evangelización</option>
      <option value="Club de amigos">Club de amigos</option>
      <option value="Exporadico">Esporádico</option>
    </select>
  </div>
+
  <div class="col-md-6 form-group">
-   <label for="">Periocidad</label>
-   <select class="form-control" name="periocidad">
+   <label for="">Periodicidad</label>
+   <select required class="form-control" name="periocidad">
      <option value="">Seleccione...</option>
-     <option value="15">15 días</option>
-     <option value="20">30 días</option>
-     <option value="20">Esporádito</option>
+     <option value="15 Dias">15 días</option>
+     <option value="30 Dias">30 días</option>
+     <option value="Esporadico">Esporádito</option>
    </select>
  </div>
  <div class="col-md-6 form-group">
@@ -91,15 +97,22 @@
 
  <div class="col-md-6 form-group">
    <label for="">Región</label>
-   <select name="region" class="form-control">
+   <select  id="region" name="region" class="form-control">
      <option value="">Seleccione...</option>
+     @foreach($regiones as $region)
+     <option value="{{$region->id}}">{{$region->nombre}}</option>
+     @endforeach
 
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Ciudad</label>
-   <select class="form-control" name="ciudad">
-     <option value="">Seleccione...</option>
+   <label for="">Departamento</label>
+   <select  id="departamento" name="departamento" class="form-control">
+   </select>
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Municipio</label>
+   <select  id="municipio" class="form-control" name="municipio">
    </select>
  </div>
 

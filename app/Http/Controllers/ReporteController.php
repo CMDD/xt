@@ -13,6 +13,7 @@ use App\Region;
 use Carbon\Carbon;
 use Reporte\Reporte;
 use Maatwebsite\Excel\Facades\Excel;
+use Auth;
 
 class ReporteController extends Controller
 {
@@ -55,6 +56,14 @@ class ReporteController extends Controller
       }
       return $result;
     }
+    public function reporteDonaciones(Request $request){
+      if ($request->accion == 'Descargar' and $request->tipo == 'listado'){
+          $result = (new Reporte)->descargarDonaciones($request);
+      }else {
+          $result = (new Reporte)->verDonaciones($request);
+      }
+      return $result;
+    }
 
 
     public function parametros(){
@@ -86,6 +95,23 @@ class ReporteController extends Controller
           'empleado' => $empleado
       ];
       return view('admin.reporte.totales')->with('valores',$valores);
+    }
+
+    public function reporteRegional($reporte){
+      if ($reporte == 'Personas') {
+        $nombre = 'Base de datos regional';
+        $personas = Persona::where('region_id',Auth::User()->region_id)->get();
+        return view('admin.persona.listar')->with('personas',$personas)
+                                           ->with('nombre',$nombre);
+      }elseif ($reporte == 'Suscripciones') {
+        $sus = Suscripcion::where('region_id',Auth::User()->region_id)->get();
+        return view('admin.reporte.suscripciones')->with('sus',$sus);
+      }elseif ($reporte == 'Donaciones') {
+        $donaciones = Donacion::where('region_id',Auth::User()->region_id)->get();
+        return view('admin.reporte.donaciones')->with('donaciones',$donaciones);
+
+      }
+
     }
 
 

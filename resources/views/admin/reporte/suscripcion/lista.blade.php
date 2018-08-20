@@ -28,7 +28,6 @@
 ACTIVO
 </th>
 <th>ID</th>
-<th>ORACIONAL</th>
 <th>PLAN</th>
 <th>FECHA INICIO</th>
 <th>FECHA CORTE</th>
@@ -44,7 +43,6 @@ ACTIVO
 <p type="" class="{{$p->estado}}">
 </td>
 <td class=" ">{{$p->id}} </td>
-<td class=" ">{{$p->oracional}}</td>
 <td class=" ">{{$p->plan}} Meses</td>
 <td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
 <td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>

@@ -158,6 +158,17 @@
              </li>
              </ul>
              </li>
+             <li class="">
+             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+             <img src="" alt="">Soporte
+             <span class=" fa fa-angle-down"></span>
+             </a>
+             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+             <li><a data-toggle="modal" data-target=".titulares"  href="">  General</a>
+             </li>
+
+             </ul>
+             </li>
              <li role="presentation" class="dropdown">
                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                <i class="fa fa-envelope-o"></i>
@@ -196,6 +207,52 @@
        </div>
      </div>
      <!-- /top navigation -->
+
+
+     <div class="modal fade titulares" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-dialog modal-md">
+     <div class="modal-content">
+
+     <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+     </button>
+     <h4 class="modal-title" id="myModalLabel2">SOPORTE GENERAL</h4>
+     </div>
+     <div class="modal-body">
+   <form class="" action="{{url('soporte')}}"  method="post">
+     {!!csrf_field()!!}
+     <div class="form-group">
+       <label for="">Asunto</label>
+       <input type="text" class="form-control" id="" name="asunto" placeholder="">
+     </div>
+     <div class="form-group">
+       <label for="">Mensaje</label>
+       <textarea name="mensaje" class="form-control" rows="3" cols="80"></textarea>
+     </div>
+     <div class="form-group">
+       <label for="">Usuario</label>
+       <select class="form-control" name="usuario">
+         <option value="">Seleccione...</option>
+         @foreach(Session::get('lideres') as $lider)
+         <option value="{{$lider->email}}">{{$lider->name}} {{$lider->apellidos}}</option>
+         @endforeach
+       </select>
+       <p class="help-block">Ixtus service</p>
+     </div>
+
+
+     <div class="modal-footer">
+     <button type="button" style="margin-top:1%;" class="btn btn-danger" data-dismiss="modal">CERRAR</button>
+     <button type="submit" class="btn btn-primary">ENVIAR</button>
+     </div>
+
+   </form>
+     </div>
+
+
+     </div>
+     </div>
+     </div>
 
     <!-- page content -->
     @yield('content')

@@ -6,6 +6,13 @@
 @section('content')
 <div class="right_col" role="main">
 <div class="">
+  @if($errors->any())
+  @foreach($errors->all() as $error)
+  <br>
+  <br>
+  <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
+  @endforeach
+  @endif
 <div class="page-title">
 <div class="title_left">
 <h3>EDITAR TITULAR</h3>
@@ -61,13 +68,13 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 @endforeach
 </div>
 </div>
-
 <div class="form-group">
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
 <select name="tipo_documento" class="form-control">
 <option value="{{$persona->tipo_documento}}">{{$persona->tipo_documento}}</option>
 <option value="CC" >CC</option>
+<option value="CE" >CE</option>
 <option value="TI">TI</option>
 </select>
 </div>
@@ -116,7 +123,13 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
   <select id="region" class=" form-control" name="region">
-    <option value="">{{$persona->municipio->departamento->region->nombre}}</option>
+    @if(isset($persona->municipio))
+
+    <option value="{{$persona->municipio->departamento->region->id}}">{{$persona->municipio->departamento->region->nombre}}</option>
+    @else
+<option value="">Seleccione...</option>
+    @endif
+
     @foreach($regiones as $region)
     <option value="{{$region->id}}">{{$region->nombre}}</option>
     @endforeach
@@ -126,9 +139,11 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
 <div class="col-md-3 col-sm-9 col-xs-12">
 
-
   <select id="departamento" class=" form-control" name="ciudad">
-    <option value="">{{$persona->municipio->departamento->nombre}}</option>
+    @if(isset($persona->municipio))
+    <option value="{{$persona->municipio->departamento->id}}">{{$persona->municipio->departamento->nombre}}</option>
+    @endif
+    <option value=""></option>
   </select>
 
 </div>
@@ -138,7 +153,9 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
   <div class="col-md-4 col-sm-9 col-xs-12">
     <select id="municipio" class=" form-control" name="municipio">
-<option value="">{{$persona->municipio->nombre}}</option>
+      @if(isset($persona->municipio))
+      <option value="">{{$persona->municipio->nombre}}</option>
+      @endif
     </select>
 
   </div>
@@ -251,7 +268,7 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 </div>
 </div>
 
-<div class="col-md-6 col-sm-12 col-xs-12">
+<!-- <div class="col-md-6 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
 <h2>ARCHIVOS DE VOZ</h2>
@@ -281,7 +298,7 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 </div>
 <input class="file-voz" type="file" name="voz" value="">
 </div>
-</div>
+</div> -->
 
 <div class="col-md-6 col-sm-12 col-xs-12">
 <div class="x_panel">

@@ -1,7 +1,7 @@
 <div class="col-md-12">
 <div class="x_panel">
 <div class="x_title">
-<h2>SUSCRIPCIONES</h2>
+<h2>DONACIONES</h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -14,7 +14,7 @@
 
 <div class="row">
 
-  <form class="" action="{{url('reporteSuscripciones')}}" method="post">
+  <form class="" action="{{url('reporteDonaciones')}}" method="post">
 
 {!!csrf_field()!!}
 

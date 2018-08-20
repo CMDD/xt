@@ -57,10 +57,10 @@
 <div class="form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12">Regional</label>
   <div class="col-md-9 col-sm-9 col-xs-12">
-      <select name="regional" class="form-control">
+      <select name="region" class="form-control">
           <option  value="">Seleccione...</option>
           @foreach($regiones as $region)
-          <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+          <option value="{{$region->id}}">{{$region->nombre}}</option>
           @endforeach
 
       </select>

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','region_id'
     ];
 
     /**
@@ -32,6 +32,15 @@ class User extends Authenticatable
     }
     public function suscripcion(){
       return $this->hasMany('App\Suscripcion');
+    }
+    public function donacion(){
+      return $this->hasMany('App\Donacion');
+    }
+    public function nota(){
+      return $this->hasMany('App\Nota');
+    }
+    public function region(){
+      return $this->belongsTo('App\Region');
     }
 
 

@@ -79,7 +79,7 @@ class PermissionTableSeeder extends Seeder
             'description' => 'Crea roles al sistema'
           ]);
 
-          
+
           // Donaciones
           Permission::create([
             'name' => 'Creacion de donaciones',
@@ -106,5 +106,17 @@ class PermissionTableSeeder extends Seeder
             'slug' => 'ver.donacion',
             'description' => 'Ver detalle de donacion del sistema'
           ]);
+          // Reportes
+          Permission::create([
+            'name' => 'Reperte nacional',
+            'slug' => 'reporte.nacional',
+            'description' => 'Muestra los reportes nacionales'
+          ]);
+          Permission::create([
+            'name' => 'Reperte Regional',
+            'slug' => 'reporte.regional',
+            'description' => 'Muestra los reportes regionales'
+          ]);
+
     }
 }

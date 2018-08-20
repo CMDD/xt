@@ -49,11 +49,17 @@
 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+
 <input type="text" class="form-control has-feedback-left" name="cargo"  value="{{$usuario->cargo}}" placeholder="Cargo">
 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
 </div>
+
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<input type="text" class="form-control has-feedback-left" name="region"  value="{{$usuario->region}}" placeholder="Region">
+  @if(isset($usuario->region->nombre))
+<input type="text" class="form-control has-feedback-left" name="regionales"  value="{{$usuario->region->nombre}}" placeholder="Region">
+ @else
+ <input type="text" class="form-control has-feedback-left" name="regionales"  value="" placeholder="Region">
+ @endif
 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 </div>
 
@@ -65,10 +71,10 @@
 <div class="form-group">
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Regional</label>
 <div class="col-md-9 col-sm-9 col-xs-12">
-    <select name="regional" class="form-control">
+    <select name="region" class="form-control">
         <option  value="">Seleccione...</option>
         @foreach($regiones as $region)
-        <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+        <option value="{{$region->id}}">{{$region->nombre}}</option>
         @endforeach
 
     </select>
@@ -157,11 +163,7 @@
 <td>{{$user->email}}</td>
 <td>
   <a href="{{route('editar.usuario',$user->id)}}">
-  <button type="button" style="width:45%;" class="btn btn-default" name="button">Editar</button>
-  </a>
-
-  <a href="{{route('eliminar.usuario',$user->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
-  <button type="button" style="width:45%;" class="btn btn-default" name="button">Eliminar</button>
+  <button type="button" style="width:80%;" class="btn btn-default" name="button">Editar</button>
   </a>
 </td>
 

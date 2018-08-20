@@ -24,9 +24,7 @@
 <table id="example" class="table table-striped responsive-utilities jambo_table">
 <thead>
 <tr class="headings">
-<th style="width:10%;" >
-ESTADO
-</th>
+<th>ESTADO</th>
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
 <th>CORREO</th>
@@ -38,9 +36,7 @@ ESTADO
 <tbody>
   @forelse($personas as $p)
 <tr class="even pointer">
-<td  class="">
-  {{$p->estado}}
-</td>
+<td class=" ">{{$p->estado}}</td>
 <td class=" ">{{$p->nombres}}</td>
 <td class=" ">{{$p->apellidos}}</td>
 <td class="a-right a-right ">{{$p->correo}}</td>

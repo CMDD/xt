@@ -27,7 +27,7 @@
 </div>
 
 <div class="x_content">
-<div class="col-md-9 col-sm-9 col-xs-12">
+<div class="col-md-7 col-sm-9 col-xs-12">
 <ul class="stats-overview">
 <li>
 <span class="name"> Plan </span>
@@ -39,7 +39,7 @@
 </li>
 <li class="hidden-phone">
 <span class="name"> Vence  </span>
-<span class="value text-success"> {{$sus->fecha_final}}</span>
+<span class="value text-success"> {{$sus->fecha_final->format('d/m/Y')}}</span>
 </li>
 </ul>
 <br />
@@ -49,19 +49,13 @@
     <label for="">Nombre de quien recibe</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->nombre_recibe}}" >
   </div>
-  <div class="col-md-6 form-group">
-    <label for="">Cantidad</label>
-    <input type="text" class="form-control" id="" disabled  value="{{$sus->cantidad}}" >
-  </div>
+
 
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->telefono}}" >
   </div>
-  <div class="col-md-6 form-group">
-    <label for="">Oracional</label>
-    <input type="text" class="form-control" id="" disabled  value="{{$sus->oracional}}" >
-  </div>
+
   <div class="col-md-6 form-group">
     <label for="">Plan</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->plan}} Meses" >
@@ -96,7 +90,7 @@
 
   <div class="col-md-6 form-group">
    <label for="">Fecha de suscripcion  </label>
-   <input type="text" class="form-control" id="" disabled value="{{$sus->fecha_inicio}}" name="fecha"  placeholder="">
+   <input type="text" class="form-control" id="" disabled value="{{$sus->fecha_inicio->format('d/m/Y')}}" name="fecha"  placeholder="">
   </div>
   <div class="col-md-9 form-group">
    <label for="">Observación</label>
@@ -108,47 +102,85 @@
 </div>
 
 <!-- start project-detail sidebar -->
-<div class="col-md-3 col-sm-3 col-xs-12">
+<div class="col-md-5 col-sm-3 col-xs-12">
 
 <section class="panel">
 
 <div class="x_title">
-<h2>Descripción del titular</h2>
+<h2>ORACIONALES</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
-<h3 class="green"><i class="fa fa-book"></i> {{$sus->oracional}}</h3>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Jovenes</label>
+    <input type="number" disabled  min="0" class="form-control" id="" name="jovenes" value="{{$sus->jovenes}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Adultos</label>
+    <input type="number" disabled  min="0" class="form-control" id="" name="adultos" value="{{$sus->adultos}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Niños</label>
+    <input type="number" disabled  min="0" class="form-control" id="" name="ninos" value="{{$sus->ninos}}">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for=""><i class="fa fa-book"></i>Puerta a la palabra</label>
+    <input type="number" disabled  min="0" class="form-control" id="" name="puerta" value="{{$sus->puerta}}">
+  </div>
 <hr>
-
-<div class="project_detail">
-
-<p class="title">Usuario</p>
-<p>{{$sus->persona->nombres}}</p>
-<p class="title">Correo</p>
-<p>{{$sus->persona->correo}}</p>
-<p class="title">Telefono</p>
-<p>{{$sus->persona->telefono}}</p>
-</div>
 <br />
-<h3>Datos de envío</h3>
-<div class="project_detail">
-
-<p class="title">dirección</p>
-<p>{{$sus->direccion}}</p>
-<p class="title">Especificacion de dirección</p>
-<p>{{$sus->direccion_especificacion}}</p>
-</div>
 <br/>
-@can('editar.suscripcion')
-<div class="text-center mtop20">
-<a href="{{route('editar.suscripcion',$sus->id)}}" class="btn btn-sm btn-primary">Editar</a>
-</div>
-@endcan
+
 </div>
 
 </section>
 
 </div>
+<div class="col-md-5 col-sm-3 col-xs-12">
+
+<section class="panel">
+
+<div class="x_title">
+<h2>DETALLES DEL TITULAR</h2>
+<div class="clearfix"></div>
+</div>
+<div class="panel-body">
+  <div class="project_detail">
+  <p class="title">TITULAR</p>
+  <p>{{$sus->persona->nombres}}</p>
+  <p class="title">Correo</p>
+  <p>{{$sus->persona->correo}}</p>
+  <p class="title">Telefono</p>
+  <p>{{$sus->persona->telefono}}</p>
+  </div>
+</div>
+
+</section>
+
+</div>
+<div class="col-md-5 col-sm-3 col-xs-12">
+
+<section class="panel">
+
+<div class="x_title">
+<h2>DETALLES DEL USUARIO</h2>
+<div class="clearfix"></div>
+</div>
+<div class="panel-body">
+  <div class="project_detail">
+  <p class="title">USUARIO</p>
+  <p>{{$sus->usuario->name}}</p>
+  <p class="title">Correo</p>
+  <p>{{$sus->usuario->email}}</p>
+  <p class="title">Telefono</p>
+  <p>{{$sus->usuario->telefono}}</p>
+  </div>
+</div>
+
+</section>
+
+</div>
+
 <!-- end project-detail sidebar -->
 
 </div>

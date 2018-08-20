@@ -24,9 +24,7 @@ class RegisterPersonaRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo_persona'=>'required',
-            'preferencias'=>'required',
-            'correo'=>'unique:personas'
+          'correo'=>'unique:personas'
         ];
     }
 

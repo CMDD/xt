@@ -24,14 +24,11 @@
 <div class="clearfix"></div>
 </div>
 <div class="x_content">
-<div class="col-md-9 col-sm-9 col-xs-12">
+<div class="col-md-7 col-sm-9 col-xs-12">
 
 <form class="" action="{{url('crear-suscripcion')}}" method="post">
   {!!csrf_field()!!}
-  <div class="col-md-6 form-group">
-    <label for="">Cantidad</label>
-    <input type="number" required class="form-control" id="" name="cantidad" placeholder="">
-  </div>
+
   <div class="col-md-6 form-group">
     <label for="">Nombres</label>
     <input type="text" class="form-control" id="" name="nombres" placeholder="">
@@ -39,6 +36,10 @@
   <div class="col-md-6 form-group">
     <label for="">Apellidos</label>
     <input type="text" class="form-control" id="" name="apellidos" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Cedula</label>
+    <input type="text" class="form-control" id="" name="cedula" placeholder="">
   </div>
   <div class="col-md-6 form-group">
     <label for="">Correo</label>
@@ -55,10 +56,11 @@
   </div>
 
   <div class="col-md-6 form-group">
-    <label for="">Télefono</label>
+    <label for="">Teléfono</label>
     <input type="text" class="form-control" id="" name="telefono" placeholder="">
   </div>
- <div class="col-md-6 form-group">
+
+ <!-- <div class="col-md-6 form-group">
    <label for="">Oracional</label>
    <select required class="form-control" name="oracional">
      <option value="">Seleccione...</option>
@@ -67,7 +69,8 @@
      <option value="Niños">Niños</option>
      <option value="Puerta a la palabra">Puerta a la palabra</option>
    </select>
- </div>
+ </div> -->
+
  <div class="col-md-6 form-group">
    <label for="">Plan</label>
    <select required class="form-control" name="plan">
@@ -91,7 +94,6 @@
      @foreach($regiones as $region)
      <option value="{{$region->id}}">{{$region->nombre}}</option>
      @endforeach
-
    </select>
  </div>
  <div class="col-md-6 form-group">
@@ -100,42 +102,58 @@
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Minicipio</label>
+   <label for="">Municipio</label>
    <select required id="municipio" class="form-control" name="municipio">
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion</label>
+   <label for="">Fecha de suscripción</label>
    <input type="date" required class="form-control" id="" name="fecha" placeholder="">
  </div>
- <div class="col-md-9 form-group">
-   <label for="">Observación</label>
-   <textarea name="observacion" class="form-control" rows="5" cols="80"></textarea>
- </div>
+
  <div class="col-md-9 form-group">
    <input type="submit" class="btn btn-primary" name="" value="CREAR">
  </div>
-</form>
+
 <br/>
 <div id="mainb" style="height:150px;"></div>
 </div>
 <!-- start project-detail sidebar -->
-<div class="col-md-3 col-sm-3 col-xs-12">
+<div class="col-md-5 col-sm-3 col-xs-12">
 <section class="panel">
 <div class="x_title">
-<h2>Información</h2>
+<h2>ORACIONALES</h2>
 <div class="clearfix"></div>
 </div>
 <div class="panel-body">
-<h3 class="green"><i class="fa fa-book"></i></h3>
-<p>Tener en cuenta que las entregas de los oracionales
-se realizarán a partir de dia 15 de cada mes.</p>
+<h3 class="green"></h3>
+<div class="col-md-6 form-group">
+  <label for=""><i class="fa fa-book"></i>Jovenes</label>
+  <input type="number" required min="0" class="form-control" id="" name="jovenes" value="0">
+</div>
+<div class="col-md-6 form-group">
+  <label for=""><i class="fa fa-book"></i>Adultos</label>
+  <input type="number" required min="0" class="form-control" id="" name="adultos" value="0">
+</div>
+<div class="col-md-6 form-group">
+  <label for=""><i class="fa fa-book"></i>Niños</label>
+  <input type="number" required min="0" class="form-control" id="" name="ninos" value="0">
+</div>
+<div class="col-md-6 form-group">
+  <label for=""><i class="fa fa-book"></i>Puerta a la palabra</label>
+  <input type="number" required min="0" class="form-control" id="" name="puerta" value="0">
+</div>
+<div class="col-md-12 form-group">
+  <label for="">Observación</label>
+  <textarea name="observacion" class="form-control" rows="5" cols="80"></textarea>
+</div>
 <br />
 <br />
 <br/>
 </div>
 </section>
 </div>
+</form>
 <!-- end project-detail sidebar -->
 </div>
 </div>

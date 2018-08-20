@@ -23,6 +23,13 @@ class CreateUsersTable extends Migration
             $table->string('cedula')->nullable();
             $table->string('regional')->nullable();
             $table->string('cargo')->nullable();
+
+            $table->integer('region_id')->unsigned()->nullable();
+            $table->foreign('region_id')
+                  ->references('id')
+                  ->on('regions')
+                  ->onDelete('cascade');
+                  
             $table->rememberToken();
             $table->timestamps();
         });

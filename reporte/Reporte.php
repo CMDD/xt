@@ -5,6 +5,7 @@ use App\Persona;
 use App\TipoPersona;
 use App\Ciudad;
 use App\Suscripcion;
+use App\Donacion;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Reporte{
@@ -175,23 +176,28 @@ class Reporte{
           // Header
           $sheet->row(1,
           ['
-          IDENTIFICACIÓN','CANTIDAD','ORACIONAL','RECIBE','TELEFONO','DIRECCIÓN',
-          'ESPECIFICACIÓN DE DIRECCIÓN','OBSERVACIÓN','MUNICIPIO','DEPARTAMENTO'
+          ID SUSCRIPCION','NOMBRE TITULAR','TELÉFONO TITULAR','RECIBE','TELÉFONO','DIRECCIÓN',
+          'ESPECIFICACIÓN DE DIRECCIÓN','MUNICIPIO','DEPARTAMENTO','JOVENES','ADULTOS','NIÑOS',
+          'PUERTA A LA PALABRA','OBSERVACION'
           ]
           );
           // Data
           foreach ($suscripciones as $sus) {
             $row = [];
             $row[0] = $sus->id;
-            $row[1] = $sus->cantidad;
-            $row[2] = $sus->oracional;
+            $row[1] = $sus->persona->nombres ." ". $sus->persona->apellidos ;
+            $row[2] = $sus->persona->telefono;
             $row[3] = $sus->nombre_recibe;
             $row[4] = $sus->telefono;
             $row[5] = $sus->direccion;
             $row[6] = $sus->direccion_especificacion;
-            $row[7] = $sus->observacion;
-            $row[8] = $sus->municipio->nombre;
-            $row[9] = $sus->municipio->departamento->nombre;
+            $row[7] = $sus->municipio->nombre;
+            $row[8] = $sus->municipio->departamento->nombre;
+            $row[9] = $sus->jovenes;
+            $row[10] = $sus->adultos;
+            $row[11] = $sus->ninos;
+            $row[12] = $sus->puerta;
+            $row[13] = $sus->observacion;
             $sheet->appendRow($row);
           }
 
@@ -213,6 +219,65 @@ class Reporte{
                          ->where('created_at','>=',$request->desde)
                          ->where('created_at','<=',$request->hasta)->get();
        return view('admin.reporte.suscripcion.lista')->with('sus',$sus);
+        }
+  }
+
+
+  public function descargarDonaciones($request){
+      Excel::create('Reporte donaciones', function($excel) use ($request) {
+          $excel->sheet('Reporte', function($sheet) use ($request)  {
+          if ($request->region == 'Todas') {
+          $donaciones =  Donacion::where('estado',$request->estado)
+                                       ->where('created_at','>=',$request->desde)
+                                       ->where('created_at','<=',$request->hasta)->get();
+          }else{
+          $donaciones =  Donacion::where('estado',$request->estado)
+                                           ->where('region_id',$request->region)
+                                   ->where('created_at','>=',$request->desde)
+                                   ->where('created_at','<=',$request->hasta)->get();
+          }
+          // Header
+          $sheet->row(1,
+          ['
+          IDENTIFICACIÓN','NOMBRE BENEFACTOR','PROGRAMA','PERIODICIDAD','TELÉFONO','DIRECCIÓN',
+          'FECHA DE DONACIÓN','# RECIBO DE PAGO','REGION','MUNICIPIO','USUARIO'
+          ]
+          );
+          // Data
+          foreach ($donaciones as $don) {
+            $row = [];
+            $row[0] = $don->id;
+            $row[1] = $don->nombre_benefactor;
+            $row[2] = $don->programa;
+            $row[3] = $don->periocidad;
+            $row[4] = $don->telefono;
+            $row[5] = $don->direccion;
+            $row[6] = $don->fecha;
+            $row[7] = $don->recibo_pago;
+            $row[8] = $don->municipio->departamento->region->nombre;
+            $row[9] = $don->municipio->nombre;
+            $row[10] = $don->usuario->name;
+            $sheet->appendRow($row);
+          }
+
+          $sheet->setOrientation('landscape');
+          });
+      })->export('xls');
+  }
+
+  public function verDonaciones($request){
+
+       if ($request->region == 'Todas') {
+       $don = Donacion::where('estado',$request->estado)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
+       return view('admin.reporte.donaciones')->with('donaciones',$don);
+       }else{
+       $don = Donacion::where('estado',$request->estado)
+                         ->where('region_id',$request->region)
+                         ->where('created_at','>=',$request->desde)
+                         ->where('created_at','<=',$request->hasta)->get();
+       return view('admin.reporte.donaciones')->with('donaciones',$don);
         }
   }
 

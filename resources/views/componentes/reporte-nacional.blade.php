@@ -31,27 +31,32 @@
 <td>Total</td>
 <td class="fs15 fw700 text-right">{{$totales['total']}}</td>
 </tr>
+<tr>
+<td>Comunidad</td>
+<td class="fs15 fw700 text-right">{{$totales['total'] + ($totales['proveedor']-$totales['empleado'])}}</td>
+</tr>
 
 <tr>
 <td>Activos</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['titular_activo']}}</td>
 </tr>
 <tr>
 <td>Desactivos</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['titular_desactivo']}}</td>
 </tr>
 <tr>
 <td>Provedor</td>
 <td class="fs15 fw700 text-right">{{$totales['proveedor']}}</td>
 </tr>
 <tr>
+<td>Empleado</td>
+<td class="fs15 fw700 text-right">{{$totales['empleado']}}</td>
+</tr>
+<tr>
 <td>Suscriptor</td>
 <td class="fs15 fw700 text-right">{{$totales['suscriptor']}}</td>
 </tr>
-<tr>
-<td>Empleado/aprendiz/Practicante</td>
-<td class="fs15 fw700 text-right">{{$totales['empleado']}}</td>
-</tr>
+
 </tbody>
 </table>
 </div>
@@ -97,15 +102,15 @@
 <tbody>
 <tr>
 <td>Totales</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['suscripciones']}}</td>
 </tr>
 <tr>
 <td>Activas</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['sus_activo']}}</td>
 </tr>
 <tr>
 <td>Desactivas</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['sus_desactivo']}}</td>
 </tr>
 <tr>
 <td>Suspendidas</td>
@@ -122,15 +127,15 @@
 <tbody>
 <tr>
 <td>Total</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['donaciones']}}</td>
 </tr>
 <tr>
 <td>Activos</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['don_activo']}}</td>
 </tr>
 <tr>
 <td>Desactivos</td>
-<td class="fs15 fw700 text-right">0</td>
+<td class="fs15 fw700 text-right">{{$totales['don_desactivo']}}</td>
 </tr>
 
 
