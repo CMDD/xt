@@ -149,8 +149,8 @@ class DonacionController extends Controller
       $donacion->user_id = Auth::User()->id;
       $donacion->persona_id = $persona->id;
       $donacion->save();
-
-      return $request;
+      alert()->success('Donación Creada!', 'Correctamente');
+      return back();
     }
 
 }
