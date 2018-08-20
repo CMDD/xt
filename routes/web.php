@@ -132,6 +132,14 @@ Route::get('ixtus','DashController@index');
   Route::post('update_donaciones/{id}','DonacionController@update');
   Route::post('crear_donacion','DonacionController@store');
 
+  Route::get('agregar-donacion/{id}','DonacionController@agregar')
+  ->name('agregar.donacion')
+  ->middleware('permission:crear.donacion');
+
+  Route::post('agregar-donacion/{id}','DonacionController@agregarDonacion')
+  ->name('agregar.donacion')
+  ->middleware('permission:crear.donacion');
+
   // Reportes
   Route::get('bd_nacional','ReporteController@titularNacional')
   ->name('reporte.nacional')

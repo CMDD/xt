@@ -122,4 +122,35 @@ class DonacionController extends Controller
       return redirect()->route('listar.donaciones');
     }
 
+    public function agregar($id){
+      $persona = Persona::find($id);
+      $regiones = Region::all();
+      return view('admin.donacion.agregar')->with('persona',$persona)->with('regiones',$regiones);
+    }
+
+    public function agregarDonacion(Request $request,$id){
+      $persona = Persona::find($id);
+
+      $donacion = new Donacion();
+      $donacion->nombre_benefactor = $request->nombre;
+      $donacion->estado = 'Activo';
+      $donacion->valor = $request->valor;
+      $donacion->recibo_pago = $request->recibo_pago;
+      $donacion->fecha = $request->fecha;
+      $donacion->telefono = $request->telefono;
+      $donacion->celular = $request->celular;
+      $donacion->programa = $request->programa;
+      $donacion->direccion = $request->direccion;
+      $donacion->region_id = $request->region;
+      $donacion->municipio_id = $request->municipio;
+      $donacion->periocidad = $request->periocidad;
+      $donacion->observacion = $request->observacion;
+      $donacion->correo = $persona->correo;
+      $donacion->user_id = Auth::User()->id;
+      $donacion->persona_id = $persona->id;
+      $donacion->save();
+
+      return $request;
+    }
+
 }

@@ -64,7 +64,7 @@
 </a>
 @endcan
 @can('crear.donacion')
-<a href="{{route('agregar.suscripcion',$p->id)}}">
+<a href="{{route('agregar.donacion',$p->id)}}">
   <button type="button" class="btn btn-sm btn-default "
   data-toggle="tooltip" data-placement="left" > DONACION
   </button>
