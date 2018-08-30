@@ -43,7 +43,7 @@
         <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
           <div class="menu_section">
-          <h3>S. Admin</h3>
+          <h3>-</h3>
           <ul class="nav side-menu">
           <li>
             <a href="/ixtus"><i class="fa fa-home"></i> Dashboard </a>
@@ -111,7 +111,7 @@
 
             </li>
           </div>
-          <div class="menu_section">
+          <!-- <div class="menu_section">
           <h3>Call Center</h3>
           <ul class="nav side-menu">
             <li><a><i class="fa fa-phone"></i> Llamadas <span class="fa fa-chevron-down"></span></a>
@@ -124,7 +124,7 @@
                   </li>
              </li>
           </ul>
-          </div>
+          </div> -->
           <div class="menu_section">
           <h3>App Móvil</h3>
           <ul class="nav side-menu">
@@ -152,8 +152,8 @@
              <span class=" fa fa-angle-down"></span>
              </a>
              <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-             <li><a href="javascript:;">  Perfil</a>
-             </li>
+             <!-- <li><a href="javascript:;">  Perfil</a>
+             </li> -->
              <li><a href="{{url('logout')}}"><i class="fa fa-sign-out pull-right"></i> Salir</a>
              </li>
              </ul>
@@ -183,7 +183,7 @@
                    </span>
                    <span>
                    <span>Usuario</span>
-                   <span class="time">Hace 3 min...</span>
+                   <span class="time"></span>
                    </span>
                    <span class="message">
                    {{$noti->mensaje}}
