@@ -1,3 +1,13 @@
+ .borrar{
+   color: white !important;
+    background: #00C49E;
+ }
+ ::selection {
+    background: green !important;
+    text-shadow: 1px 1px #fff;
+}
+
+
 
 .main{
 

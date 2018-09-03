@@ -26,7 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        // $schedule->command('noti:notificaciones')->everyMinute();
+        // $schedule->command('sms:felicidades')->daily();
+
+        $schedule->command('noti:notificaciones')->daily();
     }
 
     /**

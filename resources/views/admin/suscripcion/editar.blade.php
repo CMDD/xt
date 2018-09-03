@@ -90,13 +90,15 @@
  </div>
 
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion : {{$sus->fecha_inicio->format('d/m/y')}} </label>
+   <label for="">Fecha de inicio : {{$sus->fecha_inicio->format('d/m/y')}} </label>
    <input type="date" class="form-control" id=""  name="fecha">
  </div>
+
  <div class="col-md-6 form-group">
-   <label for="">AGREGAR MES</label>
-   <input type="number" class="form-control"  id="" name="mes" placeholder="">
+   <label for="">Fecha de corte {{$sus->fecha_final->format('d/m/y')}} </label>
+   <input  type="date"  class="form-control" id="" name="fecha_corte">
  </div>
+
  <div class="col-md-9 form-group">
    <label for="">Observación</label>
    <textarea name="observacion" class="form-control" rows="5" cols="80">{{$sus->observacion}}</textarea>

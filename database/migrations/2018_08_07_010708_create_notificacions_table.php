@@ -17,6 +17,13 @@ class CreateNotificacionsTable extends Migration
             $table->increments('id');
             $table->string('tipo')->nullable();
             $table->string('mensaje')->nullable();
+            $table->integer('suscripcion_id')->unsigned()->nullable();
+
+            $table->foreign('suscripcion_id')
+                  ->references('id')
+                  ->on('suscripcions')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

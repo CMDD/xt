@@ -177,27 +177,31 @@
                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
                  @foreach(Session::get('notis') as $noti)
                <li>
-                 <a>
+
+
+                 <a href="{{route('ver.suscripcion',$noti->suscripcion->id)}}">
                    <span class="image">
                    <img src="/img/user.png" alt="Imagen de Perfil" />
                    </span>
                    <span>
-                   <span>Usuario</span>
-                   <span class="time"></span>
+                   <span>{{$noti->suscripcion->persona->nombres}}</span>
                    </span>
+
+
                    <span class="message">
                    {{$noti->mensaje}}
                    </span>
+                   <span  class="time">
+                     <a href="#" onclick="eliminarNotificacion({{$noti->id}})" class="borrar">Eliminar</a>
+                   </span>
+
                  </a>
                </li>
                @endforeach
 
                <li>
                <div class="text-center">
-               <a>
-               <strong>Ver Todas</strong>
-               <i class="fa fa-angle-right"></i>
-               </a>
+               
                </div>
                </li>
                </ul>

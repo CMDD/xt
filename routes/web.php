@@ -177,3 +177,8 @@ Route::post('crar_nota/{id}','SeguimientoController@crearNota');
 Route::get('logout','UsuarioController@logout');
  Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//NOTIFICACIONES
+Route::get('eliminar/notificacion/{notificacion}','NotificacionController@delete');

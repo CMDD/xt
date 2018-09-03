@@ -107,8 +107,12 @@
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripción</label>
-   <input type="date" required class="form-control" id="" name="fecha" placeholder="">
+   <label for="">Fecha de inicio  </label>
+   <input required type="date" class="form-control" id="" name="fecha"  placeholder="">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Fecha de corte  </label>
+   <input required type="date" class="form-control" id="" name="fecha_corte"  placeholder="">
  </div>
 
  <div class="col-md-9 form-group">

@@ -81,8 +81,12 @@
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion  </label>
+   <label for="">Fecha Inicial  </label>
    <input required type="date" class="form-control" id="" name="fecha"  placeholder="">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Fecha Final  </label>
+   <input required type="date" class="form-control" id="" name="fecha_final"  placeholder="">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>

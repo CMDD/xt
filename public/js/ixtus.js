@@ -1,3 +1,13 @@
+//Eliminar notificacion
+function eliminarNotificacion(id){
+  event.preventDefault();
+
+ $.get('/eliminar/notificacion/'+id,function(data){
+  console.log(data);
+  location.reload();
+ });
+}
+
 
 // Cargar ciudades
 

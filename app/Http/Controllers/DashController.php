@@ -22,7 +22,7 @@ class DashController extends Controller
       $count_personas = Persona::count();
       $count_suscripcion = Suscripcion::count();
       $count_donacion = Donacion::count();
-      $notis = Notificacion::all();
+      $notis = Notificacion::paginate(10);
       \Session::put('noti', Notificacion::count());
       \Session::put('notis', $notis);
       \Session::put('lideres', $lideres);

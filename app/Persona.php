@@ -24,6 +24,9 @@ class Persona extends Model
     public function donaciones(){
       return $this->hasMany('App\Donacion');
     }
+    public function notificacion(){
+      return $this->hasMany('App\Notificacion');
+    }
 
 
 

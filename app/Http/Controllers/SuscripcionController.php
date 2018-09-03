@@ -41,7 +41,7 @@ class SuscripcionController extends Controller
        $sus = new Suscripcion();
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
-       $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
+       $sus->fecha_final = $request->fecha_corte;
        $sus->persona_id = (int)$titular->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
@@ -72,7 +72,7 @@ class SuscripcionController extends Controller
        $sus = new Suscripcion();
        $sus->plan = $request->plan;
        $sus->fecha_inicio = $request->fecha;
-       $sus->fecha_final = $fecha_final->addMonth((int)$request->plan);
+       $sus->fecha_final = $request->fecha_corte;
        $sus->persona_id = (int)$persona->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
@@ -117,11 +117,11 @@ class SuscripcionController extends Controller
 
     if ($request->fecha) {
       $sus->fecha_inicio = $fecha;
-      $sus->fecha_final = $fecha->addMonth((int)$request->plan);
+      $sus->fecha_final = $request->fecha_corte;
     }
 
-    if ($request->mes) {
-      $sus->fecha_final = $sus->fecha_final->addMonth((int)$request->mes);
+    if ($request->fecha_corte) {
+      $sus->fecha_final = $request->fecha_corte;
     }
 
 
@@ -164,7 +164,7 @@ class SuscripcionController extends Controller
       $sus->oracional = $request->oracional;
       $sus->plan = $request->plan;
       $sus->fecha_inicio = $request->fecha_suscripcion;
-      $sus->fecha_final = $fecha_final->addMonths((int)$request->plan);
+      $sus->fecha_final = $request->fecha_corte;
       $sus->observacion = $request->observacion_suscripcion;
       $sus->persona_id = $persona->id;
       $sus->estado = 'Activo';
@@ -195,7 +195,7 @@ class SuscripcionController extends Controller
          $sus = new Suscripcion();
          $sus->plan = $request->plan;
          $sus->fecha_inicio = $fecha;
-         $sus->fecha_final = $fecha->addMonths((int)$request->plan);
+         $sus->fecha_final = $request->fecha_corte;
          $sus->observacion = $request->observacion_suscripcion;
          $sus->persona_id = (int)$request->persona_id;
          $sus->municipio_id = (int)$request->municipio;
@@ -223,6 +223,7 @@ class SuscripcionController extends Controller
         $sus = Suscripcion::find($id);
         $carbon = Carbon::now();
         $quedan = $sus->fecha_final->diffForHumans();
+
         return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan);
 
     }
