@@ -95,6 +95,7 @@
      <option value="Minuto de evangelizacion">Minuto de evangelización</option>
      <option value="Club de amigos">Club de amigos</option>
      <option value="Web">Web</option>
+     <option value="Eventos">Eventos</option>
      <option value="Exporadico">Esporádico</option>
    </select>
  </div>
