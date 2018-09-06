@@ -24,7 +24,7 @@ class RegisterPersonaRequest extends FormRequest
     public function rules()
     {
         return [
-          'correo'=>'unique:personas'
+          'numero_documento'=>'unique:personas'
         ];
     }
 
@@ -33,7 +33,7 @@ class RegisterPersonaRequest extends FormRequest
       return[
         'tipo_persona.required'=>'Por favor, selecciona el tipo de persona.',
         'preferencias.required' =>'Por favor, seleccione alguna preferencia.',
-        'correo.unique' =>'El correo ya se encuentra registrado'
+        'numero_documento.unique' =>'El Titular ya se encuentra registrado'
       ];
     }
 }

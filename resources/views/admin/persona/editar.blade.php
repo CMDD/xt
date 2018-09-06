@@ -259,8 +259,18 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 <br/>
 <div class="form-group">
 <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
-<div class="col-md-9 col-sm-9 col-xs-12">
-<input value="{{$persona->numero_planilla}}" name="numero_planilla" type="text" class="form-control" placeholder="">
+
+<div class="col-md-3 col-sm-3 col-xs-12">
+  <select id="region" class=" form-control" name="numero_registro">
+    <option value="{{$persona->numero_registro}}">{{$persona->numero_registro}}</option>
+    @foreach($regiones as $region)
+    <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+    @endforeach
+  </select>
+
+</div>
+<div class="col-md-6 col-sm-9 col-xs-12">
+<input name="numero_planilla" type="text" value="{{$persona->numero_planilla}}" class="form-control" placeholder="">
 </div>
 </div>
 
@@ -348,7 +358,7 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 </div>
 </div>
 
-<div class="col-md-6 col-sm-12 col-xs-12">
+<!-- <div class="col-md-6 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
 <h2>El Man está Vivo - Suscripciónes </h2>
@@ -371,7 +381,7 @@ data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
 </div>
 
 
-</div>
+</div> -->
 
 
 

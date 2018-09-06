@@ -48,6 +48,17 @@
     <input type="text" class="form-control" value="{{$donacion->valor}}" name="valor" placeholder="">
   </div>
   <div class="col-md-6 form-group">
+    <label for="">Canal de recaudo</label>
+    <select required class="form-control" name="recaudo">
+      <option value="{{$donacion->recaudo}}">{{$donacion->recaudo}}</option>
+      <option value="Efecty">Efecty</option>
+      <option value="Web">Web</option>
+      <option value="Banco">Banco</option>
+      <option value="Efectivo">Efectivo</option>
+
+    </select>
+  </div>
+  <div class="col-md-6 form-group">
     <label for="">No. Recibo de pago</label>
     <input type="text" class="form-control" value="{{$donacion->recibo_pago}}" name="recibo_pago" placeholder="">
   </div>

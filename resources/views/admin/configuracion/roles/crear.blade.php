@@ -33,7 +33,7 @@
 </div>
 
 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-<input type="text" class="form-control" id="inputSuccess3" name="slug" placeholder="slug">
+<input type="text" required class="form-control" id="inputSuccess3" name="slug" placeholder="slug">
 <span class="fa fa-user form-control-feedback right"  aria-hidden="true"></span>
 </div>
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
@@ -95,7 +95,7 @@
 <td>{{$role->name}}</td>
 
 <td style="width:40%;" >
-  
+
   <a href="{{route('roles.edit',$role->id)}}">
   <button type="button" class="btn btn-sm btn-default" name="button">Editar</button>
   </a>

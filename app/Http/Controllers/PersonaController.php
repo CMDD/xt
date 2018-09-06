@@ -123,6 +123,8 @@ class PersonaController extends Controller
     }
 
     public function actualizar(Request $request,$id){
+
+
       $lista_sus = urldecode($request['lista_sus']);
       $suscripciones = json_decode($lista_sus);
       $suscripcion_collection = Collection::make($suscripciones);
@@ -153,7 +155,10 @@ class PersonaController extends Controller
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
       $persona->ocupacion = $request->ocupacion;
+
+
       if ($request->file('imagen')) {
+
           $persona->imagen = $request->file('imagen')->store('imagen');
       }
       if ($request->file('voz')) {

@@ -6,13 +6,13 @@
 @section('content')
 <div class="right_col" role="main">
   <div class="">
-    @if($errors->any())
+    <!-- @if($errors->any())
     @foreach($errors->all() as $error)
     <br>
     <br>
     <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
     @endforeach
-    @endif
+    @endif -->
     <div class="page-title">
       <div class="title_left">
       <h3>Nuevo Registro</h3>
@@ -42,13 +42,13 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombres</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input type="text" name="nombres" class="form-control" required>
+          <input type="text" name="nombres" class="form-control" value="{{old('nombres')}}" required>
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input required type="text" name="apellidos" class="form-control " >
+          <input required type="text" name="apellidos" value="{{old('apellidos')}}" class="form-control " >
           </div>
           </div>
 
@@ -56,7 +56,6 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
           <select name="tipo_documento" class="form-control">
-          <option value="" >Seleccione...</option>
           <option value="CC" >CC</option>
           <option value="CE" >CE</option>
           <option value="TI">TI</option>
@@ -64,37 +63,42 @@
           </select>
           </div>
           <div class="col-md-6 col-sm-9 col-xs-12">
-          <input name="numero_documento" type="text" class="form-control" placeholder="Número">
+          <input name="numero_documento" type="text" value="{{ old('numero_documento') }}" class="form-control{{ $errors->has('numero_documento') ? ' is-invalid' : '' }}" placeholder="Número">
+          @if ($errors->has('numero_documento'))
+              <span class="invalid-feedback">
+                  <strong style="color:red;" >{{ $errors->first('numero_documento') }}</strong>
+              </span>
+          @endif
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Fecha de nacimiento</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="fecha_nacimiento" type="date" class="form-control" placeholder="DD-MM-AA">
+          <input name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}"  type="date" class="form-control" placeholder="DD-MM-AA">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="correo" type="email" class="form-control" placeholder="">
+          <input name="correo" value="{{old('correo')}}" type="email" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-4 col-sm-3 col-xs-12">Correo electronico (Alternativo)</label>
           <div class="col-md-8 col-sm-9 col-xs-12">
-          <input name="correo_alternativo" type="email" class="form-control" placeholder="">
+          <input name="correo_alternativo" value="{{old('correo_alternativo')}}" type="email" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input name="direccion" type="text" class="form-control" placeholder="">
+          <input name="direccion" type="text" value="{{old('direccion')}}" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Especificación de Dirección</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input name="direccion_especificacion" type="text" class="form-control" placeholder="">
+          <input name="direccion_especificacion" value="{{old('direccion_especificacion')}}" type="text" class="form-control" placeholder="">
           </div>
           </div>
 
@@ -131,17 +135,17 @@
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
           <div class="col-md-4 col-sm-9 col-xs-12">
-          <input name="telefono" type="text" class="form-control" placeholder="">
+          <input name="telefono" value="{{old('telefono')}}" type="text" class="form-control" placeholder="">
           </div>
           <label class="control-label col-md-2 col-sm-3 col-xs-12">Alternativo</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-          <input name="telefono_alternativo" type="text" class="form-control" placeholder="">
+          <input name="telefono_alternativo" value="{{old('telefono_alternativo')}}" type="text" class="form-control" placeholder="">
           </div>
           </div>
           <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Ocupación</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
-          <input name="ocupacion" type="text" class="form-control " placeholder="">
+          <input name="ocupacion" value="{{old('ocupacion')}}" type="text" class="form-control " placeholder="">
           </div>
           </div>
 
@@ -151,7 +155,7 @@
           <div class="col-md-3 col-sm-9 col-xs-12">
           <div class="checkbox">
           <label>
-          <input name="preferencias[]"  type="checkbox" value="Retiros/Eventos"> Retiros/Eventos
+          <input name="preferencias[]"   type="checkbox" value="Retiros/Eventos"> Retiros/Eventos
           </label>
           </div>
           <div class="checkbox">
@@ -213,8 +217,18 @@
       <br/>
       <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
-      <div class="col-md-9 col-sm-9 col-xs-12">
-      <input name="numero_planilla" type="text" class="form-control" placeholder="">
+
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <select  id="region" class=" form-control" name="numero_registro">
+          <option value="">Region...</option>
+          @foreach($regiones as $region)
+          <option value="{{$region->nombre}}">{{$region->nombre}}</option>
+          @endforeach
+        </select>
+
+      </div>
+      <div class="col-md-6 col-sm-9 col-xs-12">
+      <input name="numero_planilla" value="{{old('numero_planilla')}}" type="text" class="form-control" placeholder="">
       </div>
       </div>
 

@@ -28,28 +28,34 @@
     {!!csrf_field()!!}
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control has-feedback-left" id="inputSuccess2" name="nombres" placeholder="Nombres">
+  <input type="text" value="{{old('nombres')}}"  required class="form-control has-feedback-left" id="inputSuccess2" name="nombres" placeholder="Nombres">
   <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
   </div>
 
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control" id="inputSuccess3" name="apellidos" placeholder="Apellidos">
+  <input type="text" value="{{old('apellidos')}}" required class="form-control" name="apellidos" placeholder="Apellidos">
   <span class="fa fa-user form-control-feedback right"  aria-hidden="true"></span>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control has-feedback-left" name="email" id="inputSuccess4" placeholder="Email">
+  <input type="email" value="{{old('email')}}" required class="form-control has-feedback-left" name="email" id="inputSuccess4" placeholder="Email">
   <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+  @if ($errors->has('email'))
+      <span class="invalid-feedback">
+          <strong style="color:red;" >{{ $errors->first('email') }}</strong>
+      </span>
+  @endif
+
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control" id="inputSuccess5" name="telefono" placeholder="Teléfono">
+  <input type="text" value="{{old('telefono')}}" class="form-control" id="inputSuccess5" name="telefono" placeholder="Teléfono">
   <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control has-feedback-left" name="cedula" id="inputSuccess4" placeholder="No. Identificacion">
+  <input type="text" value="{{old('cedula')}}"  class="form-control has-feedback-left" name="cedula"  placeholder="No. Identificacion">
   <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-  <input type="text" class="form-control" id="inputSuccess5" name="pass" placeholder="Contraseña">
+  <input type="text" required class="form-control" id="inputSuccess5" name="pass" placeholder="Contraseña">
   <span class="fa fa-gear form-control-feedback right" aria-hidden="true"></span>
   </div>
 
@@ -57,7 +63,7 @@
 <div class="form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12">Regional</label>
   <div class="col-md-9 col-sm-9 col-xs-12">
-      <select name="region" class="form-control">
+      <select required name="region" class="form-control">
           <option  value="">Seleccione...</option>
           @foreach($regiones as $region)
           <option value="{{$region->id}}">{{$region->nombre}}</option>

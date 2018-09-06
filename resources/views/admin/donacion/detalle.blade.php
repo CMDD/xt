@@ -63,6 +63,10 @@
     <input disabled type="text" class="form-control" value="{{$donacion->valor}}" name="valor" placeholder="">
   </div>
   <div class="col-md-6 form-group">
+    <label for="">Canal de recaudo</label>
+    <input disabled type="text" class="form-control" value="{{$donacion->recaudo}}" name="recaudo" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
     <label for="">No. Recibo de pago</label>
     <input disabled type="text" class="form-control" value="{{$donacion->recibo_pago}}" name="recibo_pago" placeholder="">
   </div>

@@ -25,6 +25,7 @@ class CreateDonacionsTable extends Migration
             $table->string('programa')->nullable();
             $table->string('correo')->nullable();
             $table->string('direccion')->nullable();
+            $table->string('recaudo')->nullable();
 
             $table->string('periocidad')->nullable();
             $table->string('observacion')->nullable();
@@ -40,7 +41,7 @@ class CreateDonacionsTable extends Migration
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
-                  
+
             $table->integer('region_id')->unsigned()->nullable();
             $table->foreign('region_id')
                   ->references('id')

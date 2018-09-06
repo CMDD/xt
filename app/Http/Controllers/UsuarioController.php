@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TitularRequest;
 use App\User;
 use App\Region;
 use App\Cargo;
@@ -49,7 +50,7 @@ class UsuarioController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(TitularRequest $request){
 
       $user = new User();
       $user->name = $request->nombres;

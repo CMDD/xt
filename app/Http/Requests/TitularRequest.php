@@ -24,13 +24,13 @@ class TitularRequest extends FormRequest
     public function rules()
     {
         return [
-            'correo'=>'unique:personas'
+            'email'=>'unique:users'
         ];
     }
 
     public function messages(){
       return [
-        'correo.unique' =>'El Titular fué creado, Puedes añadirle esta configuración desde el modulo Titular.'
+        'email.unique' =>'El Usuario ya existe!'
       ];
     }
 }

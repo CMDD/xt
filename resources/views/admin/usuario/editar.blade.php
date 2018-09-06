@@ -191,7 +191,7 @@
   </div>
   <div class="modal-body">
   <h4>Nueva contraseña</h4>
-<form class="" action="{{url('cambio_pass',$user->id)}}"  method="post">
+<form class="" action="{{url('cambio_pass',$usuario->id)}}"  method="post">
   {!!csrf_field()!!}
   <div class="form-group">
     <label for=""></label>

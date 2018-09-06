@@ -87,6 +87,8 @@
 </div>
 @endcan
 
+
+@can('listar.titular')
 <!-- Mis reportes -->
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
 <a href="{{route('listar.titular','General')}}">
@@ -99,7 +101,8 @@
 </div>
 </a>
 </div>
-
+@endcan
+@can('listar.suscripcion')
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
 <a href="{{url('suscripciones')}}">
 <div class="tile-stats">
@@ -111,6 +114,8 @@
 </div>
 </a>
 </div>
+@endcan
+@can('listar.donaciones')
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
 <a href="{{route('listar.donaciones')}}">
 <div class="tile-stats">
@@ -122,6 +127,7 @@
 </div>
 </a>
 </div>
+@endcan
 @can('reporte.nacional')
 @include('componentes.reporte-nacional')
 @endcan

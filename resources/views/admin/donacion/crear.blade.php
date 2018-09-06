@@ -49,9 +49,26 @@
   </span>
 @endif
   </div>
+
+  <div class="col-md-6 form-group">
+    <label for="">Cedula</label>
+       <input type="text" class="form-control"  id="" name="cedula" placeholder="">
+  </div>
   <div class="col-md-6 form-group">
     <label for="">Valor donado</label>
        $<input type="number" min="0.00" step="0.01" class="form-control" required id="" name="valor" placeholder="">
+  </div>
+
+  <div class="col-md-6 form-group">
+    <label for="">Canal de recaudo</label>
+    <select required class="form-control" name="recaudo">
+      <option value="">Seleccione...</option>
+      <option value="Efecty">Efecty</option>
+      <option value="Web">Web</option>
+      <option value="Banco">Banco</option>
+      <option value="Efectivo">Efectivo</option>
+
+    </select>
   </div>
   <div class="col-md-6 form-group">
     <label for="">No. Recibo de pago</label>
@@ -77,6 +94,7 @@
      <option value="">Seleccione...</option>
      <option value="Minuto de evangelizacion">Minuto de evangelización</option>
      <option value="Club de amigos">Club de amigos</option>
+     <option value="Web">Web</option>
      <option value="Exporadico">Esporádico</option>
    </select>
  </div>
@@ -87,7 +105,7 @@
      <option value="">Seleccione...</option>
      <option value="15 Dias">15 días</option>
      <option value="30 Dias">30 días</option>
-     <option value="Esporadico">Esporádito</option>
+     <option value="Esporadico">Esporádico</option>
    </select>
  </div>
  <div class="col-md-6 form-group">

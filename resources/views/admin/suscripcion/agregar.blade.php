@@ -81,12 +81,12 @@
    </select>
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha Inicial  </label>
+   <label for="">Fecha inicial  </label>
    <input required type="date" class="form-control" id="" name="fecha"  placeholder="">
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Fecha Final  </label>
-   <input required type="date" class="form-control" id="" name="fecha_final"  placeholder="">
+   <label for="">Fecha de corte  </label>
+   <input required type="date" class="form-control" id="" name="fecha_corte"  placeholder="">
  </div>
  <div class="col-md-9 form-group">
    <label for="">Observación</label>

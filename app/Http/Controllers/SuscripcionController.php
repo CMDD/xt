@@ -33,7 +33,7 @@ class SuscripcionController extends Controller
 
   public function store(Request $request){
 
-    $titular = Persona::where('correo',$request->correo)->first();
+    $titular = Persona::where('numero_documento',$request->cedula)->first();
 
      if ($titular) {
        // Crear suscripcion

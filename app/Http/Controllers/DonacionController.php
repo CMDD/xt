@@ -18,13 +18,14 @@ class DonacionController extends Controller
 
 
     public function store(Request $request){
-      $persona = Persona::where('correo',$request->correo)->first();
+      $persona = Persona::where('numero_documento',$request->cedula)->first();
       if ($persona) {
         $donacion = new Donacion();
         $donacion->nombre_benefactor = $request->nombre;
         $donacion->estado = 'Activo';
         $donacion->valor = $request->valor;
         $donacion->recibo_pago = $request->recibo_pago;
+        $donacion->recaudo = $request->recaudo;
         $donacion->fecha = $request->fecha;
         $donacion->telefono = $request->telefono;
         $donacion->celular = $request->celular;
@@ -40,10 +41,11 @@ class DonacionController extends Controller
         $donacion->save();
       }else{
 
-        if ($request->correo){
+        if ($request->cedula){
           $persona = new Persona();
           $persona->nombres = $request->nombre;
           $persona->apellidos = $request->apellido;
+          $persona->numero_documento = $request->cedula;
           $persona->estado = 'Desactivo';
           $persona->correo = $request->correo;
           $persona->user_id = Auth::User()->id;
@@ -57,6 +59,7 @@ class DonacionController extends Controller
         $donacion->estado = 'Activo';
         $donacion->valor = $request->valor;
         $donacion->recibo_pago = $request->recibo_pago;
+        $donacion->recaudo = $request->recaudo;
         $donacion->fecha = $request->fecha;
         $donacion->telefono = $request->telefono;
         $donacion->correo = $request->correo;
@@ -65,7 +68,7 @@ class DonacionController extends Controller
         $donacion->direccion = $request->direccion;
         $donacion->region_id = $request->region;
         $donacion->municipio_id = $request->municipio;
-        if ($request->correo) {
+        if ($request->cedula) {
             $donacion->persona_id = $persona->id;
         }
         $donacion->periocidad = $request->periocidad;
@@ -94,6 +97,7 @@ class DonacionController extends Controller
       $donacion->estado = $request->estado;
       $donacion->valor = $request->valor;
       $donacion->recibo_pago = $request->recibo_pago;
+      $donacion->recaudo = $request->recaudo;
       $donacion->fecha = $request->fecha;
       $donacion->telefono = $request->telefono;
       $donacion->celular = $request->celular;
@@ -136,6 +140,7 @@ class DonacionController extends Controller
       $donacion->estado = 'Activo';
       $donacion->valor = $request->valor;
       $donacion->recibo_pago = $request->recibo_pago;
+      $donacion->recaudo = $request->recaudo;
       $donacion->fecha = $request->fecha;
       $donacion->telefono = $request->telefono;
       $donacion->celular = $request->celular;

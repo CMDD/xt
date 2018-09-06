@@ -37,10 +37,22 @@
     <label for="">Apellidos</label>
     <input type="text" class="form-control"  id="" name="apellido" placeholder="">
   </div>
+  
 
   <div class="col-md-6 form-group">
     <label for="">Valor donado</label>
        $<input type="number" min="0.00" step="0.01" class="form-control" required id="" name="valor" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Modo de recaudo</label>
+    <select required class="form-control" name="recaudo">
+      <option value="">Seleccione...</option>
+      <option value="Efecty">Efecty</option>
+      <option value="Web">Web</option>
+      <option value="Banco">Banco</option>
+      <option value="Efectivo">Efectivo</option>
+
+    </select>
   </div>
   <div class="col-md-6 form-group">
     <label for="">No. Recibo de pago</label>
@@ -66,6 +78,7 @@
      <option value="">Seleccione...</option>
      <option value="Minuto de evangelizacion">Minuto de evangelización</option>
      <option value="Club de amigos">Club de amigos</option>
+     <option value="Web">Web</option>
      <option value="Exporadico">Esporádico</option>
    </select>
  </div>
