@@ -271,7 +271,10 @@
           <div class="x_content">
               @if($persona->imagen)
            <div class="caja-imagen">
-             <img class="imagen-persona" src="/media/{{$persona->imagen}}" alt="Planilla">
+             <!-- <img class="imagen-persona" src="/media/{{$persona->imagen}}" alt="Planilla"> -->
+
+             <a target="_blank" class="btn btn-app" href="/media/{{$persona->imagen}}"><i class="glyphicon glyphicon-picture"></i>Ver!</a>
+
              <a href="/media/{{$persona->imagen}}" download="imagen"   class="btn btn-app">
                  <i class="fa fa-download"></i> Descargar
              </a>
