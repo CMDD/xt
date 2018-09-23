@@ -218,7 +218,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
           <div class="col-md-9 col-sm-9 col-xs-12">
             <button type="button" class="btn btn-default tooltip-button-datos"
-            data-toggle="tooltip" data-placement="left" >{{$persona->numero_planilla}}
+            data-toggle="tooltip" data-placement="left" >{{$persona->numero_registro}}{{$persona->numero_planilla}}
             </button>
           </div>
           </div>
