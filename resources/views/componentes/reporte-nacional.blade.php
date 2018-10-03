@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td>Comunidad</td>
-<td class="fs15 fw700 text-right">{{$totales['total'] + ($totales['proveedor']-$totales['empleado'])}}</td>
+<td class="fs15 fw700 text-right">{{$totales['total'] - ($totales['proveedor']+$totales['empleado'])}}</td>
 </tr>
 
 <tr>
