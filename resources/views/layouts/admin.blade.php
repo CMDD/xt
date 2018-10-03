@@ -66,9 +66,9 @@
             <a><i class="fa fa-gears"></i> Suscripciones <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
               @can('crear.suscripcion')
-                <li>
+                <!-- <li>
                   <a href="{{route('crear.suscripcion')}}">Crear</a>
-                </li>
+                </li> -->
                 @endcan
                 @can('listar.suscripcion')
                 <li>
@@ -81,9 +81,9 @@
             <a><i class="fa fa-child"></i> Donaciones <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                 @can('crear.donacion')
-                <li>
+                <!-- <li>
                   <a href="{{route('crear.donacion')}}">Crear</a>
-                </li>
+                </li> -->
                 @endcan
                 @can('listar.donaciones')
                 <li>
@@ -201,7 +201,7 @@
 
                <li>
                <div class="text-center">
-               
+
                </div>
                </li>
                </ul>
