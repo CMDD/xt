@@ -61,5 +61,11 @@
   practicante o aprendíz en la Corporación Centro Carismático Minuto de Dios?
   </label>
   </div>
+  <div class="checkbox">
+  <label>
+  <input type="checkbox" name="tipo_persona[]"  value="Distribuidor">
+  ¿Es ud Distribuidor del MD?
+  </label>
+  </div>
 
 </div>
