@@ -164,6 +164,11 @@ Route::get('ixtus','DashController@index');
 // Soporte
 Route::post('soporte','SoporteController@general');
 
+Route::get('autorizacion',function(){
+  return view('mails.autorizacion');
+});
+
+
 
 
 // Seguimiento

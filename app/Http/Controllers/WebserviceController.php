@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Persona;
+use App\Mail\AutorizacionMail;
+use Mail;
 
 class WebserviceController extends Controller
 {
@@ -42,6 +44,10 @@ class WebserviceController extends Controller
       $persona->save();
 
         }
+
+        Mail::to($request->email,'IXTUS')
+        ->cc('web@minutodedios.tv')
+        ->send(new AutorizacionMail($request));
       return back();
     }
 

@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'soporte@minutodedios.fm'),
-        'name' => env('MAIL_FROM_NAME', 'Soporte General IXTUS'),
+        'name' => env('MAIL_FROM_NAME', 'Corporación Centro Carismático Minuto de Dios'),
     ],
 
     /*
