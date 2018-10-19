@@ -45,6 +45,7 @@
       <label for="">Estado</label>
       <select required class="form-control" name="estado">
         <option value="">Seleccione...</option>
+        <option value="Todos">Todos</option>
         <option value="Activo">Activos</option>
         <option value="Desactivo">Desactivos</option>
       </select>
