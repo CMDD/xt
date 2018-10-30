@@ -11,13 +11,9 @@
 <div class="clearfix"></div>
 </div>
 <div class="x_content">
-
 <div class="row">
-
   <form class="" action="{{url('reporteTitulares')}}" method="post">
-
   {!!csrf_field()!!}
-
   <div class="col-md-2">
     <div class="form-group">
       <label for="">Tipo de reporte</label>
@@ -51,7 +47,6 @@
       </select>
     </div>
   </div>
-
   <div class="col-md-2">
     <div class="form-group">
       <label for="">Desde</label>
@@ -81,8 +76,6 @@
   </div>
 </form>
 </div>
-
-
 </div>
 </div>
 </div>

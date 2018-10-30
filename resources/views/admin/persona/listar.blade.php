@@ -94,7 +94,9 @@
 <!-- /page content -->
 @section('scripts')
 <!-- Datatables -->
-{{ Html::script('admin/js/datatables/js/jquery.dataTables.js') }}
+<!-- {{ Html::script('admin/js/datatables/js/jquery.dataTables.js') }} -->
+
+{{ Html::script('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js') }}
 {{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
 <script>
 $(document).ready(function () {

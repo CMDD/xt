@@ -65,11 +65,9 @@ class ReporteController extends Controller
       return $result;
     }
 
-
     public function parametros(){
       return view('admin.reporte.index')->with('regiones',$regiones);
     }
-
 
     public function totales(){
       $total = Persona::count();
@@ -109,9 +107,7 @@ class ReporteController extends Controller
       }elseif ($reporte == 'Donaciones') {
         $donaciones = Donacion::where('region_id',Auth::User()->region_id)->get();
         return view('admin.reporte.donaciones')->with('donaciones',$donaciones);
-
       }
-
     }
 
 
