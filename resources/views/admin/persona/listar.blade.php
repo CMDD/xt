@@ -108,7 +108,9 @@ radioClass: 'iradio_flat-green'
 
 var asInitVals = new Array();
 $(document).ready(function () {
-var oTable = $('#example').dataTable({
+var oTable = $('#example').dataTable(
+
+  {
 "oLanguage": {
 "sProcessing":     "Procesando...",
 "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -146,6 +148,7 @@ var oTable = $('#example').dataTable({
 "sSwfPath": ""
 }
 });
+
 $("tfoot input").keyup(function () {
 /* Filter on the column based on the index of this element's parent <th> */
 oTable.fnFilter(this.value, $("tfoot th").index($(this).parent()));

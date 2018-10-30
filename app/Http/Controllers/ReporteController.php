@@ -19,7 +19,7 @@ class ReporteController extends Controller
 {
     public function titularNacional(){
       $nombre = 'Base de datos nacional';
-      $personas = Persona::paginate(100);
+      $personas = Persona::all();
       return view('admin.persona.listar')->with('personas',$personas)
                                          ->with('nombre',$nombre);
     }
