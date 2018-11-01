@@ -40,7 +40,7 @@ Route::get('ixtus','DashController@index');
          ->middleware('permission:listar.titular');
 
   //Consulta json con datatables
-  Route::get('get_titulares','TitularController@getTitulares')->name('gettitulares')->middleware('permission:listar.titular');
+  Route::get('get_titulares','TitularController@getTitulares')->name('gettitulares');
   Route::get('titulares','TitularController@showTitulares')->name('titulares')->middleware('permission:listar.titular');
   // Fin de Consulta
 
