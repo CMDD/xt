@@ -50,7 +50,7 @@ $(document).ready(function () {
             "processing": true,
             "serverSide": true,
             "responsive": true,
-            "ajax": "{{ route('gettitulares') }}",
+            "ajax": "{{ url('get_titulares') }}",
             "columns": [
                 {data: 'estado', name: 'estado'},
                 {
