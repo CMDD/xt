@@ -38,8 +38,13 @@ Route::get('ixtus','DashController@index');
   Route::get('listar/{nombre}','PersonaController@listar')
          ->name('listar.titular')
          ->middleware('permission:listar.titular');
-  Route::post('crear-persona','PersonaController@crear');
 
+  //Consulta json con datatables
+  Route::get('get_titulares','TitularController@getTitulares')->name('get_titulares')->middleware('permission:listar.titular');
+  Route::get('titulares','TitularController@showTitulares')->name('titulares')->middleware('permission:listar.titular');
+  // Fin de Consulta
+
+  Route::post('crear-persona','PersonaController@crear');
   Route::get('editar/{id}','PersonaController@editar')
       ->name('editar.titular')
       ->middleware('permission:editar.titular');
@@ -163,7 +168,6 @@ Route::get('ixtus','DashController@index');
 
 // Soporte
 Route::post('soporte','SoporteController@general');
-
 Route::get('autorizacion',function(){
   return view('mails.autorizacion');
 });
@@ -174,10 +178,6 @@ Route::get('autorizacion',function(){
 // Seguimiento
 Route::get('historial/{id}','SeguimientoController@index');
 Route::post('crar_nota/{id}','SeguimientoController@crearNota');
-
-
-
-
 
 Route::get('logout','UsuarioController@logout');
  Auth::routes();
