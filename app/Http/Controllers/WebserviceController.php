@@ -16,9 +16,7 @@ class WebserviceController extends Controller
       $persona = Persona::where('numero_documento',$request->cedula)->first();
 
       if ($persona) {
-
         // if ($persona->estado == 'Activo') {
-        //
         //   return back();
         // }else{
         //   $persona->estado = 'Activo';
@@ -31,7 +29,7 @@ class WebserviceController extends Controller
         //   $persona->imagen = 'web/formato.pdf';
         //   $persona->save();
         // }
-        dd($persona);
+        return back();
 
       }else{
       $persona = new Persona();
