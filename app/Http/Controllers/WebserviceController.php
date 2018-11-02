@@ -38,6 +38,7 @@ class WebserviceController extends Controller
       $persona->estado = 'Activo';
       $persona->nombres = $request->nombres;
       $persona->apellidos = $request->apellidos;
+      $persona->telefono = $request->telefono;
       $persona->numero_documento = $request->cedula;
       $persona->correo = $request->email;
       $persona->user_id = 1;
