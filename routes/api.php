@@ -18,5 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {return 
 Route::get('/departamentos/{id}/municipios','RegionController@cargarMunicipios');
 Route::get('/region/{id}/departamentos','RegionController@cargarDepartamentos');
 
+
+
+
 // WEBSERVICES
 Route::post('autorizo','WebserviceController@create');

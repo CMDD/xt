@@ -30,8 +30,6 @@ class WebserviceController extends Controller
           $persona->imagen = 'web/formato.pdf';
           $persona->save();
         }
-
-
       }else{
       $persona = new Persona();
       $persona->estado = 'Activo';
@@ -45,9 +43,7 @@ class WebserviceController extends Controller
       $persona->numero_registro ='Web IP: ' ;
       $persona->imagen = 'web/formato.pdf';
       $persona->save();
-
-        }
-
+      }
         Mail::to($request->email,'IXTUS')
         ->cc('web@minutodedios.tv')
         ->send(new AutorizacionMail($request));

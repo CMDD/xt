@@ -106,7 +106,7 @@
 
           <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
           <div class="col-md-3 col-sm-9 col-xs-12">
-            <select id="region" class=" form-control" name="region">
+            <select required id="region" class=" form-control" name="region">
               <option value="">Seleccione...</option>
               @foreach($regiones as $region)
               <option value="{{$region->id}}">{{$region->nombre}}</option>
@@ -219,7 +219,7 @@
       <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Planilla</label>
 
       <div class="col-md-3 col-sm-3 col-xs-12">
-        <select  id="region" class=" form-control" name="numero_registro">
+        <select required  id="region" class=" form-control" name="numero_registro">
           <option value="">Region...</option>
           @foreach($regiones as $region)
           <option value="{{$region->nombre}}">{{$region->nombre}}</option>

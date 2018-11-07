@@ -312,9 +312,7 @@ td[class="spechide"]
                         </td>
                         <td  width='70'></td>
                       </tr>
-
                       <tr><td colspan='3' height='45' ></td></tr>
-
                     </table>
                   </td>
                 </tr>
