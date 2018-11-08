@@ -150,6 +150,24 @@
           </div>
 
           <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de titular</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_multiple form-control" name="tipo_persona[]" multiple="multiple">
+                      <option value="Oyente" >Oyente</option>
+                      <option value="Cliente" >Cliente</option>
+                      <option value="Alumno">Alumno</option>
+                      <option value="Asistente">Asistente</option>
+                      <option value="Servidor">Servidor</option>
+                      <option value="Proveedor">Proveedor</option>
+                      <option value="Suscriptor">Suscriptor</option>
+                      <option value="Benefactor">Benefactor</option>
+                      <option value="Empleado">Empleado</option>
+                      <option value="Distribuidor">Distribuidor</option>
+                  </select>
+              </div>
+          </div>
+
+          <!-- <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
           </label>
           <div class="col-md-3 col-sm-9 col-xs-12">
@@ -189,7 +207,7 @@
           </div>
           </div>
 
-          </div>
+          </div> -->
 
 
           <div class="ln_solid"></div>
@@ -225,7 +243,6 @@
           <option value="{{$region->nombre}}">{{$region->nombre}}</option>
           @endforeach
         </select>
-
       </div>
       <div class="col-md-6 col-sm-9 col-xs-12">
       <input name="numero_planilla" value="{{old('numero_planilla')}}" type="text" class="form-control" placeholder="">
@@ -279,12 +296,10 @@
         <div class="x_panel">
 
           <!-- Formulario tipo de titular -->
-          @include('componentes.formulario_tipo_titular')
+              <!-- @include('componentes.formulario_tipo_titular') -->
           <!-- Fin Formulario tipo de titular -->
         </div>
       </div>
-
-
       @can('crear.suscripcion')
       <!-- <button onclick="mostrarSuscripcion()" class="btn btn-default btn-suscripcion" type="button" name="button">CREAR SUSCRIPCIÓN</button> -->
       @endcan
@@ -293,11 +308,8 @@
       @include('layouts.suscripcion.suscripcion')
       <!-- Formulario para programa de donaciones -->
       <!-- @include('componentes.donaciones') -->
-
-
       </form>
     </div>
-
     </div>
   </div>
 <!-- /page content -->
@@ -313,12 +325,11 @@
 <script>
   $(document).ready(function () {
   $(".select2_single").select2({
-      placeholder: "Select a state",
       allowClear: true
       });
       $(".select2_group").select2({});
       $(".select2_multiple").select2({
-      placeholder: "Puede seleccionar varios tipos!",
+      placeholder: "¡Click para seleccionar tipo de titular!",
       requerid:true,
       allowClear: true
     });

@@ -6,13 +6,15 @@
 @section('content')
 <div class="right_col" role="main">
 <div class="">
-  @if($errors->any())
+
+  <!-- @if($errors->any())
   @foreach($errors->all() as $error)
   <br>
   <br>
   <div class=" alert alert-danger invalid-feedback">{{ $error }}</div>
   @endforeach
-  @endif
+  @endif -->
+
 <div class="page-title">
 <div class="title_left">
 <h3>EDITAR TITULAR</h3>
@@ -55,19 +57,6 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 </div>
 </div>
 
-<div class="form-group">
-<label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de persona</label>
-<div class="col-md-9 col-sm-9 col-xs-12">
-@foreach($tipo_personas as $tipo)
-<button type="button" class="btn btn-default ">
-{{$tipo->nombre}}
-<a href="{{url('eliminar_tipo',$tipo->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
-  <i class="fa fa-close"></i>
-</a>
-</button>
-@endforeach
-</div>
-</div>
 <div class="form-group">
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo Documento</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
@@ -124,30 +113,24 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <div class="col-md-3 col-sm-9 col-xs-12">
   <select id="region" class=" form-control" name="region">
     @if(isset($persona->municipio))
-
     <option value="{{$persona->municipio->departamento->region->id}}">{{$persona->municipio->departamento->region->nombre}}</option>
     @else
-<option value="">Seleccione...</option>
+       <option value="">Seleccione...</option>
     @endif
-
     @foreach($regiones as $region)
     <option value="{{$region->id}}">{{$region->nombre}}</option>
     @endforeach
   </select>
-
 </div>
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
 <div class="col-md-3 col-sm-9 col-xs-12">
-
   <select id="departamento" class=" form-control" name="ciudad">
     @if(isset($persona->municipio))
     <option value="{{$persona->municipio->departamento->id}}">{{$persona->municipio->departamento->nombre}}</option>
     @endif
     <option value=""></option>
   </select>
-
 </div>
-
 </div>
 <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12">Municipio</label>
@@ -157,19 +140,18 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
       <option value="">{{$persona->municipio->nombre}}</option>
       @endif
     </select>
-
   </div>
 </div>
 
 <div class=" row form-group">
-<label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
-<div class="col-md-4 col-sm-9 col-xs-12">
-<input  value="{{$persona->telefono}}" name="telefono" type="text" class="form-control" placeholder="">
-</div>
-<label class="control-label col-md-2 col-sm-3 col-xs-12">Alternativo</label>
-<div class="col-md-3 col-sm-9 col-xs-12">
-<input  value="{{$persona->telefono_alternativo}}" name="telefono_alternativo" type="text" class="form-control" placeholder="">
-</div>
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">Télefono/Celular</label>
+  <div class="col-md-4 col-sm-9 col-xs-12">
+  <input  value="{{$persona->telefono}}" name="telefono" type="text" class="form-control" placeholder="">
+  </div>
+  <label class="control-label col-md-2 col-sm-3 col-xs-12">Alternativo</label>
+  <div class="col-md-3 col-sm-9 col-xs-12">
+  <input  value="{{$persona->telefono_alternativo}}" name="telefono_alternativo" type="text" class="form-control" placeholder="">
+  </div>
 </div>
 
 <div class="form-group">
@@ -180,6 +162,38 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 </div>
 
 <div class="form-group">
+<label class="control-label col-md-3 col-sm-3 col-xs-12">El  titular es:</label>
+<div class="col-md-9 col-sm-9 col-xs-12">
+@foreach($tipo_personas as $tipo)
+<button type="button" class="btn btn-default ">
+{{$tipo->nombre}}
+<a href="{{url('eliminar_tipo',$tipo->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
+  <i class="fa fa-close"></i>
+</a>
+</button>
+@endforeach
+</div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Agregar Tipo</label>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <select class="select2_multiple form-control" name="tipo_persona[]" multiple="multiple">
+            <option value="Oyente" >Oyente</option>
+            <option value="Cliente" >Cliente</option>
+            <option value="Alumno">Alumno</option>
+            <option value="Asistente">Asistente</option>
+            <option value="Servidor">Servidor</option>
+            <option value="Proveedor">Proveedor</option>
+            <option value="Suscriptor">Suscriptor</option>
+            <option value="Benefactor">Benefactor</option>
+            <option value="Empleado">Empleado</option>
+            <option value="Distribuidor">Distribuidor</option>
+        </select>
+    </div>
+</div>
+
+<!-- formulario tipo titular -->
+<!-- <div class="form-group">
 <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
 </label>
 @foreach($interes as $int)
@@ -226,10 +240,13 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 </label>
 </div>
 </div>
-</div>
+</div> -->
 <!-- Formulario tipo de titular -->
-@include('componentes.formulario_tipo_titular')
+<!-- @include('componentes.formulario_tipo_titular') -->
 <!-- Fin Formulario tipo de titular -->
+<!-- fin tipo titular -->
+
+
 <div class="ln_solid"></div>
 <div class="form-group">
 <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -241,8 +258,6 @@ data-toggle="tooltip" data-placement="left" >{{$int->nombre}}
 </div>
 </div>
 <!-- Fin formulario principal -->
-
-
 <div class="col-md-6 col-sm-12 col-xs-12">
 <div class="x_panel">
 <div class="x_title">
@@ -398,17 +413,17 @@ data-toggle="tooltip" data-placement="left" >{{$sus->oracional}}
 {{Html::script('admin/js/select/select2.full.js')}}
 <!-- select2 -->
 <script>
-$(document).ready(function () {
-$(".select2_single").select2({
-placeholder: "Select a state",
-allowClear: true
-});
-$(".select2_group").select2({});
-$(".select2_multiple").select2({
-placeholder: "Puede seleccionar varios tipos!",
-allowClear: true
-});
-});
+  $(document).ready(function () {
+  $(".select2_single").select2({
+      allowClear: true
+      });
+      $(".select2_group").select2({});
+      $(".select2_multiple").select2({
+      placeholder: "¡Click para seleccionar tipo de titular!",
+      requerid:true,
+      allowClear: true
+    });
+  });
 </script>
 <!-- /select2 -->
 @endsection

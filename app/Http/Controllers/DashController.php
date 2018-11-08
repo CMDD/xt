@@ -17,7 +17,7 @@ class DashController extends Controller
 {
     public function index(){
 
-      $lideres = User::where('region_id',Auth::User()->region_id)->get();
+      $lideres = User::all();
 
       $count_personas = Persona::count();
       $count_suscripcion = Suscripcion::count();
@@ -69,8 +69,6 @@ class DashController extends Controller
           'titular_activo' => $titular_activo,
           'titular_desactivo' => $titular_desactivo,
       ];
-
-
       return view('admin.dashboard')
       ->with('count_personas',$count_personas)
       ->with('count_suscripcion',$count_suscripcion)

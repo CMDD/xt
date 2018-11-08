@@ -59,17 +59,17 @@ ACTIVO
 @endcan
 @can('editar.suscripcion')
 <a href="{{route('editar.suscripcion',$p->id)}}">
-  <button type="button" class="btn btn-sm btn-default "
+  <button type="button" class="btn btn-sm btn-default"
   data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
 @endcan
 
 @can('eliminar.suscripcion')
-<a href="">
-  <button type="button" class="btn btn-sm btn-default "
-  data-toggle="tooltip" data-placement="left" >ELIMINAR
-  </button>
+<a class="btn btn-danger" href="{{route('eliminar.suscripcion',$p->id)}}"
+onclick="return confirm('¿Seguro que deseas eliminarlo?')">
+<span aria-hidden="true" class="glyphicon glyphicon-trash">
+</span>
 </a>
 @endcan
 </td>

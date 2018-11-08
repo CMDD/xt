@@ -136,10 +136,16 @@ class Reporte{
             if ($request->estado=='Todos') {
               $personas =  Persona::where('created_at','>=',$request->desde)
                                    ->where('created_at','<=',$request->hasta)->get();
+
+               // foreach ($personas as $persona) {
+               //   $tipos[] = TipoPersona::where('persona_id',$persona->id)->get();
+               // }
+
             }else{
               $personas =  Persona::where('estado',$request->estado)
                                    ->where('created_at','>=',$request->desde)
                                    ->where('created_at','<=',$request->hasta)->get();
+
             }
 
           $sheet->fromArray($personas);

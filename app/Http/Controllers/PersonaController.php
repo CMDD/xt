@@ -70,7 +70,7 @@ class PersonaController extends Controller
       if ($request->correo) {
         $persona->correo = $request->correo;
       }else{
-        $persona->correo = $correo = str_random(15);
+        $persona->correo = $correo = '';
       }
       $persona->correo_alternativo = $request->correo_alternativo;
       $persona->direccion = $request->direccion;
@@ -81,8 +81,6 @@ class PersonaController extends Controller
         $persona->municipio_id = (int)$request->municipio;
         $persona->region_id = (int)$request->region;
       }
-
-
       $persona->user_id = Auth::User()->id;
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
@@ -124,7 +122,6 @@ class PersonaController extends Controller
 
     public function actualizar(Request $request,$id){
 
-
       $lista_sus = urldecode($request['lista_sus']);
       $suscripciones = json_decode($lista_sus);
       $suscripcion_collection = Collection::make($suscripciones);
@@ -155,10 +152,7 @@ class PersonaController extends Controller
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
       $persona->ocupacion = $request->ocupacion;
-
-
       if ($request->file('imagen')) {
-
           $persona->imagen = $request->file('imagen')->store('imagen');
       }
       if ($request->file('voz')) {
@@ -174,7 +168,6 @@ class PersonaController extends Controller
                   $data->save();
         }
       }
-
       if ($request->tipo_persona) {
         foreach ($request->tipo_persona as $key => $value) {
                   $data = new TipoPersona();
