@@ -112,8 +112,8 @@ data-toggle="tooltip" data-placement="left" >HISTORIAL
 <label class="control-label col-md-3 col-sm-3 col-xs-12">Región</label>
 <div class="col-md-3 col-sm-9 col-xs-12">
   <select id="region" class=" form-control" name="region">
-    @if(isset($persona->municipio))
-    <option value="{{$persona->municipio->departamento->region->id}}">{{$persona->municipio->departamento->region->nombre}}</option>
+    @if(isset($persona->region_id))
+    <option value="{{$persona->region->id}}">{{$persona->region->nombre}}</option>
     @else
        <option value="">Seleccione...</option>
     @endif

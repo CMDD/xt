@@ -17,6 +17,9 @@ class Persona extends Model
     public function usuario() {
          return $this->belongsTo('App\User','user_id');
     }
+    public function region() {
+         return $this->belongsTo('App\Region');
+    }
     public function municipio() {
          return $this->belongsTo('App\Ciudad');
     }

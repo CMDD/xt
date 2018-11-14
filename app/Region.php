@@ -12,4 +12,7 @@ class Region extends Model
   public function usuario() {
        return $this->hasMany('App\User');
   }
+  public function persona() {
+       return $this->hasMany('App\Persona');
+  }
 }

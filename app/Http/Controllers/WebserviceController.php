@@ -12,9 +12,7 @@ class WebserviceController extends Controller
 
 
     public function create(Request $request){
-
       $persona = Persona::where('numero_documento',$request->cedula)->first();
-
       if ($persona) {
         if ($persona->estado == 'Activo') {
           return back();
