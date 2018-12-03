@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class Reporte{
 
   public  function reporteTirulares($request){
+
     $regiones = Region::all();
     $cantidad = false;
     $listado = false;
@@ -48,7 +49,8 @@ class Reporte{
       $personas = Persona::where('estado',$request->estado)
                          ->where('created_at','>=',$request->desde)
                          ->where('created_at','<=',$request->hasta)->get();
-      }elseif ($request->region == '4') {
+      }elseif ($request->region == 4) {
+
         $personas = Persona::where('estado',$request->estado)
                            ->where('numero_registro','Web IP: ')
                            ->where('created_at','>=',$request->desde)
@@ -172,6 +174,39 @@ class Reporte{
             }
           });
       })->export('xls');
+    }elseif ($request->region == 4) {
+
+      Excel::create('Reporte Titulares', function($excel) use ($request) {
+          $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
+            if ($request->estado== 'Todos') {
+              $personas =  Persona::where('numero_registro','Web IP: ')
+                                   ->where('created_at','>=',$request->desde)
+                                   ->where('created_at','<=',$request->hasta)->get();
+            }else{
+              $personas =  Persona::where('numero_registro','Web IP: ')
+                                   ->where('estado',$request->estado)
+                                   ->where('created_at','>=',$request->desde)
+                                   ->where('created_at','<=',$request->hasta)->get();
+            }
+          $sheet->fromArray($personas);
+          $sheet->setOrientation('landscape');
+          $sheet->row(1,[
+            'ID','ESTADO','NOMBRES','APELLIDOS','TIPO DOCUMENTO','NUMERO DOCUMENTO','FECHA DE NACIMIENTO','CORREO ALTERNATIVO',
+            'CORREO','DIRECCIÓN','ESPECIFICACION DIRECCIÓN','TÉLEFONO','TELEFONO ALTERNATIVO','OCUPACION','NUMERO DE REGISTRO','NUMERO PLANILLA','ARCHIVO DE VOZ','IMAGEN','USUARIO',
+            'MUNICIPIO','REGION','FECHA DE CREACION','FECHA DE ACTUALIZACIÓN'
+          ]);
+
+            foreach($personas as $index => $persona) {
+                $sheet->row($index+2, [
+                    $persona->id,$persona->estado, $persona->nombres, $persona->apellidos, $persona->tipo_documento,$persona->numero_documento,
+                    $persona->fecha_nacimiento,$persona->correo_alternativo,$persona->correo,$persona->direccion,$persona->direccion_especificacion,
+                    $persona->telefono,$persona->telefono_alternativo,$persona->ocupacion,'Pendiente...',$persona->numero_registro.$persona->numero_planilla,'Pendiente...','Imagen',$persona->usuario['name'],
+                    $persona->municipio['nombre'],$persona->numero_registro,$persona->created_at,$persona->updated_at
+                ]);
+            }
+          });
+      })->export('xls');
+
     }else{
       Excel::create('Reporte Titulares', function($excel) use ($request) {
           $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
