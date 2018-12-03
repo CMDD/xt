@@ -24,7 +24,7 @@ class WebserviceController extends Controller
           $persona->user_id = 1;
           $persona->numero_planilla = $request->ip;
           $persona->telefono = $request->telefono;
-          $persona->numero_registro ='Web IP: ' ;
+          $persona->numero_registro ='Web IP: ';
           $persona->imagen = 'web/formato.pdf';
           $persona->save();
         }
@@ -36,6 +36,7 @@ class WebserviceController extends Controller
       $persona->telefono = $request->telefono;
       $persona->numero_documento = $request->cedula;
       $persona->correo = $request->email;
+      $persona->region_id = 4;
       $persona->user_id = 1;
       $persona->numero_planilla = $request->ip;
       $persona->numero_registro ='Web IP: ' ;

@@ -40,10 +40,10 @@
   <div class="col-md-2">
     <div class="form-group">
       <label for="">Region</label>
-      <select class="form-control" name="">
+      <select class="form-control" name="region">
         <option value="[object Object]">Seleccione...</option>
         @foreach($regiones as $region)
-        <option value="">{{$region->nombre}}</option>
+        <option value="{{$region->nombre}}">{{$region->nombre}}</option>
         @endforeach
 
       </select>
@@ -59,7 +59,7 @@
       </select>
     </div>
   </div>
-  
+
   <div class="col-md-2">
     <div class="form-group">
       <label for="">Desde</label>
