@@ -50,7 +50,7 @@ class Reporte{
                          ->where('created_at','<=',$request->hasta)->get();
       }elseif ($request->region == '4') {
         $personas = Persona::where('estado',$request->estado)
-                           ->where('numero_registro',$request->region)
+                           ->where('numero_registro','Web IP: ')
                            ->where('created_at','>=',$request->desde)
                            ->where('created_at','<=',$request->hasta)->get();
 
