@@ -160,7 +160,7 @@ class Reporte{
                 $sheet->row($index+2, [
                     $persona->id,$persona->estado, $persona->nombres, $persona->apellidos, $persona->tipo_documento,$persona->numero_documento,
                     $persona->fecha_nacimiento,$persona->correo_alternativo,$persona->correo,$persona->direccion,$persona->direccion_especificacion,
-                    $persona->telefono,$persona->telefono_alternativo,$persona->ocupacion,'Pendiente...',$persona->numero_registro.$persona->numero_planilla,'Pendiente...','Imagen',$persona->usuario['name'],
+                    $persona->telefono,$persona->telefono_alternativo,$persona->ocupacion,'Pendiente...',$persona->numero_registro.$persona->numero_planilla,'Pendiente...','Imagen',$persona->usuario['email'],
                     $persona->municipio['nombre'],$persona->numero_registro,$persona->created_at,$persona->updated_at
                 ]);
             }
