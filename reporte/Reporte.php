@@ -48,7 +48,7 @@ class Reporte{
       $personas = Persona::where('estado',$request->estado)
                          ->where('created_at','>=',$request->desde)
                          ->where('created_at','<=',$request->hasta)->get();
-      }elseif ($request->region == 'Web IP:') {
+      }elseif ($request->region == 'Web IP: ') {
         $personas = Persona::where('estado',$request->estado)
                            ->where('numero_registro',$request->region)
                            ->where('created_at','>=',$request->desde)
