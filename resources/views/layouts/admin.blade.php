@@ -67,9 +67,9 @@
             <a><i class="fa fa-book"></i> Suscripciones <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: none">
               @can('crear.suscripcion')
-                <!-- <li>
+                <li>
                   <a href="{{route('crear.suscripcion')}}">Crear</a>
-                </li> -->
+                </li>
                 @endcan
                 @can('listar.suscripcion')
                 <li>

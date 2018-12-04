@@ -32,15 +32,15 @@ class SuscripcionController extends Controller
   }
 
   public function store(Request $request){
-
+    dd($request);
     $titular = Persona::where('numero_documento',$request->cedula)->first();
 
      if ($titular) {
        // Crear suscripcion
-       $fecha_final =  Carbon::parse($request->fecha);
+       $fecha_final =  Carbon::parse($request->fecha_pago);
        $sus = new Suscripcion();
-       $sus->plan = $request->plan;
-       $sus->fecha_inicio = $request->fecha;
+       $sus->plan = $request->tiempo;
+       $sus->fecha_inicio = $request->fecha_pago;
        $sus->fecha_final = $request->fecha_corte;
        $sus->persona_id = (int)$titular->id;
        $sus->user_id = Auth::User()->id;
