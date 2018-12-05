@@ -32,16 +32,14 @@ class SuscripcionController extends Controller
   }
 
   public function store(Request $request){
-    dd($request);
     $titular = Persona::where('numero_documento',$request->cedula)->first();
-
      if ($titular) {
        // Crear suscripcion
-       $fecha_final =  Carbon::parse($request->fecha_pago);
+       $fecha_inicial =  Carbon::parse($request->fecha_pago);
        $sus = new Suscripcion();
        $sus->plan = $request->tiempo;
-       $sus->fecha_inicio = $request->fecha_pago;
-       $sus->fecha_final = $request->fecha_corte;
+       $sus->fecha_inicio = $fecha_inicial;
+       $sus->fecha_final = $fecha_inicial->addMonths((int)$request->tiempo);
        $sus->persona_id = (int)$titular->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
@@ -56,6 +54,12 @@ class SuscripcionController extends Controller
        $sus->adultos = $request->adultos;
        $sus->ninos = $request->ninos;
        $sus->puerta = $request->puerta;
+
+       $sus->jovenes = (int)$request->jovenes;
+       $sus->adultos = (int)$request->adultos;
+       $sus->ninos = (int)$request->ninos;
+       $sus->puerta = (int)$request->puerta;
+       $sus->tipo = 'Nueva';
        $sus->save();
      }else{
        //Crear titular
@@ -63,16 +67,22 @@ class SuscripcionController extends Controller
        $persona->estado = "Desactivo";
        $persona->nombres = $request->nombres;
        $persona->apellidos = $request->apellidos;
+       $persona->fecha_nacimiento = $request->fecha_nacimiento;
        $persona->correo = $request->correo;
+       $persona->tipo_documento = 'CC';
        $persona->numero_documento = $request->cedula;
+       $persona->telefono = $request->telefono;
        $persona->user_id = Auth::User()->id;
+       $persona->region_id = (int)$request->region;
+       $persona->municipio_id = (int)$request->municipio;
        $persona->save();
+
        // Crear suscripcion
-       $fecha_final =  Carbon::parse($request->fecha);
+       $fecha_inicial =  Carbon::parse($request->fecha_pago);
        $sus = new Suscripcion();
-       $sus->plan = $request->plan;
-       $sus->fecha_inicio = $request->fecha;
-       $sus->fecha_final = $request->fecha_corte;
+       $sus->plan = $request->tiempo;
+       $sus->fecha_inicio = $fecha_inicial;
+       $sus->fecha_final = $fecha_inicial->addMonths((int)$request->tiempo);
        $sus->persona_id = (int)$persona->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
@@ -83,6 +93,13 @@ class SuscripcionController extends Controller
        $sus->region_id = (int)$request->region;
        $sus->telefono = $request->telefono;
        $sus->observacion = $request->observacion;
+
+       $sus->numero_suscripcion = $request->numero_suscripcion;
+       $sus->numero_factura = $request->numero_factura;
+       $sus->punto_venta = $request->punto;
+       $sus->apartir_de = $request->apartir_de;
+       $sus->tipo = 'Nueva';
+
 
        $sus->jovenes = (int)$request->jovenes;
        $sus->adultos = (int)$request->adultos;

@@ -52,7 +52,6 @@ class notificaciones extends Command
           $noti->mensaje = 'Está por vencer suscripcion';
           $noti->save();
         }
-
       }
         return $this->info('Verificaciones de suscripciones completado');
     }
