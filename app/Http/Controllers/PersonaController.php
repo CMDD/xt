@@ -189,13 +189,13 @@ class PersonaController extends Controller
       if ($nombre=='General'){
           $nombre = "General";
           $personas=Persona::orderBy('id', 'DESC')->where('user_id',Auth::User()->id)->get();
-      return view('admin.dataTables.lista')->with('personas',$personas)->with('nombre',$nombre);
+      return view('admin.datatables.lista')->with('personas',$personas)->with('nombre',$nombre);
       }
         $tipos = TipoPersona::where('nombre',$nombre)->get();
         foreach ($tipos as $tipo) {
         $personas[] = Persona::find($tipo->persona_id);
       }
-      return view('admin.dataTables.lista')->with('personas',$personas)->with('nombre',$nombre);
+      return view('admin.datatables.lista')->with('personas',$personas)->with('nombre',$nombre);
     }
 
     public function detalle($id){
