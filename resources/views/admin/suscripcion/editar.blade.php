@@ -16,7 +16,69 @@
 <div class="col-md-12">
 <div class="x_panel">
 <div class="x_title">
-<h2> IXTUS</h2>
+<h2> IXTUS |
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" name="button">Agregar mes de entrega</button>
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel2">Agregar cantidad de mes</h4>
+              </div>
+              <div class="modal-body">
+                <form class="" action="{{url('agregar-mes')}}" method="post">
+                  {!!csrf_field()!!}
+                  <div class="col-md-12 form-group">
+                    <input  type="number" class="form-control" id="" name="mes"  placeholder="">
+                  </div>
+                  <input type="hidden" name="suscripcion" value="{{$sus->id}}">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Agregar</button>
+              </div>
+              </form>
+
+          </div>
+      </div>
+  </div>
+
+
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-renovacion-modal-sm" name="button">Renovar</button>
+  <div class="modal fade bs-renovacion-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm ">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel1">Renovación</h4>
+              </div>
+              <div class="modal-body">
+                <form class="" action="{{url('renovar')}}" method="post">
+                  {!!csrf_field()!!}
+                  <div class="col-md-12 form-group">
+                    <label for="">Tiempo</label>
+                    <select class="form-control" name="mes">
+                      <option value="">Seleccione...</option>
+                      <option value="6">6 Meses</option>
+                      <option value="12">1 Año</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="suscripcion" value="{{$sus->id}}">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Agregar</button>
+              </div>
+              </form>
+
+          </div>
+      </div>
+  </div>
+</h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -88,15 +150,45 @@
      <option value="{{$sus->municipio->id}}">{{$sus->municipio->nombre}}</option>
    </select>
  </div>
-
  <div class="col-md-6 form-group">
-   <label for="">Fecha de inicio : {{$sus->fecha_inicio->format('d/m/y')}} </label>
-   <input type="date" class="form-control" id=""  name="fecha">
+   <label for="">No.Factura</label>
+   <input  type="text" class="form-control" id="" name="numero_factura" placeholder="Indique el numero de la factura de venta">
  </div>
 
  <div class="col-md-6 form-group">
-   <label for="">Fecha de corte {{$sus->fecha_final->format('d/m/y')}} </label>
-   <input  type="date"  class="form-control" id="" name="fecha_corte">
+   <label for="">Envío a partir de</label>
+   <input  type="text" class="form-control" id=""  value="{{$sus->apartir_de->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Envío hasta</label>
+   <input  type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+ </div>
+
+ <div class="col-md-6 form-group">
+   <label for="">Fecha de pago </label>
+   <input type="text" disabled class="form-control" id="" value="{{$sus->fecha_inicio->format('d/m/y')}}">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Fecha de cancelación </label>
+   <input type="text" disabled class="form-control" id="" value="{{$sus->fecha_final->format('d/m/y')}}">
+ </div>
+
+
+
+ <div class="col-md-6 form-group">
+   <label for="">Numero de suscripción</label>
+   <input  type="text" class="form-control" id="" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">No.Factura</label>
+   <input  type="text" class="form-control" id="" name="numero_factura" placeholder="Indique el numero de la factura de venta">
+ </div>
+ <div class="col-md-6 form-group">
+   <label for="">Punto de venta</label>
+   <select  class="form-control" name="punto">
+     <option value="">Seleccione...</option>
+     <option value="">Tiendaminutodedios.com Bogota</option>
+   </select>
  </div>
 
  <div class="col-md-9 form-group">

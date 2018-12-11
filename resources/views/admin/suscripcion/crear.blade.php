@@ -90,11 +90,7 @@
    <select required  id="municipio" class="form-control" name="municipio">
    </select>
  </div>
- <div class="col-md-6 form-group">
-   <label for="">Enviar a partir de:  </label>
-   <input required type="date" class="form-control" id="" name="apartir_de">
 
- </div>
 
  <div class="col-md-12 form-group">
    <label for="">Observación</label>
@@ -137,7 +133,10 @@
 <div class="col-md-12 form-group">
   <label for="">Fecha de pago</label>
   <input required type="date" class="form-control" id="" name="fecha_pago" placeholder="Consecutivo del desprendible asignado">
-
+</div>
+<div class="col-md-12 form-group">
+  <label for="">Enviar a partir de:  </label>
+  <input required type="date" class="form-control" id="" name="apartir_de">
 </div>
 <div class="col-md-12 form-group">
   <label for="">Tiempo de la suscripción</label>

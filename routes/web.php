@@ -86,6 +86,10 @@ Route::get('ixtus','DashController@index');
   Route::post('actualizar_suscripcion/{id}','SuscripcionController@update')
   ->name('actualizar.suscripcion');
   Route::post('crear-suscripcion','SuscripcionController@store');
+  Route::post('agregar-mes','SuscripcionController@agregarMes');
+  Route::post('renovar','SuscripcionController@renovar');
+
+
 
   Route::get('agregar-suscripcion/{id}','SuscripcionController@agregar')
   ->name('agregar.suscripcion')

@@ -33,6 +33,7 @@ class SuscripcionController extends Controller
 
   public function store(Request $request){
     $titular = Persona::where('numero_documento',$request->cedula)->first();
+    $apartir_de =  Carbon::parse($request->apartir_de);
      if ($titular) {
        // Crear suscripcion
        $fecha_inicial =  Carbon::parse($request->fecha_pago);
@@ -59,6 +60,12 @@ class SuscripcionController extends Controller
        $sus->adultos = (int)$request->adultos;
        $sus->ninos = (int)$request->ninos;
        $sus->puerta = (int)$request->puerta;
+
+       $sus->numero_suscripcion = $request->numero_suscripcion;
+       $sus->numero_factura = $request->numero_factura;
+       $sus->punto_venta = $request->punto;
+       $sus->apartir_de = $apartir_de;
+       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo - 1);
        $sus->tipo = 'Nueva';
        $sus->save();
      }else{
@@ -97,7 +104,8 @@ class SuscripcionController extends Controller
        $sus->numero_suscripcion = $request->numero_suscripcion;
        $sus->numero_factura = $request->numero_factura;
        $sus->punto_venta = $request->punto;
-       $sus->apartir_de = $request->apartir_de;
+       $sus->apartir_de = $apartir_de;
+       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo - 1);
        $sus->tipo = 'Nueva';
 
 
@@ -134,11 +142,6 @@ class SuscripcionController extends Controller
 
     if ($request->fecha) {
       $sus->fecha_inicio = $fecha;
-      $sus->fecha_final = $request->fecha_corte;
-    }
-
-    if ($request->fecha_corte) {
-      $sus->fecha_final = $request->fecha_corte;
     }
 
 
@@ -244,6 +247,24 @@ class SuscripcionController extends Controller
         return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan);
 
     }
+
+    public function agregarMes(Request $request){
+      $sus = Suscripcion::find($request->suscripcion);
+      $sus->envio_hasta = $sus->envio_hasta->addMonths($request->mes);
+      $sus->save();
+
+      return back();
+    }
+    public function renovar(Request $request){
+      $sus = Suscripcion::find($request->suscripcion);
+      $sus->envio_hasta = $sus->envio_hasta->addMonths($request->mes);
+      $sus->fecha_final = $sus->fecha_final->addMonths($request->mes);
+      $sus->save();
+
+      return back();
+    }
+
+
 
 
 

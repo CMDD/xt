@@ -8,7 +8,9 @@ class Suscripcion extends Model
 {
     protected $dates = [
       'fecha_inicio',
-      'fecha_final'
+      'fecha_final',
+      'apartir_de',
+      'envio_hasta'
     ];
 
     public function persona() {

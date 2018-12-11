@@ -99,7 +99,7 @@ class ReporteController extends Controller
       if ($reporte == 'Personas') {
         $nombre = 'Base de datos regional';
         $personas = Persona::where('region_id',Auth::User()->region_id)->get();
-        return view('admin.persona.listar')->with('personas',$personas)
+        return view('admin.datatables.lista')->with('personas',$personas)
                                            ->with('nombre',$nombre);
       }elseif ($reporte == 'Suscripciones') {
         $sus = Suscripcion::where('region_id',Auth::User()->region_id)->get();

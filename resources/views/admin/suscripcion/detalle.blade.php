@@ -16,7 +16,13 @@
 <div class="col-md-12">
 <div class="x_panel">
 <div class="x_title">
-<h2> SUSCRIPCION | {{$sus->oracional}}</h2>
+<h2> SUSCRIPCION |
+  @can('editar.suscripcion')
+  <a href="{{route('editar.suscripcion',$sus->id)}}">
+    <button type="button" class="btn btn-danger " name="button">Editar</button>
+  </a>
+  @endcan
+</h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
 </li>
@@ -30,7 +36,7 @@
 <div class="col-md-7 col-sm-9 col-xs-12">
 <ul class="stats-overview">
 <li>
-<span class="name"> Plan </span>
+<span class="name"> Tiempo </span>
 <span class="value text-success"> {{$sus->plan}} Meses </span>
 </li>
 <li class="hidden-phone">
@@ -38,7 +44,7 @@
 <span class="value text-success"> {{$sus->estado}}</span>
 </li>
 <li class="hidden-phone">
-<span class="name"> Vence  </span>
+<span class="name"> Fecha de cancelación  </span>
 <span class="value text-success"> {{$sus->fecha_final->format('d/m/Y')}}</span>
 </li>
 </ul>
@@ -54,15 +60,6 @@
   <div class="col-md-6 form-group">
     <label for="">Télefono</label>
     <input type="text" class="form-control" id="" disabled  value="{{$sus->telefono}}" >
-  </div>
-
-  <div class="col-md-6 form-group">
-    <label for="">Plan</label>
-    <input type="text" class="form-control" id="" disabled  value="{{$sus->plan}} Meses" >
-  </div>
-  <div class="col-md-6 form-group">
-    <label for="">Estado</label>
-    <input type="text" class="form-control" id="" disabled  value="{{$sus->estado}}" >
   </div>
 
 
@@ -86,16 +83,38 @@
    <label for="">municipio</label>
    <input type="text" class="form-control" id="" disabled  value="{{$sus->municipio->nombre}}" placeholder="">
   </div>
+  <div class="col-md-6 form-group">
+   <label for="">Numero de factura  </label>
+   <input type="text" class="form-control" id="" disabled value="{{$sus->numero_factura}}"  placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Envío a partir de:</label>
+   <input type="text" class="form-control" id="" disabled  value="{{$sus->apartir_de->format('d/m/Y')}}" placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="">Envío hasta</label>
+    <input disabled type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+  </div>
 
 
   <div class="col-md-6 form-group">
-   <label for="">Fecha de suscripcion  </label>
-   <input type="text" class="form-control" id="" disabled value="{{$sus->fecha_inicio->format('d/m/Y')}}" name="fecha"  placeholder="">
+   <label for="">Fecha de pago  </label>
+   <input type="text" class="form-control" id="" disabled value="{{$sus->fecha_inicio->format('d/m/Y')}}"  placeholder="">
+  </div>
+  <div class="col-md-6 form-group">
+   <label for="">Numero de suscripcion  </label>
+   <input type="text" class="form-control" id="" disabled value="{{$sus->numero_suscripcion}}"  placeholder="">
+  </div>
+
+  <div class="col-md-6 form-group">
+   <label for="">Punto de venta  </label>
+   <input type="text" class="form-control" id="" disabled value="{{$sus->punto_venta}}"  placeholder="">
   </div>
   <div class="col-md-9 form-group">
    <label for="">Observación</label>
    <textarea name="observacion" class="form-control" disabled rows="5" cols="80">{{$sus->observacion}}</textarea>
   </div>
+
 
 </div>
 
