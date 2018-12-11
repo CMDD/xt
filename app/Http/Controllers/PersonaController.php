@@ -186,7 +186,8 @@ class PersonaController extends Controller
       // alert()->success('Actualizado!', 'Correctamente')
       // ->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
       alert()->html('<i>Actualizado correctamente</i>',"
-              <a href='/reporte_regional/Personas'><button type='button' class='btn btn-primary' name='button'>Seguir buscando</button></a>
+              <a href='/listar/General'><button type='button' class='btn btn-primary' name='button'>Mis titulares</button></a>
+              <a href='/reporte_regional/Personas'><button type='button' class='btn btn-primary' name='button'>Buscar regional</button></a>
             ",'success')->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
                   return back();
     }
@@ -195,7 +196,7 @@ class PersonaController extends Controller
       $personas=array();
       if ($nombre=='General'){
           $nombre = "General";
-          $personas=Persona::orderBy('id', 'DESC')->where('user_id',2)->get();
+          $personas=Persona::orderBy('id', 'DESC')->where('user_id',Auth::User()->id)->get();
           return view('admin.persona.listar')->with('personas',$personas)->with('nombre',$nombre);
       }
         $tipos = TipoPersona::where('nombre',$nombre)->get();
