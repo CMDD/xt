@@ -86,6 +86,7 @@ class PersonaController extends Controller
       $persona->telefono = $request->telefono;
       $persona->telefono_alternativo = $request->telefono_alternativo;
       $persona->ocupacion = $request->ocupacion;
+      $persona->whatsapp = $request->whatsapp;
       if ($request->file('imagen')) {
           $persona->imagen = $request->file('imagen')->store('imagen');
       }
@@ -138,6 +139,7 @@ class PersonaController extends Controller
       $persona->tipo_documento = $request->tipo_documento;
       $persona->numero_documento = $request->numero_documento;
       $persona->fecha_nacimiento = $request->fecha_nacimiento;
+      $persona->whatsapp = $request->whatsapp;
       if ($persona->correo != $request->correo ) {
           $persona->correo = $request->correo;
       }

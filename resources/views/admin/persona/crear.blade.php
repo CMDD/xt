@@ -166,6 +166,19 @@
                   </select>
               </div>
           </div>
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Grupo de Whatsapp</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class=" form-control" name="whatsapp" >
+                      <option value="" >Seleccione...</option>
+                      <option value="Bogota" >Bogotá</option>
+                      <option value="Medellin" >Medellín</option>
+                      <option value="Barranquilla">Barranquilla</option>
+                      <option value="Cartagena">Cartagena</option>
+
+                  </select>
+              </div>
+          </div>
 
           <!-- <div class="form-group">
           <label class="col-md-3 col-sm-3 col-xs-12 control-label">Preferencias
