@@ -26,6 +26,7 @@ class WebserviceController extends Controller
           $persona->telefono = $request->telefono;
           $persona->numero_registro ='Web IP: ';
           $persona->imagen = 'web/formato.pdf';
+          $persona->whatsapp = $request->whatsapp;
           $persona->save();
         }
       }else{
@@ -41,6 +42,7 @@ class WebserviceController extends Controller
       $persona->numero_planilla = $request->ip;
       $persona->numero_registro ='Web IP: ' ;
       $persona->imagen = 'web/formato.pdf';
+      $persona->whatsapp = $request->whatsapp;
       $persona->save();
       }
         Mail::to($request->email,'IXTUS')
