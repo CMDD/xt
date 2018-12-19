@@ -14,6 +14,9 @@
 
 
 Route::get('/',function(){return view('login');});
+Route::get('menu',function(){return view('menu');});
+Route::get('centroc',function(){return view('centroc.index');});
+
 
 //Llamadas con TWILIO
 Route::post('call','CallController@call');
