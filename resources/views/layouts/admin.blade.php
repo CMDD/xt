@@ -127,14 +127,14 @@
           <div class="menu_section">
           <h3>Centro de contacto</h3>
           <ul class="nav side-menu">
-            <li>
+            <!-- <li>
               <a><i class="fa fa-child"></i> Seguimiento <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                   <li>
                     <a href="{{url('centroc')}}">Gestion</a>
                   </li>
                 </ul>
-            </li>
+            </li> -->
           </ul>
           </div>
           </div>
