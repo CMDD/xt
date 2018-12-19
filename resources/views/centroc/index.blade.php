@@ -2,6 +2,7 @@
 
 @section('style')
 {{ Html::style('admin/css/datatables/tools/css/dataTables.tableTools.css')}}
+
 @endsection
 @section('content')
 <!-- page content -->
@@ -9,7 +10,7 @@
   <div class="">
       <div class="clearfix"></div>
       <div class="row">
-        <div class="col-md-7 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
             <h2>|<small>IXTUS</small></h2>
@@ -31,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
                                     <h2><i class="fa fa-bars"></i> Seguimiento <small>ixtus</small></h2>
@@ -61,8 +62,7 @@
                                             </li>
                                             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">No contestan</a>
                                             </li>
-                                            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
-                                            </li>
+                                            
                                         </ul>
                                         <div id="myTabContent" class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
