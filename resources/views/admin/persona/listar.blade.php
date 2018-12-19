@@ -27,11 +27,11 @@
 <th>
   ESTADO
 </th>
-<th># PLANILLA</th>
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
 <th>DOCUMENTO</th>
 <th>TÉLEFONO/CELULAR</th>
+<th>ULTIMO CONTACTO</th>
 <th >ACCIÓN | AGREGAR
 </th>
 </tr>
@@ -40,11 +40,12 @@
   @forelse($personas as $p)
 <tr class="even pointer">
 <td class=" ">{{$p->estado}}</td>
-<td class=" ">{{$p->numero_registro.$p->numero_planilla}}</td>
+
 <td class=" ">{{$p->nombres}}</td>
 <td class=" ">{{$p->apellidos}}</td>
 <td class="a-right a-right ">{{$p->numero_documento}}</td>
 <td class="a-right a-right ">{{$p->telefono}}</td>
+<td class=" ">{{$p->updated_at}}</td>
 <td class=" last">
   @can('ver.titular')
 <a href="{{url('detalle',$p->id)}}">
