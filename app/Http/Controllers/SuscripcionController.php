@@ -7,6 +7,7 @@ use App\Http\Requests\TitularRequest;
 use App\Suscripcion;
 use App\Persona;
 use App\Region;
+use App\Historial;
 use Carbon\Carbon;
 use Auth;
 
@@ -264,6 +265,21 @@ class SuscripcionController extends Controller
       return back();
     }
 
+public function historial($id){
+  $sus = Suscripcion::find($id);
+  $historial = Historial::where('suscripcion_id',$id)->orderBy('created_at','DESC')->get();
+  return view('admin.suscripcion.historial')->with('his',$historial)->with('sus',$sus);
+}
+
+public function guargarHistorial(Request $request,$id){
+    $historial = new Historial();
+    $historial->asunto = $request->asunto;
+    $historial->mensaje = $request->mensaje;
+    $historial->suscripcion_id = (int)$id;
+    $historial->user_id = Auth::User()->id;
+    $historial->save();
+    return back();
+}
 
 
 

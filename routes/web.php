@@ -101,6 +101,10 @@ Route::get('ixtus','DashController@index');
   ->name('agregar.suscripcion')
   ->middleware('permission:crear.suscripcion');
 
+  //Historial de suscripciones
+  Route::get('suscripcion-historial/{id}','SuscripcionController@historial');
+  Route::post('historial-suscripcion/{id}','SuscripcionController@guargarHistorial');
+
   // Usuarios
   Route::get('usuario-crear','UsuarioController@crear')
   ->name('crear.usuario')->middleware('permission:crear.usuario');

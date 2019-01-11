@@ -40,7 +40,7 @@ ACTIVO
   @forelse($sus as $p)
 <tr class="even pointer">
 <td class="  ">
-<p type="" class="{{$p->estado}}">
+{{$p->estado}}
 </td>
 <td class=" ">{{$p->id}} </td>
 <td class=" ">{{$p->plan}} Meses</td>

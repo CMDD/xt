@@ -22,6 +22,9 @@
     <button type="button" class="btn btn-danger " name="button">Editar</button>
   </a>
   @endcan
+  <a href="{{url('suscripcion-historial',$sus->id)}}">
+    <button type="button" class="btn btn-primary " name="button">Historial</button>
+  </a>
 </h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
