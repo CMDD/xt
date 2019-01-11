@@ -158,7 +158,7 @@
 
  <div class="col-md-6 form-group">
    <label for="">Envío a partir de</label>
-   <input  type="text" class="form-control" id=""  value="{{$sus->apartir_de->format('d/m/Y')}}" name="apartir_de">
+   <input  type="text" class="form-control" id="" disabled value="{{$sus->apartir_de->format('d/m/Y')}}" name="apartir_de">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Envío hasta</label>
