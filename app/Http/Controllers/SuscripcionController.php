@@ -154,6 +154,9 @@ class SuscripcionController extends Controller
     $sus->region_id = (int)$request->region;
     $sus->telefono = $request->telefono;
     $sus->observacion = $request->observacion;
+    $sus->punto_venta = $request->punto;
+    $sus->numero_factura = $request->numero_factura;
+    $sus->numero_suscripcion = $request->numero_suscripcion;
 
     $sus->jovenes = (int)$request->jovenes;
     $sus->adultos = (int)$request->adultos;
@@ -228,12 +231,10 @@ class SuscripcionController extends Controller
          $sus->direccion = $request->direccion;
          $sus->direccion_especificacion = $request->especificacion_direccion;
          $sus->observacion = $request->observacion;
-
          $sus->jovenes = $request->jovenes;
          $sus->adultos = $request->adultos;
          $sus->ninos = $request->ninos;
          $sus->puerta = $request->puerta;
-
          $sus->save();
          alert()->success('Suscripcion creada','Correctamente');
          return back();
@@ -254,6 +255,13 @@ class SuscripcionController extends Controller
       $sus->envio_hasta = $sus->envio_hasta->addMonths($request->mes);
       $sus->save();
 
+      $historial = new Historial();
+      $historial->asunto = 'Agregar mes';
+      $historial->mensaje = 'Se ha agregado'.' '.$request->mes.' '.'M'. ' a la suscripcion';
+      $historial->suscripcion_id = $sus->id;
+      $historial->user_id = Auth::User()->id;
+      $historial->save();
+
       return back();
     }
     public function renovar(Request $request){
@@ -261,6 +269,13 @@ class SuscripcionController extends Controller
       $sus->envio_hasta = $sus->envio_hasta->addMonths($request->mes);
       $sus->fecha_final = $sus->fecha_final->addMonths($request->mes);
       $sus->save();
+
+      $historial = new Historial();
+      $historial->asunto = 'Renovación';
+      $historial->mensaje = 'La suscripcion se ha renovado';
+      $historial->suscripcion_id = $sus->id;
+      $historial->user_id = Auth::User()->id;
+      $historial->save();
 
       return back();
     }

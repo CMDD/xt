@@ -158,7 +158,22 @@
   <label for="">Punto de venta</label>
   <select required class="form-control" name="punto">
     <option value="">Seleccione...</option>
-    <option value="">Tiendaminutodedios.com Bogota</option>
+    <option value="Efecty">Efecty</option>
+    <option value="Corporación minuto de Dios">Corporación minuto de Dios</option>
+    <option value="Centro de Contacto">Centro de Contacto</option>
+    <option value="Libreria Minuto de Dios">Libreria Minuto de Dios </option>
+    <option value="Libreria - Soledad">Libreria - Soledad </option>
+    <option value="Libreria - Cedritos">Libreria - Cedritos </option>
+    <option value="Libreria - Ibague">Libreria - Ibague </option>
+    <option value="Libreria - Antioquia Centro">Libreria - Antioquia Centro </option>
+    <option value="Libreria - Antioquia Laureles">Libreria - Antioquia Laureles </option>
+    <option value="Libreria - Antioquia Itagui">Libreria - Antioquia Itagui </option>
+    <option value="Libreria - Cartagena Pie de la popa">Libreria - Cartagena Pie de la popa </option>
+    <option value="Libreria - Cartagena Plazuela">Libreria - Cartagena Plazuela </option>
+    <option value="Libreria - Barranquilla Tierra nueva">Libreria - Barranquilla Tierra nueva </option>
+    <option value="Libreria - Barranquilla Sao calle 53">Libreria - Barranquilla Sao calle 53 </option>
+    <option value="Libreria - Barranquilla Sao calle 93">Libreria - Barranquilla Sao calle 93 </option>
+    <option value="Tiendaminutodedios.com">Tiendaminutodedios.com</option>
   </select>
 </div>
 

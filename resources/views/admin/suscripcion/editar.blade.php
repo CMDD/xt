@@ -78,6 +78,10 @@
           </div>
       </div>
   </div>
+
+  <a href="{{url('suscripcion-historial',$sus->id)}}">
+    <button type="button" class="btn btn-primary " name="button">Historial</button>
+  </a>
 </h2>
 <ul class="nav navbar-right panel_toolbox">
 <li><a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -150,18 +154,15 @@
      <option value="{{$sus->municipio->id}}">{{$sus->municipio->nombre}}</option>
    </select>
  </div>
- <div class="col-md-6 form-group">
-   <label for="">No.Factura</label>
-   <input  type="text" class="form-control" id="" name="numero_factura" placeholder="Indique el numero de la factura de venta">
- </div>
+
 
  <div class="col-md-6 form-group">
    <label for="">Envío a partir de</label>
-   <input  type="text" class="form-control" id=""  value="{{$sus->apartir_de->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+   <input  type="text" class="form-control" id=""  value="{{$sus->apartir_de->format('d/m/Y')}}" name="apartir_de">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Envío hasta</label>
-   <input  type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+   <input  type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" >
  </div>
 
  <div class="col-md-6 form-group">
@@ -177,17 +178,32 @@
 
  <div class="col-md-6 form-group">
    <label for="">Numero de suscripción</label>
-   <input  type="text" class="form-control" id="" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
+   <input  type="text" class="form-control" id="" name="numero_suscripcion" value="{{$sus->numero_suscripcion}}"">
  </div>
  <div class="col-md-6 form-group">
    <label for="">No.Factura</label>
-   <input  type="text" class="form-control" id="" name="numero_factura" placeholder="Indique el numero de la factura de venta">
+   <input  type="text" class="form-control" id="" name="numero_factura" value="{{$sus->numero_factura}}">
  </div>
  <div class="col-md-6 form-group">
    <label for="">Punto de venta</label>
-   <select  class="form-control" name="punto">
-     <option value="">Seleccione...</option>
-     <option value="">Tiendaminutodedios.com Bogota</option>
+   <select required class="form-control" name="punto">
+     <option value="{{$sus->punto_venta}}">{{$sus->punto_venta}}</option>
+     <option value="Efecty">Efecty</option>
+     <option value="Corporación minuto de Dios">Corporación minuto de Dios</option>
+     <option value="Centro de Contacto">Centro de Contacto</option>
+     <option value="Libreria Minuto de Dios">Libreria Minuto de Dios </option>
+     <option value="Libreria - Soledad">Libreria - Soledad </option>
+     <option value="Libreria - Cedritos">Libreria - Cedritos </option>
+     <option value="Libreria - Ibague">Libreria - Ibague </option>
+     <option value="Libreria - Antioquia Centro">Libreria - Antioquia Centro </option>
+     <option value="Libreria - Antioquia Laureles">Libreria - Antioquia Laureles </option>
+     <option value="Libreria - Antioquia Itagui">Libreria - Antioquia Itagui </option>
+     <option value="Libreria - Cartagena Pie de la popa">Libreria - Cartagena Pie de la popa </option>
+     <option value="Libreria - Cartagena Plazuela">Libreria - Cartagena Plazuela </option>
+     <option value="Libreria - Barranquilla Tierra nueva">Libreria - Barranquilla Tierra nueva </option>
+     <option value="Libreria - Barranquilla Sao calle 53">Libreria - Barranquilla Sao calle 53 </option>
+     <option value="Libreria - Barranquilla Sao calle 93">Libreria - Barranquilla Sao calle 93 </option>
+     <option value="Tiendaminutodedios.com">Tiendaminutodedios.com</option>
    </select>
  </div>
 
