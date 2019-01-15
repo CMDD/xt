@@ -48,7 +48,7 @@
 </li>
 <li class="hidden-phone">
 <span class="name"> Fecha de vencimiento  </span>
-<span class="value text-success"> {{$sus->fecha_final->format('d/m/Y')}}</span>
+<span class="value text-success"> {{$sus->envio_hasta->format('d/m/Y')}}</span>
 </li>
 </ul>
 <br />
@@ -91,11 +91,11 @@
    <input type="text" class="form-control" id="" disabled value="{{$sus->numero_factura}}"  placeholder="">
   </div>
   <div class="col-md-6 form-group">
-   <label for="">Envío a partir de:</label>
+   <label for="">Fecha inicio:</label>
    <input type="text" class="form-control" id="" disabled  value="{{$sus->apartir_de->format('d/m/Y')}}" placeholder="">
   </div>
   <div class="col-md-6 form-group">
-    <label for="">Envío hasta</label>
+    <label for="">Fecha vencimiento</label>
     <input disabled type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" placeholder="Consecutivo del desprendible asignado">
   </div>
 

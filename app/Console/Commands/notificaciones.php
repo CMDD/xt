@@ -44,14 +44,30 @@ class notificaciones extends Command
       $hoy = $carbon->now();
 
       foreach ($sus as $n) {
-          $fechaF = date_diff($hoy, $n->fecha_final);
-        if ($fechaF->days == 30 or $fechaF->days == 15 ) {
+          $fechaF = date_diff($hoy, $n->envio_hasta);
+        if ($fechaF->days == 60) {
           $noti = new Notificacion();
           $noti->tipo = 'Alerta';
           $noti->suscripcion_id = $n->id;
-          $noti->mensaje = 'Está por vencer suscripcion';
+          $noti->mensaje = 'La suscripcion vence dentro de 2 meses';
           $noti->save();
         }
+        if ($fechaF->days == 30) {
+          $noti = new Notificacion();
+          $noti->tipo = 'Alerta';
+          $noti->suscripcion_id = $n->id;
+          $noti->mensaje = 'La suscripcion vence dentro de 1 meses';
+          $noti->save();
+        }
+        if ($fechaF->days == 15  or $fechaF->days < 15) {
+          $noti = new Notificacion();
+          $noti->tipo = 'Alerta';
+          $noti->suscripcion_id = $n->id;
+          $noti->mensaje = 'La suscripcion vence dentro de'.' '.$fechaF->days.' '.'días';
+          $noti->save();
+        }
+
+
       }
         return $this->info('Verificaciones de suscripciones completado');
     }

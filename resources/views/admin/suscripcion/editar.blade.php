@@ -157,22 +157,22 @@
 
 
  <div class="col-md-6 form-group">
-   <label for="">Envío a partir de</label>
+   <label for="">Fecha de inicio</label>
    <input  type="text" class="form-control" id="" disabled value="{{$sus->apartir_de->format('d/m/Y')}}" name="apartir_de">
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Envío hasta</label>
-   <input  type="text" class="form-control" id=""  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" >
+   <label for="">Vence</label>
+   <input  type="text" class="form-control" id="" disabled  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" >
  </div>
 
  <div class="col-md-6 form-group">
    <label for="">Fecha de pago </label>
    <input type="text" disabled class="form-control" id="" value="{{$sus->fecha_inicio->format('d/m/y')}}">
  </div>
- <div class="col-md-6 form-group">
+ <!-- <div class="col-md-6 form-group">
    <label for="">Fecha de cancelación </label>
    <input type="text" disabled class="form-control" id="" value="{{$sus->fecha_final->format('d/m/y')}}">
- </div>
+ </div> -->
 
 
 
@@ -214,19 +214,13 @@
  <div class="col-md-9 form-group">
    <input type="submit" class="btn btn-primary" name="" value="ACTUALIZAR">
  </div>
-
-
 <br/>
 
 <div id="mainb" style="height:150px;"></div>
-
 </div>
-
 <!-- start project-detail sidebar -->
 <div class="col-md-5 col-sm-3 col-xs-12">
-
 <section class="panel">
-
 <div class="x_title">
 <h2>ORACIONALES</h2>
 <div class="clearfix"></div>
@@ -251,11 +245,8 @@
 <hr>
 <br />
 <br/>
-
 </div>
-
 </section>
-
 </div>
 <div class="col-md-5 col-sm-3 col-xs-12">
 
