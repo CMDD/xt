@@ -27,13 +27,13 @@
 <th>
 ACTIVO
 </th>
+<th>ID</th>
 <th>PLAN</th>
-<th> ORACIONAL</th>
+<th>FECHA DE PAGO</th>
 <th>FECHA INICIO</th>
-<th>FECHA CORTE</th>
+<th>VENCE</th>
 <th>TITULAR</th>
-<th>USUARIO</th>
-<th class=" no-link last"><span class="nobr">DETALLES</span>
+<th >DETALLES
 </th>
 </tr>
 </thead>
@@ -41,14 +41,14 @@ ACTIVO
   @forelse($sus as $p)
 <tr class="even pointer">
 <td class="  ">
-<p type="" class="{{$p->estado}}">
+{{$p->estado}}
 </td>
+<td class=" ">{{$p->id}} </td>
 <td class=" ">{{$p->plan}} Meses</td>
-<td class=" ">{{$p->oracional}}</td>
-<td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
-<td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
+<td class=" ">{{$p->fecha_inicio->format('d-m-y')}}</td>
+<td class=" ">{{$p->apartir_de->format('d-m-y')}}</td>
+<td class="a-right a-right ">{{$p->envio_hasta->format('d-m-y')}}</td>
 <td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
-<td class="a-right a-right ">{{$p->usuario->name}}</td>
 <td class=" last">
   @can('ver.suscripcion')
 <a href="{{url('suscripcion',$p->id)}}">
@@ -59,18 +59,25 @@ ACTIVO
 @endcan
 @can('editar.suscripcion')
 <a href="{{route('editar.suscripcion',$p->id)}}">
-  <button type="button" class="btn btn-sm btn-default"
+  <button type="button" class="btn btn-sm btn-default "
   data-toggle="tooltip" data-placement="left" >EDITAR
   </button>
 </a>
 @endcan
 
 @can('eliminar.suscripcion')
+<!-- <a href="{{route('editar.suscripcion',$p->id)}}">
+  <button type="button" class="btn btn-sm btn-default "
+  data-toggle="tooltip" data-placement="left" >ELIMINAR
+  </button>
+</a> -->
+
 <a class="btn btn-danger" href="{{route('eliminar.suscripcion',$p->id)}}"
 onclick="return confirm('¿Seguro que deseas eliminarlo?')">
 <span aria-hidden="true" class="glyphicon glyphicon-trash">
 </span>
 </a>
+
 @endcan
 </td>
 </tr>
