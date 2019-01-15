@@ -47,7 +47,7 @@
 <span class="value text-success"> {{$sus->estado}}</span>
 </li>
 <li class="hidden-phone">
-<span class="name"> Fecha de cancelación  </span>
+<span class="name"> Fecha de vencimiento  </span>
 <span class="value text-success"> {{$sus->fecha_final->format('d/m/Y')}}</span>
 </li>
 </ul>
@@ -66,14 +66,14 @@
   </div>
 
 
-  <div class="col-md-6 form-group">
+  <div class="col-md-12 form-group">
    <label for="">Dirección</label>
    <input type="text" class="form-control" id="" disabled  value="{{$sus->direccion}}" placeholder="">
   </div>
-  <div class="col-md-6 form-group">
+  <!-- <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
    <input type="text" class="form-control" id="" disabled name="especificacion_direccion" value="{{$sus->direccion_especificacion}}" placeholder="">
-  </div>
+  </div> -->
   <div class="col-md-6 form-group">
    <label for="">Region</label>
    <input type="text" class="form-control" id="" disabled  value="{{$sus->municipio->departamento->region->nombre}}" placeholder="">

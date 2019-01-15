@@ -30,7 +30,7 @@ ACTIVO
 <th>ID</th>
 <th>PLAN</th>
 <th>FECHA INICIO</th>
-<th>FECHA CORTE</th>
+<th>VENCE</th>
 <th>TITULAR</th>
 <th >DETALLES
 </th>
@@ -44,8 +44,8 @@ ACTIVO
 </td>
 <td class=" ">{{$p->id}} </td>
 <td class=" ">{{$p->plan}} Meses</td>
-<td class=" ">{{$p->fecha_inicio->toFormattedDateString()}}</td>
-<td class="a-right a-right ">{{$p->fecha_final->toFormattedDateString()}}</td>
+<td class=" ">{{$p->fecha_inicio->format('d-m-y')}}</td>
+<td class="a-right a-right ">{{$p->fecha_final->format('d-m-y')}}</td>
 <td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
 <td class=" last">
   @can('ver.suscripcion')

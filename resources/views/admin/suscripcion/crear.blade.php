@@ -63,14 +63,14 @@
     <label for="">Nombre de quien recibe</label>
     <input type="text" required class="form-control" id="" name="nombre_recibe" placeholder="">
   </div>
- <div class="col-md-6 form-group">
+ <div class="col-md-12 form-group">
    <label for="">Dirección</label>
    <input required type="text" class="form-control" id="" name="direccion" placeholder="">
  </div>
- <div class="col-md-6 form-group">
+ <!-- <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
    <input type="text" class="form-control" id="" name="especificacion_direccion" placeholder="">
- </div>
+ </div> -->
  <div class="col-md-6 form-group">
    <label for="">Región</label>
    <select required  id="region" name="region" class="form-control">

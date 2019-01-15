@@ -124,14 +124,14 @@
      <option value="Desactivo">Desactivo</option>
    </select>
  </div>
- <div class="col-md-6 form-group">
+ <div class="col-md-12 form-group">
    <label for="">Dirección</label>
    <input type="text" class="form-control" id="" name="direccion" value="{{$sus->direccion}}" placeholder="">
  </div>
- <div class="col-md-6 form-group">
+ <!-- <div class="col-md-6 form-group">
    <label for="">Especificación de dirección</label>
    <input type="text" class="form-control" id="" name="especificacion_direccion" value="{{$sus->direccion_especificacion}}" placeholder="">
- </div>
+ </div> -->
  <div class="col-md-6 form-group">
    <label for="">Región</label>
    <select id="region" name="region" class="form-control">
