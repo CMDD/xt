@@ -245,4 +245,11 @@ class PersonaController extends Controller
       return back();
     }
 
+    public function destroy($id){
+      Persona::destroy($id);
+      alert()->success('Titular Eliminado!', 'Correctamente');
+      return back();
+
+    }
+
 }

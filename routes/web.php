@@ -42,6 +42,10 @@ Route::get('ixtus','DashController@index');
          ->name('listar.titular')
          ->middleware('permission:listar.titular');
 
+
+Route::get('eliminar-titular/{id}','PersonaController@destroy')
+        ->middleware('permission:eliminar.titular');
+
   //Consulta json con datatables
   Route::get('get_titulares','TitularController@getTitulares')->name('get_titulares')->middleware('permission:listar.titular');
   Route::get('titulares','TitularController@showTitulares')->name('titulares')->middleware('permission:listar.titular');

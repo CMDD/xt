@@ -213,7 +213,7 @@
        </div>
      </div>
      <!-- /top navigation -->
-     <div class="modal fade titulares" tabindex="-1" role="dialog" aria-hidden="true">
+     <!-- <div class="modal fade titulares" tabindex="-1" role="dialog" aria-hidden="true">
        <div class="modal-dialog modal-md">
          <div class="modal-content">
            <div class="modal-header">
@@ -236,9 +236,7 @@
              <label for="">Enviar a: </label>
              <select class="form-control" name="usuario">
                <option value="">Seleccione...</option>
-               @foreach(Session::get('lideres') as $lider)
-               <option value="{{$lider->email}}">{{$lider->name}} {{$lider->apellidos}}</option>
-               @endforeach
+              
              </select>
              <p class="help-block">Ixtus service</p>
            </div>
@@ -252,7 +250,7 @@
            </div>
          </div>
        </div>
-     </div>
+     </div> -->
     <!-- page content -->
     @yield('content')
     @include('sweetalert::alert')
