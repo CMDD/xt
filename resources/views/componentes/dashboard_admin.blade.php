@@ -6,7 +6,7 @@
 <div class="tile-stats">
 <div class="icon"><i class="fa fa-user"></i>
 </div>
-<div class="count">{{$count_personas}}</div>
+<div class="count">Ixtus</div>
 <h3>Titular Nal.</h3>
 <p>Titulares nacionales.</p>
 </div>
@@ -17,7 +17,7 @@
 <div class="tile-stats">
 <div class="icon"><i class="fa fa-book"></i>
 </div>
-<div class="count">{{$count_suscripcion}}</div>
+<div class="count">Ixtus</div>
 <h3>Suscripciones Nal.</h3>
 <p>Suscriptores nacionales.</p>
 </div>
@@ -29,7 +29,7 @@
 <div class="tile-stats">
 <div class="icon"><i class="fa fa-leaf"></i>
 </div>
-<div class="count">{{$count_donacion}}</div>
+<div class="count">Ixtus</div>
 <h3>Donaciones Nal.</h3>
 <p>Donaciones nacionales.</p>
 </div>
@@ -128,9 +128,7 @@
 </a>
 </div>
 @endcan
-@can('reporte.nacional')
-@include('componentes.reporte-nacional')
-@endcan
+
 
 
 
