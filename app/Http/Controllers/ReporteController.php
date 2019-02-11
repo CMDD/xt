@@ -13,6 +13,7 @@ use App\Region;
 use Carbon\Carbon;
 use Reporte\Reporte;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\Datatables\Datatables;
 use Auth;
 
 class ReporteController extends Controller
@@ -22,6 +23,13 @@ class ReporteController extends Controller
       $personas = Persona::all();
       return view('admin.persona.listar')->with('personas',$personas)
                                          ->with('nombre',$nombre);
+    }
+
+    public function region(){
+
+      $titulares = Persona::where('region_id',Auth::User()->region_id)->get();
+      return Datatables::of($titulares)
+             ->make(true);
     }
 
     public function suscripciones(){
@@ -99,8 +107,8 @@ class ReporteController extends Controller
       if ($reporte == 'Personas') {
         $nombre = 'Base de datos regional';
         $personas = Persona::where('region_id',Auth::User()->region_id)->get();
-        return view('admin.datatables.lista')->with('personas',$personas)
-                                           ->with('nombre',$nombre);
+        return view('admin.reporte.titulares.lista')->with('personas',$personas)
+                                             ->with('nombre',$nombre);
       }elseif ($reporte == 'Suscripciones') {
         $sus = Suscripcion::where('region_id',Auth::User()->region_id)->get();
         return view('admin.reporte.suscripciones')->with('sus',$sus);

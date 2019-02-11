@@ -236,7 +236,7 @@
              <label for="">Enviar a: </label>
              <select class="form-control" name="usuario">
                <option value="">Seleccione...</option>
-              
+
              </select>
              <p class="help-block">Ixtus service</p>
            </div>

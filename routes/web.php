@@ -1,16 +1,24 @@
 <?php
 
+
+
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+Rutas para la versión 2 de ixtus implementa Vuejs
+Difinientos componentes para cada modulo
 */
-// Dashboard
+
+Route::get('admin-ixtus',function(){
+  return view('admin');
+});
+
+
+/*
+Fin Rutas versión 2 ixtus
+*/
+
+
+
+
 
 
 Route::get('/',function(){return view('login');});

@@ -50,7 +50,7 @@ $(document).ready(function () {
             "processing": true,
             "serverSide": true,
             "responsive": true,
-            "ajax": "{{ url('get_titulares') }}",
+            "ajax": "{{ url('/api/reporte-regional/') }}",
             "columns": [
                 {data: 'estado', name: 'estado'},
                 {

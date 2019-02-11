@@ -28,14 +28,15 @@
 <table id="example" class="table table-striped responsive-utilities jambo_table">
 <thead>
 <tr class="headings">
-<th style="width:10%;" >
+<th style="width:10%;">
 ESTADO
 </th>
 <th>NOMBRES</th>
 <th>APELLIDOS</th>
-<th>CORREO</th>
+<th>#DOCUMENTO</th>
 <th>TÉLEFONO/CELULAR</th>
-<th >ACCIÓN | AGREGAR
+<th>ULTIMO CONTACTO</th>
+<th>ACCIÓN | AGREGAR
 </th>
 </tr>
 </thead>
@@ -47,8 +48,9 @@ ESTADO
 </td>
 <td class=" ">{{$p->nombres}}</td>
 <td class=" ">{{$p->apellidos}}</td>
-<td class="a-right a-right ">{{$p->correo}}</td>
+<td class="a-right a-right ">{{$p->numero_documento}}</td>
 <td class="a-right a-right ">{{$p->telefono}}</td>
+<td class="a-right a-right ">{{$p->updated_at}}</td>
 <td class=" last">
   @can('ver.titular')
 <a href="{{url('detalle',$p->id)}}">
@@ -61,20 +63,6 @@ ESTADO
 <a href="{{url('editar',$p->id)}}">
   <button type="button" class="btn btn-sm btn-default "
   data-toggle="tooltip" data-placement="left" >EDITAR
-  </button>
-</a>
-@endcan
-@can('crear.suscripcion')
-<a href="{{route('agregar.suscripcion',$p->id)}}">
-  <button type="button" class="btn btn-sm btn-default "
-  data-toggle="tooltip" data-placement="left" > SUSCRIPCIÓN
-  </button>
-</a>
-@endcan
-@can('crear.donacion')
-<a href="{{route('agregar.suscripcion',$p->id)}}">
-  <button type="button" class="btn btn-sm btn-default "
-  data-toggle="tooltip" data-placement="left" > DONACION
   </button>
 </a>
 @endcan
@@ -91,18 +79,6 @@ ESTADO
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('suscripcion-component', require('./components/SuscripcionComponent.vue'));
+Vue.component('titular-index', require('./components/titular/IndexComponent.vue'));
+
 
 const app = new Vue({
     el: '#app'

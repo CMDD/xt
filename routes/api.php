@@ -23,3 +23,6 @@ Route::get('/region/{id}/departamentos','RegionController@cargarDepartamentos');
 
 // WEBSERVICES
 Route::post('autorizo','WebserviceController@create');
+
+
+Route::get('reporte-regional','ReporteController@region');
