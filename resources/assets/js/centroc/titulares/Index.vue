@@ -39,7 +39,6 @@ export default {
   methods:{
      getTitular(region){
         this.region = region;
-        console.log(this.region);
      }
   }
 }
