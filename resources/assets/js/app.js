@@ -43,6 +43,7 @@ let router = new Router({
 Vue.component('suscripcion-component', require('./components/SuscripcionComponent.vue'));
 Vue.component('titular-index', require('./centroc/titulares/Index.vue'));
 Vue.component('titular-create', require('./centroc/titulares/Create.vue'));
+Vue.component('datatable-titular', require('./components/DatatableTitular.vue'));
 
 /*Componentes Centro de contacto
 

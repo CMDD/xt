@@ -29,7 +29,7 @@ class TitularController extends Controller
              ->rawColumns(['btn'])
              ->make(true);
     }
-    public function titular($id){
+    public function titularPorRegion($id){
       $titular = Persona::where('region_id',$id);
       return Datatables::of($titular)
              ->addColumn('btn','centroc.partials.botones-titulares')
