@@ -1,118 +1,194 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
 
-@section('style')
-{{ Html::style('admin/css/datatables/tools/css/dataTables.tableTools.css')}}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ixtus - USA</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/adminlte/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
 
-@endsection
-@section('content')
-<!-- page content -->
-<div class="right_col" role="main">
-  <div class="">
-      <div class="clearfix"></div>
-      <div class="row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-            <h2>|<small>IXTUS</small></h2>
-            <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-              <table id="example" class="table responsive nowrap table-striped responsive-utilities jambo_table" style="width:100%">
-              <thead>
-              <tr>
-              <th>ESTADO</th>
-              <th>NOMBRES</th>
-              <th>APELLIDOS</th>
-              <!-- <th>DOCUMENTOS</th> -->
-              <th>ULTIMO CONTACTO</th>
-              <th>ACCION</th>
-              </tr>
-              </thead>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2><i class="fa fa-bars"></i> Seguimiento <small>ixtus</small></h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
+  <link rel="stylesheet" href="/adminlte/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/css/app.css">
 
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
 
-                                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Pendientes</a>
-                                            </li>
-                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">No contestan</a>
-                                            </li>
-                                            
-                                        </ul>
-                                        <div id="myTabContent" class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                                                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip</p>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                                                <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk </p>
-                                            </div>
-                                        </div>
-                                    </div>
+<body class="hold-transition skin-blue sidebar-mini">
+<div id="app" class="wrapper">
+  <!-- Main Header -->
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>C</b>MD</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>IXTUS</b>CCCMD</span>
+    </a>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">0</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Tienes 0 mensajes</li>
+              <li>
+                <!-- inner menu: contains the messages -->
 
-                                </div>
-                            </div>
-                        </div>
+                <!-- /.menu -->
+              </li>
+              <li class="footer"><a href="#">Ver todos los mensajes</a></li>
+            </ul>
+          </li>
+          <!-- /.messages-menu -->
+
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">0</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Tienes 0 notificaciones</li>
+              <li>
+                <!-- Inner Menu: contains the notifications -->
+                <ul class="menu">
+                  <li><!-- start notification -->
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> Hola
+                    </a>
+                  </li>
+                  <!-- end notification -->
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Ver todas</a></li>
+            </ul>
+          </li>
+          <!-- Tasks Menu -->
+
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <img src="/adminlte/img/avatar5.png" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">{{Auth::User()->name}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img src="/adminlte/img/avatar5.png" class="img-circle" alt="User Image">
+
+                <p>
+                  Administrador del sistema
+                  <small></small>
+                </p>
+              </li>
+
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="{{url('logout')}}" class="btn btn-default btn-flat">Cerrar sesión</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
       </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/adminlte/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{Auth::User()->name}}</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Buscar...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- Sidebar Menu -->
+      @include('centroc.partials.nav')
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <router-view></router-view>
   </div>
-    <!-- footer content -->
-    @include('layouts.footer')
-    <!-- /footer content -->
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Administracion de pagina web
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2019 <a href="#">Corporación Centro carismatico Minuto de Dios </a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
+<!-- ./wrapper -->
 
-<!-- /page content -->
+<!-- REQUIRED JS SCRIPTS -->
 
-@section('scripts')
-<!-- Datatables -->
-{{ Html::script('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js') }}
-{{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
-<script>
-$(document).ready(function () {
-  oTable = $('#example').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "responsive": true,
-            "ajax": "{{ url('get_titulares') }}",
-            "columns": [
-                {data: 'estado', name: 'estado'},
-                {data: 'nombres', name: 'nombres'},
-                {data: 'apellidos', name: 'apellidos'},
-                // {data: 'numero_documento', name: 'numero_documento'},
-                {data: 'updated_at', name: 'updated_at'},
-                {data:'btn'}
-            ],
-            language: {
-                    url: "{{ asset('css/Spanish.json') }}"
-                }
-        });
-});
-</script>
-@endsection
-@endsection
+<!-- jQuery 3 -->
+<script src="/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<!-- AdminLTE App -->
+<script src="/adminlte/js/adminlte.min.js"></script>
+
+</body>
+</html>

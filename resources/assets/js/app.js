@@ -5,9 +5,34 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-
+require('./bootstrap');
 
 window.Vue = require('vue');
+import Vue from 'vue'
+import Router from 'vue-router'
+
+Vue.use(Router)
+let router = new Router({
+      routes:[
+        {
+          path:'/ixtus-admin',
+          component: require ('./centroc/IndexComponent')
+        },
+        {
+          path:'/titulares-index',
+          component: require ('./centroc/titulares/Index')
+        },
+        {
+          path:'/titular-index/:id',
+          name:'/titular-index',
+          component: require ('./centroc/titulares/Show')
+        },
+        {
+          path:'/titular-create',
+          component: require ('./centroc/titulares/Create')
+        }
+      ]
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,9 +41,17 @@ window.Vue = require('vue');
  */
 
 Vue.component('suscripcion-component', require('./components/SuscripcionComponent.vue'));
-Vue.component('titular-index', require('./components/titular/IndexComponent.vue'));
+Vue.component('titular-index', require('./centroc/titulares/Index.vue'));
+Vue.component('titular-create', require('./centroc/titulares/Create.vue'));
+
+/*Componentes Centro de contacto
+
+*/
+Vue.component('centroc-index', require('./centroc/IndexComponent.vue'));
+
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });

@@ -12,6 +12,8 @@ Route::get('admin-ixtus',function(){
 });
 
 
+Route::get('menu',function(){return view('menu');});
+Route::get('centro-contacto',function(){return view('centroc.index');});
 /*
 Fin Rutas versión 2 ixtus
 */
@@ -22,8 +24,8 @@ Fin Rutas versión 2 ixtus
 
 
 Route::get('/',function(){return view('login');});
-Route::get('menu',function(){return view('menu');});
-Route::get('centroc',function(){return view('centroc.index');});
+
+
 
 
 //Llamadas con TWILIO

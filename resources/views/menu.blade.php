@@ -23,7 +23,7 @@
 
                      <div class="row top_tiles">
                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                         <a href="#">
+                         <a href="ixtus">
                            <div class="tile-stats">
                                <div class="icon"><i class="fa fa-comments-o"></i>
                                </div>
@@ -35,7 +35,7 @@
                            </a>
                        </div>
                          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                           <a href="/centroc">
+                           <a href="/centro-contacto">
                              <div class="tile-stats">
                                  <div class="icon"><i class="fa fa-caret-square-o-right"></i>
                                  </div>
@@ -54,7 +54,7 @@
                                  </div>
                                  <div class="count">ixtus</div>
 
-                                 <h3>Suscripciones</h3>
+                                 <h3>Administación Web</h3>
                                  <p>Herramienta de suscripciones.</p>
                              </div>
                              </a>
@@ -66,7 +66,7 @@
                                  </div>
                                  <div class="count">ixtus</div>
 
-                                 <h3>Donaciones</h3>
+                                 <h3></h3>
                                  <p>Administración de donaciones.</p>
                              </div>
                              </a>

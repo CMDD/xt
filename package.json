@@ -18,6 +18,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "datatables": "^1.10.18"
+        "datatables": "^1.10.18",
+        "toastr": "^2.1.4",
+        "vue-router": "^3.0.2"
     }
 }
