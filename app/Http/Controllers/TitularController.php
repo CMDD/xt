@@ -26,6 +26,9 @@ class TitularController extends Controller
       $titulares = Persona::all();
       return Datatables::of($titulares)
              ->addColumn('btn','centroc.partials.botones-titulares')
+             ->addColumn('seguimiento',function(){
+               return '<input type="checkbox" class="flat-red">';
+             })
              ->rawColumns(['btn'])
              ->make(true);
     }
@@ -33,7 +36,13 @@ class TitularController extends Controller
       $titular = Persona::where('region_id',$id);
       return Datatables::of($titular)
              ->addColumn('btn','centroc.partials.botones-titulares')
-             ->rawColumns(['btn'])
+             ->addColumn('seguimiento',function(){
+               return '
+                  <input v-model="check" type="checkbox" class="flat-red">
+                  En seguimiento
+               ';
+             })
+             ->rawColumns(['btn','seguimiento'])
              ->make(true);
     }
 

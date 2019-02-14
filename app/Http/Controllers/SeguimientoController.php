@@ -31,5 +31,22 @@ class SeguimientoController extends Controller
       return back();
     }
 
+    //METODO PARA LA API
+    public function crearNotas(Request $request){
+      $hoy = Carbon::now();
+      $nota = new Nota();
+      $nota->asunto = $request->asunto;
+      $nota->mensaje = $request->mensaje;
+      $nota->persona_id = $request->titular_id;
+      $nota->user_id = $request->user_id;
+      $nota->save();
+      $titular = Persona::find($request->titular_id);
+      $titular->ultimo_contacto = $hoy->format('d-m-Y');
+      $titular->save();
+      return '200';
+    }
+    public function notas($id){
+      return Nota::where('persona_id',$id)->orderBy('id','DESC')->get();
+    }
 
 }

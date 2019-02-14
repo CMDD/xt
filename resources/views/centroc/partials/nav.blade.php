@@ -1,7 +1,7 @@
 <ul class="sidebar-menu" data-widget="tree">
   <li class="header">NAVEGACIÓN</li>
   <!-- Optionally, you can add icons to the links -->
-  <li ><a href="/dashboard" ><i class="fa fa-dashboard" ></i> Dashboard</a></li>
+  <li ><a href="#" ><i class="fa fa-dashboard" ></i> Dashboard</a></li>
 
 
   <li class="treeview">
@@ -11,8 +11,8 @@
         </span>
     </a>
     <ul class="treeview-menu">
-      <li ><a href="/suscripcion/lista" ><i class="fa fa-eye" ></i> Mis Suscripciones</a></li>
-      <li ><a href="/suscripcion/crear" ><i class="fa fa-pencil" ></i>Crear Suscripcion</a> </li>
+      <li ><a href="#" ><i class="fa fa-eye" ></i> Mis Suscripciones</a></li>
+      <li ><a href="#" ><i class="fa fa-pencil" ></i>Crear Suscripcion</a> </li>
     </ul>
 
   </li>
@@ -27,10 +27,6 @@
       <li >
         <router-link to="/titulares-index"><i class="fa fa-eye" ></i>Titulares</router-link>
       </li>
-      <li >
-        <a href="#/titular-index/{{Auth::User()->region_id}}"><i class="fa fa-eye" ></i>Mi region</a>
-      </li>
-
       </li>
       <li>
         <router-link to="/titular-create"><i class="fa fa-pencil" ></i> Crear Titulares</router-link>

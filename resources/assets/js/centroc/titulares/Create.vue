@@ -2,7 +2,7 @@
 <div class="">
     <section class="content-header">
       <h1>
-        Sucripciones
+        Titular
         <small>Crear</small>
       </h1>
       <ol class="breadcrumb">

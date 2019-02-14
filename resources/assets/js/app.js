@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+Vue.use(require('vue-moment'));
 
 window.Vue = require('vue');
 import Vue from 'vue'
@@ -20,6 +21,7 @@ let router = new Router({
         },
         {
           path:'/titulares-index',
+          name:'/titulares-index',
           component: require ('./centroc/titulares/Index')
         },
         {
@@ -30,6 +32,11 @@ let router = new Router({
         {
           path:'/titular-create',
           component: require ('./centroc/titulares/Create')
+        },
+        {
+          path:'/notas/:id',
+          name:'/notas',
+          component: require ('./centroc/titulares/Notas')
         }
       ]
 });
@@ -44,6 +51,8 @@ Vue.component('suscripcion-component', require('./components/SuscripcionComponen
 Vue.component('titular-index', require('./centroc/titulares/Index.vue'));
 Vue.component('titular-create', require('./centroc/titulares/Create.vue'));
 Vue.component('datatable-titular', require('./components/DatatableTitular.vue'));
+Vue.component('modal-nota', require('./centroc/titulares/Modal.vue'));
+Vue.component('component-notas', require('./centroc/titulares/Notas.vue'));
 
 /*Componentes Centro de contacto
 

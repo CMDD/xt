@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 // RUTAS IXTUS VERSION 2.0
 Route::get('ixtus-titulares','TitularController@titulares');
 Route::get('ixtus-titular-region/{id}','TitularController@titularPorRegion');
+
+//Notas
+Route::post('crear-nota','SeguimientoController@crearNotas');
+Route::get('notas/{id}','SeguimientoController@notas');
 //FIN RUTAS
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {return $request->user();});

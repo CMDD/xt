@@ -3,7 +3,7 @@
 
   <section class="content-header">
     <h1>
-      Titulaes
+      Titulares
       <small>Lista</small> <br><br>
       <button type="button" v-on:click="getTitular(3)" class=" btn btn-primary btn-sm" name="button">REGIÓN CENTRAL</button>
       <button type="button" v-on:click="getTitular(2)" class=" btn btn-primary btn-sm" name="button">REGIÓN ANTIOQUIA</button>
@@ -11,7 +11,7 @@
     </h1>
     <ol class="breadcrumb">
       <li>
-        <router-link to="/dashboard">
+        <router-link to="#">
           <i class="fa fa-dashboard"></i> Dashboard
         </router-link>
       </li>
@@ -21,6 +21,8 @@
   </section>
   <!-- Main content -->
   <datatable-titular :key="region"  :region="region"></datatable-titular>
+
+
   </div>
 </template>
 
