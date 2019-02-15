@@ -17,6 +17,10 @@
                   <label for="usr">Mensaje:</label>
                   <textarea name="name" required v-model="form.mensaje" class="form-control" rows="8" cols="80"></textarea>
                 </div>
+                <div class="form-group">
+                  <label for="usr">Recordatorio:</label>
+                  <input type="date" class="form-control" name="" value="">
+                </div>
 
               </div>
               <div class="modal-footer">

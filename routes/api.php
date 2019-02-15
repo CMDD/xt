@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 // RUTAS IXTUS VERSION 2.0
 Route::get('ixtus-titulares','TitularController@titulares');
 Route::get('ixtus-titular-region/{id}','TitularController@titularPorRegion');
+Route::get('suscripciones','SuscripcionController@suscripciones');
+Route::get('/suscripcion/{id}','SuscripcionController@suscripcion');
 
 //Notas
 Route::post('crear-nota','SeguimientoController@crearNotas');

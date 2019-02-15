@@ -10,6 +10,7 @@ use App\Region;
 use App\Historial;
 use Carbon\Carbon;
 use Auth;
+use Yajra\Datatables\Datatables;
 
 class SuscripcionController extends Controller
 {
@@ -19,6 +20,29 @@ class SuscripcionController extends Controller
     Carbon::setLocale('es');
   }
 
+  //METODOS VERSIÓN 2.0 IXTUS
+  public function suscripciones(){
+    $sus = Suscripcion::all();
+      return Datatables::of($sus)
+             ->addColumn('btn','centroc.partials.botones-suscripcion')
+             ->addColumn('titular',function($sus){
+                return $sus->persona->nombres;
+              })
+             ->addColumn('cedula',function($sus){
+                return $sus->persona->numero_documento;
+              })
+             ->rawColumns(['btn'])
+             ->make(true);
+  }
+  public function suscripcion($id){
+    $sus =Suscripcion::find($id);
+    $Cliente = Suscripcion::with('persona')
+    ->where('id',$id)
+    ->get();
+    return  $Cliente;
+  }
+
+  //FIN DE METODOSS
 
 
   Public function lista(){

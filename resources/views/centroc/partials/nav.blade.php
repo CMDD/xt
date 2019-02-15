@@ -11,7 +11,11 @@
         </span>
     </a>
     <ul class="treeview-menu">
-      <li ><a href="#" ><i class="fa fa-eye" ></i> Mis Suscripciones</a></li>
+      <li >
+        <router-link to="/suscripciones-index"><i class="fa fa-eye" ></i>Suscripciones</router-link>
+      </li>
+
+
       <li ><a href="#" ><i class="fa fa-pencil" ></i>Crear Suscripcion</a> </li>
     </ul>
 

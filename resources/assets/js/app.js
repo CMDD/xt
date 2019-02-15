@@ -25,6 +25,16 @@ let router = new Router({
           component: require ('./centroc/titulares/Index')
         },
         {
+          path:'/suscripciones-index',
+          name:'/suscripciones-index',
+          component: require ('./centroc/suscripcion/Index')
+        },
+        {
+          path:'/suscripcion/:id',
+          name:'/suscripcion',
+          component: require ('./centroc/suscripcion/Show')
+        },
+        {
           path:'/titular-index/:id',
           name:'/titular-index',
           component: require ('./centroc/titulares/Show')
@@ -51,6 +61,9 @@ Vue.component('suscripcion-component', require('./components/SuscripcionComponen
 Vue.component('titular-index', require('./centroc/titulares/Index.vue'));
 Vue.component('titular-create', require('./centroc/titulares/Create.vue'));
 Vue.component('datatable-titular', require('./components/DatatableTitular.vue'));
+Vue.component('datatable-suscripcion', require('./components/DatatableSuscripcion.vue'));
+Vue.component('suscripcion-show', require('./centroc/suscripcion/Show.vue'));
+Vue.component('suscripcion-index', require('./centroc/suscripcion/Index.vue'));
 Vue.component('modal-nota', require('./centroc/titulares/Modal.vue'));
 Vue.component('component-notas', require('./centroc/titulares/Notas.vue'));
 
