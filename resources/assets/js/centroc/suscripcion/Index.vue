@@ -61,9 +61,9 @@ export default {
           "columns":[
             {data:'estado'},
             {data:'plan'},
-            {data:'fecha_inicio'},
-            {data:'apartir_de'},
-            {data:'fecha_final'},
+            {data:'plan'},
+            {data:'plan'},
+            {data:'plan'},
             {data:'titular'},
             {data:'cedula'},
             {data:'btn'},

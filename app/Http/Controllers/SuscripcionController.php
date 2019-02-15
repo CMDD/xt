@@ -23,7 +23,6 @@ class SuscripcionController extends Controller
   //METODOS VERSIÓN 2.0 IXTUS
   public function suscripciones(){
     $sus = Suscripcion::all();
-    return $sus;
       return Datatables::of($sus)
              ->addColumn('btn','centroc.partials.botones-suscripcion')
              ->addColumn('titular',function($sus){
