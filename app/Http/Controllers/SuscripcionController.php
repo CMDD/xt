@@ -27,12 +27,12 @@ class SuscripcionController extends Controller
              ->addColumn('btn','centroc.partials.botones-suscripcion')
              ->addColumn('titular',function($sus){
                 $nombres = $sus->persona->nombres;
-                return $nombres ;
+                return '-'.$nombres;
               })
              ->addColumn('cedula',function($sus){
                 return 'hola';
               })
-             ->rawColumns(['btn'])
+             ->rawColumns(['btn','titular'])
              ->toJson();
   }
   public function suscripcion($id){
