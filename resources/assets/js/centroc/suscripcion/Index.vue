@@ -31,6 +31,8 @@
                   <th>Fecha de pago</th>
                   <th>Fecha de inicio</th>
                   <th>Fecha de corte</th>
+                  <th>Titular</th>
+                  <th>Cedula</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
@@ -62,6 +64,8 @@ export default {
             {data:'fecha_inicio'},
             {data:'apartir_de'},
             {data:'fecha_final'},
+            {data:'titular'},
+            {data:'cedula'},
             {data:'btn'},
           ],
           "language":{

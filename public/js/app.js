@@ -84238,6 +84238,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -84250,7 +84252,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       $('#datatable-suscripciones').DataTable({
         "serverSide": true,
         "ajax": "api/suscripciones",
-        "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'btn' }],
+        "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
         "language": {
           "sProcessing": "Procesando...",
           "sLengthMenu": "Mostrar _MENU_ registros",
@@ -84369,6 +84371,10 @@ var staticRenderFns = [
                   _c("th", [_vm._v("Fecha de inicio")]),
                   _vm._v(" "),
                   _c("th", [_vm._v("Fecha de corte")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Titular")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Cedula")]),
                   _vm._v(" "),
                   _c("th", [_vm._v("Acción")])
                 ])
