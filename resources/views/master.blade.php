@@ -55,11 +55,11 @@
                                  <div class="count">ixtus</div>
 
                                  <h3>Administación Web</h3>
-                                 <p>Herramienta de suscripciones.</p>
+                                 <p>Gestor de contenido</p>
                              </div>
                              </a>
                          </div>
-                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                         <!-- <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                            <a href="#">
                              <div class="tile-stats">
                                  <div class="icon"><i class="fa fa-check-square-o"></i>
@@ -70,7 +70,7 @@
                                  <p>Administración de donaciones.</p>
                              </div>
                              </a>
-                         </div>
+                         </div> -->
                      </div>
 
                      <div class="row">
@@ -93,22 +93,22 @@
                                          </div>
                                          <div class="tiles">
                                              <div class="col-md-4 tile">
-                                                 <span>Titulares</span>
-                                                 <h2>231,809</h2>
+                                                 <!-- <span>Titulares</span> -->
+                                                 <h2></h2>
                                                  <span class="sparkline11 graph" style="height: 160px;">
                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                                      </span>
                                              </div>
                                              <div class="col-md-4 tile">
-                                                 <span>Suscripciones</span>
-                                                 <h2>$231,809</h2>
+                                                 <!-- <span>Suscripciones</span> -->
+                                                 <h2></h2>
                                                  <span class="sparkline22 graph" style="height: 160px;">
                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                                      </span>
                                              </div>
                                              <div class="col-md-4 tile">
-                                                 <span>Donaciones</span>
-                                                 <h2>231,809</h2>
+                                                 <!-- <span>Donaciones</span> -->
+                                                 <h2></h2>
                                                  <span class="sparkline11 graph" style="height: 160px;">
                                          <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                                      </span>
@@ -119,7 +119,7 @@
 
                                      <div class="col-md-3 col-sm-12 col-xs-12">
                                          <div>
-                                             <div class="x_title">
+                                             <!-- <div class="x_title">
                                                  <h2>Usuarios Activos</h2>
                                                  <ul class="nav navbar-right panel_toolbox">
                                                      <li><a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -129,20 +129,20 @@
                                                      </li>
                                                  </ul>
                                                  <div class="clearfix"></div>
-                                             </div>
-                                             <ul class="list-unstyled top_profiles scroll-view">
+                                             </div> -->
+                                             <!-- <ul class="list-unstyled top_profiles scroll-view">
                                                  <li class="media event">
                                                      <a class="pull-left border-aero profile_thumb">
                                                          <i class="fa fa-user aero"></i>
                                                      </a>
-                                                     <div class="media-body">
+                                                     <!-- <div class="media-body">
                                                          <a class="title" href="#">John Alvaro</a>
                                                          <p><strong> </strong> Usuario </p>
                                                          <p> <small>Rol</small>
                                                          </p>
                                                      </div>
                                                  </li>
-                                             </ul>
+                                             </ul> -->
                                          </div>
                                      </div>
 

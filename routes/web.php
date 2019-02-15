@@ -12,7 +12,7 @@ Route::get('admin-ixtus',function(){
 });
 
 
-Route::get('menu',function(){return view('menu');});
+Route::get('menu',function(){return view('master');});
 Route::get('centro-contacto',function(){return view('centroc.index');});
 /*
 Fin Rutas versión 2 ixtus
