@@ -44,8 +44,17 @@
                   <input v-model="form.apellidos" type="text" class="form-control" required   placeholder="Ingrese apellidos">
                 </div>
                 <div class="form-group col-md-6">
+                  <label>Tipo documento</label>
+                  <select class="form-control"  v-model="form.tipo_documento" >
+                    <option value="CC">CC</option>
+                    <option value="CE">CE</option>
+                    <option value="TI">TI</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Cedula</label>
-                  <input v-model="form.cedula" type="text" class="form-control" onkeyup="javascript:this.value = this.value.replace(/[.,,]/,'');"  required  placeholder="Ingrese cedula,">
+                  <input v-model="form.cedula" type="number" class="form-control" onkeyup="javascript:this.value = this.value.replace(/[.,,]/,'');"  required  placeholder="Ingrese cedula,">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="exampleInputPassword1">Correo</label>
@@ -65,7 +74,7 @@
           <!-- /.box -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Datos de entrega</h3>
+              <h3 class="box-title">Datos</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -75,17 +84,25 @@
                   <input type="text" class="form-control" v-model="form.direccion"   placeholder="Ingresar nombre completo">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Region</label>
-                  <input type="text" class="form-control" v-model="form.region_id"  placeholder="Ingresar país">
+                  <label>Region</label>
+                  <select class="form-control"  v-model="form.region" >
+                    <option value="CC">Seleccione...</option>
+
+                  </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Departamento</label>
-                  <input type="text" class="form-control" v-model="form.departamento"   placeholder="Ingresar estado">
+                  <label>Departamento</label>
+                  <select class="form-control"  v-model="form.departamento" >
+                    <option value="CC">Seleccione...</option>
+                  </select>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Municipio</label>
-                  <input type="text" class="form-control" v-model="form.zipcode"   placeholder="Ingresar ZIPcode">
+                  <label>Municipio</label>
+                  <select class="form-control"  v-model="form.municipio" >
+                  <option value="CC">Seleccione...</option>
+                  </select>
                 </div>
+
                 <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">telefono</label>
                   <input type="text" class="form-control" v-model="form.telefono"   placeholder="Ingresar ciudad">
@@ -189,15 +206,16 @@ toastr.options ={
         },
         data(){
           return{
-            enviando:false,
+            enviando:true,
             form:{
               nombres:'',
               apellidos:'',
+              tipo_documento:'Seleccione...',
               cedula:'',
               correo:'',
               telefono:'',
               fecha_nacimiento:'',
-              nombre_recibe:'',
+
 
             }
           }

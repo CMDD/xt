@@ -26,7 +26,7 @@ class UsuarioController extends Controller
 
     public function verificar(Request $request){
       if (Auth::attempt(['email'=>$request['usuario'], 'password'=>$request['pass']])) {
-        return redirect('menu');
+        return redirect('ixtus');
       }
       return back();
     }

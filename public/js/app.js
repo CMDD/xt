@@ -85414,6 +85414,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 __WEBPACK_IMPORTED_MODULE_0_toastr___default.a.options = {
@@ -85427,15 +85444,15 @@ __WEBPACK_IMPORTED_MODULE_0_toastr___default.a.options = {
   },
   data: function data() {
     return {
-      enviando: false,
+      enviando: true,
       form: {
         nombres: '',
         apellidos: '',
+        tipo_documento: 'Seleccione...',
         cedula: '',
         correo: '',
         telefono: '',
-        fecha_nacimiento: '',
-        nombre_recibe: ''
+        fecha_nacimiento: ''
 
       }
     };
@@ -85571,6 +85588,57 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c("label", [_vm._v("Tipo documento")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.tipo_documento,
+                              expression: "form.tipo_documento"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "tipo_documento",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "CC" } }, [
+                            _vm._v("CC")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "CE" } }, [
+                            _vm._v("CE")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "TI" } }, [
+                            _vm._v("TI")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
                       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                         _vm._v("Cedula")
                       ]),
@@ -85586,7 +85654,7 @@ var render = function() {
                         ],
                         staticClass: "form-control",
                         attrs: {
-                          type: "text",
+                          type: "number",
                           onkeyup:
                             "javascript:this.value = this.value.replace(/[.,,]/,'');",
                           required: "",
@@ -85733,94 +85801,132 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-md-6" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Region")
-                      ]),
+                      _c("label", [_vm._v("Region")]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.region_id,
-                            expression: "form.region_id"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Ingresar país" },
-                        domProps: { value: _vm.form.region_id },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.region,
+                              expression: "form.region"
                             }
-                            _vm.$set(_vm.form, "region_id", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-md-6" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Departamento")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.departamento,
-                            expression: "form.departamento"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Ingresar estado" },
-                        domProps: { value: _vm.form.departamento },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "region",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
                             }
-                            _vm.$set(
-                              _vm.form,
-                              "departamento",
-                              $event.target.value
-                            )
                           }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-md-6" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Municipio")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.zipcode,
-                            expression: "form.zipcode"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Ingresar ZIPcode"
                         },
-                        domProps: { value: _vm.form.zipcode },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                        [
+                          _c("option", { attrs: { value: "CC" } }, [
+                            _vm._v("Seleccione...")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c("label", [_vm._v("Departamento")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.departamento,
+                              expression: "form.departamento"
                             }
-                            _vm.$set(_vm.form, "zipcode", $event.target.value)
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "departamento",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "CC" } }, [
+                            _vm._v("Seleccione...")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c("label", [_vm._v("Municipio")]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.municipio,
+                              expression: "form.municipio"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "municipio",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "CC" } }, [
+                            _vm._v("Seleccione...")
+                          ])
+                        ]
+                      )
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-md-6" }, [
@@ -86300,7 +86406,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "box-header with-border" }, [
-      _c("h3", { staticClass: "box-title" }, [_vm._v("Datos de entrega")])
+      _c("h3", { staticClass: "box-title" }, [_vm._v("Datos")])
     ])
   },
   function() {
