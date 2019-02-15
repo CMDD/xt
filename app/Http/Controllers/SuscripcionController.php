@@ -25,15 +25,15 @@ class SuscripcionController extends Controller
     $sus = Suscripcion::all();
       return Datatables::of($sus)
              ->addColumn('btn','centroc.partials.botones-suscripcion')
-             ->addColumn('titular',function($sus){
-                $nombres = $sus->persona->nombres;
-                return '-'.$nombres;
+             ->addColumn('titular',function($query){
+                $nombres = $query->persona->nombres;
+                return $nombres;
               })
              ->addColumn('cedula',function($sus){
                 return 'hola';
               })
              ->rawColumns(['btn','titular'])
-             ->toJson();
+             ->make(true);
   }
   public function suscripcion($id){
     $sus =Suscripcion::find($id);
