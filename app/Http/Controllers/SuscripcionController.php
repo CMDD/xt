@@ -26,7 +26,7 @@ class SuscripcionController extends Controller
       return Datatables::of($sus)
              ->addColumn('btn','centroc.partials.botones-suscripcion')
              ->addColumn('titular',function($query){
-                $nombres = $query->persona->nombres;
+                $nombres = $query->persona['nombres'];
                 return $nombres;
               })
              ->addColumn('cedula',function($sus){
