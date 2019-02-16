@@ -47,7 +47,7 @@ ACTIVO
 <td class=" ">{{$p->fecha_inicio->format('d-m-y')}}</td>
 <td class=" ">{{$p->apartir_de->format('d-m-y')}}</td>
 <td class="a-right a-right ">{{$p->envio_hasta->format('d-m-y')}}</td>
-<td class="a-right a-right "></td>
+<td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
 <td class="a-right a-right "></td>
 <td class=" last">
   @can('ver.suscripcion')
