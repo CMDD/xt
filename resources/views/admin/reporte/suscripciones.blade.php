@@ -49,10 +49,12 @@ ACTIVO
 <td class="a-right a-right ">{{$p->envio_hasta->format('d-m-y')}}</td>
 @if(empty($p->persona->nombres))
 <td class="a-right a-right ">vacia</td>
+<td class="a-right a-right ">vacia</td>
 @else
 <td class="a-right a-right ">{{studly_case($p->persona->nombres)}} {{studly_case($p->persona->apellidos)}}</td>
+<td class="a-right a-right ">{{($p->persona->numero_documento)}}</td>
 @endif
-<td class="a-right a-right "></td>
+
 <td class=" last">
   @can('ver.suscripcion')
 <a href="{{url('suscripcion',$p->id)}}">
