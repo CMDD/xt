@@ -69,21 +69,21 @@
                     <label for="exampleInputEmail1">Nombre de quien recibe</label>
                     <input type="text" class="form-control" v-model="form.nombre_recibe" :disabled="editar"   placeholder="Ingresar nombre completo">
                   </div>
+
+
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Region</label>
-                    <input type="text" class="form-control" v-model="form.departamento" :disabled="editar"   placeholder="Ingresar país">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Departamento</label>
-                    <input type="text" class="form-control" v-model="form.estado" :disabled="editar"   placeholder="Ingresar estado">
+                    <input type="text"  class="form-control" v-if="form.region" v-model="form.region['nombre']" disabled  placeholder="Ingresar ciudad">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Municipio</label>
-                    <input type="text" class="form-control" v-model="form.zipcode" :disabled="editar"    placeholder="Ingresar ZIPcode">
+                    <input type="text"  class="form-control" v-if="form.region"  v-model="form.municipio['nombre']" disabled  placeholder="Ingresar ciudad">
                   </div>
+
+
                   <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Direccion</label>
-                    <input type="text" class="form-control" v-model="form.ciudad" :disabled="editar"   placeholder="Ingresar ciudad">
+                    <input type="text" class="form-control" v-model="form.direccion" :disabled="editar"   placeholder="Ingresar ciudad">
                   </div>
 
                   <div class="form-group col-md-12">
@@ -132,11 +132,15 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Fecha de pago</label>
-                    <input type="text" required v-model="form.fecha_pago"class="form-control" :disabled="editar" >
+                    <input type="text" required v-model="form.fecha_inicio"class="form-control" disabled >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Enviar a partir de:</label>
-                    <input type="text" class="form-control" v-model="form.fecha_inicio" name="inicio" :disabled="editar">
+                    <input type="text" class="form-control" v-model="form.apartir_de" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Fecha de vencimiento:</label>
+                    <input type="text" class="form-control" v-model="form.fecha_final" disabled>
                   </div>
                   <div class="form-group">
                     <label>Estado</label>
@@ -147,7 +151,7 @@
                   </div>
                   <div class="form-group">
                     <label>Tiempo de la suscripción</label>
-                    <select class="form-control"  v-model="form.tiempo" :disabled="editar"  >
+                    <select class="form-control"  v-model="form.plan" disabled  >
                       <option value="6" >6 Meses</option>
                       <option value="12" >1 Año</option>
                     </select>
@@ -159,6 +163,28 @@
                   <div class="form-group">
                     <label for="exampleInputFile">Numero de Factura</label>
                     <input type="text" id="exampleInputFile" :disabled="editar"  class="form-control" v-model="form.numero_factura">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Punto de venta</label>
+                    <select :disabled="editar" v-model="form.punto_venta"  class="form-control" name="punto">
+                      <option v-bind:value="form.punto_venta">{{form.punto_venta}}</option>
+                      <option value="Efecty">Efecty</option>
+                      <option value="Corporación minuto de Dios">Corporación minuto de Dios</option>
+                      <option value="Centro de Contacto">Centro de Contacto</option>
+                      <option value="Libreria Minuto de Dios">Libreria Minuto de Dios </option>
+                      <option value="Libreria - Soledad">Libreria - Soledad </option>
+                      <option value="Libreria - Cedritos">Libreria - Cedritos </option>
+                      <option value="Libreria - Ibague">Libreria - Ibague </option>
+                      <option value="Libreria - Antioquia Centro">Libreria - Antioquia Centro </option>
+                      <option value="Libreria - Antioquia Laureles">Libreria - Antioquia Laureles </option>
+                      <option value="Libreria - Antioquia Itagui">Libreria - Antioquia Itagui </option>
+                      <option value="Libreria - Cartagena Pie de la popa">Libreria - Cartagena Pie de la popa </option>
+                      <option value="Libreria - Cartagena Plazuela">Libreria - Cartagena Plazuela </option>
+                      <option value="Libreria - Barranquilla Tierra nueva">Libreria - Barranquilla Tierra nueva </option>
+                      <option value="Libreria - Barranquilla Sao calle 53">Libreria - Barranquilla Sao calle 53 </option>
+                      <option value="Libreria - Barranquilla Sao calle 93">Libreria - Barranquilla Sao calle 93 </option>
+                      <option value="Tiendaminutodedios.com">Tiendaminutodedios.com</option>
+                    </select>
                   </div>
                 </div>
 
@@ -183,18 +209,23 @@ toastr.options ={
   export default{
     data(){
       return {
-        form:{},
+        form:{
+
+        },
+        regiones:[],
+        departamentos:[],
         titular:{},
         editar:'true',
         actualizando:''
       }
     },
       mounted(){
+
+      },
+      created(){
         axios.get('/api/suscripcion/' + this.$route.params.id).then(res=>{
           this.form = res.data[0];
           this.titular = res.data[0].persona;
-          console.log(this.titular.nombres);
-
         });
       },
       methods:{
@@ -204,7 +235,8 @@ toastr.options ={
         },
         actualizar(){
           this.actualizando = true;
-          axios.post('api/actualizar-suscripcion',this.form).then(res=>{
+          axios.post('/api/actualizar-suscripcion',this.form).then(res=>{
+            console.log(res.data);
             this.editar = true;
             toastr.success('Se actualizó correctamente');
             this.actualizando = true;

@@ -34,11 +34,27 @@ class SuscripcionController extends Controller
              ->make(true);
   }
   public function suscripcion($id){
-    $sus =Suscripcion::find($id);
-    $Cliente = Suscripcion::with('persona')
+    $sus = Suscripcion::with('persona','municipio','region')
     ->where('id',$id)
     ->get();
-    return  $Cliente;
+    return  $sus;
+  }
+  public function actualizarSuscripcion(Request $request){
+    $sus =Suscripcion::find($request->id);
+    $sus->nombre_recibe = $request->nombre_recibe;
+    $sus->direccion = $request->direccion;
+    $sus->observacion = $request->observacion;
+    $sus->jovenes = $request->jovenes;
+    $sus->adultos = $request->adultos;
+    $sus->ninos = $request->ninos;
+    $sus->puerta = $request->puerta;
+    $sus->numero_suscripcion = $request->numero_suscripcion;
+    $sus->numero_factura = $request->numero_factura;
+    $sus->punto_venta = $request->punto_venta;
+    $sus->estado = $request->estado;
+    $sus->save();
+
+    return 200;
   }
 
   //FIN DE METODOSS
@@ -156,7 +172,6 @@ class SuscripcionController extends Controller
     Suscripcion::destroy($id);
     alert()->success('Suscripcion Eliminada!', 'Correctamente');
     return back();
-
   }
 
   public function update(Request $request,$id){
@@ -195,14 +210,12 @@ class SuscripcionController extends Controller
 
 
   }
-
   public function agregar(Request $request,$id){
     $persona = Persona::find($id);
     $regiones = Region::all();
     return view('admin.suscripcion.agregar')->with('persona',$persona)->with('regiones',$regiones);
 
   }
-
   public function crear(Request $request,$id){
      $fecha_final =  Carbon::parse($request->fecha_suscripcion);
      $persona = Persona::find($id);
@@ -302,14 +315,13 @@ class SuscripcionController extends Controller
 
       return back();
     }
+  public function historial($id){
+    $sus = Suscripcion::find($id);
+    $historial = Historial::where('suscripcion_id',$id)->orderBy('created_at','DESC')->get();
+    return view('admin.suscripcion.historial')->with('his',$historial)->with('sus',$sus);
+  }
 
-public function historial($id){
-  $sus = Suscripcion::find($id);
-  $historial = Historial::where('suscripcion_id',$id)->orderBy('created_at','DESC')->get();
-  return view('admin.suscripcion.historial')->with('his',$historial)->with('sus',$sus);
-}
-
-public function guargarHistorial(Request $request,$id){
+  public function guargarHistorial(Request $request,$id){
     $historial = new Historial();
     $historial->asunto = $request->asunto;
     $historial->mensaje = $request->mensaje;

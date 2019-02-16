@@ -18,6 +18,7 @@ Route::get('ixtus-titulares','TitularController@titulares');
 Route::get('ixtus-titular-region/{id}','TitularController@titularPorRegion');
 Route::get('suscripciones','SuscripcionController@suscripciones');
 Route::get('/suscripcion/{id}','SuscripcionController@suscripcion');
+Route::post('actualizar-suscripcion','SuscripcionController@actualizarSuscripcion');
 
 //Notas
 Route::post('crear-nota','SeguimientoController@crearNotas');
@@ -28,6 +29,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {return 
 
 Route::get('/departamentos/{id}/municipios','RegionController@cargarMunicipios');
 Route::get('/region/{id}/departamentos','RegionController@cargarDepartamentos');
+Route::get('regiones','RegionController@regiones');
 
 
 

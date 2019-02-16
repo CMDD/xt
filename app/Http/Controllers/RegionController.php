@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ciudad;
 use App\Departamento;
+use App\Region;
 
 class RegionController extends Controller
 {
@@ -16,5 +17,8 @@ class RegionController extends Controller
     public function cargarDepartamentos($id){
       $departamentos = Departamento::where('region_id',$id)->get();
       return $departamentos;
+    }
+    public function regiones(){
+      return Region::all();
     }
 }

@@ -23,5 +23,10 @@ class Suscripcion extends Model
     public function municipio() {
          return $this->belongsTo('App\Ciudad');
     }
+    public function region() {
+         return $this->belongsTo('App\Region');
+    }
+
+
 
 }
