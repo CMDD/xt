@@ -57,6 +57,11 @@ let router = new Router({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ // Componentes Ixtus
+ Vue.component('ixtus-suscripciones', require('./ixtus/suscripciones/Index.vue'));
+
+ // Fin
+
 Vue.component('suscripcion-component', require('./components/SuscripcionComponent.vue'));
 Vue.component('titular-index', require('./centroc/titulares/Index.vue'));
 Vue.component('titular-create', require('./centroc/titulares/Create.vue'));
@@ -67,9 +72,7 @@ Vue.component('suscripcion-index', require('./centroc/suscripcion/Index.vue'));
 Vue.component('modal-nota', require('./centroc/titulares/Modal.vue'));
 Vue.component('component-notas', require('./centroc/titulares/Notas.vue'));
 
-/*Componentes Centro de contacto
-
-*/
+// Componentes Centro de contacto
 Vue.component('centroc-index', require('./centroc/IndexComponent.vue'));
 
 

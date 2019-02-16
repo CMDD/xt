@@ -55687,6 +55687,11 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Componentes Ixtus
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ixtus-suscripciones', __webpack_require__(229));
+
+// Fin
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('suscripcion-component', __webpack_require__(199));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('titular-index', __webpack_require__(18));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('titular-create', __webpack_require__(22));
@@ -55697,9 +55702,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('suscripcion-index', __web
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('modal-nota', __webpack_require__(212));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('component-notas', __webpack_require__(23));
 
-/*Componentes Centro de contacto
-
-*/
+// Componentes Centro de contacto
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('centroc-index', __webpack_require__(17));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -89390,6 +89393,277 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(230)
+/* template */
+var __vue_template__ = __webpack_require__(231)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/ixtus/suscripciones/Index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-867655a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-867655a2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 230 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_datatables__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_datatables___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_datatables__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  created: function created() {
+    $(document).ready(function () {
+      $('#datatable-suscripciones').DataTable({
+        "serverSide": true,
+        "ajax": "api/suscripciones",
+        "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
+        "language": {
+          "sProcessing": "Procesando...",
+          "sLengthMenu": "Mostrar _MENU_ registros",
+          "sZeroRecords": "No se encontraron resultados",
+          "sEmptyTable": "Ningún dato disponible en esta tabla",
+          "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sSearch": "Buscar:",
+          "sUrl": "",
+          "sInfoThousands": ",",
+          "sLoadingRecords": "Cargando...",
+          "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+          },
+          "oAria": {
+            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+          }
+        }
+      });
+    });
+  },
+  data: function data() {
+    return {
+      sus: []
+    };
+  },
+
+  methods: {}
+
+});
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", {}, [
+    _c("section", { staticClass: "content-header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: "/dashboard" } }, [
+              _c("i", { staticClass: "fa fa-dashboard" }),
+              _vm._v(" Dashboard\n      ")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", [
+      _vm._v("\n    Sucripciones\n    "),
+      _c("small", [_vm._v("Listas")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "active" }, [
+      _c("i", { staticClass: "fa fa-book" }),
+      _vm._v("Mis suscripciones")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "content container-fluid" }, [
+      _c("div", { staticClass: "box" }, [
+        _c("div", { staticClass: "box-header" }, [
+          _c("h3", { staticClass: "box-title" }, [
+            _vm._v("Listado de Suscripciones")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "box-body" }, [
+          _c(
+            "table",
+            {
+              staticClass: "table table-bordered table-striped",
+              attrs: { id: "datatable-suscripciones" }
+            },
+            [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", [_vm._v("Estado")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("T/Mes")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Fecha de pago")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Fecha de inicio")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Fecha de corte")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Titular")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Cedula")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v("Acción")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tbody")
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-867655a2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

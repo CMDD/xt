@@ -19,7 +19,6 @@ class SuscripcionController extends Controller
 
     Carbon::setLocale('es');
   }
-
   //METODOS VERSIÓN 2.0 IXTUS
   public function suscripciones(){
     $sus = Suscripcion::all();
