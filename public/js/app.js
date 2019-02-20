@@ -89585,7 +89585,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -89654,7 +89654,8 @@ var titular;
         user_id: '',
         titular_id: '',
         asunto: '',
-        mensaje: ''
+        mensaje: '',
+        recordatorio: ''
       }
     };
   },
@@ -89677,7 +89678,8 @@ var titular;
           user_id: '',
           titular_id: '',
           asunto: '',
-          mensaje: ''
+          mensaje: '',
+          recordatorio: ''
         };
         __WEBPACK_IMPORTED_MODULE_0_toastr___default.a.success('Se creó la nota correctamente');
       });
@@ -89771,10 +89773,36 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "usr" } }, [
+                    _vm._v("Recordatorio:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.recordatorio,
+                        expression: "form.recordatorio"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "date", name: "", value: "" },
+                    domProps: { value: _vm.form.recordatorio },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "recordatorio", $event.target.value)
+                      }
+                    }
+                  })
+                ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ])
           ])
         ]
@@ -89802,19 +89830,6 @@ var staticRenderFns = [
       ),
       _vm._v(" "),
       _c("h4", { staticClass: "modal-title" }, [_vm._v("CREAR NOTA")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "usr" } }, [_vm._v("Recordatorio:")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "date", name: "", value: "" }
-      })
     ])
   },
   function() {

@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                   <label for="usr">Recordatorio:</label>
-                  <input type="date" class="form-control" name="" value="">
+                  <input type="date" v-model="form.recordatorio" class="form-control" name="" value="">
                 </div>
 
               </div>
@@ -55,7 +55,8 @@ export default {
         user_id:'',
         titular_id:'',
         asunto:'',
-        mensaje:''
+        mensaje:'',
+        recordatorio:''
       }
     }
   },
@@ -75,7 +76,8 @@ export default {
             user_id:'',
             titular_id:'',
             asunto:'',
-            mensaje:''
+            mensaje:'',
+            recordatorio:''
           }
           toastr.success('Se creó la nota correctamente');
         });
