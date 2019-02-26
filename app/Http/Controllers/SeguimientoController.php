@@ -37,11 +37,11 @@ class SeguimientoController extends Controller
       $nota = new Nota();
       $nota->asunto = $request->asunto;
       $nota->mensaje = $request->mensaje;
-      $nota->persona_id = $request->titular_id;
-      $nota->user_id = $request->user_id;
+      $nota->persona_id = (int)$request->titular_id;
+      $nota->user_id = (int)$request->user_id;
       $nota->recordatorio = Carbon::parse($request->recordatorio);
       $nota->save();
-      $titular = Persona::find($request->titular_id);
+      $titular = Persona::find((int)$request->titular_id);
       $titular->ultimo_contacto = $hoy->format('d-m-Y');
       $titular->save();
       return '200';
