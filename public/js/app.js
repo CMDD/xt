@@ -89788,7 +89788,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "date", name: "", value: "" },
+                    attrs: { type: "datetime-local", name: "", value: "" },
                     domProps: { value: _vm.form.recordatorio },
                     on: {
                       input: function($event) {

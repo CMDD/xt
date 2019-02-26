@@ -63,7 +63,7 @@
           </select>
           </div>
           <div class="col-md-6 col-sm-9 col-xs-12">
-          <input name="numero_documento" type="text" value="{{ old('numero_documento') }}" class="form-control{{ $errors->has('numero_documento') ? ' is-invalid' : '' }}" placeholder="Número">
+          <input name="numero_documento" type="text" onkeyup="javascript:this.value = this.value.replace(/[.,,]/,'');" value="{{ old('numero_documento') }}" class="form-control{{ $errors->has('numero_documento') ? ' is-invalid' : '' }}" placeholder="Número">
           @if ($errors->has('numero_documento'))
               <span class="invalid-feedback">
                   <strong style="color:red;" >{{ $errors->first('numero_documento') }}</strong>

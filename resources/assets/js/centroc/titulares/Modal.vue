@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                   <label for="usr">Recordatorio:</label>
-                  <input type="date" v-model="form.recordatorio" class="form-control" name="" value="">
+                  <input type="datetime-local" v-model="form.recordatorio" class="form-control" name="" value="">
                 </div>
 
               </div>
