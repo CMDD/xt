@@ -39,10 +39,10 @@ class SeguimientoController extends Controller
       $nota->mensaje = $request->mensaje;
       $nota->persona_id = (int)$request->titular_id;
       $nota->user_id = (int)$request->user_id;
-      if ($request->recordatorio) {
-        $nota->recordatorio = Carbon::parse($request->recordatorio);
-      }else {
+      if ($request->recordatorio==null) {
         $nota->recordatorio = 'Null';
+      }else {
+        $nota->recordatorio = Carbon::parse($request->recordatorio);
       }
 
       $nota->save();
