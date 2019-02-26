@@ -39,7 +39,7 @@ class SeguimientoController extends Controller
       $nota->mensaje = $request->mensaje;
       $nota->persona_id = (int)$request->titular_id;
       $nota->user_id = (int)$request->user_id;
-      $nota->recordatorio = 'Null';
+      $nota->recordatorio = 'Prueba';
 
       $nota->save();
       // $titular = Persona::find((int)$request->titular_id);
