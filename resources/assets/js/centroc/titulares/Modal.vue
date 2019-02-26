@@ -70,7 +70,7 @@ export default {
         this.form.user_id = userid;
         this.form.titular_id = titular;
         console.log(this.form);
-        axios.post('api/crear-nota/',this.form).then(res=>{
+        axios.post('/api/crear-nota',this.form).then(res=>{
           console.log(res.data);
           this.form = {
             user_id:'',
