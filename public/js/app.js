@@ -89672,7 +89672,7 @@ var titular;
       this.form.user_id = userid;
       this.form.titular_id = titular;
       console.log(this.form);
-      axios.post('api/crear-nota', this.form).then(function (res) {
+      axios.post('api/crear-nota/', this.form).then(function (res) {
         console.log(res.data);
         _this.form = {
           user_id: '',
