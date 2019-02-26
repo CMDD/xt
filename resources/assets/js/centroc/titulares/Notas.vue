@@ -29,7 +29,7 @@
          <ul class="timeline">
            <!-- timeline time label -->
            <li class="time-label">
-                 <span class="bg-red">{{moment().format('DD/MM/YYYY')}}</span>
+                 <span class="bg-red"></span>
            </li>
            <!-- /.timeline-label -->
            <!-- timeline item -->
@@ -75,13 +75,11 @@
 </template>
 
 <script>
-var moment =require('moment');
-moment.locale('es');
+
 export default {
   data(){
     return{
-      notas:[],
-      moment: moment
+      notas:[]
     }
   },
   created(){
@@ -90,9 +88,7 @@ export default {
     });
   },
   methods:{
-    moment: function() {
-    return moment();
-    }
+
   }
 }
 </script>
