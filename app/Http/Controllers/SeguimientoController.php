@@ -45,10 +45,10 @@ class SeguimientoController extends Controller
         $nota->recordatorio = 'Null';
       }
 
-      $nota->save();
-      $titular = Persona::find((int)$request->titular_id);
-      $titular->ultimo_contacto = $hoy->format('d-m-Y');
-      $titular->save();
+      // $nota->save();
+      // $titular = Persona::find((int)$request->titular_id);
+      // $titular->ultimo_contacto = $hoy->format('d-m-Y');
+      // $titular->save();
       return $nota;
     }
     public function notas($id){
