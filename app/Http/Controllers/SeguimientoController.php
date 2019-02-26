@@ -33,14 +33,14 @@ class SeguimientoController extends Controller
 
     //METODO PARA LA API
     public function crearNotas(Request $request){
-      // $hoy = Carbon::now();
-      // $nota = new Nota();
-      // $nota->asunto = $request->asunto;
-      // $nota->mensaje = $request->mensaje;
-      // $nota->persona_id = (int)$request->titular_id;
-      // $nota->user_id = (int)$request->user_id;
-      // $nota->recordatorio = Carbon::parse($request->recordatorio);
-      // $nota->save();
+      $hoy = Carbon::now();
+      $nota = new Nota();
+      $nota->asunto = $request->asunto;
+      $nota->mensaje = $request->mensaje;
+      $nota->persona_id = (int)$request->titular_id;
+      $nota->user_id = (int)$request->user_id;
+      $nota->recordatorio = Carbon::parse($request->recordatorio);
+      $nota->save();
       // $titular = Persona::find((int)$request->titular_id);
       // $titular->ultimo_contacto = $hoy->format('d-m-Y');
       // $titular->save();
