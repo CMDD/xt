@@ -52,7 +52,7 @@
 @can('reporte.regional')
 <!-- Reportes regionales -->
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-<a href="{{route('reporte.regional','Personas')}}">
+<a href="{{url('reporte_regional')}}">
 <div class="tile-stats">
 <div class="icon"><i class="fa fa-user"></i>
 </div>

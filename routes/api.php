@@ -38,4 +38,4 @@ Route::get('regiones','RegionController@regiones');
 Route::post('autorizo','WebserviceController@create');
 
 
-Route::get('reporte-regional','ReporteController@region');
+Route::get('reporte-regional/{id}','ReporteController@region');

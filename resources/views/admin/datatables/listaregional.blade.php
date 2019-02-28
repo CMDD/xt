@@ -33,6 +33,7 @@
         </div>
       </div>
   </div>
+   <input type="hidden" name="id" id="region_id" value="{{Auth::User()->region_id}}">
     <!-- footer content -->
     @include('layouts.footer')
     <!-- /footer content -->
@@ -46,11 +47,13 @@
 {{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
 <script>
 $(document).ready(function () {
+  var id = $('#region_id').val();
+  console.log(id);
   oTable = $('#example').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive": true,
-            "ajax": "{{ url('/api/reporte-regional/') }}",
+            "ajax": "/api/reporte-regional/"+ id,
             "columns": [
                 {data: 'estado', name: 'estado'},
                 {

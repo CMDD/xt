@@ -14,6 +14,10 @@ Route::get('admin-ixtus',function(){
 
 Route::get('menu',function(){return view('master');});
 Route::get('centro-contacto',function(){return view('centroc.index');});
+
+Route::get('reporte_regional',function(){
+  return view('admin.datatables.listaregional')->with('id',Auth::User()->region_id);
+});
 /*
 Fin Rutas versión 2 ixtus
 */

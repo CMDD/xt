@@ -25,10 +25,11 @@ class ReporteController extends Controller
                                          ->with('nombre',$nombre);
     }
 
-    public function region(){
-
-      $titulares = Persona::where('region_id',Auth::User()->region_id)->get();
+    public function region($id){
+      $titulares = Persona::where('region_id',$id)->get();
       return Datatables::of($titulares)
+            ->addColumn('btn','admin.datatables.botones')
+            ->rawColumns(['btn'])
              ->make(true);
     }
 
