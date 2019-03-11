@@ -242,7 +242,7 @@ class Reporte{
   }
 
   public function descargarSuscripciones($request){
-    dd($request);
+   
       Excel::create('Reporte suscripciones', function($excel) use ($request) {
           $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
           if ($request->region == 'Todas') {
