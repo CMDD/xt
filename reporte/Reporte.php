@@ -267,14 +267,16 @@ class Reporte{
           foreach ($suscripciones as $sus) {
             $row = [];
             $row[0] = $sus->id;
-            if($sus->persona->nombres){
+            if(empty($sus->persona->nombres)){
               $row[1] = $sus->persona->nombres ." ". $sus->persona->apellidos ;
+              $row[2] = $sus->persona->telefono;
             }else{
 
               $row[1]= "No tiene";
+              $row[2] = "No tiene";
             }
             
-            $row[2] = $sus->persona->telefono;
+            
             $row[3] = $sus->nombre_recibe;
             $row[4] = $sus->telefono;
             $row[5] = $sus->direccion;
