@@ -189,7 +189,11 @@
                    <img src="/img/user.png" alt="Imagen de Perfil" />
                    </span>
                    <span>
+                     @if(isset($noti->suscripcion->persona->nombres))
                    <span>{{$noti->suscripcion->persona->nombres}}</span>
+                   @else
+                    <span>No tiene nombre</span>
+                   @endif
                    </span>
                    <span class="message">
                    {{$noti->mensaje}}
