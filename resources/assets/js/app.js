@@ -47,6 +47,11 @@ let router = new Router({
           path:'/notas/:id',
           name:'/notas',
           component: require ('./centroc/titulares/Notas')
+        },
+        {
+          path:'/reporte/suscripcion',
+          path:'/reporte/suscripcion',
+          component: require ('./centroc/reporte/Suscripcion')
         }
       ]
 });
@@ -71,6 +76,8 @@ Vue.component('suscripcion-show', require('./centroc/suscripcion/Show.vue'));
 Vue.component('suscripcion-index', require('./centroc/suscripcion/Index.vue'));
 Vue.component('modal-nota', require('./centroc/titulares/Modal.vue'));
 Vue.component('component-notas', require('./centroc/titulares/Notas.vue'));
+// Reportes
+Vue.component('reporte-suscripcion', require('./centroc/reporte/Suscripcion.vue'));
 
 // Componentes Centro de contacto
 Vue.component('centroc-index', require('./centroc/IndexComponent.vue'));

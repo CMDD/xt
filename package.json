@@ -11,16 +11,18 @@
     },
     "devDependencies": {
         "axios": "^0.18",
-        "popper.js": "^1.12",
         "cross-env": "^5.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "popper.js": "^1.14.7",
+        "vue": "^2.6.9"
     },
     "dependencies": {
+        "ajv": "^6.10.0",
         "datatables": "^1.10.18",
         "toastr": "^2.1.4",
         "vue-moment": "^4.0.0",
-        "vue-router": "^3.0.2"
+        "vue-router": "^3.0.2",
+        "vue-template-compiler": "^2.6.9"
     }
 }
