@@ -74249,7 +74249,7 @@ var staticRenderFns = [
                     staticClass: "btn btn-sm btn-info btn-flat pull-left",
                     attrs: { href: "javascript:void(0)" }
                   },
-                  [_vm._v("Place New Order")]
+                  [_vm._v("Actualizar")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -74258,7 +74258,7 @@ var staticRenderFns = [
                     staticClass: "btn btn-sm btn-default btn-flat pull-right",
                     attrs: { href: "javascript:void(0)" }
                   },
-                  [_vm._v("View All Orders")]
+                  [_vm._v("Ver mas")]
                 )
               ])
             ])
