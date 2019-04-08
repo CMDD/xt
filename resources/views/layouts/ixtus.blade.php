@@ -262,7 +262,7 @@
     <!-- /page content -->
   </div>
 </div>
-<script src="/js/app.js"></script>
+{{ Html::script('/js/app.js') }}
 
 {{ Html::script('admin/js/bootstrap.min.js') }}
 <!-- chart js -->
