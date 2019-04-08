@@ -27940,7 +27940,8 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     component: __webpack_require__(21)
   }, (_ref = {
     path: '/reporte/suscripcion'
-  }, _defineProperty(_ref, 'path', '/reporte/suscripcion'), _defineProperty(_ref, 'component', __webpack_require__(22)), _ref)]
+  }, _defineProperty(_ref, 'path', '/reporte/suscripcion'), _defineProperty(_ref, 'component', __webpack_require__(22)), _ref)],
+  mode: 'history'
 });
 
 /**
