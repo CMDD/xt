@@ -73544,8 +73544,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -73613,81 +73611,79 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("div", { staticClass: "right_col", attrs: { role: "main" } }, [
-        _c("div", {}, [
-          _c("div", { staticClass: "clearfix" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12 col-sm-12 col-xs-12" }, [
-              _c("div", { staticClass: "x_panel" }, [
-                _c("div", { staticClass: "x_title" }, [
-                  _c("h2", [
-                    _vm._v("SUSCRIPCIONES |"),
-                    _c("small", [_vm._v("IXTUS")])
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "nav navbar-right panel_toolbox" }, [
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-chevron-up" })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _c("i", { staticClass: "fa fa-close" })
-                      ])
+    return _c("div", { staticClass: "right_col", attrs: { role: "main" } }, [
+      _c("div", {}, [
+        _c("div", { staticClass: "clearfix" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12 col-sm-12 col-xs-12" }, [
+            _c("div", { staticClass: "x_panel" }, [
+              _c("div", { staticClass: "x_title" }, [
+                _c("h2", [
+                  _vm._v("SUSCRIPCIONES |"),
+                  _c("small", [_vm._v("IXTUS")])
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "nav navbar-right panel_toolbox" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("i", { staticClass: "fa fa-chevron-up" })
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" })
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("i", { staticClass: "fa fa-close" })
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "x_content" }, [
-                  _c(
-                    "table",
-                    {
-                      staticClass:
-                        "table table-striped responsive-utilities jambo_table",
-                      attrs: { id: "datatable-suscripciones" }
-                    },
-                    [
-                      _c("thead", [
-                        _c("tr", [
-                          _c("th", [_vm._v("Estado")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("T/Mes")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Fecha de pago")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Fecha de inicio")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Fecha de corte")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Recibe")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Titular")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Cedula")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Acción")])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tbody")
-                    ]
-                  )
-                ])
+                _c("div", { staticClass: "clearfix" })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "x_content" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-striped responsive-utilities jambo_table",
+                    attrs: { id: "datatable-suscripciones" }
+                  },
+                  [
+                    _c("thead", [
+                      _c("tr", [
+                        _c("th", [_vm._v("Estado")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("T/Mes")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Fecha de pago")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Fecha de inicio")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Fecha de corte")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Recibe")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Titular")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Cedula")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("Acción")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tbody")
+                  ]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br")
-          ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br")
         ])
       ])
     ])

@@ -1,5 +1,4 @@
 <template>
-  <div class="">
   <!-- Main content -->
 <div class="right_col" role="main">
 <div class="">
@@ -47,7 +46,6 @@
 </div>
 
 </div>
-  </div>
 </template>
 
 <script>
