@@ -73557,7 +73557,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     $(document).ready(function () {
       $('#datatable-suscripciones').DataTable({
         "serverSide": true,
-        "ajax": "api/suscripciones/nacional",
+        "ajax": "api/suscripciones/nacional/",
         "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'nombre_recibe' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
         "language": {
           "sProcessing": "Procesando...",
