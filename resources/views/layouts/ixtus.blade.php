@@ -258,8 +258,6 @@
      </div> -->
     <!-- page content -->
     @yield('content')
-    @include('sweetalert::alert')
-    <!-- /page content -->
   </div>
 </div>
 
