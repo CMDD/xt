@@ -18,6 +18,9 @@ Route::get('centro-contacto',function(){return view('centroc.index');});
 Route::get('reporte_regional',function(){
   return view('admin.datatables.listaregional')->with('id',Auth::User()->region_id);
 });
+
+//Suscripciones
+Route::get('ixtus-suscripciones-nacionales','Suscripcion\SuscripcionController@viewNacional');
 /*
 Fin Rutas versión 2 ixtus
 */

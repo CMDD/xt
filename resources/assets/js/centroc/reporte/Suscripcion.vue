@@ -7,8 +7,8 @@
         <small>Version 2.0</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Reporte</li>
       </ol>
     </section>
 
@@ -129,7 +129,7 @@
                     <td>Texto de Descripcion</td>
                     <td><span class="label label-success">Por vencer</span></td>
                     <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">16/12</div>
                     </td>
                   </tr>
                   
@@ -216,6 +216,35 @@
 
 <script>
 export default {
+
+  data(){
+    return{
+      sus:[]
+    }
+  },
+  created(){
+      this.suscripciones();
+      
+  },
+  methods:{
+      suscripciones(){
+        axios.get('api/reporte/suscripciones').then(res=>{
+           this.sus = res.data;
+           console.log(this.sus.length);
+           console.log(this.activas());
+           
+        });
+      },
+      activas(){
+            var obj=[];
+            this.sus.forEach(element => {
+              obj = element;
+          });
+
+        return obj.length;
+        
+      }
+  }
     
 }
 </script>

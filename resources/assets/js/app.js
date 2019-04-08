@@ -64,6 +64,7 @@ let router = new Router({
 
  // Componentes Ixtus
  Vue.component('ixtus-suscripciones', require('./ixtus/suscripciones/Index.vue'));
+ Vue.component('suscripciones-nacionales', require('./ixtus/suscripciones/Nacional.vue'));
 
  // Fin
 
@@ -81,6 +82,7 @@ Vue.component('reporte-suscripcion', require('./centroc/reporte/Suscripcion.vue'
 
 // Componentes Centro de contacto
 Vue.component('centroc-index', require('./centroc/IndexComponent.vue'));
+
 
 
 

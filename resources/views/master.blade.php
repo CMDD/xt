@@ -5,7 +5,9 @@
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="user" content="{{Auth::User()}}"> -->
     <title>IXTUS |MD </title>
     <!-- Bootstrap core CSS -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +50,7 @@
                          </div>
 
                          <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                           <a href="#">
+                           <a href="https://pw.test/">
                              <div class="tile-stats">
                                  <div class="icon"><i class="fa fa-sort-amount-desc"></i>
                                  </div>
