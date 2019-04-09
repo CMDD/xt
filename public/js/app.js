@@ -73559,7 +73559,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       $('#datatable-suscripciones').DataTable({
         "serverSide": true,
         type: "get",
-        "ajax": 'sus/cacional',
+        "ajax": 'api/sus/cacional',
         "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'nombre_recibe' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
         "language": {
           "sProcessing": "Procesando...",
