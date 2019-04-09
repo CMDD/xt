@@ -27,7 +27,7 @@ Route::post('actualizar-suscripcion','SuscripcionController@actualizarSuscripcio
 Route::get('sus-nacional','Suscripcion\SuscripcionController@nacional');
 //Reporte
 Route::get('reporte/suscripciones','Contacto\ReporteController@suscripciones');
-Route::get('sus/cacional','Contacto\ReporteController@suscripciones');
+Route::get('sus/cacional','Contacto\ReporteController@nacional');
 
 
 
