@@ -47,7 +47,7 @@
 <script>
 $(document).ready(function () {
   oTable = $('#example').DataTable({
-            // "processing": true,
+            "processing": true,
             "serverSide": true,
             "responsive": true,
             "ajax": "{{ url('get_titulares') }}",
