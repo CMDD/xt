@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-@section('style')
-{{ Html::style('admin/css/datatables/tools/css/dataTables.tableTools.css')}}
-@endsection
+
 @section('content')
 <!-- page content -->
 <div class="right_col" role="main">
@@ -42,12 +40,11 @@
 
 @section('scripts')
 <!-- Datatables -->
-{{ Html::script('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js') }}
-{{ Html::script('admin/js/datatables/tools/js/dataTables.tableTools.js') }}
+
 <script>
 $(document).ready(function () {
   oTable = $('#example').DataTable({
-            "processing": true,
+            // "processing": true,
             "serverSide": true,
             "responsive": true,
             "ajax": "{{ url('get_titulares') }}",
