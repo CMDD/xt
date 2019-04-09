@@ -181,10 +181,10 @@
              <li role="presentation" class="dropdown">
                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                <i class="fa fa-bell"></i>
-               <span class="badge bg-green">{{Session::get('noti')}}</span>
+               <!-- <span class="badge bg-green">{{Session::get('noti')}}</span> -->
                </a>
                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                 @foreach(Session::get('notis') as $noti)
+                 <!-- @foreach(Session::get('notis') as $noti)
                <li>
                  <a href="{{route('ver.suscripcion',$noti->suscripcion->id)}}">
                    <span class="image">
@@ -205,7 +205,7 @@
                    </span>
                  </a>
                </li>
-               @endforeach
+               @endforeach -->
 
                <li>
                <div class="text-center">
