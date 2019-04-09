@@ -22,10 +22,10 @@ class SuscripcionController extends Controller
       return Datatables::of($suscripciones)
              ->addColumn('btn','ixtus.partials.botones_suscripcion')
              ->addColumn('titular',function($suscripciones){
-               return $suscripciones->persona->nombres;
+               return $suscripciones->persona['nombres'];
              })
              ->addColumn('cedula',function($suscripciones){
-               return $suscripciones->persona->numero_documento;
+               return $suscripciones->persona['numero_documento'];
              })
              ->rawColumns(['btn'])
              ->make(true);
