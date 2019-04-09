@@ -24,10 +24,10 @@ Route::get('/suscripcion/{id}','SuscripcionController@suscripcion');
 Route::get('suscripciones','SuscripcionController@suscripciones');
 Route::post('actualizar-suscripcion','SuscripcionController@actualizarSuscripcion');
 //  Ixtus v 2.0
-Route::get('suscripcioes/nacional','Suscripcion\SuscripcionController@nacional');
+Route::get('sus-nacional','Suscripcion\SuscripcionController@nacional');
 //Reporte
 Route::get('reporte/suscripciones','Contacto\ReporteController@suscripciones');
- 
+Route::get('sus/cacional','Contacto\ReporteController@suscripciones');
 
 
 
