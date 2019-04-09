@@ -61,7 +61,8 @@ export default {
     $(document).ready( function () {
         $('#datatable-suscripciones').DataTable({
           "serverSide":true,
-          "ajax":"/api/suscripciones/nacional/",
+          type: "get",
+          "ajax":'/api/suscripcioes/nacional',
           "columns":[
             {data:'estado'},
             {data:'plan'},
