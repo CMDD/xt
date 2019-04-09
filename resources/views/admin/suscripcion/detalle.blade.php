@@ -25,13 +25,12 @@
   <a href="{{url('suscripcion-historial',$sus->id)}}">
     <button type="button" class="btn btn-primary " name="button">Historial</button>
   </a>
+  
 </h2>
-<ul class="nav navbar-right panel_toolbox">
-<li><a href="#"><i class="fa fa-chevron-up"></i></a>
-</li>
-<li><a href="#"><i class="fa fa-close"></i></a>
-</li>
-</ul>
+<a href="{{url('ixtus-suscripciones-nacionales')}}">
+    <button type="button" class="btn btn-success  pull-right" name="button">Suscripciones Nacionales</button>
+  </a>
+
 <div class="clearfix"></div>
 </div>
 
