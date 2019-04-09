@@ -38,8 +38,11 @@
 
 <!-- /page content -->
 
-@section('scripts')
-<!-- Datatables -->
+@stop
+
+
+@push('scripts')
+{{ Html::script('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js') }}
 
 <script>
 $(document).ready(function () {
@@ -69,5 +72,5 @@ $(document).ready(function () {
         });
 });
 </script>
-@endsection
-@endsection
+
+@endpush

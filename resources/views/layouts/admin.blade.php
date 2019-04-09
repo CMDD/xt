@@ -17,8 +17,7 @@
 <!-- Custom styling plus plugins -->
 {{ Html::style('admin/css/custom.css') }}
 {{ Html::style('admin/css/icheck/flat/green.css') }}
-{{ Html::script('admin/js/jquery.min.js') }}
-<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 @yield('style')
 </head>
 <body class="nav-md">
@@ -263,17 +262,23 @@
     <!-- /page content -->
   </div>
 </div>
-<script src="/js/app.js"></script>
+
+{{ Html::script('admin/js/jquery.min.js') }}
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 {{ Html::script('admin/js/bootstrap.min.js') }}
 <!-- chart js -->
 <!-- bootstrap progress js -->
 {{ Html::script('admin/js/progressbar/bootstrap-progressbar.min.js') }}
 {{ Html::script('admin/js/nicescroll/jquery.nicescroll.min.js') }}
 <!-- icheck -->
-{{ Html::script('admin/js/icheck/icheck.min.js') }}
+<!-- {{ Html::script('admin/js/icheck/icheck.min.js') }} -->
 {{ Html::script('admin/js/custom.js') }}
 {{ Html::script('js/ixtus.js') }}
 
+
 @yield('scripts')
+@stack('scripts')
+
 </body>
 </html>
