@@ -258,7 +258,7 @@ class Reporte{
           // Header
           $sheet->row(1,
           ['
-          ID SUSCRIPCION','NOMBRE TITULAR','TELÉFONO TITULAR','RECIBE','TELÉFONO','DIRECCIÓN',
+          ID SUSCRIPCION','NOMBRE TITULAR','CEDULA TITULAR','TELÉFONO TITULAR','RECIBE','TELÉFONO','DIRECCIÓN',
           'ESPECIFICACIÓN DE DIRECCIÓN','MUNICIPIO','DEPARTAMENTO','JOVENES','ADULTOS','NIÑOS',
           'PUERTA A LA PALABRA','OBSERVACION'
           ]
@@ -269,25 +269,27 @@ class Reporte{
             $row[0] = $sus->id;
             if(isset($sus->persona->nombres)){
               $row[1] = $sus->persona->nombres ." ". $sus->persona->apellidos ;
-              $row[2] = $sus->persona->telefono;
+              $row[2] = $sus->persona->numero_documento;
+              $row[3] = $sus->persona->telefono;
             }else{
 
               $row[1]= "No tiene";
               $row[2] = "No tiene";
+              $row[3] = "No tiene";
             }
             
             
-            $row[3] = $sus->nombre_recibe;
-            $row[4] = $sus->telefono;
-            $row[5] = $sus->direccion;
-            $row[6] = $sus->direccion_especificacion;
-            $row[7] = $sus->municipio->nombre;
-            $row[8] = $sus->municipio->departamento->nombre;
-            $row[9] = $sus->jovenes;
-            $row[10] = $sus->adultos;
-            $row[11] = $sus->ninos;
-            $row[12] = $sus->puerta;
-            $row[13] = $sus->observacion;
+            $row[4] = $sus->nombre_recibe;
+            $row[5] = $sus->telefono;
+            $row[6] = $sus->direccion;
+            $row[7] = $sus->direccion_especificacion;
+            $row[8] = $sus->municipio->nombre;
+            $row[9] = $sus->municipio->departamento->nombre;
+            $row[10] = $sus->jovenes;
+            $row[11] = $sus->adultos;
+            $row[12] = $sus->ninos;
+            $row[13] = $sus->puerta;
+            $row[14] = $sus->observacion;
             $sheet->appendRow($row);
           }
           $sheet->setOrientation('landscape');
