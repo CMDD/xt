@@ -109,7 +109,7 @@ class SuscripcionController extends Controller
        $sus->numero_factura = $request->numero_factura;
        $sus->punto_venta = $request->punto;
        $sus->apartir_de = $apartir_de;
-       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo - 1);
+       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo);
        $sus->tipo = 'Nueva';
        $sus->save();
      }else{
@@ -149,7 +149,7 @@ class SuscripcionController extends Controller
        $sus->numero_factura = $request->numero_factura;
        $sus->punto_venta = $request->punto;
        $sus->apartir_de = $apartir_de;
-       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo - 1);
+       $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo);
        $sus->tipo = 'Nueva';
 
 
