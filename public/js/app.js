@@ -73570,7 +73570,7 @@ console.log(userid);
           type: "get",
           data: { "estable": 2 }
         },
-        "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'nombre_recibe' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
+        "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'envio_hasta' }, { data: 'nombre_recibe' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
         "language": {
           "sProcessing": "Procesando...",
           "sLengthMenu": "Mostrar _MENU_ registros",

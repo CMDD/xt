@@ -84,7 +84,7 @@ class SuscripcionController extends Controller
        $sus = new Suscripcion();
        $sus->plan = $request->tiempo;
        $sus->fecha_inicio = $fecha_inicial;
-       $sus->fecha_final = $fecha_inicial->addMonths((int)$request->tiempo);
+       $sus->fecha_final = $apartir_de->addMonths((int)$request->tiempo);
        $sus->persona_id = (int)$titular->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';
@@ -133,7 +133,7 @@ class SuscripcionController extends Controller
        $sus = new Suscripcion();
        $sus->plan = $request->tiempo;
        $sus->fecha_inicio = $fecha_inicial;
-       $sus->fecha_final = $fecha_inicial->addMonths((int)$request->tiempo);
+       $sus->fecha_final = $apartir_de->addMonths((int)$request->tiempo);
        $sus->persona_id = (int)$persona->id;
        $sus->user_id = Auth::User()->id;
        $sus->estado = 'Activo';

@@ -45,6 +45,7 @@ class notificaciones extends Command
 
       foreach ($sus as $n) {
           $fechaF = date_diff($hoy, $n->envio_hasta);
+          $result = date_diff($hoy,$n->envio_hasta);
         if ($fechaF->days == 60) {
           $noti = new Notificacion();
           $noti->tipo = 'Alerta';
@@ -59,6 +60,7 @@ class notificaciones extends Command
           $noti->mensaje = 'La suscripcion vence dentro de 1 meses';
           $noti->save();
         }
+         
         if ($fechaF->days == 15  or $fechaF->days < 15) {
           if ($fechaF->days <= 0) {
             $noti = new Notificacion();
@@ -79,7 +81,9 @@ class notificaciones extends Command
           }
 
         }
-        // return $this->info($fechaF->days);
+
+
+        
 
       }
         return $this->info('Verificaciones de suscripciones completado');

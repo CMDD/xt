@@ -79,7 +79,7 @@ export default {
             {data:'plan'},
             {data:'fecha_inicio'},
             {data:'apartir_de'},
-            {data:'fecha_final'},
+            {data:'envio_hasta'},
             {data:'nombre_recibe'},
             {data:'titular'},
             {data:'cedula'},
