@@ -51,6 +51,13 @@
 <script>
 import datatable from 'datatables'
 
+let user =document.head.querySelector('meta[name="user"]');
+var userid = JSON.parse(user.content).id;
+var titular;
+
+console.log(userid);
+
+
 export default {
   mounted() {
       console.log('Component mounted.')
@@ -61,8 +68,12 @@ export default {
     $(document).ready( function () {
         $('#datatable-suscripciones').DataTable({
           "serverSide":true,
-          type: "get",
-          "ajax":'api/sus-nacional',
+          
+          "ajax":{
+            url:'api/sus-nacional/'+userid ,
+            type: "get",
+            data: {"estable": 2}
+            },
           "columns":[
             {data:'estado'},
             {data:'plan'},

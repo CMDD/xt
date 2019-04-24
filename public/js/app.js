@@ -73548,6 +73548,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+var user = document.head.querySelector('meta[name="user"]');
+var userid = JSON.parse(user.content).id;
+var titular;
+
+console.log(userid);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -73558,8 +73564,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     $(document).ready(function () {
       $('#datatable-suscripciones').DataTable({
         "serverSide": true,
-        type: "get",
-        "ajax": 'api/sus-nacional',
+
+        "ajax": {
+          url: 'api/sus-nacional/' + userid,
+          type: "get",
+          data: { "estable": 2 }
+        },
         "columns": [{ data: 'estado' }, { data: 'plan' }, { data: 'fecha_inicio' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'nombre_recibe' }, { data: 'titular' }, { data: 'cedula' }, { data: 'btn' }],
         "language": {
           "sProcessing": "Procesando...",
