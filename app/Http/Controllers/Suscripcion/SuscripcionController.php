@@ -20,7 +20,7 @@ class SuscripcionController extends Controller
     public function nacional($data){
        $suscripciones = Suscripcion::all();
 
-       if ($data==2) {
+       if ($data==1) {
               return Datatables::of($suscripciones)
             ->addColumn('btn', function ($suscripciones) {
                 return '
