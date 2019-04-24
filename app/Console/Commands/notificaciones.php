@@ -45,7 +45,6 @@ class notificaciones extends Command
 
       foreach ($sus as $n) {
           $fechaF = date_diff($hoy, $n->envio_hasta);
-          $result = date_diff($hoy,$n->envio_hasta);
         if ($fechaF->days == 60) {
           $noti = new Notificacion();
           $noti->tipo = 'Alerta';

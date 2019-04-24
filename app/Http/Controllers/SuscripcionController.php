@@ -182,6 +182,12 @@ class SuscripcionController extends Controller
     $fecha =  Carbon::parse($request->fecha);
     $sus = Suscripcion::find($id);
     $sus->plan = $request->plan;
+    
+    if($request->vence){
+      $sus->envio_hasta = $request->vence;
+    }
+    
+
 
     if ($request->fecha) {
       $sus->fecha_inicio = $fecha;

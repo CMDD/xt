@@ -161,8 +161,8 @@
    <input  type="text" class="form-control" id="" disabled value="{{$sus->apartir_de->format('d/m/Y')}}" name="apartir_de">
  </div>
  <div class="col-md-6 form-group">
-   <label for="">Vence</label>
-   <input  type="text" class="form-control" id="" disabled  value="{{$sus->envio_hasta->format('d/m/Y')}}" name="numero_suscripcion" >
+   <label for="" >Vence  </label>
+   <input  type="date" class="form-control" id=""  name="vence"  value="{{$sus->envio_hasta->format('Y-m-d')}}"  >
  </div>
 
  <div class="col-md-6 form-group">
