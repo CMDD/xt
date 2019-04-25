@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Seguimientos</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-number">48<small>%</small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -52,7 +52,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Vendidas </span>
-              <span class="info-box-number">23</span>
+              <span class="info-box-number">-</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -65,7 +65,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Nuevas Suscripciones</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number">-</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -160,8 +160,8 @@
             <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Por vencer</span>
-              <span class="info-box-number">123</span>
+              <span class="info-box-text">Total</span>
+              <span class="info-box-number">2,079</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 50%"></div>
@@ -176,7 +176,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Activas</span>
-              <span class="info-box-number">2.300</span>
+              <span class="info-box-number">1,609</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 20%"></div>
@@ -190,8 +190,8 @@
             <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Canceladas</span>
-              <span class="info-box-number">1,232</span>
+              <span class="info-box-text">Desactivas</span>
+              <span class="info-box-number">472</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>

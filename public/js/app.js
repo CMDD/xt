@@ -72929,7 +72929,7 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("span", { staticClass: "info-box-number" }, [
-                  _vm._v("90"),
+                  _vm._v("48"),
                   _c("small", [_vm._v("%")])
                 ])
               ])
@@ -72965,7 +72965,7 @@ var staticRenderFns = [
                   _vm._v("Vendidas ")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "info-box-number" }, [_vm._v("23")])
+                _c("span", { staticClass: "info-box-number" }, [_vm._v("-")])
               ])
             ])
           ]),
@@ -72981,9 +72981,7 @@ var staticRenderFns = [
                   _vm._v("Nuevas Suscripciones")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "info-box-number" }, [
-                  _vm._v("2,000")
-                ])
+                _c("span", { staticClass: "info-box-number" }, [_vm._v("-")])
               ])
             ])
           ])
@@ -73105,11 +73103,11 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "info-box-content" }, [
-                _c("span", { staticClass: "info-box-text" }, [
-                  _vm._v("Por vencer")
-                ]),
+                _c("span", { staticClass: "info-box-text" }, [_vm._v("Total")]),
                 _vm._v(" "),
-                _c("span", { staticClass: "info-box-number" }, [_vm._v("123")]),
+                _c("span", { staticClass: "info-box-number" }, [
+                  _vm._v("2,079")
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "progress" }, [
                   _c("div", {
@@ -73131,7 +73129,7 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("span", { staticClass: "info-box-number" }, [
-                  _vm._v("2.300")
+                  _vm._v("1,609")
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "progress" }, [
@@ -73150,12 +73148,10 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("div", { staticClass: "info-box-content" }, [
                 _c("span", { staticClass: "info-box-text" }, [
-                  _vm._v("Canceladas")
+                  _vm._v("Desactivas")
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "info-box-number" }, [
-                  _vm._v("1,232")
-                ]),
+                _c("span", { staticClass: "info-box-number" }, [_vm._v("472")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "progress" }, [
                   _c("div", {
