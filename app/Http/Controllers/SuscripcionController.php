@@ -153,7 +153,6 @@ class SuscripcionController extends Controller
        $sus->envio_hasta = $apartir_de->addMonths((int)$request->tiempo -1);
        $sus->tipo = 'Nueva';
 
-
        $sus->jovenes = (int)$request->jovenes;
        $sus->adultos = (int)$request->adultos;
        $sus->ninos = (int)$request->ninos;
