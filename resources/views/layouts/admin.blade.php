@@ -18,7 +18,10 @@
 {{ Html::style('admin/css/custom.css') }}
 {{ Html::style('admin/css/icheck/flat/green.css') }}
 
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 @yield('style')
+@stack('styles')  
 </head>
 <body class="nav-md">
   <div class="container body">
@@ -264,7 +267,7 @@
 </div>
 
 {{ Html::script('admin/js/jquery.min.js') }}
-<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 
 {{ Html::script('admin/js/bootstrap.min.js') }}
 <!-- chart js -->

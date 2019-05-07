@@ -117,7 +117,7 @@ class PersonaController extends Controller
       }
 
       alert()->success('Persona Creada!', 'Correctamente')
-      ->showConfirmButton('Crear','rgba(38, 185, 154, 0.59)');
+      ->showConfirmButton('Ok','rgba(38, 185, 154, 0.59)');
       // ->footer('<a class="texto-alerta-footer" href="listar/General">Ver todas las personas creadas!</a>');
        return back();
     }
@@ -190,7 +190,7 @@ class PersonaController extends Controller
       alert()->html('<i>Actualizado correctamente</i>',"
               <a href='/listar/General '><button type='button' class='btn btn-primary' name='button'>Mis titulares</button></a>
               <a href='/reporte_regional/Personas'><button type='button' class='btn btn-primary' name='button'>Buscar regional</button></a>
-              <a href='/centroc'><button type='button' class='btn btn-primary' name='button'>Centro de contacto</button></a>
+              <a href='/titulares'><button type='button' class='btn btn-primary' name='button'>Titulares Nacionales</button></a>
             ",'success')->showConfirmButton('CERRAR','rgba(38, 185, 154, 0.59)');
                   return back();
     }

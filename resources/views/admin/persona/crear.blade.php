@@ -1,8 +1,4 @@
 @extends('layouts.admin')
-@section('style')
-<!-- select2 -->
-{!!Html::style('admin/css/select/select2.min.css')!!}
-@endsection
 @section('content')
 <div class="right_col" role="main">
   <div class="">
@@ -352,3 +348,10 @@
 <!-- /select2 -->
 @endsection
 @endsection
+
+
+@push('styles')
+
+{!!Html::style('admin/css/select/select2.min.css')!!}
+
+@endpush
