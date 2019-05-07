@@ -49,12 +49,12 @@ class notificaciones extends Command
           if($hoy > $n->envio_hasta ){
             $n->estado = 'Desactivo';
             $n->save();
-            return $this->info($hoy);
+            
           }
           if($n->envio_hasta > $hoy ){
             $n->estado = 'Activo';
             $n->save();
-                    return $this->info('Activando');
+            
           }
   
 
