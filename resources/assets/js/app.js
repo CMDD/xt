@@ -54,7 +54,7 @@ let router = new Router({
           component: require ('./centroc/reporte/Suscripcion')
         }
       ],
-      mode:'history'
+      // mode:'history'
 });
 
 /**

@@ -8,7 +8,16 @@ use App\Suscripcion;
 
 class ReporteController extends Controller
 {
-    public function suscripciones(){
-        return Suscripcion::all();
+
+
+    // Suscripcion
+    public function suscripcionesTotal(){
+        return Suscripcion::count();
+    }
+    public function suscripcionesActivas(){
+        return Suscripcion::where('estado','Activo')->count();
+    }
+    public function suscripcionesDesactivas(){
+        return Suscripcion::where('estado','Desactivo')->count();
     }
 }

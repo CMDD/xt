@@ -161,7 +161,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Total</span>
-              <span class="info-box-number">2,079</span>
+              <span class="info-box-number">{{total}}</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 50%"></div>
@@ -176,7 +176,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Activas</span>
-              <span class="info-box-number">1,609</span>
+              <span class="info-box-number">{{activas}}</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 20%"></div>
@@ -191,7 +191,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Desactivas</span>
-              <span class="info-box-number">472</span>
+              <span class="info-box-number">{{desactivas}}</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>
@@ -219,31 +219,37 @@ export default {
 
   data(){
     return{
-      sus:[]
+      activas:'',
+      desactivas:'',
+      total:''
     }
   },
   created(){
-      this.suscripciones();
+      this.suscripcionesTotal();
+      this.suscripcionesDesactivas();
+      this.suscripcionesActivas();
       
   },
   methods:{
-      suscripciones(){
-        axios.get('api/reporte/suscripciones').then(res=>{
-           this.sus = res.data;
-           console.log(this.sus.length);
-           console.log(this.activas());
-           
+      suscripcionesTotal(){
+        axios.get('/api/reporte/suscripciones/total').then(res=>{
+           this.total = res.data;
+           console.log(this.total); 
         });
       },
-      activas(){
-            var obj=[];
-            this.sus.forEach(element => {
-              obj = element;
-          });
-
-        return obj.length;
-        
-      }
+      suscripcionesActivas(){
+        axios.get('/api/reporte/suscripciones/activas').then(res=>{
+           this.activas = res.data;
+           console.log(this.activas); 
+        });
+      },
+      suscripcionesDesactivas(){
+        axios.get('/api/reporte/suscripciones/desactivas').then(res=>{
+           this.desactivas = res.data;
+           console.log(this.desactivas); 
+        });
+      },
+      
   }
     
 }

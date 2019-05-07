@@ -26,7 +26,9 @@ Route::post('actualizar-suscripcion','SuscripcionController@actualizarSuscripcio
 //  Ixtus v 2.0
 Route::get('sus-nacional/{iduser}','Suscripcion\SuscripcionController@nacional');
 //Reporte
-Route::get('reporte/suscripciones','Contacto\ReporteController@suscripciones');
+Route::get('reporte/suscripciones/total','Contacto\ReporteController@suscripcionesTotal');
+Route::get('reporte/suscripciones/activas','Contacto\ReporteController@suscripcionesActivas');
+Route::get('reporte/suscripciones/desactivas','Contacto\ReporteController@suscripcionesDesactivas');
 
 
 
