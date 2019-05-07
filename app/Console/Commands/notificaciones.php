@@ -40,51 +40,64 @@ class notificaciones extends Command
     public function handle()
     {
       $carbon = Carbon::now();
-      $sus = Suscripcion::where('estado','Activo')->get();
+      $sus = Suscripcion::all();
       $hoy = $carbon->now();
 
       foreach ($sus as $n) {
           $fechaF = date_diff($hoy, $n->envio_hasta);
-        if ($fechaF->days == 60) {
-          $noti = new Notificacion();
-          $noti->tipo = 'Alerta';
-          $noti->suscripcion_id = $n->id;
-          $noti->mensaje = 'La suscripcion vence dentro de 2 meses';
-          $noti->save();
-        }
-        if ($fechaF->days == 30) {
-          $noti = new Notificacion();
-          $noti->tipo = 'Alerta';
-          $noti->suscripcion_id = $n->id;
-          $noti->mensaje = 'La suscripcion vence dentro de 1 meses';
-          $noti->save();
-        }
-         
-        if ($fechaF->days == 15  or $fechaF->days < 15) {
-          if ($fechaF->days <= 0) {
-            $noti = new Notificacion();
-            $noti->tipo = 'Alerta';
-            $noti->suscripcion_id = $n->id;
-            $noti->mensaje = 'La suscripcion fué desactivada';
-            $noti->save();
+
+          if($hoy > $n->envio_hasta ){
             $n->estado = 'Desactivo';
             $n->save();
-            // return $this->info($fechaF->days);
-          }else{
-            $noti = new Notificacion();
-            $noti->tipo = 'Alerta';
-            $noti->suscripcion_id = $n->id;
-            $noti->mensaje = 'La suscripcion vence dentro de'.' '.$fechaF->days.' '.'días';
-            $noti->save();
-            return $this->info($fechaF->days);
+            return $this->info($hoy);
           }
-
-        }
-
-
-        
+          if($n->envio_hasta > $hoy ){
+            $n->estado = 'Activo';
+            $n->save();
+                    return $this->info('Activando');
+          }
+  
 
       }
-        return $this->info('Verificaciones de suscripciones completado');
+        // return $this->info('Verificaciones de suscripciones completado');
+        //  return $this->info($hoy);
     }
 }
+
+
+// if ($fechaF->days == 15  or $fechaF->days < 15) {
+//           if ($fechaF->days <= 0) {
+//             $noti = new Notificacion();
+//             $noti->tipo = 'Alerta';
+//             $noti->suscripcion_id = $n->id;
+//             $noti->mensaje = 'La suscripcion fué desactivada';
+//             $noti->save();
+//             $n->estado = 'Desactivo';
+//             $n->save();
+//             // return $this->info($fechaF->days);
+//           }else{
+//             $noti = new Notificacion();
+//             $noti->tipo = 'Alerta';
+//             $noti->suscripcion_id = $n->id;
+//             $noti->mensaje = 'La suscripcion vence dentro de'.' '.$fechaF->days.' '.'días';
+//             $noti->save();
+//             return $this->info($fechaF->days);
+//           }
+
+//         }
+
+//  if ($fechaF->days == 60) {
+//           $noti = new Notificacion();
+//           $noti->tipo = 'Alerta';
+//           $noti->suscripcion_id = $n->id;
+//           $noti->mensaje = 'La suscripcion vence dentro de 2 meses';
+//           $noti->save();
+//         }
+//         if ($fechaF->days == 30) {
+//           $noti = new Notificacion();
+//           $noti->tipo = 'Alerta';
+//           $noti->suscripcion_id = $n->id;
+//           $noti->mensaje = 'La suscripcion vence dentro de 1 meses';
+//           $noti->save();
+//         }
+         
