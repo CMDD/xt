@@ -162,7 +162,7 @@
  </div>
  <div class="col-md-6 form-group">
    <label for="" >Vence  </label>
-   <input  type="date" class="form-control" id=""  name="vence"  value="{{$sus->envio_hasta format('Y-m-d')}}"  >
+   <input  type="date" class="form-control" id=""  name="vence"  value="{{$sus->envio_hasta->format('Y-m-d')}}"  >
  </div>
 
  <div class="col-md-6 form-group">
