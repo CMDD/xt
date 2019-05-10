@@ -201,8 +201,52 @@
 </section>
 
 </div>
-
 <!-- end project-detail sidebar -->
+<div class="col-md-12">
+<hr>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>HISTORIAL</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      @foreach($his as $hi)
+      <ul class="list-unstyled timeline">
+
+        <li>
+
+          <div class="block">
+            <div class="tags">
+              <a href="" class="tag">
+                <span>Nota</span>
+              </a>
+            </div>
+            <div class="block_content">
+              <h2 class="title">
+                <a>{{$hi->asunto}}</a>
+              </h2>
+              <div class="byline">
+                <span>{{$hi->created_at}}</span> Por <a>{{$hi->usuario['name']}}</a>
+              </div>
+              <p class="excerpt">{{$hi->mensaje}}
+              </p>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      @endforeach
+    </div>
+  </div>
+</div>
 
 </div>
 </div>

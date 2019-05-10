@@ -292,7 +292,10 @@ class SuscripcionController extends Controller
         $carbon = Carbon::now();
         $quedan = $sus->fecha_final->diffForHumans();
 
-        return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan);
+    $historial = Historial::where('suscripcion_id',$id)->orderBy('created_at','DESC')->get();
+
+
+        return view('admin.suscripcion.detalle')->with('sus',$sus)->with('quedan',$quedan)->with('his',$historial);
 
     }
 
