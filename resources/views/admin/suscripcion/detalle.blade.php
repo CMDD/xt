@@ -238,6 +238,8 @@
               </div>
               <p class="excerpt">{{$hi->mensaje}}
               </p>
+              <p class="excerpt">{{$hi->numero_factura}}
+              </p>
             </div>
           </div>
         </li>

@@ -314,14 +314,19 @@ class SuscripcionController extends Controller
       return back();
     }
     public function renovar(Request $request){
+
+      $fecha_inicial =  Carbon::parse($request->apartir_de);
+
       $sus = Suscripcion::find($request->suscripcion);
-      $sus->envio_hasta = $sus->envio_hasta->addMonths($request->mes);
-      $sus->fecha_final = $sus->fecha_final->addMonths($request->mes);
+      $sus->apartir_de = $request->apartir_de;
+      $sus->envio_hasta = $fecha_inicial->addMonths($request->mes);
+      $sus->estado = 'Activo';
       $sus->save();
 
       $historial = new Historial();
       $historial->asunto = 'Renovación';
       $historial->mensaje = 'La suscripcion se ha renovado';
+      $historial->numero_factura = $request->numero_factura;
       $historial->suscripcion_id = $sus->id;
       $historial->user_id = Auth::User()->id;
       $historial->save();

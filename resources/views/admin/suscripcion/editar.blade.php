@@ -67,6 +67,16 @@
                       <option value="12">1 Año</option>
                     </select>
                   </div>
+                 
+                   <div class="col-md-12 form-group">
+                      <label for="">Fecha de inicio</label>
+                      <input  type="date" class="form-control" id=""  name="apartir_de">
+                    </div>
+                   <div class="col-md-12 form-group">
+                      <label for="">Numero de Factura</label>
+                      <input  type="text" class="form-control" id=""  name="numero_factura">
+                    </div>
+                  
                   <input type="hidden" name="suscripcion" value="{{$sus->id}}">
               </div>
               <div class="modal-footer">
