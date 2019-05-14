@@ -51,18 +51,18 @@
     </div>
   </div>
 
-  <div class="col-md-2">
+  <!-- <div class="col-md-2">
     <div class="form-group">
       <label for="">Desde</label>
       <input required class="form-control" type="date" name="desde" value="">
     </div>
-  </div>
-  <div class="col-md-2">
+  </div> -->
+  <!-- <div class="col-md-2">
     <div class="form-group">
       <label for="">Hasta</label>
       <input required class="form-control" type="date" name="hasta" value="">
     </div>
-  </div>
+  </div> -->
   <div class="col-md-2">
     <div class="form-group">
       <label for="">Acción</label>
@@ -73,7 +73,8 @@
       </select>
     </div>
   </div>
-  <div class="col-md-2">
+
+  <div class="col-md-12">
     <div class="form-group">
       <input   class=" btn btn-primary" type="submit" name="" value="EJECUTAR">
     </div>

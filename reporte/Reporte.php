@@ -246,21 +246,17 @@ class Reporte{
       Excel::create('Reporte suscripciones', function($excel) use ($request) {
           $excel->sheet('Reporte Titulares', function($sheet) use ($request)  {
           if ($request->region == 'Todas') {
-          $suscripciones =  Suscripcion::where('estado',$request->estado)
-                                       ->where('created_at','>=',$request->desde)
-                                       ->where('created_at','<=',$request->hasta)->get();
+          $suscripciones =  Suscripcion::where('estado',$request->estado)->get();
           }else{
           $suscripciones =  Suscripcion::where('estado',$request->estado)
-                                           ->where('region_id',$request->region)
-                                   ->where('created_at','>=',$request->desde)
-                                   ->where('created_at','<=',$request->hasta)->get();
+                                           ->where('region_id',$request->region)->get();
           }
           // Header
           $sheet->row(1,
           ['
           ID SUSCRIPCION','NOMBRE TITULAR','CEDULA TITULAR','TELÉFONO TITULAR','RECIBE','TELÉFONO','DIRECCIÓN',
           'ESPECIFICACIÓN DE DIRECCIÓN','MUNICIPIO','DEPARTAMENTO','JOVENES','ADULTOS','NIÑOS',
-          'PUERTA A LA PALABRA','OBSERVACION'
+          'PUERTA A LA PALABRA','OBSERVACION','NUMERO DE FACTURA','INICIO','VENCE'
           ]
           );
           // Data
@@ -290,6 +286,9 @@ class Reporte{
             $row[12] = $sus->ninos;
             $row[13] = $sus->puerta;
             $row[14] = $sus->observacion;
+            $row[15] = $sus->numero_factura;
+            $row[16] = $sus->apartir_de;
+            $row[17] = $sus->envio_hasta;
             $sheet->appendRow($row);
           }
           $sheet->setOrientation('landscape');

@@ -44,6 +44,7 @@ class SuscripcionController extends Controller
     return  $sus;
   }
   public function actualizarSuscripcion(Request $request){
+    
     $sus =Suscripcion::find($request->id);
     $sus->nombre_recibe = $request->nombre_recibe;
     $sus->direccion = $request->direccion;
@@ -186,6 +187,9 @@ class SuscripcionController extends Controller
     if($request->vence){
       $sus->envio_hasta = $request->vence;
     }
+    if($request->apartir_de){
+      $sus->apartir_de = $request->apartir_de;
+    }
     
 
 
@@ -211,7 +215,7 @@ class SuscripcionController extends Controller
     $sus->ninos = (int)$request->ninos;
     $sus->puerta = (int)$request->puerta;
 
-
+  
 
     $sus->save();
 
