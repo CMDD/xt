@@ -29,6 +29,8 @@ Route::get('sus-nacional/{iduser}','Suscripcion\SuscripcionController@nacional')
 Route::get('reporte/suscripciones/total','Contacto\ReporteController@suscripcionesTotal');
 Route::get('reporte/suscripciones/activas','Contacto\ReporteController@suscripcionesActivas');
 Route::get('reporte/suscripciones/desactivas','Contacto\ReporteController@suscripcionesDesactivas');
+Route::get('suscripciones-completas/{estado}','Reporte\ReporteController@SuscripcionesCompletas');
+Route::get('suscripciones-servientrega','Reporte\ReporteController@SuscripcionesServientrega');
 
 
 

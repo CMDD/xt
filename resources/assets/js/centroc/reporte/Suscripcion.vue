@@ -48,11 +48,21 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+            <span class="info-box-icon bg-yellow "><i class="ion ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Vendidas </span>
-              <span class="info-box-number">-</span>
+              <span class="info-box-text">Descarga Completa</span>
+              <span class="info-box-number">
+                <a href="/api/suscripciones-completas/Activo">
+                  <button class="btn btn-success">Activas</button>
+                  
+                </a>
+                <a href="/api/suscripciones-completas/Desactivo">
+                  <button class="btn btn-success">Desactivo</button>
+                  
+                </a>
+                
+              </span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -61,11 +71,15 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Nuevas Suscripciones</span>
-              <span class="info-box-number">-</span>
+              <span class="info-box-text">Descarga  Servientrega</span>
+              <span class="info-box-number">
+                <a href="/api/suscripciones-servientrega">
+                <button class="btn btn-info">Descargar</button>
+                </a>
+              </span>
             </div>
             <!-- /.info-box-content -->
           </div>

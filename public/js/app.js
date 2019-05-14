@@ -72848,6 +72848,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -73025,30 +73039,58 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
         _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-green" }, [
-            _c("i", { staticClass: "ion ion-ios-cart-outline" })
+          _c("span", { staticClass: "info-box-icon bg-yellow " }, [
+            _c("i", { staticClass: "ion ion-ios-people-outline" })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [_vm._v("Vendidas ")]),
+            _c("span", { staticClass: "info-box-text" }, [
+              _vm._v("Descarga Completa")
+            ]),
             _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("-")])
+            _c("span", { staticClass: "info-box-number" }, [
+              _c(
+                "a",
+                { attrs: { href: "/api/suscripciones-completas/Activo" } },
+                [
+                  _c("button", { staticClass: "btn btn-success" }, [
+                    _vm._v("Activas")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { attrs: { href: "/api/suscripciones-completas/Desactivo" } },
+                [
+                  _c("button", { staticClass: "btn btn-success" }, [
+                    _vm._v("Desactivo")
+                  ])
+                ]
+              )
+            ])
           ])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
         _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-yellow" }, [
+          _c("span", { staticClass: "info-box-icon bg-green" }, [
             _c("i", { staticClass: "ion ion-ios-people-outline" })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box-content" }, [
             _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Nuevas Suscripciones")
+              _vm._v("Descarga  Servientrega")
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("-")])
+            _c("span", { staticClass: "info-box-number" }, [
+              _c("a", { attrs: { href: "/api/suscripciones-servientrega" } }, [
+                _c("button", { staticClass: "btn btn-info" }, [
+                  _vm._v("Descargar")
+                ])
+              ])
+            ])
           ])
         ])
       ])
