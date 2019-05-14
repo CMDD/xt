@@ -15,6 +15,10 @@ class SuscripcionController extends Controller
         return view('ixtus.suscripcion.nacional');
     }
 
+    public function cantidadesSuscripciones(){
+      return Suscripcion::all();
+    }
+
 
     // Api
     public function nacional($data){

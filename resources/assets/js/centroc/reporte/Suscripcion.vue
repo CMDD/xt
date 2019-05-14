@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Adultos</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{adultos}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +35,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Jovenes</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{jovenes}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -49,7 +49,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Niños</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{ninos}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -61,7 +61,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Puerta a la Palabra</span>
-              <span class="info-box-number">0</span>
+              <span class="info-box-number">{{puerta}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -261,32 +261,50 @@ export default {
     return{
       activas:'',
       desactivas:'',
-      total:''
+      total:'',
+      adultos:0,
+      ninos:0,
+      jovenes:0,
+      puerta:0
     }
   },
   created(){
       this.suscripcionesTotal();
       this.suscripcionesDesactivas();
       this.suscripcionesActivas();
+      this.cantidadSuscripciones();
       
   },
   methods:{
+      cantidadSuscripciones(){
+        axios.get('/api/cantidad-suscripciones').then(res=>{
+          res.data.forEach(sus => {
+              this.adultos += sus['adultos'];
+              this.ninos += sus['ninos'];
+              this.jovenes += sus['jovenes'];
+              this.puerta += sus['puerta'];
+           });  
+            console.log(this.adultos);
+            
+        });
+
+      },
       suscripcionesTotal(){
         axios.get('/api/reporte/suscripciones/total').then(res=>{
            this.total = res.data;
-           console.log(this.total); 
+           
         });
       },
       suscripcionesActivas(){
         axios.get('/api/reporte/suscripciones/activas').then(res=>{
            this.activas = res.data;
-           console.log(this.activas); 
+           
         });
       },
       suscripcionesDesactivas(){
         axios.get('/api/reporte/suscripciones/desactivas').then(res=>{
            this.desactivas = res.data;
-           console.log(this.desactivas); 
+           
         });
       },
       

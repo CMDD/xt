@@ -31,6 +31,7 @@ Route::get('reporte/suscripciones/activas','Contacto\ReporteController@suscripci
 Route::get('reporte/suscripciones/desactivas','Contacto\ReporteController@suscripcionesDesactivas');
 Route::get('suscripciones-completas/{estado}','Reporte\ReporteController@SuscripcionesCompletas');
 Route::get('suscripciones-servientrega','Reporte\ReporteController@SuscripcionesServientrega');
+Route::get('cantidad-suscripciones','Suscripcion\SuscripcionController@cantidadesSuscripciones');
 
 
 

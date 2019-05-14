@@ -72894,38 +72894,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       activas: '',
       desactivas: '',
-      total: ''
+      total: '',
+      adultos: 0,
+      ninos: 0,
+      jovenes: 0,
+      puerta: 0
     };
   },
   created: function created() {
     this.suscripcionesTotal();
     this.suscripcionesDesactivas();
     this.suscripcionesActivas();
+    this.cantidadSuscripciones();
   },
 
   methods: {
-    suscripcionesTotal: function suscripcionesTotal() {
+    cantidadSuscripciones: function cantidadSuscripciones() {
       var _this = this;
 
+      axios.get('/api/cantidad-suscripciones').then(function (res) {
+        res.data.forEach(function (sus) {
+          _this.adultos += sus['adultos'];
+          _this.ninos += sus['ninos'];
+          _this.jovenes += sus['jovenes'];
+          _this.puerta += sus['puerta'];
+        });
+        console.log(_this.adultos);
+      });
+    },
+    suscripcionesTotal: function suscripcionesTotal() {
+      var _this2 = this;
+
       axios.get('/api/reporte/suscripciones/total').then(function (res) {
-        _this.total = res.data;
-        console.log(_this.total);
+        _this2.total = res.data;
       });
     },
     suscripcionesActivas: function suscripcionesActivas() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/api/reporte/suscripciones/activas').then(function (res) {
-        _this2.activas = res.data;
-        console.log(_this2.activas);
+        _this3.activas = res.data;
       });
     },
     suscripcionesDesactivas: function suscripcionesDesactivas() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('/api/reporte/suscripciones/desactivas').then(function (res) {
-        _this3.desactivas = res.data;
-        console.log(_this3.desactivas);
+        _this4.desactivas = res.data;
       });
     }
   }
@@ -72944,14 +72959,78 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("section", { staticClass: "content" }, [
-      _vm._m(1),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+          _c("div", { staticClass: "info-box" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c("span", { staticClass: "info-box-text" }, [_vm._v("Adultos")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.adultos))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+          _c("div", { staticClass: "info-box" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c("span", { staticClass: "info-box-text" }, [_vm._v("Jovenes")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.jovenes))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+          _c("div", { staticClass: "info-box" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c("span", { staticClass: "info-box-text" }, [_vm._v("Niños")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.ninos))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+          _c("div", { staticClass: "info-box" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-box-content" }, [
+              _c("span", { staticClass: "info-box-text" }, [
+                _vm._v("Puerta a la Palabra")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-box-number" }, [
+                _vm._v(_vm._s(_vm.puerta))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "clearfix visible-sm-block" }),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6)
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(2),
+        _vm._m(7),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "info-box bg-yellow" }, [
-            _vm._m(3),
+            _vm._m(8),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [_vm._v("Total")]),
@@ -72960,12 +73039,12 @@ var render = function() {
                 _vm._v(_vm._s(_vm.total))
               ]),
               _vm._v(" "),
-              _vm._m(4)
+              _vm._m(9)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box bg-green" }, [
-            _vm._m(5),
+            _vm._m(10),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [_vm._v("Activas")]),
@@ -72974,12 +73053,12 @@ var render = function() {
                 _vm._v(_vm._s(_vm.activas))
               ]),
               _vm._v(" "),
-              _vm._m(6)
+              _vm._m(11)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box bg-red" }, [
-            _vm._m(7),
+            _vm._m(12),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [
@@ -72990,7 +73069,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.desactivas))
               ]),
               _vm._v(" "),
-              _vm._m(8)
+              _vm._m(13)
             ])
           ])
         ])
@@ -73025,119 +73104,93 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-aqua" }, [
-            _c("i", { staticClass: "ion ion-ios-heart-outline" })
+    return _c("span", { staticClass: "info-box-icon bg-aqua" }, [
+      _c("i", { staticClass: "ion ion-ios-heart-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-box-icon bg-red" }, [
+      _c("i", { staticClass: "ion ion-ios-heart-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-box-icon bg-aqua" }, [
+      _c("i", { staticClass: "ion ion-ios-heart-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-box-icon bg-red" }, [
+      _c("i", { staticClass: "ion ion-ios-heart-outline" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+      _c("div", { staticClass: "info-box" }, [
+        _c("span", { staticClass: "info-box-icon bg-yellow " }, [
+          _c("i", { staticClass: "ion ion-ios-people-outline" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "info-box-content" }, [
+          _c("span", { staticClass: "info-box-text" }, [
+            _vm._v("Descarga Completa")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [_vm._v("Adultos")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-red" }, [
-            _c("i", { staticClass: "ion ion-ios-heart-outline" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [_vm._v("Jovenes")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-aqua" }, [
-            _c("i", { staticClass: "ion ion-ios-heart-outline" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [_vm._v("Niños")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-red" }, [
-            _c("i", { staticClass: "ion ion-ios-heart-outline" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Puerta a la Palabra")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "clearfix visible-sm-block" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-yellow " }, [
-            _c("i", { staticClass: "ion ion-ios-people-outline" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Descarga Completa")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [
-              _c(
-                "a",
-                { attrs: { href: "/api/suscripciones-completas/Activo" } },
-                [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Activas")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                { attrs: { href: "/api/suscripciones-completas/Desactivo" } },
-                [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Desactivo")
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
-        _c("div", { staticClass: "info-box" }, [
-          _c("span", { staticClass: "info-box-icon bg-green" }, [
-            _c("i", { staticClass: "ion ion-ios-people-outline" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Descarga  Servientrega")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [
-              _c("a", { attrs: { href: "/api/suscripciones-servientrega" } }, [
-                _c("button", { staticClass: "btn btn-info" }, [
-                  _vm._v("Descargar")
+          _c("span", { staticClass: "info-box-number" }, [
+            _c(
+              "a",
+              { attrs: { href: "/api/suscripciones-completas/Activo" } },
+              [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("Activas")
                 ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { attrs: { href: "/api/suscripciones-completas/Desactivo" } },
+              [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("Desactivo")
+                ])
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+      _c("div", { staticClass: "info-box" }, [
+        _c("span", { staticClass: "info-box-icon bg-green" }, [
+          _c("i", { staticClass: "ion ion-ios-people-outline" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "info-box-content" }, [
+          _c("span", { staticClass: "info-box-text" }, [
+            _vm._v("Descarga  Servientrega")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "info-box-number" }, [
+            _c("a", { attrs: { href: "/api/suscripciones-servientrega" } }, [
+              _c("button", { staticClass: "btn btn-info" }, [
+                _vm._v("Descargar")
               ])
             ])
           ])
