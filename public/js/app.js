@@ -72862,6 +72862,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -73003,18 +73029,41 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
         _c("div", { staticClass: "info-box" }, [
           _c("span", { staticClass: "info-box-icon bg-aqua" }, [
-            _c("i", { staticClass: "ion ion-ios-gear-outline" })
+            _c("i", { staticClass: "ion ion-ios-heart-outline" })
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box-content" }, [
-            _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Seguimientos")
-            ]),
+            _c("span", { staticClass: "info-box-text" }, [_vm._v("Adultos")]),
             _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [
-              _vm._v("48"),
-              _c("small", [_vm._v("%")])
-            ])
+            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+        _c("div", { staticClass: "info-box" }, [
+          _c("span", { staticClass: "info-box-icon bg-red" }, [
+            _c("i", { staticClass: "ion ion-ios-heart-outline" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-box-content" }, [
+            _c("span", { staticClass: "info-box-text" }, [_vm._v("Jovenes")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 col-sm-6 col-xs-12" }, [
+        _c("div", { staticClass: "info-box" }, [
+          _c("span", { staticClass: "info-box-icon bg-aqua" }, [
+            _c("i", { staticClass: "ion ion-ios-heart-outline" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-box-content" }, [
+            _c("span", { staticClass: "info-box-text" }, [_vm._v("Niños")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
           ])
         ])
       ]),
@@ -73027,10 +73076,10 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "info-box-content" }, [
             _c("span", { staticClass: "info-box-text" }, [
-              _vm._v("Pendientes")
+              _vm._v("Puerta a la Palabra")
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "info-box-number" }, [_vm._v("00")])
+            _c("span", { staticClass: "info-box-number" }, [_vm._v("0")])
           ])
         ])
       ]),

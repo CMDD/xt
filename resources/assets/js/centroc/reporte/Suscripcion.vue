@@ -18,11 +18,11 @@
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-heart-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Seguimientos</span>
-              <span class="info-box-number">48<small>%</small></span>
+              <span class="info-box-text">Adultos</span>
+              <span class="info-box-number">0</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -34,14 +34,39 @@
             <span class="info-box-icon bg-red"><i class="ion ion-ios-heart-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Pendientes</span>
-              <span class="info-box-number">00</span>
+              <span class="info-box-text">Jovenes</span>
+              <span class="info-box-number">0</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+        
         <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-heart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Niños</span>
+              <span class="info-box-number">0</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="ion ion-ios-heart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Puerta a la Palabra</span>
+              <span class="info-box-number">0</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
 
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
@@ -167,7 +192,6 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-
         <div class="col-md-4">
           <!-- Info Boxes Style 2 -->
           <div class="info-box bg-yellow">
@@ -218,6 +242,8 @@
       
           <!-- /.box -->
         </div>
+
+       
         <!-- /.col -->
       </div>
       <!-- /.row -->
