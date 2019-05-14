@@ -16,7 +16,7 @@ class SuscripcionController extends Controller
     }
 
     public function cantidadesSuscripciones(){
-      return Suscripcion::all();
+      return Suscripcion::where('estado','Activo')->get();
     }
 
 
