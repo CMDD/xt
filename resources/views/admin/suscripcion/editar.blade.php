@@ -169,10 +169,10 @@
  <div class="col-md-6 form-group">
    <label for="">Fecha de inicio</label>
    @if($sus->apartir_de)
-  <input type="date" class="form-control" id="" name="apartir_de" value=""
+  <input type="date" class="form-control" id="" name="apartir_de" value="{{$sus->apartir_de->format('Y-m-d')}}"
     name="apartir_de">
   @else
-   <input type="date" class="form-control" id="" name="apartir_de" value="{{$sus->apartir_de->format('Y-m-d')}}"
+   <input type="date" class="form-control" id="" name="apartir_de" value=""
   name="apartir_de">
   @endif
 
