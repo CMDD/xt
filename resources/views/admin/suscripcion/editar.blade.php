@@ -168,7 +168,15 @@
 
  <div class="col-md-6 form-group">
    <label for="">Fecha de inicio</label>
-   <input  type="date" class="form-control" id="" name="apartir_de"  value="{{$sus->apartir_de->format('Y-m-d')}}" name="apartir_de">
+   @if($sus->apartir_de)
+  <input type="date" class="form-control" id="" name="apartir_de" value=""
+    name="apartir_de">
+  @else
+   <input type="date" class="form-control" id="" name="apartir_de" value="{{$sus->apartir_de->format('Y-m-d')}}"
+  name="apartir_de">
+  @endif
+
+   
  </div>
  <div class="col-md-6 form-group">
    <label for="" >Vence  </label>
