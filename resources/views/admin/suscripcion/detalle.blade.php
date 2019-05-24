@@ -91,7 +91,14 @@
   </div>
   <div class="col-md-6 form-group">
    <label for="">Fecha inicio:</label>
-   <input type="text" class="form-control" id="" disabled  value="{{$sus->apartir_de->format('d/m/Y')}}" placeholder="">
+   @if($sus->apartir_de)
+  <input type="date" class="form-control" id="" name="apartir_de" value="{{$sus->apartir_de->format('Y-m-d')}}"
+    name="apartir_de">
+  @else
+   <input type="date" class="form-control" id="" name="apartir_de" value=""
+  name="apartir_de">
+  @endif
+   
   </div>
   <div class="col-md-6 form-group">
     <label for="">Fecha vencimiento</label>
