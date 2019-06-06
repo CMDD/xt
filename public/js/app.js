@@ -72632,76 +72632,8 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_datatables__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_datatables___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_datatables__);
 //
 //
 //
@@ -72889,6 +72821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -72906,6 +72839,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.suscripcionesDesactivas();
     this.suscripcionesActivas();
     this.cantidadSuscripciones();
+    this.dataTable();
   },
 
   methods: {
@@ -72941,6 +72875,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       axios.get('/api/reporte/suscripciones/desactivas').then(function (res) {
         _this4.desactivas = res.data;
+      });
+    },
+    dataTable: function dataTable() {
+      $(document).ready(function () {
+        $('#datatable-suscripciones').DataTable({
+          "serverSide": true,
+          "ajax": "api/suscripciones",
+          "columns": [{ data: 'id' }, { data: 'apartir_de' }, { data: 'fecha_final' }, { data: 'btn' }],
+          "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+              "sFirst": "Primero",
+              "sLast": "Último",
+              "sNext": "Siguiente",
+              "sPrevious": "Anterior"
+            },
+            "oAria": {
+              "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+          }
+        });
       });
     }
   }
@@ -73026,11 +72993,11 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(7),
+        _c("div", { staticClass: "col-md-8" }),
         _vm._v(" "),
         _c("div", { staticClass: "col-md-4" }, [
           _c("div", { staticClass: "info-box bg-yellow" }, [
-            _vm._m(8),
+            _vm._m(7),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [_vm._v("Total")]),
@@ -73039,12 +73006,12 @@ var render = function() {
                 _vm._v(_vm._s(_vm.total))
               ]),
               _vm._v(" "),
-              _vm._m(9)
+              _vm._m(8)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box bg-green" }, [
-            _vm._m(10),
+            _vm._m(9),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [_vm._v("Activas")]),
@@ -73053,12 +73020,12 @@ var render = function() {
                 _vm._v(_vm._s(_vm.activas))
               ]),
               _vm._v(" "),
-              _vm._m(11)
+              _vm._m(10)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "info-box bg-red" }, [
-            _vm._m(12),
+            _vm._m(11),
             _vm._v(" "),
             _c("div", { staticClass: "info-box-content" }, [
               _c("span", { staticClass: "info-box-text" }, [
@@ -73069,7 +73036,7 @@ var render = function() {
                 _vm._v(_vm._s(_vm.desactivas))
               ]),
               _vm._v(" "),
-              _vm._m(13)
+              _vm._m(12)
             ])
           ])
         ])
@@ -73152,7 +73119,7 @@ var staticRenderFns = [
               "a",
               { attrs: { href: "/api/suscripciones-completas/Activo" } },
               [
-                _c("button", { staticClass: "btn btn-success" }, [
+                _c("button", { staticClass: "btn btn-success btn-sm" }, [
                   _vm._v("Activas")
                 ])
               ]
@@ -73162,7 +73129,7 @@ var staticRenderFns = [
               "a",
               { attrs: { href: "/api/suscripciones-completas/Desactivo" } },
               [
-                _c("button", { staticClass: "btn btn-success" }, [
+                _c("button", { staticClass: "btn btn-success btn-sm" }, [
                   _vm._v("Desactivo")
                 ])
               ]
@@ -73194,115 +73161,6 @@ var staticRenderFns = [
               ])
             ])
           ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-8" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-6" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "box box-info" }, [
-        _c("div", { staticClass: "box-header with-border" }, [
-          _c("h3", { staticClass: "box-title" }, [
-            _vm._v("Suscripciones por vencer")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "box-tools pull-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-box-tool",
-                attrs: { type: "button", "data-widget": "collapse" }
-              },
-              [_c("i", { staticClass: "fa fa-minus" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-box-tool",
-                attrs: { type: "button", "data-widget": "remove" }
-              },
-              [_c("i", { staticClass: "fa fa-times" })]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "box-body" }, [
-          _c("div", { staticClass: "table-responsive" }, [
-            _c("table", { staticClass: "table no-margin" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", [_vm._v("Titular")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Descripcion")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Estado")]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Fecha corte")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", [
-                _c("tr", [
-                  _c("td", [
-                    _c(
-                      "a",
-                      { attrs: { href: "pages/examples/invoice.html" } },
-                      [_vm._v("Juan Gonzalez")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v("Texto de Descripcion")]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("span", { staticClass: "label label-success" }, [
-                      _vm._v("Por vencer")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sparkbar",
-                        attrs: { "data-color": "#00a65a", "data-height": "20" }
-                      },
-                      [_vm._v("16/12")]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "box-footer clearfix" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-sm btn-info btn-flat pull-left",
-              attrs: { href: "javascript:void(0)" }
-            },
-            [_vm._v("Actualizar")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-sm btn-default btn-flat pull-right",
-              attrs: { href: "javascript:void(0)" }
-            },
-            [_vm._v("Ver mas")]
-          )
         ])
       ])
     ])

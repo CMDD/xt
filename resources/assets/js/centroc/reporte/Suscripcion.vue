@@ -79,11 +79,11 @@
               <span class="info-box-text">Descarga Completa</span>
               <span class="info-box-number">
                 <a href="/api/suscripciones-completas/Activo">
-                  <button class="btn btn-success">Activas</button>
+                  <button class="btn btn-success btn-sm">Activas</button>
                   
                 </a>
                 <a href="/api/suscripciones-completas/Desactivo">
-                  <button class="btn btn-success">Desactivo</button>
+                  <button class="btn btn-success btn-sm">Desactivo</button>
                   
                 </a>
                 
@@ -119,77 +119,7 @@
       <div class="row">
         <!-- Left col -->
         <div class="col-md-8">
-          <!-- MAP & BOX PANE -->
-          
-          <!-- /.box -->
-          <div class="row">
-            <div class="col-md-6">
-              <!-- DIRECT CHAT -->
-              
-              <!--/.direct-chat -->
-            </div>
-            <!-- /.col -->
 
-            <div class="col-md-6">
-              <!-- USERS LIST -->
-              
-              <!--/.box -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-
-          <!-- TABLE: LATEST ORDERS -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Suscripciones por vencer</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Titular</th>
-                    <th>Descripcion</th>
-                    <th>Estado</th>
-                    <th>Fecha corte</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">Juan Gonzalez</a></td>
-                    <td>Texto de Descripcion</td>
-                    <td><span class="label label-success">Por vencer</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">16/12</div>
-                    </td>
-                  </tr>
-                  
-                  
-                  
-                  
-                  
-                  
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Actualizar</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Ver mas</a>
-            </div>
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
         </div>
         <!-- /.col -->
         <div class="col-md-4">
@@ -255,6 +185,7 @@
 
 
 <script>
+import datatable from 'datatables'
 export default {
 
   data(){
@@ -273,6 +204,7 @@ export default {
       this.suscripcionesDesactivas();
       this.suscripcionesActivas();
       this.cantidadSuscripciones();
+      this.dataTable();
       
   },
   methods:{
@@ -292,13 +224,11 @@ export default {
       suscripcionesTotal(){
         axios.get('/api/reporte/suscripciones/total').then(res=>{
            this.total = res.data;
-           
         });
       },
       suscripcionesActivas(){
         axios.get('/api/reporte/suscripciones/activas').then(res=>{
            this.activas = res.data;
-           
         });
       },
       suscripcionesDesactivas(){
@@ -307,6 +237,47 @@ export default {
            
         });
       },
+
+      dataTable(){
+         $(document).ready( function () {
+        $('#datatable-suscripciones').DataTable({
+          "serverSide":true,
+          "ajax":"api/suscripciones",
+          "columns":[
+            {data:'id'},
+            {data:'apartir_de'},
+            {data:'fecha_final'},
+           
+            {data:'btn'},
+          ],
+          "language":{
+          	"sProcessing":     "Procesando...",
+          	"sLengthMenu":     "Mostrar _MENU_ registros",
+          	"sZeroRecords":    "No se encontraron resultados",
+          	"sEmptyTable":     "Ningún dato disponible en esta tabla",
+          	"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          	"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+          	"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+          	"sInfoPostFix":    "",
+          	"sSearch":         "Buscar:",
+          	"sUrl":            "",
+          	"sInfoThousands":  ",",
+          	"sLoadingRecords": "Cargando...",
+          	"oPaginate": {
+          		"sFirst":    "Primero",
+          		"sLast":     "Último",
+          		"sNext":     "Siguiente",
+          		"sPrevious": "Anterior"
+          	},
+          	"oAria": {
+          		"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          		"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+          	}
+          }
+        });
+    } );
+      }
+
       
   }
     
